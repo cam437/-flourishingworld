@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flourish — Angel Investment Overview 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#0D0A0F}
+body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Arial,sans-serif;background:#0D0A0F;color:#fff;line-height:1.6;font-size:14px}
+.page{min-height:100vh;display:flex;flex-direction:column;padding:2.25rem 4.5rem;position:relative;overflow:hidden}
+.page-2{background:#FAFAFA;color:#1A1A1A;min-height:auto}
+.inner{max-width:1100px;margin:0 auto;width:100%;display:flex;flex-direction:column;flex:1}
+.glow{position:absolute;top:-180px;right:-180px;width:560px;height:560px;background:radial-gradient(circle,rgba(255,45,123,0.13) 0%,transparent 70%);pointer-events:none}
+.glow2{position:absolute;bottom:-80px;left:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(58,10,30,0.5) 0%,transparent 70%);pointer-events:none}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.875rem}
+.logo{font-size:22px;font-weight:700;letter-spacing:-0.5px;color:#fff}.logo span{color:#FF2D7B}
+.logo.lt{color:#0D0A0F}
+.badge{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-radius:4px;padding:4px 12px}
+.badge-dk{color:#FF2D7B;border:1px solid rgba(255,45,123,0.4)}
+.badge-lt{color:#FF2D7B;border:1px solid rgba(255,45,123,0.3);background:rgba(255,45,123,0.06)}
+.pn-dk{font-size:10px;letter-spacing:0.06em;color:rgba(255,255,255,0.22)}
+.pn-lt{font-size:10px;letter-spacing:0.06em;color:rgba(0,0,0,0.2)}
+.ey{font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.35rem;display:block}
+.pfoot{display:flex;justify-content:space-between;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.07);font-size:10px;color:rgba(255,255,255,0.22);margin-top:auto}
+.pfoot-lt{border-top-color:rgba(0,0,0,0.07);color:rgba(0,0,0,0.22)}
+/* P1 explosion */
+.ex-panel{background:#0D0A0F;padding:0.875rem 1.1rem}
+.ex-h{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:0.5rem}
+.ex-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-bottom:0.5rem}
+.ex-mini{background:rgba(255,255,255,0.05);border-radius:5px;padding:0.4rem 0.5rem}
+.ex-mini-name{font-size:9.5px;font-weight:700;color:#FF2D7B;margin-bottom:1px}
+.ex-mini-stat{font-size:10px;color:#fff;line-height:1.3}
+.ex-mini-sub{font-size:8.5px;color:rgba(255,255,255,0.4)}
+.ex-note{font-size:10px;color:rgba(255,255,255,0.52);line-height:1.5}
+/* P1 content */
+.story-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:0.875rem;margin-bottom:0.625rem}
+.story-h{font-size:17px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:0.5rem}
+.story-h em{color:#FF2D7B;font-style:normal}
+.story-body{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.75}
+.story-kicker{margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid rgba(255,45,123,0.2);font-size:11.5px;color:#fff;font-weight:600;line-height:1.5}
+.story-kicker em{color:#FF2D7B;font-style:normal}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,45,123,0.2);border-radius:8px;overflow:hidden}
+.cl{background:#0D0A0F;padding:0.625rem 0.75rem}
+.cl.hot{background:rgba(255,45,123,0.13)}
+.cl-l{font-size:10px;font-weight:700;color:#FF2D7B;margin-bottom:2px}
+.cl-d{display:inline-block;font-size:7.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;background:#FF2D7B;color:#fff;border-radius:3px;padding:1px 5px;margin-bottom:3px}
+.cl-p{font-size:14px;font-weight:700;color:#fff;line-height:1;margin-bottom:2px}
+.cl-b{font-size:9px;color:rgba(255,255,255,0.5);line-height:1.4}
+.paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem}
+.path{background:rgba(255,255,255,0.04);border-radius:6px;padding:0.5rem 0.625rem;border-left:2px solid rgba(255,45,123,0.4)}
+.path-n{font-size:8.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,45,123,0.7);margin-bottom:2px}
+.path-t{font-size:10.5px;font-weight:700;color:#fff;margin-bottom:2px}
+.path-b{font-size:9.5px;color:rgba(255,255,255,0.5);line-height:1.4}
+.logos-row{display:flex;align-items:center;flex-wrap:wrap;padding:0.4rem 0.625rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:7px}
+.logo-tag{font-size:9.5px;font-weight:700;color:rgba(255,255,255,0.4);letter-spacing:0.04em;padding:2px 6px;border-right:1px solid rgba(255,255,255,0.1)}
+.logo-tag:last-child{border-right:none}
+/* P2 shared */
+.proof-card{background:#fff;border-radius:10px;padding:1rem;border:1px solid #E8E8E8}
+.pr-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem}
+.pr{border-radius:7px;padding:0.625rem 0.75rem;border:1px solid #E8E8E8;border-left:3px solid #FF2D7B;background:#fff}
+.pr-n{font-size:19px;font-weight:700;color:#FF2D7B;line-height:1;margin-bottom:2px}
+.pr-l{font-size:10px;color:#555;line-height:1.35}
+.jamie-box{background:rgba(255,45,123,0.06);border:1px solid rgba(255,45,123,0.25);border-radius:10px;padding:0.875rem}
+.jamie-qt{font-size:11.5px;font-style:italic;color:#1A1A1A;line-height:1.6;margin-bottom:0.4rem}
+.jamie-expand{font-size:10.5px;color:#555;line-height:1.6;margin:0.4rem 0;padding:0.4rem 0.625rem;background:rgba(255,45,123,0.07);border-radius:5px;border-left:2px solid #FF2D7B}
+.jamie-attr{font-size:10px;color:#FF2D7B;font-weight:600;line-height:1.5}
+.creds-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.375rem}
+.cred{border-radius:6px;padding:0.375rem;text-align:center}
+.cred-pk{background:rgba(255,45,123,0.08);border:1px solid rgba(255,45,123,0.25)}
+.cred-wh{background:#F5F5F5;border:1px solid #E8E8E8}
+.cred-ico{font-size:11px;margin-bottom:1px}
+.cred-t{font-size:8.5px;font-weight:700;line-height:1.2}
+.cred-t-pk{color:#FF2D7B}
+.cred-t-wh{color:#444}
+.cred-s{font-size:7.5px;color:#888;margin-top:1px}
+.test-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem}
+.tst{background:#fff;border-radius:7px;padding:0.625rem;border:1px solid #E8E8E8}
+.tst-q{font-size:10px;font-style:italic;color:#333;line-height:1.5;margin-bottom:4px}
+.tst-a{font-size:9px;font-weight:700;color:#FF2D7B;letter-spacing:0.04em;text-transform:uppercase;line-height:1.4}
+.comps-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,0.08);border-radius:8px;overflow:hidden}
+.comp{background:#fff;padding:0.625rem 0.5rem}
+.comp.fl{background:rgba(255,45,123,0.08);outline:2px solid #FF2D7B;outline-offset:-2px}
+.comp.lr{background:#F5F5F5}
+.comp-co{font-size:10px;font-weight:700;color:#0D0A0F;margin-bottom:1px}
+.comp-cat{font-size:8px;color:#888;margin-bottom:4px}
+.comp-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.comp-l{font-size:8px;color:#888}
+.comp-v{font-size:10px;font-weight:700;color:#0D0A0F}
+.comp-v.pk{color:#FF2D7B}
+.comp-exit{margin-top:4px;padding-top:4px;border-top:1px solid #E8E8E8;font-size:9px;font-weight:700;color:#FF2D7B}
+.ask-card{background:#0D0A0F;border-radius:10px;padding:1.1rem}
+.ask-n{font-size:38px;font-weight:700;color:#FF2D7B;line-height:1;margin-bottom:2px}
+.ask-at{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:0.625rem}
+.ask-body{font-size:10.5px;color:rgba(255,255,255,0.65);line-height:1.8}
+.ask-body strong{color:#fff}
+.use-n{font-size:16px;font-weight:700;color:#FF2D7B;line-height:1;margin-bottom:1px}
+.use-t{font-size:10.5px;font-weight:700;color:#fff;margin-bottom:2px}
+.use-b{font-size:9.5px;color:rgba(255,255,255,0.55);line-height:1.45}
+.ret-card{background:#0D0A0F;border-radius:10px;padding:1.1rem}
+.ret-h{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.75rem}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  @page{margin:0}
+  html,body{background:#0D0A0F;margin:0;padding:0}
+  /* Each .page div is one PDF page — owns its own background, no overflow */
+  .page{
+    padding:1.5rem 2.5rem;
+    page-break-after:always;
+    break-after:page;
+    page-break-inside:avoid;
+    break-inside:avoid;
+    min-height:297mm; /* A4 portrait height — ensures background fills the full page */
+  }
+  .page:last-child{page-break-after:avoid;break-after:avoid}
+  /* prevent elements breaking mid-element */
+  .story-box,.reg-grid,.paths-grid,.logos-row,
+  .proof-card,.comps-mini,.ask-card,.test-row,
+  .creds-grid,.pr-stat-grid,.ex-panel,.ex-mini,
+  .path,.cl,.tst,.comp,.pr,.cred{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  /* tighten spacing slightly for print */
+  .story-box{margin-bottom:0.5rem}
+  .topbar{margin-bottom:0.6rem}
+  .story-body{line-height:1.6}
+  .page .inner > *{margin-bottom:0.55rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ PAGE 1: THE HOOK ════════════ -->
+<div class="page">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="inner">
+
+    <div class="topbar">
+      <div>
+        <div class="logo">FLOUR<span>I</span>SH</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px">flourishingworld.com</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="badge badge-dk">Angel Investment Overview · 2026</div>
+        <div class="pn-dk">01 / 02</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;background:rgba(255,45,123,0.12);border:1px solid rgba(255,45,123,0.3);border-radius:8px;padding:0.5rem 1.25rem;margin-bottom:0.75rem;font-size:13.5px;font-weight:600;color:#fff">
+      Flourish is <em style="color:#FF2D7B;font-style:normal">The AI operating system for brand-safe marketing at speed</em>
+    </div>
+
+    <!-- EXPLOSION STRIP -->
+    <div style="margin-bottom:0.875rem">
+      <div style="text-align:center;font-size:11.5px;color:rgba(255,255,255,0.65);margin-bottom:0.5rem;padding:0.4rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:7px;line-height:1.6">
+        Flourish has proven product-market fit and is on the precipice of exponential growth, sitting at the intersection of <strong style="color:#fff">two explosive industry categories.</strong>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,45,123,0.2);border-radius:10px 10px 0 0;overflow:hidden">
+        <div class="ex-panel">
+          <span class="ey">Explosion 1 · AI Legal Tech</span>
+          <div class="ex-h">AI tools for legal work are the fastest-growing software category in the world right now.</div>
+          <div class="ex-mini-grid">
+            <div class="ex-mini"><div class="ex-mini-name">Harvey AI</div><div class="ex-mini-stat">$1M → $190M revenue in 3 years</div><div class="ex-mini-sub">Worth $1.5Bn in just 18 months</div></div>
+            <div class="ex-mini"><div class="ex-mini-name">Legora</div><div class="ex-mini-stat">$1.6M → $70M revenue in 2 years</div><div class="ex-mini-sub">Worth $1.8Bn in just 23 months</div></div>
+          </div>
+          <div class="ex-note"><strong>Roosh Ventures:</strong> "The next phase of AI value creation will be driven by narrow, deeply embedded systems that understand how specific industries actually operate."</div>
+        </div>
+        <div class="ex-panel">
+          <span class="ey">Explosion 2 · AI Marketing Operations</span>
+          <div class="ex-h">CMOs need to optimise their teams for the age of AI — and need infrastructure to power brand-safe marketing, fast.</div>
+          <div class="ex-mini-grid">
+            <div class="ex-mini"><div class="ex-mini-name">LiveRamp</div><div class="ex-mini-stat">Acquired by Publicis · May 2026</div><div class="ex-mini-sub">$2.5Bn · Marketing operations infrastructure</div></div>
+            <div class="ex-mini"><div class="ex-mini-name" style="color:rgba(255,255,255,0.6)">What it lacked</div><div class="ex-mini-stat">No compliance · No legal intelligence</div><div class="ex-mini-sub">No regulatory function · Yet $2.5Bn</div></div>
+          </div>
+          <div class="ex-note">Flourish does everything LiveRamp didn't. Same acquirer universe — WPP, Adobe, Microsoft, BrandTech Group — will pay a premium for a platform that also keeps brands legally safe.</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,45,123,0.18);border-radius:0 0 10px 10px;padding:0.625rem 1.5rem;text-align:center">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF2D7B;margin-bottom:2px">Flourish is the optimal combination</div>
+        <div style="font-size:15px;font-weight:700;color:#fff">Both explosive categories. One end-to-end solution.</div>
+      </div>
+    </div>
+
+    <!-- STORY BOX -->
+    <div class="story-box">
+      <div class="story-h">Imagine you're the <em>CEO of a FTSE 100 company.</em></div>
+      <div class="story-body">Your marketing budget has been cut by 30% since 2020. But your legal team just killed one of your biggest campaigns of the year.<br><br><strong>Not because it wasn't creative. Not because it wouldn't work.</strong> Because they said "we can't prove that claim." Months of work. Millions in production. Gone. <strong>This happens every day at the world's biggest brands.</strong></div>
+      <div class="story-kicker">The most important thing in marketing is the claim. <em>When claims can be proven, brands can be bold. When they can't, campaigns get killed.</em></div>
+      <div style="margin-top:0.5rem;padding:0.5rem 0.75rem;background:rgba(255,45,123,0.08);border-left:2px solid #FF2D7B;border-radius:0 5px 5px 0">
+        <div style="font-size:11px;font-style:italic;color:#fff;line-height:1.55;margin-bottom:3px">"Flourish is exactly what my marketing and legal colleagues needed for all my years at Unilever."</div>
+        <div style="font-size:9.5px;font-weight:600;color:#FF2D7B">Jamie Barnard · Former Global General Counsel, Unilever · 16 years · Flourish investor · Penned Chief Legal Officer</div>
+      </div>
+    </div>
+
+    <div class="pfoot">
+      <span>Maddy Cooper — CEO &amp; Founder, Flourish · <em>Defiantly Creative. Diligently Compliant.</em></span>
+      <span>Private &amp; Confidential · 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ PAGE 2: THE PROBLEM + URGENCY ════════════ -->
+<div class="page">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="inner">
+
+    <div class="topbar">
+      <div>
+        <div class="logo">FLOUR<span>I</span>SH</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px">flourishingworld.com</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="badge badge-dk">Angel Investment Overview · 2026</div>
+        <div class="pn-dk">02 / 04</div>
+      </div>
+    </div>
+
+    <!-- SPEAK UP / FLOURISH -->
+    <div style="margin-bottom:0.75rem;display:grid;grid-template-columns:1fr 1fr;gap:0">
+      <div style="padding-right:1.25rem;border-right:1px solid rgba(255,255,255,0.08)">
+        <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:4px">Speak up, get crushed.</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);line-height:1.6">Nike, Lacoste, and Superdry were banned for claims they couldn't prove. Cadbury ruled against by the UK advertising authority. Brave claims without evidence lead to bans, fines, and reputational damage.</div>
+      </div>
+      <div style="padding-left:1.25rem">
+        <div style="font-size:12px;font-weight:700;color:#FF2D7B;margin-bottom:4px">Flourish: say it boldly and prove it.</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);line-height:1.6">Every marketing claim checked against laws, brand guidelines, and past approvals — before the creative is built. No campaigns killed at the last minute. No fines.</div>
+      </div>
+    </div>
+
+    <!-- FOUR LAWS -->
+    <div style="margin-bottom:0.75rem">
+      <span class="ey" style="margin-bottom:0.4rem">The increasing and inevitable need for clients to take action: Four new laws before December 2026 — brands that ignore them face massive fines</span>
+      <div class="reg-grid">
+        <div class="cl hot"><div class="cl-l">EU AI Act</div><div class="cl-d">Aug 2026 · 90 days</div><div class="cl-p">€35M fine</div><div class="cl-b">Every AI-created marketing asset needs a legal record proving it was properly checked. Flourish creates this automatically.</div></div>
+        <div class="cl"><div class="cl-l">UK Digital Markets Act</div><div class="cl-d">Active now</div><div class="cl-p">10% of turnover</div><div class="cl-b">AI marketing claims already in full scope. Already enforced. No grace period.</div></div>
+        <div class="cl"><div class="cl-l">EU Green Claims</div><div class="cl-d">Sept 2026</div><div class="cl-p">4% per country</div><div class="cl-b">Every environmental claim must have a full evidence trail. Flourish builds and stores it.</div></div>
+        <div class="cl"><div class="cl-l">EU Product Liability</div><div class="cl-d">Dec 2026</div><div class="cl-p">Unlimited</div><div class="cl-b">AI-created content is a legal product. Brands face unlimited liability without oversight.</div></div>
+      </div>
+    </div>
+
+    <!-- FOUR BROKEN ALTERNATIVES -->
+    <div style="margin-bottom:0.75rem">
+      <span class="ey" style="margin-bottom:0.4rem">Four broken alternatives to Flourish — every option has a fatal flaw</span>
+      <div class="paths-grid">
+        <div class="path"><div class="path-n">01 · Give it to a holding company</div><div class="path-t">You lose control of your data</div><div class="path-b">Publicis, WPP, and Omnicom run campaigns for your competitors. Handing them your brand data and marketing intelligence is a serious business risk.</div></div>
+        <div class="path"><div class="path-n">02 · Build it yourself</div><div class="path-t">Too slow, too expensive</div><div class="path-b">Building a complete AI marketing and compliance system takes years and costs tens of millions — while budgets are being cut by 30%.</div></div>
+        <div class="path"><div class="path-n">03 · Rely on your agency</div><div class="path-t">The brand always pays the fine</div><div class="path-b">Agencies aren't legal specialists. If a campaign gets fined, the brand pays — not the agency. No record is ever kept.</div></div>
+        <div class="path"><div class="path-n">04 · Do nothing</div><div class="path-t">€35M fines incoming</div><div class="path-b">Four major laws enforcing before December 2026. Unlimited legal liability. The most dangerous move — and the most common.</div></div>
+      </div>
+    </div>
+
+    <!-- LOGOS + DE-RISKED -->
+    <div class="logos-row" style="margin-bottom:0.625rem">
+      <span class="logo-tag">NIKE</span><span class="logo-tag">DIAGEO</span><span class="logo-tag">MEDTRONIC</span><span class="logo-tag">ASAHI</span><span class="logo-tag">BARILLA</span><span class="logo-tag">ALLIANZ</span><span class="logo-tag">EDF</span>
+      <span class="logo-tag" style="color:rgba(255,255,255,0.22);border-right:none">+ £18M pipeline</span>
+    </div>
+    <div style="background:rgba(255,45,123,0.12);border:1px solid rgba(255,45,123,0.3);border-radius:8px;padding:0.75rem 1.25rem;text-align:center">
+      <div style="font-size:12.5px;font-weight:700;color:#fff;margin-bottom:3px">This is not a bet on a future idea.</div>
+      <div style="font-size:11.5px;color:rgba(255,255,255,0.7)">The platform is built. The results are proven. The product-market fit is real. <strong style="color:#fff">This raise captures an opportunity bigger than we planned for.</strong></div>
+    </div>
+
+    <div class="pfoot">
+      <span>Maddy Cooper — CEO &amp; Founder, Flourish · <em>Defiantly Creative. Diligently Compliant.</em></span>
+      <span>Private &amp; Confidential · 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ PAGE 3: THE PROOF ════════════ -->
+<div class="page page-2">
+  <div class="inner">
+
+    <div class="topbar">
+      <div class="logo lt">FLOUR<span>I</span>SH</div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="badge badge-lt">The Platform · The Proof</div>
+        <div class="pn-lt">03 / 04</div>
+      </div>
+    </div>
+
+    <!-- WHAT FLOURISH DOES -->
+    <div class="proof-card" style="margin-bottom:0.875rem">
+      <span class="ey" style="color:#FF2D7B">What Flourish does — in plain English</span>
+      <div style="font-size:11.5px;color:#333;line-height:1.75">One platform that sits beneath every AI marketing tool a brand uses. Every campaign claim is automatically checked against laws, brand guidelines, and past approvals — before creative is built. The result is stored in the <strong>Flourish Truth Vault</strong> — building institutional compliance knowledge that compounds over time. No AI tool can generate this. The longer a client stays, the more irreplaceable it becomes.</div>
+    </div>
+
+    <!-- ARR GRID -->
+    <div style="background:#F5F5F5;border-radius:10px;padding:0.875rem;margin-bottom:0.875rem">
+      <div style="display:flex;gap:5px;align-items:stretch">
+        <div style="display:flex;flex-direction:column;gap:1px;width:54px;flex-shrink:0">
+          <div style="background:#E8E8E8;border-radius:4px 0 0 0;padding:0.45rem 0.375rem;display:flex;align-items:center;justify-content:center;flex:1"><span style="font-size:7.5px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#888">Revenue</span></div>
+          <div style="background:rgba(255,45,123,0.08);border-radius:0 0 0 4px;padding:0.45rem 0.375rem;display:flex;align-items:center;justify-content:center;flex:1"><span style="font-size:7.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#FF2D7B;text-align:center;line-height:1.2">Exit @8×</span></div>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#E0E0E0;border-radius:0 6px 6px 0;overflow:hidden">
+          <div style="background:#0D0A0F;display:flex;flex-direction:column"><div style="padding:0.45rem 0.2rem;text-align:center;flex:1;border-bottom:1px solid rgba(255,255,255,0.06)"><div style="font-size:6.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:2px">Today</div><div style="font-weight:700;color:#fff;font-size:9px">£300k</div></div><div style="padding:0.4rem 0.2rem;text-align:center;flex:1"><div style="font-size:8.5px;color:rgba(255,255,255,0.2)">—</div></div></div>
+          <div style="background:#fff;display:flex;flex-direction:column"><div style="padding:0.45rem 0.2rem;text-align:center;flex:1;border-bottom:1px solid #F0F0F0"><div style="font-size:6.5px;color:#888;text-transform:uppercase;margin-bottom:2px">Dec '26</div><div style="font-weight:700;color:#333;font-size:9px">£3M</div></div><div style="padding:0.4rem 0.2rem;text-align:center;flex:1"><div style="font-weight:700;color:#FF2D7B;font-size:8.5px">~£24M</div></div></div>
+          <div style="background:#fff;display:flex;flex-direction:column"><div style="padding:0.45rem 0.2rem;text-align:center;flex:1;border-bottom:1px solid #F0F0F0"><div style="font-size:6.5px;color:#888;text-transform:uppercase;margin-bottom:2px">Dec '27</div><div style="font-weight:700;color:#333;font-size:9px">£7M</div></div><div style="padding:0.4rem 0.2rem;text-align:center;flex:1"><div style="font-weight:700;color:#FF2D7B;font-size:8.5px">~£56M</div></div></div>
+          <div style="background:#fff;display:flex;flex-direction:column"><div style="padding:0.45rem 0.2rem;text-align:center;flex:1;border-bottom:1px solid #F0F0F0"><div style="font-size:6.5px;color:#888;text-transform:uppercase;margin-bottom:2px">Dec '28</div><div style="font-weight:700;color:#333;font-size:9px">£15M</div></div><div style="padding:0.4rem 0.2rem;text-align:center;flex:1"><div style="font-weight:700;color:#FF2D7B;font-size:8.5px">~£120M</div></div></div>
+          <div style="background:#fff;display:flex;flex-direction:column"><div style="padding:0.45rem 0.2rem;text-align:center;flex:1;border-bottom:1px solid #F0F0F0"><div style="font-size:6.5px;color:#888;text-transform:uppercase;margin-bottom:2px">Dec '29</div><div style="font-weight:700;color:#333;font-size:9px">£25M</div></div><div style="padding:0.4rem 0.2rem;text-align:center;flex:1"><div style="font-weight:700;color:#FF2D7B;font-size:8.5px">~£200M</div></div></div>
+          <div style="background:rgba(255,45,123,0.08);display:flex;flex-direction:column;outline:2px solid #FF2D7B;outline-offset:-2px"><div style="padding:0.45rem 0.2rem;text-align:center;flex:1;border-bottom:1px solid rgba(255,45,123,0.2)"><div style="font-size:6.5px;color:#FF2D7B;text-transform:uppercase;margin-bottom:2px">Dec '30</div><div style="font-weight:700;color:#FF2D7B;font-size:9px">£36M</div></div><div style="padding:0.4rem 0.2rem;text-align:center;flex:1"><div style="font-weight:700;color:#FF2D7B;font-size:8.5px">~£288M</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEDTRONIC + PIPELINE -->
+    <div class="proof-card" style="margin-bottom:0.875rem">
+      <span class="ey" style="color:#FF2D7B">Medtronic ($120Bn medical company) — already live</span>
+      <div class="pr-stat-grid">
+        <div class="pr"><div class="pr-n">$10M</div><div class="pr-l">Saved in regulatory fines before they happened</div></div>
+        <div class="pr"><div class="pr-n">8,860%</div><div class="pr-l">Return on investment vs cost of those fines</div></div>
+        <div class="pr"><div class="pr-n">94%</div><div class="pr-l">Faster legal sign-off per piece of content</div></div>
+        <div class="pr"><div class="pr-n">58%</div><div class="pr-l">Faster to launch. Zero campaigns blocked.</div></div>
+      </div>
+      <div style="background:#F7F7F7;border-radius:7px;padding:0.625rem 0.75rem;margin-bottom:0.5rem">
+        <span class="ey" style="color:#FF2D7B;font-size:9.5px">£18M active pipeline</span>
+        <div style="font-size:10px;color:#444;line-height:1.75">Mars · Unilever · Britvic · Pepsi · Arla · Nestlé · Mondelez · Reckitt · Starbucks · Ladbrokes · Super Group · BAT · AstraZeneca · Roche · Puma · adidas · HSBC</div>
+      </div>
+      <div style="font-size:10.5px;color:#444;line-height:1.6;padding:0.5rem 0.625rem;border-left:3px solid #FF2D7B;background:#F7F7F7;border-radius:0 6px 6px 0"><strong style="color:#0D0A0F">Closing 1–2 deals per month.</strong> Six deals in final stages, worth £100k–£1M per year each. Current ARR: £300k.</div>
+    </div>
+
+    <!-- JAMIE + CREDENTIALS -->
+
+
+
+    <div class="pfoot pfoot-lt">
+      <span>Private and confidential. Not for onward distribution without prior consent of Maddy Cooper · Flourishing World Ltd</span>
+      <span>2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ PAGE 4: THE ASK ════════════ -->
+<div class="page page-2">
+  <div class="inner">
+
+    <div class="topbar">
+      <div class="logo lt">FLOUR<span>I</span>SH</div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="badge badge-lt">The Ask</div>
+        <div class="pn-lt">04 / 04</div>
+      </div>
+    </div>
+
+    <!-- COMPS -->
+    <span class="ey" style="color:#888;margin-bottom:0.375rem">This category exits large — every time</span>
+    <div class="comps-mini" style="margin-bottom:0.875rem">
+      <div class="comp"><div class="comp-co">Harvey AI</div><div class="comp-cat">Legal AI</div><div class="comp-row"><span class="comp-l">Yr 1→3</span><span class="comp-v">$1M→$190M</span></div><div class="comp-exit">$1.5Bn · 18 months</div></div>
+      <div class="comp"><div class="comp-co">Legora</div><div class="comp-cat">Legal AI</div><div class="comp-row"><span class="comp-l">Yr 1→2</span><span class="comp-v">$1.6M→$70M</span></div><div class="comp-exit">$1.8Bn · 23 months</div></div>
+      <div class="comp lr"><div class="comp-co">LiveRamp</div><div class="comp-cat">Mktg operations</div><div class="comp-row"><span class="comp-l">No legal</span><span class="comp-v" style="font-size:9px;color:#888">layer</span></div><div class="comp-exit" style="color:#888">$2.5Bn · Publicis · May 2026</div></div>
+      <div class="comp fl"><div class="comp-co" style="color:#FF2D7B">Flourish</div><div class="comp-cat" style="color:rgba(255,45,123,0.7)">Both categories</div><div class="comp-row"><span class="comp-l">Revenue</span><span class="comp-v pk">£300k/yr</span></div><div class="comp-exit">Target £252M · 2030</div></div>
+    </div>
+
+    <!-- ASK HEADER -->
+    <div style="background:rgba(255,45,123,0.06);border:1px solid rgba(255,45,123,0.2);border-radius:8px;padding:0.75rem 1.25rem;margin-bottom:0.75rem">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF2D7B;margin-bottom:3px">The ask</div>
+      <div style="font-size:15px;font-weight:700;color:#0D0A0F;line-height:1.3">We didn't plan to raise again. But the opportunity grew faster than we expected — <em style="color:#FF2D7B;font-style:normal">and £250k top up enables us to seize the market moment faster.</em></div>
+    </div>
+
+    <!-- ASK CARD -->
+    <div class="ask-card" style="margin-bottom:0.75rem">
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;margin-bottom:0.875rem;padding-bottom:0.875rem;border-bottom:1px solid rgba(255,255,255,0.08)">
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.375rem">Seeking</div>
+          <div class="ask-n">£250k</div>
+          <div class="ask-at">at <strong style="color:#fff">£10M valuation</strong></div>
+        </div>
+        <div class="ask-body">Flourish is <strong>already fully funded</strong> at its current level. This raise is targeted — taken because two extraordinary opportunities have appeared simultaneously. Converting current pipeline alone values Flourish at <strong>£20M+</strong> today. You are investing at half that.<br><br>          <strong>First round:</strong> £1M at £7.5M · EIS tax relief eligible</div>
+      </div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.625rem">Two specific reasons for this raise</div>
+      <div style="margin-bottom:0.5rem">
+        <div class="use-n">£120k (plus EMI scheme equity)</div>
+        <div class="use-t">Jamie Barnard joins as Chief Legal Officer</div>
+        <div class="use-b">After <strong style="color:#fff">10+ offers and 6 months of due diligence</strong>, Jamie chose to invest in and join Flourish. His network — <strong style="color:#FF2D7B">Magnum, Danone, Reckitt, Unilever, Akzo Nobel</strong> — is the next pipeline wave.<br><span style="color:rgba(255,255,255,0.45);font-size:9px;margin-top:3px;display:block">Jamie Barnard · Former Global General Counsel, Unilever · 16 years · Flourish investor · Penned Chief Legal Officer</span></div>
+      </div>
+      <div style="height:1px;background:rgba(255,255,255,0.08);margin:0.375rem 0"></div>
+      <div style="margin-bottom:0.5rem">
+        <div class="use-n">£60k</div>
+        <div class="use-t">Product features to accelerate the pipeline</div>
+        <div class="use-b">Features required in response to maximise enterprise sales, e.g. Microsoft Copilot Studio integration and API Flourish model.</div>
+      </div>
+      <div style="height:1px;background:rgba(255,255,255,0.08);margin:0.375rem 0"></div>
+      <div>
+        <div class="use-n">£70k</div>
+        <div class="use-t">One dedicated sales hire</div>
+        <div class="use-b">To close the £18M pipeline. Without this, deals take longer. With this, 1–2 deals close every month.</div>
+      </div>
+    </div>
+
+
+
+    <!-- CTA -->
+    <div style="background:#0D0A0F;border-radius:10px;padding:1rem 1.25rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.375rem">Ready to invest</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.75">The platform is built. The results are proven. The pipeline is named. Jamie Barnard has chosen to join. The next round prices at £20M or above.</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:2px">Maddy Cooper</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:5px">CEO &amp; Founder · Flourish</div>
+        <div style="font-size:12px;color:#FF2D7B;font-weight:600">maddy@flourishingworld.com</div>
+        <div style="font-size:9.5px;color:rgba(255,255,255,0.3);margin-top:6px;line-height:1.55">B Corp · Women-owned · Cambridge University Sustainability Institute<br>Jamie Barnard (Unilever GC · investor · penned CLO) · Giles Crown (Taylor Wessing)<br>Crafty Counsel · Top 3 Legal Tech 2026</div>
+      </div>
+    </div>
+
+    <div class="creds-grid" style="margin-bottom:0.75rem">
+      <div class="cred cred-pk"><div class="cred-ico">⬡</div><div class="cred-t cred-t-pk">B Corp</div><div class="cred-s">Certified</div></div>
+      <div class="cred cred-pk"><div class="cred-ico">♀</div><div class="cred-t cred-t-pk">Women-owned</div><div class="cred-s">Founded</div></div>
+      <div class="cred cred-wh"><div class="cred-ico">🔒</div><div class="cred-t cred-t-wh">ISO 27001</div><div class="cred-s">Certified</div></div>
+      <div class="cred cred-wh"><div class="cred-ico">🛡️</div><div class="cred-t cred-t-wh">SOC 2</div><div class="cred-s">Certified</div></div>
+      <div class="cred cred-pk"><div class="cred-ico">⚖️</div><div class="cred-t cred-t-pk">#1 Watch</div><div class="cred-s">Legal Tech</div></div>
+    </div>
+    <div class="test-row" style="margin-bottom:0.875rem">
+      <div class="tst"><div class="tst-q">"This platform has immense potential. It is going to save us weeks of work and increase our speed to market."</div><div class="tst-a">Diageo · Global Head of Brand</div></div>
+      <div class="tst"><div class="tst-q">"It's exactly what we need to unblock the approval challenges across our R&D, marketing, and legal teams."</div><div class="tst-a">Unilever · Senior Director Sustainability</div></div>
+      <div class="tst"><div class="tst-q">"This is exactly what we need, and our whole category needs, to turn innovations into brand value."</div><div class="tst-a">Asahi · Global Marketing Lead</div></div>
+      <div class="tst"><div class="tst-q">"I can't imagine any brand not needing this platform."</div><div class="tst-a">Nike · Retail Marketing Director, EMEA</div></div>
+    </div>
+
+    <div class="pfoot pfoot-lt">
+      <span>Private and confidential. Not for onward distribution without prior consent of Maddy Cooper · Flourishing World Ltd</span>
+      <span>2026</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
