@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flourish AEO Strategy</title>
+<style>
+  :root {
+    --bg-primary: #0D0A0F;
+    --bg-secondary: #FAFAFA;
+    --accent: #FF2D7B;
+    --text-light: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --atmosphere-1: #3A0A1E;
+    --atmosphere-2: #1A0512;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--atmosphere-1) 0%, var(--bg-primary) 60%, var(--atmosphere-2) 100%);
+    color: var(--text-light);
+    padding: 96px 48px 80px;
+  }
+
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+
+  .eyebrow {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .hero .sub {
+    font-size: 22px;
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 640px;
+  }
+
+  .hero .meta {
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.6;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 20px;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 72px 48px; }
+
+  section { margin-bottom: 64px; }
+  section:last-child { margin-bottom: 0; }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    position: relative;
+    padding-bottom: 12px;
+  }
+  h2::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 56px; height: 3px;
+    background: var(--accent);
+  }
+
+  h3 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 36px 0 14px;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 24px 0 10px;
+  }
+
+  p { margin-bottom: 16px; font-size: 16px; }
+
+  ul, ol { margin: 0 0 16px 22px; }
+  li { margin-bottom: 8px; font-size: 16px; }
+
+  strong { font-weight: 700; }
+
+  .lead {
+    font-size: 19px;
+    font-weight: 300;
+    color: #444;
+  }
+
+  .callout {
+    background: #fff;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 28px 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout .quote {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 24px 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-size: 15px;
+  }
+  thead tr { background: var(--text-dark); }
+  th {
+    color: var(--text-light);
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 16px;
+  }
+  th.pink { color: var(--accent); }
+  td { padding: 14px 16px; border-top: 1px solid #eee; vertical-align: top; }
+  tbody tr:nth-child(even) { background: #F9F9F9; }
+  .prio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .divider { height: 1px; background: #e3e3e3; border: none; margin: 56px 0; }
+
+  .footer {
+    background: var(--bg-primary);
+    color: var(--text-light);
+    text-align: center;
+    padding: 40px 48px;
+    font-size: 14px;
+    opacity: 0.85;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 64px 24px 56px; }
+    .hero h1 { font-size: 36px; }
+    .hero .sub { font-size: 18px; }
+    .container { padding: 48px 24px; }
+    h2 { font-size: 25px; }
+    table { font-size: 13px; }
+    th, td { padding: 10px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Flourish AEO Strategy</div>
+    <h1>How Flourish shows up when people ask AI about marketing compliance</h1>
+    <p class="sub">Getting cited, not just clicked. Owning the answers senior buyers see before they speak to a single vendor.</p>
+    <div class="meta">Prepared by Flora · May 2026</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>What is AEO and why does it matter for Flourish?</h2>
+    <p>AEO (Answer Engine Optimisation) is the discipline of making your content the source that AI search tools — ChatGPT, Perplexity, Google AI Overviews, Claude — cite when someone asks a question in your space.</p>
+    <p>Traditional SEO gets you clicks. AEO gets you cited. The difference matters because AI-powered search is now the first stop for many senior buyers. When a CMO asks "what is marketing compliance infrastructure?" or "how do brands govern AI-generated content?", the answer they get shapes their frame before they've spoken to a single vendor.</p>
+    <p>Flourish has two reasons to prioritise AEO:</p>
+    <ol>
+      <li><strong>Brand visibility</strong> — appear authoritative in the conversations that matter: marketing operations, marketing compliance, AI governance, claim substantiation.</li>
+      <li><strong>Proof of concept</strong> — Flourish doing AEO for itself is a live demonstration of what Flourish helps clients do. The case study writes itself.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The current gap</h2>
+    <p>The Flourish website is positioning-led. It makes strong claims about what Flourish does and why it matters. That works for humans browsing. It does not work well for AI models, which are looking for direct, structured, evidence-backed answers to specific questions.</p>
+    <p>AI models don't browse — they retrieve. They pull from sources that:</p>
+    <ul>
+      <li>Answer a question directly and completely</li>
+      <li>Are structured so the answer is easy to extract</li>
+      <li>Are cited by other authoritative sources</li>
+      <li>Use precise, specific language rather than marketing language</li>
+    </ul>
+    <p>Right now, if someone asks an AI "how do brands speed up legal sign-off on marketing content?", Flourish is unlikely to be cited. That is the gap this strategy closes.</p>
+  </section>
+
+  <section>
+    <h2>What needs to happen</h2>
+
+    <h3>1. Create answer-led content</h3>
+    <p>The most important lever. Every major question a CMO, CLO, or procurement lead might ask about Flourish's territory needs a page that answers it directly, completely, and in structured form.</p>
+    <p>Priority questions to own:</p>
+
+    <h4>Marketing compliance</h4>
+    <ul>
+      <li>What is marketing compliance and why does it matter?</li>
+      <li>How do regulated brands manage marketing claims?</li>
+      <li>What is claim substantiation in marketing?</li>
+      <li>What is a marketing compliance audit trail?</li>
+      <li>How do brands manage AI-generated marketing content legally?</li>
+    </ul>
+
+    <h4>Speed and governance</h4>
+    <ul>
+      <li>Why does legal sign-off on marketing content take so long?</li>
+      <li>How do enterprise brands reduce time from brief to campaign?</li>
+      <li>What is a brand vault and how does it work?</li>
+      <li>What is the difference between a compliance tool and a governance platform?</li>
+    </ul>
+
+    <h4>Regulatory context</h4>
+    <ul>
+      <li>What does the EU AI Act mean for marketing teams?</li>
+      <li>What are the consequences of an unsubstantiated marketing claim?</li>
+      <li>How do brands prepare for the EU AI Act August 2026 deadline?</li>
+    </ul>
+
+    <p>Each page should:</p>
+    <ul>
+      <li>Open with a direct, concise answer to the question (the paragraph AI is most likely to lift)</li>
+      <li>Follow with supporting detail, structured with clear headings</li>
+      <li>Include a concrete example or proof point</li>
+      <li>End with a clear next step</li>
+    </ul>
+
+    <h3>2. Add structured data (schema markup)</h3>
+    <p>Schema markup tells AI crawlers exactly what your content is. Priority schemas for Flourish:</p>
+    <ul>
+      <li><strong>Organisation</strong> — name, description, URL, founding date, what Flourish does</li>
+      <li><strong>FAQPage</strong> — key questions with direct answers, on the homepage and product pages</li>
+      <li><strong>Article</strong> — on all long-form content and case studies</li>
+      <li><strong>HowTo</strong> — for process-oriented content (e.g. "how to build a claim library")</li>
+    </ul>
+    <p>This is a one-time technical task. High leverage, low ongoing effort.</p>
+
+    <h3>3. Review crawler access</h3>
+    <p>AI models index content through crawlers. A few things to check:</p>
+    <ul>
+      <li><strong>robots.txt</strong> — confirm GPTBot, ClaudeBot, PerplexityBot, and Googlebot are not blocked. Flourish should actively allow AI crawlers.</li>
+      <li><strong>Cloudflare bot settings</strong> — Bot Fight Mode and managed challenge rules can silently block legitimate AI crawlers. Review and whitelist the major AI user agents.</li>
+      <li><strong>Page rendering</strong> — ensure key content is not rendered client-side only (JavaScript-rendered content is harder for crawlers to index).</li>
+    </ul>
+
+    <h3>4. Build citation authority</h3>
+    <p>AI models weight sources that are cited and linked to by other authoritative sources. Build this through:</p>
+    <ul>
+      <li><strong>Maddy's Substack</strong> — each article should link back to the relevant Flourish pages. The Substack has independent authority; links from it carry weight.</li>
+      <li><strong>PR and media</strong> — any press coverage, analyst mentions, or industry publication references should link to flourishingworld.com.</li>
+      <li><strong>Partner and customer mentions</strong> — Medtronic case study (once published) is a high-authority citation opportunity.</li>
+      <li><strong>LinkedIn</strong> — long-form posts that reference and link to Flourish content.</li>
+    </ul>
+
+    <h3>5. The Flourish-as-proof-of-concept angle</h3>
+    <p>This is the sharpest commercial argument for doing AEO properly.</p>
+    <p>Flourish optimising its own site for AI search — and being able to show the results — is a live demonstration of what Flourish does for clients. Track AI citations from day one. Document the process. Publish the case study.</p>
+    <div class="callout">
+      <p class="quote">"We did this for ourselves. Here's what we measured. Here's what changed. Here's how we'd do it for you."</p>
+      <p>No competitor can replicate this story. It is only available to Flourish if Flourish does it first, and documents it.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>Content priorities for the next 6 weeks</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Content piece</th>
+          <th>Format</th>
+          <th class="pink">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="prio">1</span></td>
+          <td>What is marketing compliance infrastructure?</td>
+          <td>Long-form article</td>
+          <td>Core definitional piece — anchors the category</td>
+        </tr>
+        <tr>
+          <td><span class="prio">2</span></td>
+          <td>How brands speed up legal sign-off</td>
+          <td>How-to article</td>
+          <td>Direct answer to the pain point</td>
+        </tr>
+        <tr>
+          <td><span class="prio">3</span></td>
+          <td>The EU AI Act and marketing teams</td>
+          <td>Explainer</td>
+          <td>Regulatory urgency — drives inbound</td>
+        </tr>
+        <tr>
+          <td><span class="prio">4</span></td>
+          <td>Medtronic: 94% faster legal sign-off</td>
+          <td>Case study</td>
+          <td>Proof point — most citable content Flourish has</td>
+        </tr>
+        <tr>
+          <td><span class="prio">5</span></td>
+          <td>What is claim substantiation?</td>
+          <td>Definition page</td>
+          <td>Foundational — feeds into category authority</td>
+        </tr>
+        <tr>
+          <td><span class="prio">6</span></td>
+          <td>FAQ page on flourishingworld.com</td>
+          <td>Structured data</td>
+          <td>Quick win — high AI citation value</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Measuring progress</h2>
+    <p>AEO is harder to measure than SEO but not impossible. Track:</p>
+    <ul>
+      <li><strong>Direct AI citations</strong> — manually query ChatGPT, Perplexity, and Google AI Overviews weekly for target questions. Log when Flourish is cited.</li>
+      <li><strong>Organic traffic to answer-led pages</strong> — these pages will also rank in traditional search.</li>
+      <li><strong>Referral traffic from AI tools</strong> — Perplexity and some AI tools pass referral traffic; monitor in GA4.</li>
+      <li><strong>Share of voice</strong> — which competitors are being cited for Flourish's target questions? Track this monthly.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What this is not</h2>
+    <p>AEO is not a quick win. The content needs to exist, be indexed, and build authority over time. The technical changes (schema, crawler access) can happen immediately. The content build takes 6–12 weeks to gain traction.</p>
+    <p>The investment is modest. The compounding effect is significant. Every authoritative answer Flourish publishes becomes a durable asset — one that is harder to displace than a paid ad and more valuable than a social post.</p>
+    <div class="callout">
+      <p class="quote">Start now. The window before competitors do the same work is open, but not indefinitely.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  Flora · <a href="mailto:flora@flourishingworld.com">flora@flourishingworld.com</a>
+</footer>
+
+</body>
+</html>
