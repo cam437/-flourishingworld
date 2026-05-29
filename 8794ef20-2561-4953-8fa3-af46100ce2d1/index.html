@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Group × Flourish</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #0D0A0F; color: #FFFFFF; font-size: 14px; line-height: 1.6;
+  }
+
+  /* COVER */
+  .cover { height: 100vh; min-height: 580px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .cover-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 65% at 50% 0%, #2a0618 0%, transparent 65%); }
+  .cover-line-top { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, #FF2D7B 40%, #FF2D7B 60%, transparent 100%); }
+  .cover-inner { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 72px; max-width: 820px; }
+  .cover-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 36px; display: flex; align-items: center; gap: 14px; }
+  .cover-kicker::before { content: ''; display: block; width: 32px; height: 1px; background: #FF2D7B; }
+  .cover h1 { font-size: clamp(44px, 6vw, 80px); font-weight: 800; line-height: 1.06; letter-spacing: -0.025em; color: #fff; margin-bottom: 28px; }
+  .cover h1 em { font-style: normal; color: #FF2D7B; }
+  .cover-desc { font-size: clamp(15px, 1.6vw, 18px); font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 560px; }
+  .cover-desc strong { color: #fff; font-weight: 600; }
+  .cover-footer { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: stretch; }
+  .cover-footer-brand { padding: 20px 32px; border-right: 1px solid rgba(255,255,255,0.08); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .cover-footer-brand span { color: #FF2D7B; }
+  .cover-stats { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .cover-stat { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .cover-stat:last-child { border-right: none; }
+  .cover-stat .sn { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .cover-stat .sl { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
+
+  /* PAGE */
+  .page { max-width: 900px; margin: 0 auto; padding: 64px 40px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 16px; }
+  .section-h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: #fff; margin-bottom: 12px; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 40px 0; }
+
+  /* CONTEXT */
+  .context-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #FF2D7B; padding: 24px 28px; margin-bottom: 40px; }
+  .context-block h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .context-block p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .context-block p + p { margin-top: 10px; }
+  .context-block strong { color: #fff; font-weight: 600; }
+  .context-block .pink { color: #FF2D7B; font-weight: 700; }
+
+  /* CHALLENGES */
+  .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .challenge-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-left: 2px solid #FF2D7B; padding: 22px; }
+  .challenge-card h4 { font-size: 13px; font-weight: 700; color: #FF2D7B; margin-bottom: 8px; }
+  .challenge-card p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.55; }
+
+  /* GAP */
+  .gap-block { background: rgba(255,45,123,0.08); border: 1px solid rgba(255,45,123,0.25); padding: 28px 32px; margin-bottom: 40px; }
+  .gap-block .culture-line { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.35; }
+  .gap-block p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.75; }
+  .gap-block p + p { margin-top: 10px; }
+  .gap-block strong { color: #FF2D7B; font-weight: 700; }
+
+  /* SOLUTION */
+  .solution-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .solution-item { display: flex; gap: 14px; align-items: flex-start; padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); }
+  .solution-num { min-width: 28px; height: 28px; background: #FF2D7B; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .solution-text h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .solution-text p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+  /* ROI STATS */
+  .roi-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .roi-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: 2px solid #FF2D7B; padding: 22px; }
+  .roi-card .big { font-size: 30px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; }
+  .roi-card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FF2D7B; margin-bottom: 10px; }
+  .roi-card p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* TABLE */
+  .transform-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 40px; }
+  .transform-table thead td { padding: 10px 14px; background: #1a1a1a; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .transform-table thead td:first-child, .transform-table thead td:last-child { color: #FF2D7B; }
+  .transform-table thead td:nth-child(2) { color: rgba(255,255,255,0.45); }
+  .transform-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .transform-table td { padding: 14px; vertical-align: top; line-height: 1.55; }
+  .transform-table .row-label { font-weight: 700; color: #fff; background: rgba(255,255,255,0.02); font-size: 12px; width: 18%; }
+  .transform-table .from-col { font-weight: 300; color: rgba(255,255,255,0.5); width: 38%; }
+  .transform-table .arrow-col { text-align: center; color: #FF2D7B; font-size: 16px; font-weight: 700; padding: 14px 8px; width: 4%; }
+  .transform-table .to-col { color: rgba(255,255,255,0.85); font-weight: 400; width: 40%; }
+
+  /* CLOSE */
+  .close-section { background: linear-gradient(135deg, #3A0A1E 0%, #1A0512 100%); border: 1px solid rgba(255,45,123,0.2); padding: 40px; text-align: center; margin-bottom: 32px; }
+  .close-section h2 { font-size: 20px; font-weight: 800; line-height: 1.4; max-width: 640px; margin: 0 auto 14px; }
+  .close-section h2 span { color: #FF2D7B; }
+  .close-section p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+  /* FOOTER */
+  .footer { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
+  .footer-brand span { color: #FF2D7B; }
+  .footer-tagline { font-size: 11px; color: rgba(255,255,255,0.25); font-style: italic; }
+
+  @media (max-width: 680px) {
+    .cover-inner { padding: 0 28px; }
+    .cover-stats { grid-template-columns: repeat(2, 1fr); }
+    .challenge-grid, .solution-grid, .roi-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-line-top"></div>
+  <div class="cover-inner">
+    <div class="cover-kicker">Flourish × Super Group · 2026</div>
+    <h1>Your marketing engine<br>is world class.<br><em>Make compliance speed match it.</em></h1>
+    <p class="cover-desc">Super Group's advanced analytics powers highly personalised customer experiences across 20+ regulated jurisdictions. <strong>Flourish is the force multiplier that gets bold, compliant marketing to market at the speed of cultural moments.</strong></p>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-footer-brand"><span>Flourish</span> · Truth Marketing®</div>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="sn">20+</div><div class="sl">Regulated jurisdictions</div></div>
+      <div class="cover-stat"><div class="sn">65+</div><div class="sl">Global sports partnerships</div></div>
+      <div class="cover-stat"><div class="sn">$2.2bn</div><div class="sl">2025 revenue</div></div>
+      <div class="cover-stat"><div class="sn">2026</div><div class="sl">FIFA World Cup window</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="page">
+
+  <!-- CONTEXT -->
+  <div class="section-label">Where Super Group Stands</div>
+  <div class="context-block">
+    <h3>The category is about to split between operators who cut and operators who accelerate. This is how you achieve both and win.</h3>
+    <p>You enter 2026 with genuine momentum: $2.2bn revenue, 57% EBITDA growth, 5.6 million monthly active customers, and $2.55bn+ guidance. The exit from US operations removed a structural drag. Margins have expanded from 14% to 25% in three years. This is a business that knows how to execute.</p>
+    <p>However, you face headwinds. Remote Gaming Duty rises from 21% to 40% in April 2026. General Betting Duty rises from 15% to 25% in April 2027. Your CFO has quantified the combined EBITDA impact at approximately 6%. On a $560m base, that is <strong class="pink">~$41m gone before a single campaign runs.</strong> And the Premier League shirt ban removes Betway's most powerful brand visibility channel.</p>
+    <p>Cutting spend will compensate on paper, and also risks compounding the commercial problem: slower growth, weaker retention, diminished competitive position. <strong>You need your competitors to take that path while you take the new alternative route and spend smarter.</strong> AI-speed, personalised, compliant campaigns at a fraction of traditional production cost, reaching market at the speed of cultural moments. That is the commercial case for Flourish.</p>
+  </div>
+
+  <!-- CHALLENGES -->
+  <div class="section-label">The Specific Pressures</div>
+  <div class="challenge-grid">
+    <div class="challenge-card">
+      <h4>~$41m EBITDA under pressure</h4>
+      <p>Duty increases land in April 2026 and April 2027. Every slow campaign, every diluted claim, every approval delay is now a direct commercial cost. The marketing budget must work harder than it ever has.</p>
+    </div>
+    <div class="challenge-card">
+      <h4>Shirt sponsorship ban blocks brand visibility</h4>
+      <p>The Premier League front-of-shirt gambling ban from 2026/27 removes Betway's single most visible brand channel. Fast, compliant, AI-powered digital marketing is not the backup plan. It is the only plan.</p>
+    </div>
+    <div class="challenge-card">
+      <h4>20+ jurisdictions, 20+ compliance frameworks</h4>
+      <p>UK Gambling Commission, Malta Gaming Authority, German state treaty, African market obligations. Each evolving independently. Each requiring documented compliance per campaign, per market, every time.</p>
+    </div>
+    <div class="challenge-card">
+      <h4>EU AI Act documentation obligations</h4>
+      <p>Enforcement from August 2026 requires documented provenance, human oversight records, and disclosure for every AI-generated marketing asset. Super Group's analytics infrastructure was not built to produce this. Without it, legal says no by default.</p>
+    </div>
+    <div class="challenge-card">
+      <h4>FIFA World Cup 2026 is a one-shot window</h4>
+      <p>The largest commercial moment in the calendar. Multi-market, multi-brand, multi-language campaigns across Betway and Spin, all needing to move at event speed in every jurisdiction simultaneously. There is no second attempt.</p>
+    </div>
+    <div class="challenge-card">
+      <h4>Africa requires compliance from day one</h4>
+      <p>Africa delivers ~40% of group revenue growing at 27% YoY. Namibia, Nigeria, and further markets are in pipeline. Each requires localised, compliant marketing from activation. Governance that lags market entry is a licence risk, not just a process problem.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- THE GAP -->
+  <div class="section-label">The Orchestration Gap</div>
+  <div class="section-h2">Culture doesn't wait for your approval cycle.</div>
+  <div class="gap-block">
+    <p class="culture-line">Every marketer wants to be culturally relevant. The ones who are didn't get there by moving faster. They got there by being ready.</p>
+    <p>Your data engine is built for customers, personalisation and risk. Not for AI-powered marketing governance or the speed of AI content approvals. Your proprietary analytics capability is central to your business model, evidenced by a dedicated Chief Analytics and Modelling Officer at C-suite level. It powers the sportsbook-to-casino conversion model that underpins your margin structure.</p>
+    <p>But it does not govern brand claims across 20+ jurisdictions, route campaigns to market-specific legal approvers, produce EU AI Act documentation, or cascade CMO strategy to every marketer in every market. <strong>That gap, between data engine and marketing execution, is precisely where Flourish operates.</strong></p>
+  </div>
+
+  <!-- SOLUTION -->
+  <div class="section-label">What Flourish Delivers</div>
+  <div class="solution-grid">
+    <div class="solution-item">
+      <div class="solution-num">1</div>
+      <div class="solution-text">
+        <h4>Compliance embedded at creation</h4>
+        <p>Every relevant advertising law and responsible gambling requirement applied before a brief is written. 20+ jurisdictions governed automatically, not checked retrospectively.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">2</div>
+      <div class="solution-text">
+        <h4>Claims that never get queried twice</h4>
+        <p>Every approved claim held with evidence, approval timestamp, lifecycle status, and strength score. Legal confirms rather than investigates from scratch. The same claim never re-opened.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">3</div>
+      <div class="solution-text">
+        <h4>Parallel market approval routing</h4>
+        <p>Campaigns routed to the right approver per jurisdiction simultaneously. UK, Africa, and EU reviewed in parallel. Days, not weeks, to market-ready.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">4</div>
+      <div class="solution-text">
+        <h4>EU AI Act compliance built in</h4>
+        <p>Every AI-generated asset carries full provenance: model, timestamp, human oversight recorded. Audit trail exportable. Disclosure flags applied before content leaves the platform.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">5</div>
+      <div class="solution-text">
+        <h4>Low-cost AI content at scale</h4>
+        <p>With the shirt ban removing primary brand visibility, AI-powered content at reduced cost is the core acquisition engine. Flourish makes it viable: compliant, fast, auditable, brand-consistent across every market.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">6</div>
+      <div class="solution-text">
+        <h4>CMO vision, every market, every brief</h4>
+        <p>Brand strategy, tone, and regulatory positioning held in the Vault and inherited automatically. Betway Africa and Spin Canada execute within the same strategic context. One voice, everywhere.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ROI -->
+  <div class="section-label">The Commercial Return</div>
+  <div class="roi-grid">
+    <div class="roi-card">
+      <h4>Marketing ROI</h4>
+      <div class="big">22%</div>
+      <p>Super Group spends ~22% of revenue on marketing. At $2.55bn+ guidance, that is over $560m annually. Under duty pressure, every pound must work harder. Flourish ensures it does.</p>
+    </div>
+    <div class="roi-card">
+      <h4>Legal Assurance</h4>
+      <div class="big">€5M</div>
+      <p>Flourish carries €5M legal assurance behind every recommendation. One enforcement action in a tier-one jurisdiction creates cross-market regulatory risk. One avoided incident covers the platform many times over.</p>
+    </div>
+    <div class="roi-card">
+      <h4>Speed to Market</h4>
+      <div class="big">94%</div>
+      <p>Faster legal sign-off across all campaigns. When the commercial model depends on capturing sporting moments and cultural windows, the difference between days and weeks is the difference between owning the moment and watching a competitor take it.</p>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="section-label">Before and After Flourish</div>
+  <table class="transform-table">
+    <thead>
+      <tr>
+        <td>Area</td>
+        <td>From</td>
+        <td></td>
+        <td>To</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Duty headwinds</td>
+        <td class="from-col">Reduced budget forces a choice between spend and compliance. Slow approvals mean the budget that remains misses its window.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Low-cost AI content production at scale. More output, lower cost, faster to market. Spend smarter rather than spend less.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Shirt ban</td>
+        <td class="from-col">Premier League front-of-shirt visibility gone. No governance infrastructure to replace it with digital at scale and speed.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Compliant, AI-powered digital campaigns across every market. Brand visibility replaced with marketing precision and speed.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Legal approval</td>
+        <td class="from-col">Legal receives content without context. Reviews from zero. Approval cycles outlast commercial windows.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Legal receives asset, claims, evidence, and approval history in one view. Reviews rather than investigates. Hours, not weeks.</td>
+      </tr>
+      <tr>
+        <td class="row-label">AI content</td>
+        <td class="from-col">No audit trail. No EU AI Act documentation. Legal defaults to no on AI-generated assets.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Every AI asset documented from creation. Provenance, oversight, and disclosure automatic. Legal says yes with confidence.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Africa and new markets</td>
+        <td class="from-col">Compliance process built from scratch per market. Governance lags activation and creates licence exposure.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Each new territory scoped into the platform before launch. Localised compliance from day one, not retrofitted.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CLOSE -->
+  <div class="close-section">
+    <h2>Super Group's advanced data analytics engine allows for highly personalised customer experiences. <span>Flourish is the force multiplier that gets bold marketing to market faster.</span></h2>
+    <p>Scaling to $2.55bn+ under real financial pressure, with a World Cup window, Africa acceleration, a shirt ban, and $41m of duty headwind. How much longer can you afford the time, the legal exposure, the diluted creative, hindered speed to market, and the commercial ground you risk ceding through cuts, before something changes?</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand"><span>Flourish</span> · The agentic solution for bold, compliant marketing</div>
+    <div class="footer-tagline">Defiantly Creative. Diligently Compliant.</div>
+  </div>
+
+</div>
+</body>
+</html>
