@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Talk About Flourish — 2026 Guide for Advisors, Sales & Customer-Facing Teams</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #0D0A0F; color: #FFFFFF; font-size: 14px; line-height: 1.6;
+  }
+
+  /* COVER */
+  .cover { min-height: 100vh; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .cover-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 60% at 50% 0%, #2a0618 0%, transparent 65%); }
+  .cover-line-top { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, #FF2D7B 40%, #FF2D7B 60%, transparent 100%); }
+  .cover-inner { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 80px 72px 60px; max-width: 860px; }
+  .cover-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 36px; display: flex; align-items: center; gap: 14px; }
+  .cover-kicker::before { content: ''; display: block; width: 32px; height: 1px; background: #FF2D7B; }
+  .cover h1 { font-size: clamp(40px, 5.5vw, 74px); font-weight: 800; line-height: 1.06; letter-spacing: -0.025em; color: #fff; margin-bottom: 28px; }
+  .cover h1 em { font-style: normal; color: #FF2D7B; }
+  .cover-desc { font-size: clamp(15px, 1.6vw, 18px); font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 540px; margin-bottom: 48px; }
+  .cover-oneliner { background: rgba(255,45,123,0.1); border: 1px solid rgba(255,45,123,0.3); border-left: 3px solid #FF2D7B; padding: 22px 28px; max-width: 640px; }
+  .cover-oneliner p { font-size: clamp(15px, 1.5vw, 17px); font-weight: 600; color: #fff; line-height: 1.5; font-style: italic; }
+  .cover-footer { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: stretch; flex-wrap: wrap; }
+  .cover-footer-brand { padding: 20px 32px; border-right: 1px solid rgba(255,255,255,0.08); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .cover-footer-brand span { color: #FF2D7B; }
+  .cover-stats { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); min-width: 0; }
+  .cover-stat { padding: 20px 20px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .cover-stat:last-child { border-right: none; }
+  .cover-stat .sn { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .cover-stat .sl { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
+
+  /* LAYOUT */
+  .page { max-width: 920px; margin: 0 auto; padding: 64px 40px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 14px; }
+  .section-h2 { font-size: clamp(20px, 2.5vw, 26px); font-weight: 800; letter-spacing: -0.01em; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+  .section-sub { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); margin-bottom: 36px; line-height: 1.6; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 56px 0; }
+
+  /* PROBLEM */
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+  .problem-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: 2px solid rgba(255,45,123,0.4); padding: 24px; }
+  .problem-card h4 { font-size: 13px; font-weight: 700; color: #FF2D7B; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .problem-card p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.65; }
+  .problem-resolution { background: rgba(255,45,123,0.08); border: 1px solid rgba(255,45,123,0.2); padding: 24px 28px; }
+  .problem-resolution p { font-size: 15px; font-weight: 600; color: #fff; line-height: 1.55; }
+  .problem-resolution p span { color: #FF2D7B; }
+
+  /* VAULT */
+  .vault-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 32px; margin-bottom: 24px; }
+  .vault-block .vault-headline { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+  .vault-block p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .vault-block p + p { margin-top: 12px; }
+  .vault-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+  .vault-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); padding: 18px; }
+  .vault-item .vi-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 6px; }
+  .vault-item p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+  /* DIFFERENTIATION */
+  .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .diff-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .diff-vs { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+  .diff-card h4 { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .diff-verdict { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 14px; }
+  .diff-verdict .bad { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.55; margin-bottom: 10px; }
+  .diff-verdict .bad::before { content: '✗ '; color: rgba(255,45,123,0.5); }
+  .diff-verdict .good { font-size: 12px; color: rgba(255,255,255,0.8); line-height: 1.55; }
+  .diff-verdict .good::before { content: '✓ '; color: #FF2D7B; }
+
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+  .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: 2px solid #FF2D7B; padding: 26px 22px; }
+  .stat-card .big { font-size: clamp(28px, 3.5vw, 38px); font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em; }
+  .stat-card h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FF2D7B; margin-bottom: 10px; }
+  .stat-card p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; }
+  .stats-row-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  /* BUYERS */
+  .buyer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .buyer-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 28px; }
+  .buyer-card .role { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 10px; }
+  .buyer-card h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.25; }
+  .buyer-card .fear { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.55; margin-bottom: 14px; font-style: italic; }
+  .buyer-card .fear::before { content: 'Fear: '; color: rgba(255,45,123,0.5); font-style: normal; font-weight: 600; }
+  .buyer-card .proof { font-size: 13px; font-weight: 600; color: #FF2D7B; }
+
+  /* Q&A */
+  .qa-list { display: flex; flex-direction: column; gap: 2px; }
+  .qa-item { border: 1px solid rgba(255,255,255,0.07); overflow: hidden; }
+  .qa-q { padding: 20px 24px; font-size: 14px; font-weight: 600; color: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+  .qa-q:hover { background: rgba(255,255,255,0.03); }
+  .qa-q::after { content: '+'; font-size: 18px; font-weight: 300; color: #FF2D7B; flex-shrink: 0; transition: transform 0.2s; }
+  .qa-item.open .qa-q::after { transform: rotate(45deg); }
+  .qa-a { display: none; padding: 0 24px 20px; font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; }
+  .qa-a strong { color: #fff; font-weight: 600; }
+  .qa-item.open .qa-a { display: block; }
+
+  /* WARNING BOX */
+  .warning-box { background: rgba(58,10,30,0.5); border: 1px solid rgba(255,45,123,0.2); padding: 32px; }
+  .warning-box h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #FF2D7B; margin-bottom: 20px; }
+  .warning-list { display: flex; flex-direction: column; gap: 14px; }
+  .warning-item { display: flex; gap: 14px; align-items: flex-start; }
+  .warning-item .wi-x { flex-shrink: 0; width: 20px; height: 20px; background: rgba(255,45,123,0.15); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #FF2D7B; margin-top: 1px; }
+  .warning-item .wi-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .warning-item .wi-text strong { color: #fff; }
+  .warning-item .wi-text em { color: rgba(255,45,123,0.8); font-style: normal; }
+
+  /* REFRAME ANCHOR */
+  .reframe-anchor { background: linear-gradient(135deg, rgba(58,10,30,0.6) 0%, rgba(26,5,18,0.3) 100%); border: 1px solid rgba(255,45,123,0.25); padding: 40px 36px; margin-bottom: 32px; }
+  .reframe-anchor .ra-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 18px; }
+  .reframe-anchor p { font-size: 17px; font-weight: 600; color: #fff; line-height: 1.55; margin-bottom: 14px; }
+  .reframe-anchor p:last-child { margin-bottom: 0; }
+  .reframe-anchor p em { font-style: normal; color: #FF2D7B; }
+  .reframe-line { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .reframe-line-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 20px; }
+  .reframe-line-item .rl-small { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.4); margin-bottom: 8px; text-decoration: line-through; }
+  .reframe-line-item .rl-big { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4; }
+  .reframe-line-item .rl-big span { color: #FF2D7B; }
+
+  /* TIMING */
+  .timing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .timing-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid #FF2D7B; padding: 24px; }
+  .timing-card .tc-date { font-size: 11px; font-weight: 700; color: #FF2D7B; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .timing-card h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; }
+  .timing-card p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+  /* STAGES */
+  .stage-list { display: flex; flex-direction: column; gap: 16px; }
+  .stage-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 28px; display: grid; grid-template-columns: 90px 1fr; gap: 24px; align-items: start; }
+  .stage-num { font-size: 48px; font-weight: 800; color: #FF2D7B; line-height: 1; letter-spacing: -0.03em; }
+  .stage-body .sb-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .stage-body h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+  .stage-body .sb-signals { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 12px; }
+  .stage-body .sb-signals strong { color: #fff; font-weight: 600; }
+  .stage-body .sb-move { font-size: 13px; color: #fff; line-height: 1.65; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); }
+  .stage-body .sb-move::before { content: 'Your move. '; color: #FF2D7B; font-weight: 700; }
+
+  /* OUTCOMES TABLE */
+  .outcomes-table { border: 1px solid rgba(255,255,255,0.08); }
+  .outcomes-header { display: grid; grid-template-columns: 1fr 1fr; background: rgba(255,255,255,0.04); }
+  .outcomes-header div { padding: 16px 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .outcomes-header div:first-child { color: rgba(255,255,255,0.4); border-right: 1px solid rgba(255,255,255,0.08); }
+  .outcomes-header div:last-child { color: #FF2D7B; }
+  .outcomes-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,0.06); }
+  .outcomes-row .feat { padding: 18px 20px; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.55; border-right: 1px solid rgba(255,255,255,0.06); font-style: italic; }
+  .outcomes-row .outc { padding: 18px 20px; font-size: 13px; color: #fff; line-height: 1.55; font-weight: 500; }
+
+  /* DISCOVERY */
+  .discovery-block { background: rgba(255,45,123,0.08); border: 1px solid rgba(255,45,123,0.2); border-left: 3px solid #FF2D7B; padding: 32px 36px; margin-bottom: 24px; }
+  .discovery-block .db-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 14px; }
+  .discovery-block .db-q { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.5; font-style: italic; }
+  .discovery-notes { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 24px; }
+  .discovery-notes strong { color: #fff; font-weight: 600; }
+  .discovery-variants { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .discovery-variant { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 20px; }
+  .discovery-variant .dv-who { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 10px; }
+  .discovery-variant p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; font-style: italic; }
+
+  /* TALK TRACKS */
+  .talktrack { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 0; margin-bottom: 16px; overflow: hidden; }
+  .talktrack-head { padding: 18px 24px; background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .talktrack-head .tt-role { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 4px; }
+  .talktrack-head h4 { font-size: 15px; font-weight: 700; color: #fff; }
+  .talktrack-body { padding: 22px 24px; }
+  .tt-avoid { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 14px; font-style: italic; padding-left: 12px; border-left: 2px solid rgba(255,45,123,0.3); }
+  .tt-avoid::before { content: 'Don\'t say. '; color: rgba(255,45,123,0.7); font-style: normal; font-weight: 600; }
+  .tt-say { font-size: 13px; color: #fff; line-height: 1.7; padding-left: 12px; border-left: 2px solid #FF2D7B; margin-bottom: 14px; }
+  .tt-say::before { content: 'Say. '; color: #FF2D7B; font-weight: 700; }
+  .tt-why { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .tt-why::before { content: 'Why this works. '; color: rgba(255,255,255,0.8); font-weight: 600; }
+
+  /* MENTAL MODEL */
+  .mm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .mm-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 28px 24px; position: relative; }
+  .mm-card::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 2px; background: #FF2D7B; }
+  .mm-card .mm-layer { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 14px; margin-bottom: 10px; }
+  .mm-card h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.25; }
+  .mm-card h4 em { font-style: normal; color: #FF2D7B; }
+  .mm-card p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.65; }
+
+  /* LANGUAGE TABLE */
+  .lang-table { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid rgba(255,255,255,0.08); }
+  .lang-header { padding: 16px 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; background: rgba(255,255,255,0.04); }
+  .lang-header.stop { color: rgba(255,255,255,0.4); border-right: 1px solid rgba(255,255,255,0.08); }
+  .lang-header.start { color: #FF2D7B; }
+  .lang-row { display: contents; }
+  .lang-stop, .lang-start { padding: 14px 20px; font-size: 13px; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.06); }
+  .lang-stop { color: rgba(255,255,255,0.4); font-style: italic; text-decoration: line-through; border-right: 1px solid rgba(255,255,255,0.06); }
+  .lang-start { color: #fff; font-weight: 500; }
+
+  /* VOICE TEST */
+  .voice-test { background: rgba(58,10,30,0.35); border: 1px solid rgba(255,45,123,0.2); padding: 36px; }
+  .voice-test h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #FF2D7B; margin-bottom: 8px; }
+  .voice-test .vt-sub { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 24px; font-weight: 300; }
+  .voice-test ol { list-style: none; counter-reset: vt; display: flex; flex-direction: column; gap: 14px; }
+  .voice-test ol li { counter-increment: vt; display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; font-size: 14px; color: #fff; line-height: 1.55; font-weight: 500; }
+  .voice-test ol li::before { content: counter(vt); font-size: 14px; font-weight: 800; color: #FF2D7B; background: rgba(255,45,123,0.12); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .voice-test .vt-close { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 20px; font-style: italic; }
+
+  /* CLOSING */
+  .closing { text-align: center; padding: 56px 24px; }
+  .closing h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; color: #fff; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .closing h2 em { font-style: normal; color: #FF2D7B; }
+  .closing p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 580px; margin: 0 auto; font-weight: 300; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer .f-left { font-size: 12px; color: rgba(255,255,255,0.35); }
+  footer .f-left a { color: #FF2D7B; text-decoration: none; }
+  footer .f-right { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .cover-inner { padding: 60px 24px 40px; }
+    .cover-stats { grid-template-columns: repeat(2, 1fr); }
+    .page { padding: 48px 20px; }
+    .problem-grid, .diff-grid, .stats-grid, .stats-row-2, .buyer-grid, .vault-items,
+    .reframe-line, .timing-grid, .mm-grid, .discovery-variants { grid-template-columns: 1fr; }
+    .outcomes-header, .outcomes-row, .lang-table { grid-template-columns: 1fr; }
+    .outcomes-header div:first-child, .outcomes-row .feat, .lang-stop, .lang-header.stop { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .stage-card { grid-template-columns: 1fr; gap: 12px; }
+    .stage-num { font-size: 36px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+  /* CLIENT LOGOS */
+  .cover-logos { position: relative; z-index: 1; padding: 28px 32px 0; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .cover-logos-label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.22); white-space: nowrap; flex-shrink: 0; padding-right: 8px; border-right: 1px solid rgba(255,255,255,0.1); }
+  .cover-logo { opacity: 0.45; filter: brightness(0) invert(1); display: flex; align-items: center; flex-shrink: 0; }
+  .cover-logo img { display: block; }
+  .cover-logo.logo-nike img { height: 26px; width: auto; }
+  .cover-logo.logo-medtronic img { height: 16px; width: auto; }
+  .cover-logo.logo-edf img { height: 28px; width: auto; }
+  .cover-logo.logo-allianz img { height: 22px; width: auto; }
+  .cover-footer { margin-top: 28px; }
+
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-line-top"></div>
+  <div class="cover-inner">
+    <div class="cover-kicker">Flourish · Positioning Guide · 2026</div>
+    <h1>How to talk about<br><em>Flourish</em></h1>
+    <p class="cover-desc">Everything you need to represent Flourish confidently — the positioning, the proof points, the talk tracks, and the lines you should never cross. For advisors, sales, account management, customer success, and partnerships.</p>
+    <div class="cover-oneliner">
+      <p>We are not selling software.<br>We are selling <em>the function</em>.</p>
+    </div>
+  </div>
+  <div class="cover-logos">
+    <span class="cover-logos-label">Trusted by</span>
+    <div class="cover-logo logo-nike"><img src="logo-nike.svg" alt="Nike"></div>
+    <div class="cover-logo logo-medtronic"><img src="logo-medtronic.svg" alt="Medtronic"></div>
+    <div class="cover-logo logo-edf"><img src="logo-edf.svg" alt="EDF"></div>
+    <div class="cover-logo logo-allianz"><img src="logo-allianz.svg" alt="Allianz"></div>
+  </div>
+    <div class="cover-footer">
+    <div class="cover-footer-brand">Flourish · <span>Truth Marketing®</span></div>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="sn">94%</div><div class="sl">Faster legal sign-off</div></div>
+      <div class="cover-stat"><div class="sn">8,860%</div><div class="sl">ROI — named case study</div></div>
+      <div class="cover-stat"><div class="sn">£6m</div><div class="sl">Avg annual savings</div></div>
+      <div class="cover-stat"><div class="sn">50</div><div class="sl">Markets covered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<div class="page">
+
+  <!-- THE REFRAME -->
+  <div class="section-label">The reframe</div>
+  <h2 class="section-h2">We are not selling software. We are selling the function.</h2>
+  <p class="section-sub">Internalise this and every conversation changes. The budget, the buyer, the benchmark — all of them shift.</p>
+
+  <div class="reframe-anchor">
+    <div class="ra-eyebrow">The one paragraph to carry into every call</div>
+    <p>For every pound a business spends on software, roughly <em>six pounds</em> go on the services that wrap around it. Legal review. Agency compliance passes. Regulatory consultancy. Localisation QA. Recall remediation. The SaaS playbook captured the software pound. The AI playbook captures the services pounds, at software margins.</p>
+    <p>Flourish is not a marketing tool. Flourish is the <em>marketing compliance function</em>, delivered as infrastructure.</p>
+  </div>
+
+  <div class="reframe-line">
+    <div class="reframe-line-item">
+      <div class="rl-small">Not AI for accountants.</div>
+      <div class="rl-big">The AI <span>accounting firm</span>.</div>
+    </div>
+    <div class="reframe-line-item">
+      <div class="rl-small">Not AI for lawyers.</div>
+      <div class="rl-big">The AI <span>law firm</span>.</div>
+    </div>
+    <div class="reframe-line-item">
+      <div class="rl-small">Not AI for marketing compliance.</div>
+      <div class="rl-big">The AI <span>marketing compliance function</span>.</div>
+    </div>
+  </div>
+
+  <div class="problem-resolution" style="margin-bottom: 0;">
+    <p><span>One behaviour change.</span> Stop pitching features. Start pitching outcomes. Everything in this guide exists to make that shift operational.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TIMING -->
+  <div class="section-label">Timing</div>
+  <h2 class="section-h2">Why this lands right now.</h2>
+  <p class="section-sub">Three forces are converging, and they favour us. Regulatory mandate, budget pressure, and workable AI infrastructure arriving at once creates mandated demand.</p>
+
+  <div class="timing-grid">
+    <div class="timing-card">
+      <div class="tc-date">August 2026</div>
+      <h4>EU AI Act — Article 50</h4>
+      <p>Disclosure obligations for AI-generated content become binding. Every brand running generative AI in marketing needs an audit trail proving what was human, what was AI, what was substantiated, and what was approved. Flourish produces that trail as a byproduct.</p>
+    </div>
+    <div class="timing-card">
+      <div class="tc-date">December 2026</div>
+      <h4>Revised Product Liability Directive</h4>
+      <p>Logic extraction risk extends to software, including AI systems. If a brand cannot show how a claim was substantiated and approved, they carry personal injury liability. Already a board-level conversation in every consumer goods, pharma, beauty, and F&amp;B company in Europe.</p>
+    </div>
+    <div class="timing-card">
+      <div class="tc-date">Right now</div>
+      <h4>The services spend is visible</h4>
+      <p>CFOs are interrogating external legal and consultancy retainers. Boards are asking why marketing legal review costs millions when AI is supposed to make things cheaper. The budget line we replace is actively being challenged inside buyer organisations.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">The problem</div>
+  <h2 class="section-h2">Marketing moves fast. Legal moves slow.</h2>
+  <p class="section-sub">Every regulated brand lives in this gap. Flourish closes it.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <h4>The marketing reality</h4>
+      <p>Campaigns launch daily. Claims multiply across channels. Teams work in parallel. Speed is the competitive advantage — but every piece of content carries legal exposure that most teams can't see until it's too late.</p>
+    </div>
+    <div class="problem-card">
+      <h4>The legal reality</h4>
+      <p>Legal reviews from scratch every time. No institutional memory. No record of what was approved before or why. The same question gets re-litigated across every campaign. Sign-off takes weeks. Campaigns stall.</p>
+    </div>
+  </div>
+
+  <div class="problem-resolution">
+    <p>Flourish solves this with <span>the Vault</span> — a structured record of every approved claim, its supporting evidence, the approval that cleared it, and the regulatory context it applies to. <span>Legal stops investigating from zero. Marketing stops waiting.</span></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- THE VAULT -->
+  <div class="section-label">What is the Vault</div>
+  <h2 class="section-h2">Institutional memory for your brand.</h2>
+  <p class="section-sub">The Vault is not a document library. It is a living system that compounds over time.</p>
+
+  <div class="vault-block">
+    <div class="vault-headline">Every approved claim. Every piece of evidence. Every decision. Structured, traceable, and ready to act on.</div>
+    <p>When a marketing team wants to make a claim, the Vault already knows whether that claim has been approved, what evidence supports it, which markets it applies to, and what the regulatory basis is. Legal isn't reviewing — they're verifying. That's why sign-off goes from weeks to hours.</p>
+    <p>And because the Vault is built from your brand's real materials — existing campaigns, existing approvals, existing regulatory filings — it starts valuable and gets more valuable with every campaign that runs through it.</p>
+    <div class="vault-items">
+      <div class="vault-item">
+        <div class="vi-label">Approved claims</div>
+        <p>Every marketing claim that has been cleared for use, with full evidence and jurisdictional scope.</p>
+      </div>
+      <div class="vault-item">
+        <div class="vi-label">Brand guidelines</div>
+        <p>The rules that govern how the brand speaks — tone, language, what can and cannot be said.</p>
+      </div>
+      <div class="vault-item">
+        <div class="vi-label">Regulatory context</div>
+        <p>50 markets, sector-specific rules, active regulatory changes — continuously updated.</p>
+      </div>
+      <div class="vault-item">
+        <div class="vi-label">Approval history</div>
+        <p>A full audit trail — who approved what, when, and on what basis. One click to a court-ready evidence bundle.</p>
+      </div>
+      <div class="vault-item">
+        <div class="vi-label">Sovereign data</div>
+        <p>Client Vault data never trains any foundation model. Full export on exit. It belongs to the client.</p>
+      </div>
+      <div class="vault-item">
+        <div class="vi-label">Compounds over time</div>
+        <p>Every campaign makes the Vault more complete. The system gets smarter the longer it runs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- HOW WE'RE DIFFERENT -->
+  <div class="section-label">How we're different</div>
+  <h2 class="section-h2">Three comparisons that matter.</h2>
+  <p class="section-sub">Know these cold. They come up in every conversation.</p>
+
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="diff-vs">vs</div>
+      <h4>GPT / Copilot / generic AI</h4>
+      <div class="diff-verdict">
+        <div class="bad">No memory of previous approvals. Every output is generated fresh with no audit trail.</div>
+        <div class="bad">Output can't be defended — it reflects training data, not your brand's specific approvals.</div>
+        <div class="good">Flourish generates <em>from</em> the Vault. Every output is traceable to an approved claim. The output is defensible because the source is.</div>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-vs">vs</div>
+      <h4>Building it yourself</h4>
+      <div class="diff-verdict">
+        <div class="bad">Two major global FMCG brands tried it — both found it expensive to build and incomplete within 12 months as regulations shifted.</div>
+        <div class="bad">Internal builds lack the regulatory intelligence layer — the 50-market database took Flourish three years to build.</div>
+        <div class="good">Flourish already built it. You get three years of regulatory infrastructure from day one, continuously maintained.</div>
+      </div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-vs">vs</div>
+      <h4>Other compliance tools</h4>
+      <div class="diff-verdict">
+        <div class="bad">Most compliance tools scan content after it's been created — a review layer bolted onto an existing workflow.</div>
+        <div class="bad">Catch problems late. Create friction. Don't reduce the volume of legal review — they just move it.</div>
+        <div class="good">Flourish works before creation. Compliance is built into the brief, not reviewed after the draft. Sign-off is confirmation, not investigation.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FEATURES VS OUTCOMES -->
+  <div class="section-label">Features vs outcomes</div>
+  <h2 class="section-h2">Retire the left column. Lead with the right.</h2>
+  <p class="section-sub">Features describe what the system does. Outcomes describe what the buyer stops worrying about, stops paying for, or stops risking. <strong style="color:#fff;">Always lead with what they stop.</strong></p>
+
+  <div class="outcomes-table">
+    <div class="outcomes-header">
+      <div>Feature language · retire</div>
+      <div>Outcome language · use</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We use RAG on small language models with per-brand isolation.</div>
+      <div class="outc">Your brand data never leaves your vault. Your competitor cannot train on it. Your legal team stops losing sleep over shadow AI.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have a claims approval workflow.</div>
+      <div class="outc">Every claim that goes to market is substantiated, approved, and auditable. You cannot publish a claim you cannot defend. The audit is already written.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have expert agents that review content.</div>
+      <div class="outc">The legal review that takes three weeks happens in minutes, with a full audit trail, before a human ever sees it. In-house counsel stops being a bottleneck and starts being a governance leader.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have Bridge mode with OAuth connectivity.</div>
+      <div class="outc">We read your existing brand materials from SharePoint or Box in minutes. No migration. No new tool for your team to adopt. Your cold-start problem is gone.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have operating context scoping.</div>
+      <div class="outc">A claim approved for Germany cannot accidentally appear in a French campaign. Regional compliance is enforced by the system, not by a human checking a spreadsheet at 9pm.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have a recalled status for content assets.</div>
+      <div class="outc">When a claim is withdrawn, every piece of content depending on it is flagged immediately, wherever it is in the workflow. You find out before the regulator does.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have multi-stage approval workflows.</div>
+      <div class="outc">The approval ladder you already have — legal, brand, regional, regulatory — runs in the system exactly as it runs on the org chart. Nobody learns a new process. The governance just stops taking six weeks.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We have a consumption-based commercial model.</div>
+      <div class="outc">You pay for governed marketing decisions — the same unit of work your legal and compliance teams are already paid to produce. The budget line already exists. It's currently going to external counsel and agency retainers.</div>
+    </div>
+    <div class="outcomes-row">
+      <div class="feat">We are SOC 2 compliant.</div>
+      <div class="outc">Your security team can approve us in a week, not a quarter. Everything they need to audit, we've already documented.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- THE NUMBERS -->
+  <div class="section-label">The numbers</div>
+  <h2 class="section-h2">Proof points that land.</h2>
+  <p class="section-sub">Lead with the MedTech case study. It anchors every conversation about ROI.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="big">94%</div>
+      <h4>Faster legal sign-off</h4>
+      <p>Weeks to hours. Legal verifies rather than investigates. Named case study — 8,860% ROI.</p>
+    </div>
+    <div class="stat-card">
+      <div class="big">8,860%</div>
+      <h4>ROI — MedTech case study</h4>
+      <p>Lead anchor for MedTech and Pharma conversations. One avoided enforcement action covers years of platform cost.</p>
+    </div>
+    <div class="stat-card">
+      <div class="big">£6m</div>
+      <h4>Average annual savings</h4>
+      <p>Across legal review time, rework, campaign delay, and regulatory risk exposure.</p>
+    </div>
+  </div>
+  <div class="stats-row-2" style="margin-top: 16px;">
+    <div class="stat-card">
+      <div class="big">50</div>
+      <h4>Markets covered</h4>
+      <p>50 countries, 50 US states. Jurisdictionally precise, continuously updated. Built over three years.</p>
+    </div>
+    <div class="stat-card">
+      <div class="big">£5m</div>
+      <h4>Legal assurance value</h4>
+      <p>The audit trail is the liability infrastructure. Changes the buyer from CMO budget to risk management budget.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DIAGNOSE THE BUYER STAGE -->
+  <div class="section-label">Diagnose the stage</div>
+  <h2 class="section-h2">Read the buyer in the first ten minutes.</h2>
+  <p class="section-sub">Not every buyer is in the same place in this transition. Listen for the frame they use in their first three questions — it tells you which opener to reach for.</p>
+
+  <div class="stage-list">
+    <div class="stage-card">
+      <div class="stage-num">01</div>
+      <div class="stage-body">
+        <div class="sb-label">Still thinking in SaaS</div>
+        <h4>They ask about seats, integrations, per-user pricing.</h4>
+        <p class="sb-signals">They compare us to Writer or Jasper without prompting. They want a demo of the UI. <strong>The majority of inbound leads will be here.</strong> Their signal question: <em>"how much per user?"</em></p>
+        <p class="sb-move">Meet them in SaaS language, then name the services spend. Don't correct their framing early — build rapport in their world first, then open the real conversation. Your goal on this call is to get them to see that their budget question is the wrong budget question.</p>
+      </div>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">02</div>
+      <div class="stage-body">
+        <div class="sb-label">Feeling the regulatory pressure</div>
+        <h4>They mention the AI Act or risk committee unprompted.</h4>
+        <p class="sb-signals">Still shopping in the wrong category, but they know something bigger is happening. They're worried about exposure. Their signal question: <em>"how do you handle the AI Act?"</em></p>
+        <p class="sb-move">Validate the concern, quantify the exposure, and position Flourish as the capability their organisation is mandated to have by August 2026. The reframe here is risk, not budget. Lead with compliance outcome, then map services spend as the cost of the current approach.</p>
+      </div>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">03</div>
+      <div class="stage-body">
+        <div class="sb-label">Already getting it</div>
+        <h4>They talk governance, vault architecture, the Veeva analogue.</h4>
+        <p class="sb-signals">They've tried to build something internally and hit the wall. They're not comparing us to Writer — they're comparing us to their own internal build or to bringing the function in-house. Their signal question: <em>"how is your vault architecture different from what Veeva did in pharma?"</em></p>
+        <p class="sb-move">Skip category education entirely. Go straight to architecture, the vault as moat, and the commercial model. This buyer wants to know if we can do it at scale. Show them the platform, show them the audit trail, show them another enterprise client's vault structure. Trust their sophistication.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHO BUYS IT -->
+  <div class="section-label">Who buys it</div>
+  <h2 class="section-h2">Four buyers. One deal.</h2>
+  <p class="section-sub">Enterprise deals typically involve CMO + CLO as joint buyers. Know all four.</p>
+
+  <div class="buyer-grid">
+    <div class="buyer-card">
+      <div class="role">CMO</div>
+      <h4>Speed without exposure</h4>
+      <p class="fear">Campaign goes live ungoverned. Board finds out after the press does.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:12px;">Wants campaigns to move faster without increasing legal exposure. Currently stuck in a trade-off between speed and safety.</p>
+      <div class="proof">94% faster sign-off. Brief-to-live in days, not weeks.</div>
+    </div>
+    <div class="buyer-card">
+      <div class="role">CLO / General Counsel</div>
+      <h4>Audit trail as byproduct</h4>
+      <p class="fear">Regulator inquiry with 48 hours notice. No governance record. No evidence trail.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:12px;">Needs defensibility built into normal operations — not a compliance review layer bolted on. Court-ready evidence bundle: one click.</p>
+      <div class="proof">Every approval logged. Every evidence source stored. Immutable.</div>
+    </div>
+    <div class="buyer-card">
+      <div class="role">CFO / Procurement</div>
+      <h4>ROI that holds scrutiny</h4>
+      <p class="fear">Owning an AI investment that creates regulatory liability rather than reducing it.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:12px;">A named MedTech case study (8,860% ROI) is the anchor. One avoided regulatory action covers the platform cost for years.</p>
+      <div class="proof">8,860% ROI. £6m average annual savings. £5m legal assurance.</div>
+    </div>
+    <div class="buyer-card">
+      <div class="role">CTO / AI Director</div>
+      <h4>Governance that makes AI safe at scale</h4>
+      <p class="fear">46% of employees uploading sensitive data to public AI tools. Ungoverned, unaudited.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;margin-bottom:12px;">Flourish is the governance layer that makes Copilot and other AI tools safe to deploy at enterprise scale. Not a replacement — a foundation.</p>
+      <div class="proof">Flourish Governance Agent for M365 Copilot. Sovereign data. No model training.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DISCOVERY: SERVICES SPEND QUESTION -->
+  <div class="section-label">The discovery question</div>
+  <h2 class="section-h2">The single most valuable question you can ask.</h2>
+  <p class="section-sub">Learn it. Use it early. Use it on every call.</p>
+
+  <div class="discovery-block">
+    <div class="db-label">Ask this</div>
+    <p class="db-q">"Across your organisation, what do you currently spend on marketing legal review, agency compliance passes, regulatory consultancy, and content remediation in a typical year?"</p>
+  </div>
+
+  <p class="discovery-notes">Nobody has the number to hand. <strong>That's the point.</strong> The question forces the buyer to do the mental maths in front of you, and the maths always lands in seven figures for a serious brand. Once that number is in the room, the conversation about our commercial model gets much easier — because you're no longer anchored to a £50k SaaS line item. You're anchored to a £2m services line item that Flourish replaces.</p>
+
+  <p class="discovery-notes">If they resist a number, reframe: <em>"Rough order of magnitude? More like £500k, £2m, or £10m?"</em> Let them pick the bracket. The bracket is what you need.</p>
+
+  <div class="discovery-variants">
+    <div class="discovery-variant">
+      <div class="dv-who">For the CMO</div>
+      <p>"How much of your marketing budget currently goes to getting content through legal and compliance, rather than to the content itself? What percentage would you estimate?"</p>
+    </div>
+    <div class="discovery-variant">
+      <div class="dv-who">For the CLO / General Counsel</div>
+      <p>"How many hours a month does your team spend reviewing marketing claims? How much of that review is catching the same kinds of issues you've caught before?"</p>
+    </div>
+    <div class="discovery-variant">
+      <div class="dv-who">For the CIO / IT Security</div>
+      <p>"What is the cost, in risk and engineering time, of your marketing teams using public AI tools you cannot govern? What is your current exposure?"</p>
+    </div>
+    <div class="discovery-variant">
+      <div class="dv-who">For the CFO / Procurement</div>
+      <p>"Across your top five external legal and consultancy retainers, what share of that spend is marketing compliance? What line would it fall under if we consolidated it?"</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TALK TRACKS -->
+  <div class="section-label">Talk tracks</div>
+  <h2 class="section-h2">Word for word, by buyer.</h2>
+  <p class="section-sub">Starting points, not scripts. Adapt to your call, but keep the structure: name the pain, quantify the cost, name the outcome, avoid the feature.</p>
+
+  <div>
+    <div class="talktrack">
+      <div class="talktrack-head">
+        <div class="tt-role">CMO / Marketing Leader</div>
+        <h4>The services wrapper, not the tool</h4>
+      </div>
+      <div class="talktrack-body">
+        <p class="tt-avoid">Flourish is an AI-powered marketing operations platform that helps your team create compliant content faster.</p>
+        <p class="tt-say">Your marketing team spends an enormous amount of time and money getting content through legal review, through agency compliance, through regulatory sign-off. For a brand your size, the services spend on marketing governance is typically 3–5% of your total marketing budget. Flourish takes that work and runs it as infrastructure. Your team briefs, drafts, and ships. The governance happens around them, not in their way. You stop paying for the review cycle. You stop waiting for it. And when a regulator asks how you substantiated a claim, the answer is already on file.</p>
+        <p class="tt-why">You've named the pain (the review cycle), quantified the cost (3–5% of marketing budget), named the outcome (team velocity plus audit-ready governance), and avoided a single product feature.</p>
+      </div>
+    </div>
+
+    <div class="talktrack">
+      <div class="talktrack-head">
+        <div class="tt-role">Legal / Regulatory / Compliance Leader</div>
+        <h4>From review queue to governance function</h4>
+      </div>
+      <div class="talktrack-body">
+        <p class="tt-avoid">Flourish helps marketing work faster by automating compliance checks.</p>
+        <p class="tt-say">Your team is the bottleneck, not because you are slow, but because marketing is bringing you the same kinds of claims to review over and over again with no systematic memory of what's been approved before. Every campaign is a fresh review. Flourish gives you a governed vault. Every claim has its substantiation attached. Every approval is recorded. Every piece of content shows which claims it depends on. When a reference expires or gets superseded, you know immediately which content is affected, wherever it is in the workflow. Your team stops being a review queue and starts being a governance function. You get the August 2026 AI Act deadline covered by design, not as a project.</p>
+        <p class="tt-why">You've acknowledged their role, named the dysfunction without blaming them, positioned Flourish as elevating their function rather than replacing it, and anchored to the regulatory deadline already on their radar.</p>
+      </div>
+    </div>
+
+    <div class="talktrack">
+      <div class="talktrack-head">
+        <div class="tt-role">IT Security / Data Governance</div>
+        <h4>The answer to shadow AI</h4>
+      </div>
+      <div class="talktrack-body">
+        <p class="tt-avoid">Flourish is SOC 2 compliant and uses secure AI models.</p>
+        <p class="tt-say">Right now your marketing teams are either using public AI tools with no governance, or they're waiting months for you to stand up an internal capability. Both are bad. Microsoft Copilot doesn't solve it because it flexes routing across models and geographies in ways your data residency rules cannot tolerate. Flourish gives you a per-brand isolated vault running on small language models, with no shared training, no data leakage, and full audit. You're not adopting another AI tool. You're giving marketing a governed channel that closes the shadow AI risk you know they're creating.</p>
+        <p class="tt-why">You've named the real problem they lose sleep over — shadow AI, Copilot routing, data residency, uncontrolled exposure — and positioned Flourish as the answer to it, not as another item on their risk register.</p>
+      </div>
+    </div>
+
+    <div class="talktrack">
+      <div class="talktrack-head">
+        <div class="tt-role">CFO / Procurement</div>
+        <h4>Category rejection, budget consolidation</h4>
+      </div>
+      <div class="talktrack-body">
+        <p class="tt-avoid">Our platform pricing starts at X.</p>
+        <p class="tt-say">The right way to evaluate Flourish is not as a software line item. It's as a consolidation of your current marketing governance services spend. External legal review, agency compliance retainers, regulatory consultancy, and the remediation cost of getting it wrong typically sum to between £1m and £5m a year for a brand at your scale. Flourish replaces most of that with a consumption-based model priced per governed decision. The budget doesn't need to grow. It needs to move from unpredictable external services to predictable governed infrastructure.</p>
+        <p class="tt-why">You've preempted the "what SaaS category does this fit" question by rejecting the SaaS category entirely, anchored to a spend they already have, and offered a narrative they can take to their CEO.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- THE MENTAL MODEL -->
+  <div class="section-label">The mental model</div>
+  <h2 class="section-h2">Three layers to carry into every call.</h2>
+  <p class="section-sub">Memorise these. They are the architecture of the positioning. Hold them in your head and you won't accidentally sell Flourish as a platform competing with Writer — you'll sell it as infrastructure replacing services spend.</p>
+
+  <div class="mm-grid">
+    <div class="mm-card">
+      <div class="mm-layer">Layer 01</div>
+      <h4>The <em>Vault</em> is the moat</h4>
+      <p>The compounding proprietary asset. Per-brand isolated. Structured. Sovereign. This is what makes Flourish defensible against any model, any vendor, any horizontal platform.</p>
+    </div>
+    <div class="mm-card">
+      <div class="mm-layer">Layer 02</div>
+      <h4>The <em>agents</em> are the delivery model</h4>
+      <p>FVA, FPA, and the expert agents are how the governed decisions get produced. The equivalent of the billable hour at a compliance consultancy — except they scale without headcount and improve with every model release.</p>
+    </div>
+    <div class="mm-card">
+      <div class="mm-layer">Layer 03</div>
+      <h4>The <em>application</em> is one interface</h4>
+      <p>Hub mode, Bridge mode, the UI, the dashboards. These are how different buyers consume the value. They are not the product. The product is the governed decision.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Q&A -->
+  <div class="section-label">Questions you'll be asked</div>
+  <h2 class="section-h2">Handle these with confidence.</h2>
+  <p class="section-sub">The most common objections — and how to answer them cleanly.</p>
+
+  <div class="qa-list">
+    <div class="qa-item">
+      <div class="qa-q">Isn't this just a thin wrapper on GPT?</div>
+      <div class="qa-a">No. The Vault, the regulatory database, and the approval workflow exist independently of any LLM. The intelligence layer — 50 markets of jurisdictionally precise regulatory data, built over three years — is proprietary. The LLM is a surface, not the product. <strong>Flourish without GPT still works. GPT without Flourish produces nothing defensible.</strong></div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">Why not just build it internally?</div>
+      <div class="qa-a">Two major global FMCG brands tried it — both found it expensive to build and incomplete within a year as regulations shifted. The regulatory intelligence layer alone took Flourish three years to build and requires continuous maintenance. <strong>An internal build starts behind and falls further behind every quarter.</strong> Flourish is already built, already updated, and already proven.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">Is our data safe? Does it train your models?</div>
+      <div class="qa-a">Client Vault data is sovereign. It never trains any foundation model — not Flourish's, not anyone else's. <strong>Full export on exit. The Vault belongs to the client.</strong> Data residency options available — route specifics to the team.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">We already use GPT / Copilot. Why Flourish?</div>
+      <div class="qa-a">GPT has no memory of your brand's previous approvals. Every output is generated fresh with no audit trail. If a regulator asks why a claim was made, GPT can't answer. <strong>Flourish output is defensible because every output traces back to an approved claim in the Vault.</strong> Flourish doesn't replace GPT — it governs it.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">How quickly do we see value?</div>
+      <div class="qa-a">Weeks, not months. Onboarding is service-led — Flourish populates the Vault from your existing materials (previous campaigns, existing approvals, brand guidelines). <strong>You don't start from zero. You start from everything you've already built.</strong></div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">What does implementation look like?</div>
+      <div class="qa-a">Browser-based. No enterprise IT project required. Flourish integrates with existing workflows rather than replacing them. <strong>Start in days, not months.</strong> Microsoft Teams and Copilot integration available for organisations already in the M365 ecosystem.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">How does this compare to Writer or Jasper?</div>
+      <div class="qa-a">Writer and Jasper are productivity tools for marketers — they help a marketer write faster. Flourish is the governance infrastructure that sits across marketing, legal, and compliance. Your marketers might well use a copilot to draft. <strong>Flourish is what makes sure what they draft is defensible, substantiated, approved, and auditable before it ever goes to market.</strong> Different layer. Different buyer. Different budget.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">Is this per-seat or per-user?</div>
+      <div class="qa-a">Flourish is priced by governed decision, because that's the unit of value we produce. Seats don't reflect what we do. A single marketing decision — substantiated, approved, shipped — is worth far more than a login. It's also how you're already paying for this work externally, just to different vendors. <strong>We're replacing that spend, not adding to it.</strong> If commercial terms need to flex for procurement, they can. The positioning does not. Route commercials to Maddy or Andy.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">How does this fit into our SaaS budget category?</div>
+      <div class="qa-a">It doesn't, and that's the point. If you categorise Flourish as marketing SaaS, you'll try to fund it out of a martech budget that's probably already stretched, and you'll benchmark us against tools that do a fraction of what we do. <strong>If you categorise Flourish correctly — as governance infrastructure replacing external services spend — the budget source is different, the business case is different, the approval path is different, and the value is orders of magnitude clearer.</strong> Most of our enterprise contracts sit in a consolidated governance or compliance infrastructure line, not in martech.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">What happens when Microsoft or Salesforce builds this?</div>
+      <div class="qa-a">They build horizontal productivity. We build the governance vault for regulated marketing. <strong>The vault is the moat.</strong> Every day a brand uses Flourish, their vault gets more valuable, more accurate, more defensible. That compounding asset is not something a horizontal vendor can replicate — they don't have the per-brand structure or the regulatory depth. Veeva proved this in pharma at £2bn in annual revenue. The model works when the vault is the product.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">How do we know the AI won't make mistakes on compliance?</div>
+      <div class="qa-a">Flourish is not generating compliance decisions in isolation. Every claim is grounded in a reference. Every reference has a substantiation link with a specific passage or data point. Every approval is a human action, recorded and audited. <strong>The AI proposes, flags, and accelerates. Humans decide and approve. The audit trail shows every step.</strong> That's structurally different from asking a general-purpose AI to tell you if a claim is compliant — which is what most organisations are worried about, rightly.</div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-q">What if we're not ready for this yet?</div>
+      <div class="qa-a">The AI Act Article 50 deadline is August 2026. The Product Liability Directive lands in December 2026. Whatever capability you have in place by then is what you'll be audited against. <strong>"Not ready" is not a position that survives contact with a regulator.</strong> The question isn't whether you adopt this capability — it's whether you adopt it deliberately now, or reactively under pressure later.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHAT NOT TO SAY -->
+  <div class="section-label">What not to say</div>
+  <h2 class="section-h2">The lines that matter.</h2>
+  <p class="section-sub">Flourish operates at the intersection of marketing and compliance. Words carry weight here.</p>
+
+  <div class="warning-box">
+    <h3>⚠ Do not say these things</h3>
+    <div class="warning-list">
+      <div class="warning-item">
+        <div class="wi-x">✗</div>
+        <div class="wi-text"><strong>Don't call it "AI for compliance."</strong> It's brand intelligence infrastructure. The framing matters — compliance suggests a review layer. Flourish is a system of record that makes compliance a byproduct of normal operation.</div>
+      </div>
+      <div class="warning-item">
+        <div class="wi-x">✗</div>
+        <div class="wi-text"><strong>Don't say it replaces GPT or Copilot.</strong> It governs them. Flourish is the layer that makes AI tools safe and defensible — not a competitor to the tools your prospects are already using.</div>
+      </div>
+      <div class="warning-item">
+        <div class="wi-x">✗</div>
+        <div class="wi-text"><strong>Don't make up pricing.</strong> <em>Route all pricing conversations to Maddy or Andy.</em> Pricing is contextual — enterprise deals, agency models, and mid-market challenger brands are all different conversations.</div>
+      </div>
+      <div class="warning-item">
+        <div class="wi-x">✗</div>
+        <div class="wi-text"><strong>Don't promise specific SLAs, uptime figures, or implementation timelines.</strong> <em>Route to the team for anything specific.</em> General framing (weeks, not months; hours, not days) is fine — specific numbers are not yours to give.</div>
+      </div>
+      <div class="warning-item">
+        <div class="wi-x">✗</div>
+        <div class="wi-text"><strong>Don't say Flourish is always right.</strong> Say it's always evidenced and auditable. The value isn't infallibility — it's that every decision is traceable and defensible. That's a much stronger claim.</div>
+      </div>
+      <div class="warning-item">
+        <div class="wi-x">✗</div>
+        <div class="wi-text"><strong>Don't sell features when you could sell outcomes.</strong> The feature-language column of the guide is not for use on calls. Every time you reach for a technical description of what the system <em>does</em>, reach for the thing the buyer <em>stops</em> instead.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px;">
+    <h3 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;">The language retirement list</h3>
+    <p style="font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.6;">Retire the left column from your calls, your emails, and your written follow-ups. They anchor us in the wrong category.</p>
+    <div class="lang-table">
+      <div class="lang-header stop">Stop saying</div>
+      <div class="lang-header start">Start saying</div>
+      <div class="lang-row">
+        <div class="lang-stop">AI-powered marketing platform</div>
+        <div class="lang-start">The governance layer for AI-era marketing</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-stop">Compliance tool</div>
+        <div class="lang-start">The marketing compliance function, delivered as infrastructure</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-stop">Productivity for marketing teams</div>
+        <div class="lang-start">Governed decisions at scale</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-stop">Workflow automation for legal review</div>
+        <div class="lang-start">Substantiated, approved, auditable — by design</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-stop">Seats, users, logins, licences</div>
+        <div class="lang-start">The vault that makes your marketing defensible</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-stop">Faster content creation</div>
+        <div class="lang-start">Consumption-based, priced per governed decision</div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-stop">Marketing ops SaaS</div>
+        <div class="lang-start">Infrastructure replacing services spend</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- VOICE TEST -->
+  <div class="section-label">The voice test</div>
+  <h2 class="section-h2">Four questions, before every message.</h2>
+  <p class="section-sub">Before every email. Before every call. Before every follow-up.</p>
+
+  <div class="voice-test">
+    <h3>If any answer is no, sharpen it</h3>
+    <p class="vt-sub">Run this on any outbound message, any demo opener, any written reply.</p>
+    <ol>
+      <li>Does this reduce hesitation or confusion for the buyer?</li>
+      <li>Does it create momentum through certainty, not urgency?</li>
+      <li>Is it sharp enough to be remembered?</li>
+      <li>Does it sound like the sharpest mind in the room, on their side?</li>
+    </ol>
+    <p class="vt-close">If any answer is no, sharpen it.</p>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <h2>The one thing to remember.</h2>
+    <p style="margin-bottom: 24px;">The buyers who get this first will build a structural advantage over their competitors. We are not trying to convince people that AI matters — that conversation is over. We are helping them get in front of the regulation, the exposure, and the operating risk that AI has created for their brand. The earlier they act, the bigger the moat they build for themselves.</p>
+    <h2 style="font-size:clamp(22px,2.5vw,30px);margin-top:32px;">We are not selling software.<br>We are selling <em>the function</em>.</h2>
+    <p style="margin-top: 16px;">Sell it that way.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-left">Questions, pushback, a tough call to prep for? Bring it to the next sales sync or ping Craig directly — the positioning gets sharper the more we use it in the wild. · <a href="mailto:cam@flourishingworld.com">Email the team</a> · Confidential, for authorised advisors and customer-facing team only</div>
+  <div class="f-right">Flourish · Truth Marketing® · 2026</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.qa-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.qa-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
