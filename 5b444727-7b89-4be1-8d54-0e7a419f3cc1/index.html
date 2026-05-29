@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Magnum Ice Cream Company × Flourish</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Dark palette — cover, bands */
+  --dark:      #0B0814;
+  --dark2:     #150F20;
+  --dark3:     #1E1730;
+  --dark4:     #261E3A;
+  /* Cream palette — body */
+  --cream:     #F4F0E8;
+  --cream2:    #EDE8DE;
+  --cream3:    #FDFBF7;
+  --cream-bd:  #DDD8CC;
+  /* Type */
+  --ink:       #0B0814;
+  --ink2:      #2A2240;
+  --mid:       #7A7290;
+  --pale:      rgba(255,255,255,.42);
+  --pale2:     rgba(255,255,255,.18);
+  --pale3:     rgba(255,255,255,.08);
+  /* Brand */
+  --pink:      #FF2D7B;
+  --pink-a:    rgba(255,45,123,.14);
+  --pink-b:    rgba(255,45,123,.07);
+  --pink-c:    rgba(255,45,123,.28);
+  /* Rules */
+  --dk-rule:   rgba(255,255,255,.09);
+  --lt-rule:   #DDD8CC;
+  --serif:     'Playfair Display', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+}
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.65; }
+
+/* ══════════════════════════════
+   COVER — full dark drama
+══════════════════════════════ */
+.cover {
+  background: var(--dark);
+  position: relative; overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  min-height: 58vh;
+}
+
+/* atmospheric depth */
+.cover-atm {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 75% at 80% -15%, #2C0A1C 0%, #180A28 38%, transparent 65%),
+    radial-gradient(ellipse 35% 50% at 5% 110%, rgba(255,45,123,.07) 0%, transparent 60%);
+}
+/* left accent */
+.cover::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--pink) 0%, rgba(255,45,123,.4) 100%);
+  z-index: 5;
+}
+/* subtle grid texture */
+.cover::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.cv-left {
+  position: relative; z-index: 2;
+  padding: 76px 56px 68px 76px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.cv-right {
+  position: relative; z-index: 2;
+  padding: 76px 52px 68px 44px;
+  border-left: 1px solid var(--dk-rule);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+
+/* eyebrow */
+.eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 9.5px; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--pink); margin-bottom: 32px;
+}
+.eyebrow::before {
+  content: ''; display: block;
+  width: 28px; height: 1px; background: var(--pink); flex-shrink: 0;
+}
+
+/* title stack */
+.cv-title-group { display: flex; flex-direction: column; gap: 0; }
+.cv-supertitle {
+  font-family: var(--serif);
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 400; font-style: italic;
+  color: rgba(255,255,255,.38);
+  letter-spacing: .06em;
+  margin-bottom: 4px;
+}
+.cv-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(60px, 7.5vw, 96px);
+  line-height: .87;
+  letter-spacing: -3px;
+  color: #FFFFFF;
+}
+.cv-title-sub {
+  font-family: var(--serif);
+  font-weight: 400; font-style: italic;
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: rgba(255,255,255,.38);
+  letter-spacing: -.2px;
+  margin-top: 4px;
+  line-height: 1.1;
+}
+.cv-x {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic; font-weight: 300;
+  font-size: clamp(28px, 3.2vw, 40px);
+  color: var(--pink);
+  letter-spacing: -.5px;
+  margin-top: 18px;
+  line-height: 1;
+}
+.cv-tag {
+  font-family: var(--serif);
+  font-style: italic; font-weight: 300;
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: rgba(255,255,255,.44);
+  margin-top: 22px;
+  line-height: 1.55;
+  max-width: 400px;
+}
+
+/* stats */
+.cv-stats {
+  display: flex; gap: 36px;
+  margin-top: 52px; padding-top: 28px;
+  border-top: 1px solid var(--dk-rule);
+}
+.cvs-n {
+  font-family: var(--serif);
+  font-size: 34px; font-weight: 700;
+  color: #FF0066; line-height: 1; letter-spacing: -1px;
+  margin-bottom: 5px;
+}
+.cvs-l {
+  font-size: 10px; font-weight: 300;
+  color: rgba(255,255,255,.32); line-height: 1.45; max-width: 72px;
+}
+
+/* meta panel */
+.cv-meta-group { display: flex; flex-direction: column; gap: 24px; }
+.cv-meta-label {
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.22); margin-bottom: 5px;
+}
+.cv-meta-val {
+  font-size: 12.5px; font-weight: 300;
+  color: rgba(255,255,255,.72); line-height: 1.5;
+}
+.cv-badge {
+  display: inline-block;
+  font-size: 8.5px; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--pink); border: 1px solid var(--pink-c);
+  background: var(--pink-b); padding: 4px 11px; border-radius: 2px;
+}
+.cv-strapline {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 11.5px; color: rgba(255,255,255,.26);
+  line-height: 1.65; border-top: 1px solid var(--dk-rule);
+  padding-top: 20px; max-width: 180px;
+}
+
+/* ══════════════════════════════
+   TRANSITION RULE
+══════════════════════════════ */
+.trans-rule {
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink) 0%, rgba(255,45,123,.3) 35%, transparent 80%);
+}
+
+/* ══════════════════════════════
+   WORKFLOW BAND — dark
+══════════════════════════════ */
+.wf-band {
+  background: var(--dark2);
+  border-bottom: 1px solid var(--dark4);
+  padding: 52px 76px;
+}
+.wf-inner {
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  align-items: start;
+}
+.wf-col-label {
+  font-size: 9px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.wf-col-label.t { color: rgba(255,255,255,.3); }
+.wf-col-label.f { color: var(--pink); }
+.wf-chain { display: flex; flex-direction: column; }
+.wf-step {
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+  font-size: 13px; font-weight: 300; line-height: 1.4;
+}
+.wf-step:last-child { border-bottom: none; }
+.wf-step.off { color: rgba(255,255,255,.28); }
+.wf-step.on  { color: rgba(255,255,255,.82); }
+.d-off { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.15); flex-shrink: 0; }
+.d-on  { width: 5px; height: 5px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
+.wf-mid {
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 30px;
+}
+.wf-verdict {
+  grid-column: 1 / -1;
+  margin-top: 36px; padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.07);
+  text-align: center;
+}
+.verdict-text {
+  font-family: var(--serif);
+  font-style: italic; font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 28px);
+  color: rgba(255,255,255,.88);
+  letter-spacing: -.3px;
+}
+.verdict-text em { color: var(--pink); font-style: normal; font-weight: 400; }
+
+/* ══════════════════════════════
+   BODY GRID
+══════════════════════════════ */
+.body-grid { display: grid; grid-template-columns: 208px 1fr; }
+
+/* SIDEBAR */
+aside {
+  background: var(--dark3);
+  border-right: 1px solid var(--dark4);
+  padding: 52px 28px;
+  display: flex; flex-direction: column;
+}
+.nav-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-item:last-of-type { border-bottom: none; }
+.nav-n { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--pink); width: 16px; flex-shrink: 0; margin-top: 1px; }
+.nav-t { font-size: 11px; font-weight: 300; color: rgba(255,255,255,.38); line-height: 1.4; }
+.aside-foot { margin-top: auto; padding-top: 40px; }
+.aside-logo { font-family: var(--serif); font-size: 16px; color: rgba(255,255,255,.72); }
+.aside-logo span { color: var(--pink); }
+.aside-url { font-size: 9px; color: rgba(255,255,255,.22); margin-top: 4px; letter-spacing: .04em; }
+
+/* MAIN */
+main { background: var(--cream); padding: 60px 68px 84px 64px; }
+
+/* ══════════════════════════════
+   SECTIONS
+══════════════════════════════ */
+.sec { padding-bottom: 56px; border-bottom: 1px solid var(--lt-rule); margin-bottom: 56px; }
+.sec:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.sec-hd { display: grid; grid-template-columns: 56px 1fr; align-items: start; margin-bottom: 28px; }
+.sec-ghost {
+  font-family: var(--serif); font-size: 56px; font-weight: 700; font-style: italic;
+  color: var(--pink); line-height: .8; opacity: .1;
+  margin-top: -4px; user-select: none;
+}
+.sec-title {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: var(--ink); line-height: 1.1; letter-spacing: -.3px; padding-top: 2px;
+}
+.lead {
+  font-size: 14px; font-weight: 300; color: var(--ink2);
+  line-height: 1.8; margin-bottom: 24px; max-width: 630px;
+}
+.lead strong { color: var(--ink); font-weight: 500; }
+
+/* ── GAP CARDS ── */
+.gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.gap-card {
+  background: var(--cream3);
+  border: 1px solid var(--lt-rule);
+  border-top: 2px solid var(--lt-rule);
+  border-radius: 6px; padding: 20px 20px 18px;
+}
+.gap-card-tag {
+  font-size: 8.5px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: #B8B0C8; margin-bottom: 8px;
+}
+.gap-card-head { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+.gap-card-body { font-size: 12.5px; font-weight: 300; color: var(--mid); line-height: 1.65; }
+.gap-card.full { grid-column: 1 / -1; }
+
+/* ── PROOF STRIP ── */
+.proof-strip {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--lt-rule);
+  gap: 1px; background: var(--lt-rule);
+  margin-top: 4px;
+}
+.proof-cell { background: var(--cream3); padding: 22px 12px; text-align: center; }
+.proof-n {
+  font-family: var(--serif); font-size: 34px; font-weight: 700;
+  color: #FF0066; line-height: 1; letter-spacing: -1px; margin-bottom: 7px;
+}
+.proof-l { font-size: 11px; font-weight: 300; color: var(--mid); line-height: 1.5; }
+
+.eff-callout {
+  display: flex; align-items: center; gap: 18px;
+  margin-top: 12px;
+  background: var(--cream3);
+  border: 1px solid var(--lt-rule);
+  border-left: 3px solid var(--pink);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+}
+.eff-icon { font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--pink); flex-shrink: 0; }
+.eff-text { font-size: 13.5px; font-weight: 300; color: var(--ink2); line-height: 1.65; }
+.eff-text strong { color: var(--ink); font-weight: 500; }
+
+/* ── MARKET CARDS ── */
+.mkt-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin: 20px 0; }
+.mkt-card {
+  background: var(--cream3);
+  border: 1px solid var(--lt-rule);
+  border-radius: 6px; padding: 22px 20px;
+  position: relative; overflow: hidden;
+}
+.mkt-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--pink) 0%, rgba(255,45,123,.12) 100%);
+}
+.mkt-flag { font-size: 8.5px; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; color: var(--pink); margin-bottom: 9px; }
+.mkt-name { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 10px; }
+.mkt-body { font-size: 12.5px; font-weight: 300; color: var(--mid); line-height: 1.62; }
+
+.gets { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+.get-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 12.5px; font-weight: 300; color: var(--ink2);
+  line-height: 1.62; background: var(--cream3);
+  border: 1px solid var(--lt-rule); border-radius: 5px; padding: 11px 13px;
+}
+.get-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--pink); flex-shrink: 0; margin-top: 8px; }
+
+.blueprint-close {
+  margin-top: 16px; padding: 14px 18px;
+  border-left: 3px solid var(--pink);
+  background: var(--cream3); border-radius: 0 6px 6px 0;
+  font-size: 13.5px; font-weight: 300; color: var(--mid); line-height: 1.72;
+}
+.blueprint-close strong { color: var(--ink); font-weight: 500; }
+
+/* ── STEPS ── */
+.steps { display: flex; flex-direction: column; }
+.step {
+  display: grid; grid-template-columns: 30px 1fr; gap: 16px;
+  padding: 18px 0; border-bottom: 1px solid var(--lt-rule); align-items: start;
+}
+.step:last-child { border-bottom: none; }
+.sn {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--pink-c); background: var(--pink-b);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 500; color: var(--pink); flex-shrink: 0; margin-top: 1px;
+}
+.st { font-size: 13.5px; font-weight: 500; color: var(--ink); margin-bottom: 4px; line-height: 1.35; }
+.sb { font-size: 12.5px; font-weight: 300; color: var(--mid); line-height: 1.65; }
+
+/* ══════════════════════════════
+   SIGN-OFF — dark
+══════════════════════════════ */
+.signoff {
+  background: var(--dark2);
+  border-top: 1px solid var(--dark4);
+  padding: 40px 68px 40px 272px;
+  display: flex; justify-content: space-between; align-items: center; gap: 32px;
+}
+.so-logo { font-family: var(--serif); font-size: 18px; color: rgba(255,255,255,.72); }
+.so-logo span { color: var(--pink); }
+.so-strap { font-size: 9.5px; font-weight: 300; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); margin-top: 3px; }
+.so-url { font-size: 10px; color: rgba(255,255,255,.2); margin-top: 2px; }
+.so-quote {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 13px; color: rgba(255,255,255,.38);
+  line-height: 1.7; max-width: 300px; text-align: right;
+}
+.so-quote strong { color: rgba(255,255,255,.55); font-style: normal; font-weight: 400; }
+
+@media print {
+  *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-atm"></div>
+
+  <div class="cv-left">
+    <div>
+      <div class="eyebrow">Strategic Adoption Blueprint &nbsp;·&nbsp; May 2026</div>
+      <div class="cv-title-group">
+        <div class="cv-supertitle">The Magnum Ice Cream Company</div>
+        <div class="cv-title">MAGNUM</div>
+        <div class="cv-title-sub">Ice Cream Company</div>
+        <span class="cv-x">× Flourish</span>
+      </div>
+      <p class="cv-tag">From compliance checking to confidence infrastructure.</p>
+    </div>
+    <div class="cv-stats">
+      <div><div class="cvs-n">94%</div><div class="cvs-l">faster legal sign-off</div></div>
+      <div><div class="cvs-n">58%</div><div class="cvs-l">faster speed to market</div></div>
+      <div><div class="cvs-n">30%</div><div class="cvs-l">team capacity recovered</div></div>
+      <div><div class="cvs-n">£6M</div><div class="cvs-l">avg. annual saving</div></div>
+    </div>
+  </div>
+
+  <div class="cv-right">
+    <div class="cv-meta-group">
+      <div>
+        <div class="cv-meta-label">Prepared for</div>
+        <div class="cv-meta-val">The Magnum Ice Cream Company</div>
+      </div>
+      <div>
+        <div class="cv-meta-label">Document type</div>
+        <div class="cv-meta-val">Strategic Adoption Blueprint</div>
+      </div>
+      <div>
+        <div class="cv-meta-label">Prepared by</div>
+        <div class="cv-meta-val">Flourish<br>flourishingworld.com</div>
+      </div>
+      <div>
+        <div class="cv-meta-label">Date</div>
+        <div class="cv-meta-val">May 2026</div>
+      </div>
+      <div>
+        <div class="cv-meta-label">Classification</div>
+        <div class="cv-badge">Confidential</div>
+      </div>
+    </div>
+    <p class="cv-strapline">The AI operating system for creative, competitive and compliant marketing at speed.</p>
+  </div>
+</div>
+
+<div class="trans-rule"></div>
+
+<!-- ══ WORKFLOW BAND ══ -->
+<div class="wf-band">
+  <div class="wf-inner">
+    <div>
+      <div class="wf-col-label t">The workflow today</div>
+      <div class="wf-chain">
+        <div class="wf-step off"><span class="d-off"></span>Marketing brief</div>
+        <div class="wf-step off"><span class="d-off"></span>CTI insight pulled separately</div>
+        <div class="wf-step off"><span class="d-off"></span>Claims brainstormed in workshops</div>
+        <div class="wf-step off"><span class="d-off"></span>Manual Excel substantiation</div>
+        <div class="wf-step off"><span class="d-off"></span>Copilot risk check</div>
+        <div class="wf-step off"><span class="d-off"></span>Legal review</div>
+        <div class="wf-step off"><span class="d-off"></span>Revisions</div>
+        <div class="wf-step off"><span class="d-off"></span>Local translation — in isolation</div>
+        <div class="wf-step off"><span class="d-off"></span>Launch — if it survives the chain</div>
+      </div>
+    </div>
+
+    <div class="wf-mid">
+      <svg width="16" height="36" viewBox="0 0 16 36" fill="none">
+        <path d="M8 0L8 28M3 22L8 30L13 22" stroke="#FF2D7B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <div>
+      <div class="wf-col-label f">The workflow with Flourish</div>
+      <div class="wf-chain">
+        <div class="wf-step on"><span class="d-on"></span>Brief grounded in GWI audience intelligence</div>
+        <div class="wf-step on"><span class="d-on"></span>Claims drawn from the Vault, pre-validated</div>
+        <div class="wf-step on"><span class="d-on"></span>Legal guardrails at the point of creation</div>
+        <div class="wf-step on"><span class="d-on"></span>Traffic-light filtering before creative begins</div>
+        <div class="wf-step on"><span class="d-on"></span>Translation and localisation built in</div>
+        <div class="wf-step on"><span class="d-on"></span>Audit trail — automatic</div>
+        <div class="wf-step on"><span class="d-on"></span>Legal confirms what the system cleared</div>
+        <div class="wf-step on"><span class="d-on"></span>Launch</div>
+      </div>
+    </div>
+
+    <div class="wf-verdict">
+      <p class="verdict-text">Same campaign. <em>Faster.</em> Bolder. <em>Powered end to end.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BODY ══ -->
+<div class="body-grid">
+
+  <aside>
+    <div class="nav-item"><span class="nav-n">1</span><span class="nav-t">The gaps to fill</span></div>
+    <div class="nav-item"><span class="nav-n">2</span><span class="nav-t">The benefits</span></div>
+    <div class="nav-item"><span class="nav-n">3</span><span class="nav-t">The recommendation</span></div>
+    <div class="nav-item"><span class="nav-n">4</span><span class="nav-t">Next steps</span></div>
+    <div class="aside-foot">
+      <div class="aside-logo">Flourish<span>.</span></div>
+      <div class="aside-url">flourishingworld.com</div>
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- S1 -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-ghost">1</div><h2 class="sec-title">The gaps that need to be filled</h2></div>
+      <p class="lead">The Magnum Ice Cream Company has invested heavily in marketing compliance. That delivers real value today. But significant gaps remain — and they are costing efficiency across the wider marketing operation.</p>
+      <div class="gap-grid">
+        <div class="gap-card">
+          <div class="gap-card-tag">Upstream</div>
+          <div class="gap-card-head">No upstream layer.</div>
+          <div class="gap-card-body">Compliance review begins only once creative is built. Issues surface late. Revisions stack up. Brave campaigns are diluted to safe — or killed before they launch.</div>
+        </div>
+        <div class="gap-card">
+          <div class="gap-card-tag">Workflow</div>
+          <div class="gap-card-head">Excel and workshops.</div>
+          <div class="gap-card-body">Repetitive admin consumes team capacity. Institutional knowledge does not compound. Every campaign starts the cycle from zero.</div>
+        </div>
+        <div class="gap-card">
+          <div class="gap-card-tag">Scale</div>
+          <div class="gap-card-head">Legal coverage is EU-focused.</div>
+          <div class="gap-card-body">Other markets run on different systems, or none. The company cannot move at one speed globally. The existing investment does not scale beyond Europe.</div>
+        </div>
+        <div class="gap-card">
+          <div class="gap-card-tag">Intelligence</div>
+          <div class="gap-card-head">CTI and Marketing run in parallel.</div>
+          <div class="gap-card-body">Briefs are not grounded in audience intelligence at the point of creation. Related work is produced twice, without a shared verified source.</div>
+        </div>
+        <div class="gap-card full">
+          <div class="gap-card-tag">Governance</div>
+          <div class="gap-card-head">Limited audit trail. No global localisation layer.</div>
+          <div class="gap-card-body">Decisions are harder to defend if challenged. Translation and adaptation work doubles back through manual review in each market.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- S2 -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-ghost">2</div><h2 class="sec-title">The benefits</h2></div>
+      <p class="lead">Flourish takes everything Magnum has built and moves it forward into one platform. Insight, brief, claims, approval, localisation, translation. Risk handled upstream. Knowledge compounds inside the Vault. Laws update continuously across 50+ markets.</p>
+      <div class="proof-strip">
+        <div class="proof-cell"><div class="proof-n">94%</div><div class="proof-l">faster legal sign-off</div></div>
+        <div class="proof-cell"><div class="proof-n">58%</div><div class="proof-l">faster campaign speed to market</div></div>
+        <div class="proof-cell"><div class="proof-n">30%</div><div class="proof-l">team capacity recovered</div></div>
+        <div class="proof-cell"><div class="proof-n">£6M</div><div class="proof-l">average annual saving for enterprise clients</div></div>
+        <div class="proof-cell"><div class="proof-n">50+</div><div class="proof-l">markets with live legal updates</div></div>
+      </div>
+      <div class="eff-callout">
+        <div class="eff-icon">↓</div>
+        <div class="eff-text">From <strong>25 hours and 12 people</strong> per asset, down to <strong>under 5 hours and 3 people.</strong> The same asset. A fraction of the resource.</div>
+      </div>
+    </div>
+
+    <!-- S3 -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-ghost">3</div><h2 class="sec-title">The recommendation</h2></div>
+      <p class="lead">Adopt Flourish in three strategic markets. Prove the model. Build the blueprint for global scale.</p>
+      <div class="mkt-grid">
+        <div class="mkt-card">
+          <div class="mkt-flag">Priority market</div>
+          <div class="mkt-name">Brasil</div>
+          <div class="mkt-body">High-growth market. Significant regulatory complexity. Strong commercial case for speed-to-market improvement.</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-flag">EU market</div>
+          <div class="mkt-name">Spain</div>
+          <div class="mkt-body">EU regulatory environment. Mature marketing function. Builds directly on the compliance foundations already in place.</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-flag">GRP-1 market</div>
+          <div class="mkt-name">Poland</div>
+          <div class="mkt-body">Priority growth market. Natural second EU adoption for the blueprint. Strong appetite for end-to-end transformation.</div>
+        </div>
+      </div>
+      <p class="lead" style="margin-bottom:14px">What the Magnum Ice Cream Company gets in each market:</p>
+      <div class="gets">
+        <div class="get-item"><span class="get-dot"></span>End-to-end workflow, from brief through to approved, launched campaign</div>
+        <div class="get-item"><span class="get-dot"></span>Claims Vault seeded with existing libraries — localised</div>
+        <div class="get-item"><span class="get-dot"></span>Marketing and legal on one platform, full visibility, full audit trail</div>
+        <div class="get-item"><span class="get-dot"></span>GWI audience intelligence in every brief</div>
+        <div class="get-item"><span class="get-dot"></span>Continuous legal and regulatory updates managed by Flourish</div>
+        <div class="get-item"><span class="get-dot"></span>Translation and localisation built in</div>
+      </div>
+      <div class="blueprint-close">
+        <strong>Three markets. One standard.</strong> Every saved hour, every claim cleared, every workflow improvement — documented, repeatable, ready to scale.
+      </div>
+    </div>
+
+    <!-- S4 -->
+    <div class="sec">
+      <div class="sec-hd"><div class="sec-ghost">4</div><h2 class="sec-title">Agreed next steps</h2></div>
+      <div class="steps">
+        <div class="step"><div class="sn">1</div><div><div class="st">Flourish to share the full operating model</div><div class="sb">Upstream to downstream. How clients run the workflow in practice. Specific global brand use cases included.</div></div></div>
+        <div class="step"><div class="sn">2</div><div><div class="st">Magnum to identify priority countries and quantify the opportunity</div><div class="sb">Map which markets need enhancement. Estimate time savings and commercial benefits across legal and marketing functions.</div></div></div>
+        <div class="step"><div class="sn">3</div><div><div class="st">Schedule the workflow mapping workshop</div><div class="sb">Marketing team in the room, ideally UK. Deep process mapping across current workflow and Flourish. CTI representation welcomed.</div></div></div>
+        <div class="step"><div class="sn">4</div><div><div class="st">Confirm the adoption markets</div><div class="sb">Brasil, Spain, Poland. Define scope, timeline, and the internal champion for each.</div></div></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══ SIGN-OFF ══ -->
+<div class="signoff">
+  <div>
+    <div class="so-logo">Flourish<span>.</span></div>
+    <div class="so-strap">Truth Marketing®</div>
+    <div class="so-url">flourishingworld.com</div>
+  </div>
+  <p class="so-quote">The AI operating system for <strong>creative, competitive and compliant</strong> marketing at speed.</p>
+</div>
+
+</body>
+</html>
