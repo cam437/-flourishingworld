@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Group × Flourish</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #0D0A0F; color: #FFFFFF; font-size: 14px; line-height: 1.6;
+  }
+
+  .cover { height: 100vh; min-height: 580px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .cover-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 65% at 50% 0%, #2a0618 0%, transparent 65%); }
+  .cover-line-top { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, #FF2D7B 40%, #FF2D7B 60%, transparent 100%); }
+  .cover-inner { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 72px; max-width: 820px; }
+  .cover-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 36px; display: flex; align-items: center; gap: 14px; }
+  .cover-kicker::before { content: ''; display: block; width: 32px; height: 1px; background: #FF2D7B; }
+  .cover h1 { font-size: clamp(44px, 6vw, 80px); font-weight: 800; line-height: 1.06; letter-spacing: -0.025em; color: #fff; margin-bottom: 28px; }
+  .cover h1 em { font-style: normal; color: #FF2D7B; }
+  .cover-desc { font-size: clamp(15px, 1.6vw, 18px); font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 560px; }
+  .cover-desc strong { color: #fff; font-weight: 600; }
+  .cover-footer { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: stretch; }
+  .cover-clients { position: relative; z-index: 1; padding: 12px 32px; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: none; display: flex; align-items: center; gap: 32px; }
+  .cover-clients span { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+  .cover-clients .clients-label { font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); white-space: nowrap; }
+  .cover-footer-brand { padding: 20px 32px; border-right: 1px solid rgba(255,255,255,0.08); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .cover-footer-brand span { color: #FF2D7B; }
+  .cover-stats { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .cover-stat { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .cover-stat:last-child { border-right: none; }
+  .cover-stat .sn { font-size: 22px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; letter-spacing: -0.02em; }
+  .cover-stat .sl { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 64px 40px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #FF2D7B; margin-bottom: 16px; }
+  .section-h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; color: #fff; margin-bottom: 12px; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 40px 0; }
+
+  .context-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #FF2D7B; padding: 24px 28px; margin-bottom: 40px; }
+  .context-block h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .context-block p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .context-block p + p { margin-top: 10px; }
+  .context-block strong { color: #fff; font-weight: 600; }
+  .context-block .pink { color: #FF2D7B; font-weight: 700; }
+
+  .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .challenge-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-left: 2px solid #FF2D7B; padding: 22px; }
+  .challenge-card h4 { font-size: 13px; font-weight: 700; color: #FF2D7B; margin-bottom: 8px; }
+  .challenge-card p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.55; }
+  .challenge-card.urgent { border-left-color: #fff; background: rgba(255,255,255,0.06); }
+  .challenge-card.urgent h4 { color: #fff; }
+  .challenge-card.urgent .urgency-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #FF2D7B; border: 1px solid rgba(255,45,123,0.4); padding: 2px 8px; margin-bottom: 10px; }
+
+  .gap-block { background: rgba(255,45,123,0.08); border: 1px solid rgba(255,45,123,0.25); padding: 28px 32px; margin-bottom: 24px; }
+  .gap-block .culture-line { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.35; }
+  .gap-block p { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.85); line-height: 1.75; }
+  .gap-block p + p { margin-top: 10px; }
+  .gap-block strong { color: #FF2D7B; font-weight: 700; }
+
+  .culture-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 28px 32px; margin-bottom: 40px; }
+  .culture-block h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .culture-block p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .culture-block p + p { margin-top: 10px; }
+  .culture-block strong { color: #fff; font-weight: 600; }
+  .culture-block .paddy { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); border-left: 2px solid rgba(255,45,123,0.4); padding-left: 12px; font-style: italic; }
+
+  .solution-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .solution-item { display: flex; gap: 14px; align-items: flex-start; padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); }
+  .solution-num { min-width: 28px; height: 28px; background: #FF2D7B; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .solution-text h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .solution-text p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+  .roi-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 40px; }
+  .roi-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-top: 2px solid #FF2D7B; padding: 22px; }
+  .roi-card .big { font-size: 30px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; }
+  .roi-card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FF2D7B; margin-bottom: 10px; }
+  .roi-card p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  .transform-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 40px; }
+  .transform-table thead td { padding: 10px 14px; background: #1a1a1a; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .transform-table thead td:first-child, .transform-table thead td:last-child { color: #FF2D7B; }
+  .transform-table thead td:nth-child(2) { color: rgba(255,255,255,0.45); }
+  .transform-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .transform-table td { padding: 14px; vertical-align: top; line-height: 1.55; }
+  .transform-table .row-label { font-weight: 700; color: #fff; background: rgba(255,255,255,0.02); font-size: 12px; width: 18%; }
+  .transform-table .from-col { font-weight: 300; color: rgba(255,255,255,0.5); width: 38%; }
+  .transform-table .arrow-col { text-align: center; color: #FF2D7B; font-size: 16px; font-weight: 700; padding: 14px 8px; width: 4%; }
+  .transform-table .to-col { color: rgba(255,255,255,0.85); font-weight: 400; width: 40%; }
+
+  .close-section { background: linear-gradient(135deg, #3A0A1E 0%, #1A0512 100%); border: 1px solid rgba(255,45,123,0.2); padding: 40px; text-align: center; margin-bottom: 24px; }
+  .close-section h2 { font-size: 20px; font-weight: 800; line-height: 1.4; max-width: 640px; margin: 0 auto 14px; }
+  .close-section h2 span { color: #FF2D7B; }
+  .close-section p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+  .demo-block { border: 1px solid rgba(255,45,123,0.3); padding: 32px 40px; margin-bottom: 32px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+  .demo-block h4 { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .demo-block p { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .demo-block p + p { margin-top: 8px; }
+  .demo-screens { display: flex; gap: 6px; flex-shrink: 0; }
+  .demo-screen { width: 80px; height: 52px; background: rgba(255,45,123,0.08); border: 1px solid rgba(255,45,123,0.2); display: flex; flex-direction: column; justify-content: flex-end; padding: 6px; gap: 3px; }
+  .demo-screen .bar { height: 4px; background: rgba(255,45,123,0.5); border-radius: 1px; }
+  .demo-screen .bar.full { width: 100%; background: #FF2D7B; }
+  .demo-screen .bar.mid { width: 65%; }
+  .demo-screen .bar.short { width: 40%; }
+  .demo-screen .label { font-size: 7px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 2px; }
+  .demo-cta { display: inline-block; background: #FF2D7B; color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 28px; margin-top: 16px; cursor: pointer; }
+
+  .footer { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
+  .footer-brand span { color: #FF2D7B; }
+  .footer-tagline { font-size: 11px; color: rgba(255,255,255,0.25); font-style: italic; }
+
+  @media (max-width: 680px) {
+    .cover-inner { padding: 0 28px; }
+    .cover-stats { grid-template-columns: repeat(2, 1fr); }
+    .challenge-grid, .solution-grid, .roi-grid { grid-template-columns: 1fr; }
+    .demo-block { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-line-top"></div>
+  <div class="cover-inner">
+    <div class="cover-kicker">Flourish × Super Group · 2026</div>
+    <h1>Your marketing engine<br>is world class.<br><em>Make compliance speed match it.</em></h1>
+    <p class="cover-desc">Super Group's advanced analytics powers highly personalised customer experiences across 20+ regulated jurisdictions. <strong>Flourish is the force multiplier that gets bold, compliant marketing to market at the speed of cultural moments.</strong></p>
+  </div>
+  <div class="cover-clients">
+    <span class="clients-label">Trusted by</span>
+    <span>NIKE</span>
+    <span>MEDTRONIC</span>
+    <span>ALLIANZ</span>
+    <span>EDF</span>
+    <span>VECTO VENTURES</span>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-footer-brand"><span>Flourish</span> · Truth Marketing®</div>
+    <div class="cover-stats">
+      <div class="cover-stat"><div class="sn">20+</div><div class="sl">Regulated jurisdictions</div></div>
+      <div class="cover-stat"><div class="sn">80%</div><div class="sl">Revenue from casino</div></div>
+      <div class="cover-stat"><div class="sn">$2.2bn</div><div class="sl">2025 revenue</div></div>
+      <div class="cover-stat"><div class="sn">7 weeks</div><div class="sl">To FIFA World Cup</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+
+  <div class="section-label">Where You Stand</div>
+  <div class="context-block">
+    <h3>Your category is about to split between operators who cut and operators who accelerate. This is how you achieve both and win.</h3>
+    <p>You enter 2026 with genuine momentum: $2.2bn revenue, 57% EBITDA growth, 5.6 million monthly active customers, and $2.55bn+ guidance. Margins have expanded from 14% to 25% in three years. This is a business that knows how to execute.</p>
+    <p>However, you face headwinds. In the UK, an important market for licensing credibility, Remote Gaming Duty rises from 21% to 40% in April 2026 and General Betting Duty rises from 15% to 25% in April 2027. Your CFO has flagged a meaningful EBITDA impact, and the regulatory environment across your 20+ jurisdictions continues to tighten.</p>
+    <p>Cutting spend will only compensate on paper. Doing so risks compounding the commercial problem: slower growth, weaker retention, diminished competitive position. <strong>Let your competitors take that path. You take the alternative: spend smarter. AI-speed, personalised, compliant campaigns at a fraction of traditional production cost, reaching market before the moment closes. That is the commercial case for Flourish.</strong></p>
+  </div>
+
+  <div class="section-label">Your Business Model</div>
+  <div class="context-block" style="border-left-color: rgba(255,45,123,0.4);">
+    <h3>Betway is the gateway. Casino is the engine.</h3>
+    <p>Revenue splits approximately 80% casino, 20% sportsbook. Betway's role, and the rationale behind its Premier League and global sports partnerships, is top-of-funnel brand awareness that pulls customers into higher-margin casino products across 100+ brands including Spin, Jackpot City, Royal Vegas, and Ruby Fortune.</p>
+    <p>Casino is where the biggest AI marketing opportunity sits. It is highly personalised, deeply audience-specific, and affiliate-heavy. It is also where most of the regulatory complexity concentrates. Content that can be far more targeted than sportsbook advertising is also far harder to govern at scale without the right infrastructure.</p>
+    <p>Flourish provides AI-speed legal governance, enabling in-house marketing teams to match the pace of sporting moments, safely.</p>
+  </div>
+
+  <div class="section-label">The Pressures You Are Navigating</div>
+  <div class="challenge-grid">
+
+    <div class="challenge-card urgent">
+      <div class="urgency-tag">June 11 · 7 weeks away</div>
+      <h4>FIFA World Cup 2026: the biggest guerrilla playground in gambling history</h4>
+      <p>FIFA is open territory for fast, culturally relevant, compliant campaigns. There is no dominant operator voice to compete against. The operators who have governance infrastructure in place first will be the ones who emerge as category champions. You still have time to create a radically faster compliance function that can work at the speed of sporting moments. The window is now.</p>
+    </div>
+
+    <div class="challenge-card">
+      <h4>Affiliate content is the wild west, across sportsbook and casino</h4>
+      <p>Affiliates are one of the fastest-growing acquisition channels across both casino and Betway sportsbook. They are also almost entirely ungoverned. In regulated European markets, affiliate-produced content carries the same compliance obligations as first-party advertising. Your brand is liable for what affiliates publish, regardless of who created it. This is one of the most urgent and underserved problems in the industry.</p>
+    </div>
+
+    <div class="challenge-card">
+      <h4>Casino personalisation at scale has no governance layer</h4>
+      <p>Casino marketing demands highly personalised, audience-specific content across 100+ brands and 20+ markets. Without compliance infrastructure built for that volume and variety, every asset is a manual process, a legal queue, and a potential liability. Red Interactive is executing at scale without the governance to match it.</p>
+    </div>
+
+    <div class="challenge-card">
+      <h4>Africa is your growth engine and your biggest compliance frontier</h4>
+      <p>Africa delivers around 40% of group revenue across 8 active markets, with Ivory Coast, Angola, and Ethiopia in pipeline. Regulatory frameworks are forming fast. The operators that build compliant, localised marketing infrastructure first will own the category credibility, and the licences, when regulation tightens. Waiting is a competitive risk.</p>
+    </div>
+
+    <div class="challenge-card">
+      <h4>UK regulatory changes demand marketing precision</h4>
+      <p>Duty increases tighten margin on a market that matters for licensing credibility. Every campaign that stalls in legal review, every claim that gets diluted, and every moment ceded to a competitor is a direct commercial cost. When promotional budgets are under pressure, the speed and quality of every campaign counts for more.</p>
+    </div>
+
+    <div class="challenge-card">
+      <h4>EU AI Act obligations land in August 2026</h4>
+      <p>AI-generated marketing content requires documented provenance, human oversight records, and disclosure from August 2026. Your analytics infrastructure is built for customer data and risk. It does not produce AI content audit trails. Without governance built in at creation, legal defaults to no. The FIFA World Cup window does not wait.</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">The Orchestration Gap</div>
+  <div class="section-h2">Culture doesn't wait for your approval cycle.</div>
+  <div class="gap-block">
+    <p class="culture-line">Every marketer wants to be culturally relevant. The ones who are didn't get there by moving faster. They got there by being ready.</p>
+    <p>Your data engine is built for customers, personalisation and risk. Not for AI-powered marketing governance or the speed of AI content approvals. Your proprietary analytics capability is central to your business model, evidenced by a dedicated Chief Analytics and Modelling Officer at C-suite level. It powers the sportsbook-to-casino conversion model that underpins your margin structure.</p>
+    <p>But it does not govern brand claims across 20+ jurisdictions, route campaigns to market-specific legal approvers, produce EU AI Act documentation, extend compliance to affiliate content, or cascade your marketing strategy to every team in every market.     <strong>Flourish connects your data engine to marketing compliance, at machine speed.</strong></p>
+  </div>
+
+  <div class="culture-block">
+    <h4>The real prize: cultural relevance at machine speed</h4>
+    <p>What cuts through is authentic, audience-oriented cultural relevance. Social platforms are not part of culture. They are culture, especially for the 18-35 demographic at the heart of your acquisition model and casino cross-sell. Brands that are not shaping content for that environment are not part of the conversation.</p>
+    <p>Culture is the multiplier. Landing campaigns inside memes, trends, and live moments drives the kind of attention and brand engagement that paid media alone cannot buy. That means brief to execution in days, not weeks. <strong>Flourish removes the governance bottleneck that stops culturally relevant campaigns reaching market before the moment passes.</strong></p>
+  </div>
+
+  <div class="section-label">What Flourish Delivers</div>
+  <div class="solution-grid">
+    <div class="solution-item">
+      <div class="solution-num">1</div>
+      <div class="solution-text">
+        <h4>Win sporting moments over competitors</h4>
+        <p>Publish marketing content at unparalleled speed. Give your teams the infrastructure that fulfils their creative potential, making AI-powered messaging viable at scale, legally, and fast enough to own the moment before a competitor does.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">2</div>
+      <div class="solution-text">
+        <h4>Casino personalisation and affiliate governance, built in</h4>
+        <p>Highly personalised casino content governed automatically against audience, brand, and regulatory context for every market. Approved assets and claims distributed to affiliate partners with compliance guardrails built in, across both sportsbook and casino channels.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">3</div>
+      <div class="solution-text">
+        <h4>Africa compliance from day one</h4>
+        <p>Each new African territory scoped into the platform before launch. Localised regulatory intelligence embedded from activation. Proactive governance that builds category credibility as markets formalise.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">4</div>
+      <div class="solution-text">
+        <h4>Claims that never get queried twice</h4>
+        <p>Every approved claim held with evidence, approval timestamp, lifecycle status, and strength score. Legal confirms rather than investigates. The same claim never re-opened across any of the 100+ brands.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">5</div>
+      <div class="solution-text">
+        <h4>Maximise speed and knowledge</h4>
+        <p>Market-ready in days, so World Cup moments and cultural windows are never missed. Capture and codify team knowledge so it accumulates and never leaves.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <div class="solution-num">6</div>
+      <div class="solution-text">
+        <h4>EU AI Act compliance built in</h4>
+        <p>Every AI-generated asset carries full provenance: model, timestamp, human oversight recorded. Audit trail exportable. Disclosure flags applied before content leaves the platform. Legal says yes with confidence.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">The Commercial Return</div>
+  <div class="roi-grid">
+    <div class="roi-card">
+      <h4>Marketing ROI</h4>
+      <div class="big">22%</div>
+      <p>You spend around 22% of revenue on marketing. At $2.55bn+ guidance, that is over $560m annually. Under margin pressure, every pound must work harder and move faster. Flourish ensures it does both.</p>
+    </div>
+    <div class="roi-card">
+      <h4>Legal Assurance</h4>
+      <div class="big">€5M</div>
+      <p>Flourish carries €5M legal assurance behind every recommendation. One enforcement action in a tier-one jurisdiction creates cross-market regulatory risk. One avoided incident covers the platform many times over.</p>
+    </div>
+    <div class="roi-card">
+      <h4>Speed to Market</h4>
+      <div class="big">94%</div>
+      <p>Faster legal sign-off across all campaigns. When your commercial model depends on capturing sporting moments and cultural windows, and the FIFA World Cup opens in seven weeks, days versus weeks is the difference between owning the moment and watching a competitor take it.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Before and After Flourish</div>
+  <table class="transform-table">
+    <thead>
+      <tr>
+        <td>Area</td>
+        <td>From</td>
+        <td></td>
+        <td>To</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="row-label">Casino marketing</td>
+        <td class="from-col">Personalised casino content at volume with no governance layer. Red Interactive executing without the compliance infrastructure to match the pace or complexity.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">AI-speed, personalised, compliant casino content across 100+ brands. Red Interactive powered by the governance layer that makes bold, fast execution safe.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Affiliate content</td>
+        <td class="from-col">Affiliate-produced content ungoverned across sportsbook and casino. Brand liable for compliance failures it did not create, in markets where exposure is most costly.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Approved assets and claims distributed to affiliates with guardrails. Compliance consistent whether content is first-party or affiliate-produced.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Cultural moments</td>
+        <td class="from-col">Campaigns built around live moments stall in legal review and exit approval after the window has closed.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Pre-approved claims and parallel approval routing means culturally relevant campaigns ship at event speed. The moment is owned, not missed.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Africa expansion</td>
+        <td class="from-col">Compliance built from scratch per market. Governance lags activation. Regulatory credibility at risk in markets that are about to formalise.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Each new territory scoped into the platform before launch. Localised compliance from day one. Category credibility established before competitors arrive.</td>
+      </tr>
+      <tr>
+        <td class="row-label">AI content</td>
+        <td class="from-col">No audit trail. No EU AI Act documentation. Legal defaults to no on AI-generated assets.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Every AI asset documented from creation. Provenance, oversight, and disclosure automatic. August 2026 becomes a competitive advantage over every ungoverned competitor.</td>
+      </tr>
+      <tr>
+        <td class="row-label">Brand consistency</td>
+        <td class="from-col">When team members move roles or leave, their knowledge and ways of working are lost.</td>
+        <td class="arrow-col">→</td>
+        <td class="to-col">Tacit knowledge and behaviours are codified to constantly accumulate institutional knowledge as a competitive edge.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="close-section">
+    <h2>Your advanced data analytics engine allows for highly personalised customer experiences.<br><span>Flourish turns that capability into campaigns that launch: bold, compliant, fast.</span></h2>
+    <p>Spend with precision. Know exactly what you have the right to say, and say it boldly. Approve at machine speed. Reach market before the moment closes. This is what Flourish makes possible.</p>
+  </div>
+
+  <div class="demo-block">
+    <div>
+      <h4>See the platform. See the difference.</h4>
+      <p>The Flourish dashboard brings every element of this into one place: claims library, regulatory intelligence, approval workflows, AI content audit trails, and brand vault, across every market, every brand, every brief. The governance layer made real.</p>
+      <p>One session is enough to see how Flourish can work as your marketing compliance function, delivered as AI infrastructure.</p>
+      <div class="demo-cta">Request a live demo</div>
+    </div>
+    <div class="demo-screens">
+      <div class="demo-screen">
+        <div class="label">Vault</div>
+        <div class="bar full"></div>
+        <div class="bar mid"></div>
+        <div class="bar short"></div>
+      </div>
+      <div class="demo-screen">
+        <div class="label">Claims</div>
+        <div class="bar full"></div>
+        <div class="bar full"></div>
+        <div class="bar mid"></div>
+      </div>
+      <div class="demo-screen">
+        <div class="label">Approvals</div>
+        <div class="bar mid"></div>
+        <div class="bar full"></div>
+        <div class="bar short"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand"><span>Flourish</span> · The agentic solution for bold, compliant marketing</div>
+    <div class="footer-tagline">Greenlight Greatness</div>
+  </div>
+
+</div>
+</body>
+</html>
