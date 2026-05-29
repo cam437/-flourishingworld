@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flourish Platform Pricing — H1 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0D0A0F;
+      --border:   rgba(255,255,255,0.07);
+      --border-s: rgba(255,255,255,0.04);
+      --pink:     #FF2D7B;
+      --white:    #FFFFFF;
+      --w80:      rgba(255,255,255,0.8);
+      --w50:      rgba(255,255,255,0.5);
+      --w30:      rgba(255,255,255,0.3);
+      --w10:      rgba(255,255,255,0.1);
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 24px 48px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { height: 20px; width: auto; display: block; }
+    .header-right { display: flex; align-items: center; gap: 14px; }
+    .header-label { font-size: 12px; font-weight: 300; color: var(--w30); }
+    .pill {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--pink);
+      border: 1px solid rgba(255,45,123,0.3); padding: 3px 10px; border-radius: 20px;
+    }
+
+    /* ── PAGE ── */
+    .page { max-width: 880px; margin: 0 auto; padding: 48px 48px 72px; }
+
+    /* ── INTRO ── */
+    .intro { margin-bottom: 48px; }
+    .intro h1 {
+      font-size: clamp(26px, 3.5vw, 38px); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px;
+    }
+    .intro h1 em { font-style: normal; color: var(--pink); }
+    .intro p { font-size: 14px; color: var(--w50); max-width: 440px; line-height: 1.7; }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    .section-label span {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--pink); white-space: nowrap;
+    }
+    .section-label hr { flex: 1; border: none; border-top: 1px solid var(--border); }
+
+    /* ── WAVE BLOCK ── */
+    .wave { margin-bottom: 40px; }
+
+    .wave-meta {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 20px; padding-bottom: 16px; flex-wrap: wrap;
+    }
+    .wave-meta h3 { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+    .wave-meta .mkts { font-size: 12px; color: var(--w30); font-weight: 300; line-height: 1.6; }
+    .ea-note {
+      font-size: 11px; color: var(--w30); line-height: 1.6;
+      border-left: 2px solid rgba(255,45,123,0.3); padding-left: 10px;
+      text-align: right; max-width: 240px;
+    }
+    .ea-note strong { display: block; color: var(--pink); font-weight: 600; font-size: 11px; margin-bottom: 1px; }
+
+    /* ── TABLE ── */
+    .tbl-wrap {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    table { width: 100%; border-collapse: collapse; }
+
+    /* column widths */
+    col.c-item  { width: 34%; }
+    col.c-mkt   { width: 15%; }
+    col.c-std   { width: 17%; }
+    col.c-basis { width: 16%; }
+    col.c-ea    { width: 18%; }
+
+    thead tr { background: rgba(255,255,255,0.025); }
+    thead th {
+      padding: 10px 16px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase;
+      color: var(--w30); text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    thead th.h-std { color: var(--w80); }
+    thead th.h-ea  { color: var(--pink); }
+
+    /* body rows */
+    tbody tr { border-bottom: 1px solid var(--border-s); }
+    tbody tr:last-child { border-bottom: none; }
+
+    td {
+      padding: 12px 16px;
+      font-size: 13px; font-weight: 300;
+      color: var(--w50); vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* cell types */
+    .c-item-cell  { color: var(--white); font-weight: 500; }
+    .c-mkt-cell   { color: var(--w30); font-size: 12px; }
+    .c-std-cell   { color: var(--w80); font-weight: 400; font-variant-numeric: tabular-nums; }
+    .c-basis-cell { color: var(--w30); font-size: 12px; }
+    .c-ea-cell    { color: var(--pink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+    /* sub rows (market breakdown) */
+    tr.sub td { border-bottom-color: transparent; }
+    tr.sub .c-mkt-cell { padding-left: 24px; color: var(--w30); }
+    tr.sub .c-std-cell { color: var(--w50); }
+    tr.sub .c-ea-cell  { color: rgba(255,45,123,0.55); }
+
+    /* group separator */
+    tr.group-sep td { border-top: 1px solid var(--border); }
+
+    /* subtotal row */
+    tr.subtotal { background: rgba(255,255,255,0.02); }
+    tr.subtotal td { color: var(--w50); font-size: 12px; border-top: 1px solid var(--border-s); }
+    tr.subtotal .c-item-cell { color: var(--w30); font-weight: 400; font-size: 12px; padding-left: 24px; }
+    tr.subtotal .c-std-cell  { color: var(--w80); font-weight: 600; font-size: 13px; }
+    tr.subtotal .c-ea-cell   { color: var(--pink); font-weight: 600; font-size: 13px; }
+
+    /* wave total row */
+    tr.wave-total { background: rgba(255,45,123,0.06); }
+    tr.wave-total td { border-top: 1px solid rgba(255,45,123,0.15); color: var(--white); font-weight: 600; }
+    tr.wave-total .c-item-cell { font-size: 14px; font-weight: 700; }
+    tr.wave-total .c-std-cell  { font-size: 15px; font-weight: 700; color: var(--white); }
+    tr.wave-total .c-ea-cell   { font-size: 15px; font-weight: 700; color: var(--pink); }
+    tr.wave-total .c-basis-cell { color: var(--w30); font-size: 11px; }
+
+    /* ── SUMMARY CARDS ── */
+    .summary { margin-top: 44px; }
+    .cards {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px; margin-top: 16px;
+    }
+    .card {
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 22px 20px;
+    }
+    .card.featured {
+      border-color: rgba(255,45,123,0.25);
+      background: rgba(255,45,123,0.05);
+    }
+    .card .lbl {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.11em;
+      text-transform: uppercase; color: var(--w30); margin-bottom: 8px;
+    }
+    .card.featured .lbl { color: var(--pink); }
+    .card .amt {
+      font-size: 26px; font-weight: 800; color: var(--white);
+      letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+      line-height: 1; margin-bottom: 6px;
+    }
+    .card.featured .amt { color: var(--pink); }
+    .card .sub { font-size: 11px; color: var(--w30); line-height: 1.55; }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: 880px; margin: 0 auto;
+      padding: 20px 48px 40px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    footer p { font-size: 11px; color: var(--w30); }
+    footer a { color: var(--pink); text-decoration: none; }
+    .tm {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--pink);
+      border: 1px solid rgba(255,45,123,0.25); padding: 4px 10px; border-radius: 20px;
+    }
+
+    @media (max-width: 660px) {
+      header, .page, footer { padding-left: 20px; padding-right: 20px; }
+      .cards { grid-template-columns: 1fr; }
+      .wave-meta { flex-direction: column; }
+      .ea-note { text-align: left; }
+      td, th { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg class="logo" viewBox="0 0 110.002 18.3074" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.7336 0.356239H15.3203V17.9511H27.0563V14.9156H18.7336V0.356239Z" fill="white"/>
+    <path d="M35.154 0C30.0689 0 26.6523 3.6734 26.6523 9.14126C26.6523 14.6091 30.0689 18.3057 35.154 18.3057C40.2391 18.3057 43.6557 14.5362 43.6557 9.14126C43.6557 3.74631 40.2391 0 35.154 0ZM35.154 15.247C31.9528 15.247 30.0424 12.9638 30.0424 9.14126C30.0424 3.49777 33.9544 3.05868 35.154 3.05868C39.8746 3.05868 40.2424 7.71465 40.2424 9.14126C40.2424 12.9654 38.3403 15.247 35.154 15.247Z" fill="white"/>
+    <path d="M55.2781 11.8454C55.2781 14.1982 54.1978 15.2487 51.7753 15.2487C49.3529 15.2487 48.2958 14.1999 48.2958 11.8454V0.356239H44.8809V11.8454C44.8809 14.793 46.0772 18.3074 51.7753 18.3074C57.4735 18.3074 58.6698 14.793 58.6698 11.8454V0.356239H55.2797V11.8454H55.2781Z" fill="white"/>
+    <path d="M79.6435 0.356239H76.2285V17.9511H79.6435V0.356239Z" fill="white"/>
+    <path d="M88.2604 7.21923L88.0301 7.16123C85.6574 6.55977 84.6085 6.2317 84.6085 4.75538C84.6085 3.69329 85.6739 3.06034 87.4585 3.06034C89.5462 3.06034 90.6779 3.95343 90.9181 5.79261L90.9546 6.07098H94.3513L94.3281 5.72965C94.0911 2.19543 91.4599 0 87.4585 0C83.457 0 81.2168 1.87564 81.2168 5.01552C81.2168 8.33434 83.9425 9.4859 86.8901 10.2348C90.2835 11.0915 91.3572 11.4444 91.3572 13.1494C91.3572 14.4832 90.2239 15.2487 88.2505 15.2487C85.6093 15.2487 84.1396 14.1137 84.0004 11.968L83.9806 11.6681H80.5723L80.5872 12.0011C80.7496 15.8319 83.7585 18.3074 88.2505 18.3074C92.2122 18.3074 94.7721 16.2362 94.7721 13.0317C94.7721 8.90929 91.609 8.08911 88.2604 7.21923Z" fill="white"/>
+    <path d="M14.006 3.39173V0.356239H0.00331385V17.8335C0.00331385 17.8733 0 17.913 0 17.9528H3.41658C3.41658 13.9463 6.69729 10.6855 10.7037 10.6855H12.9091V7.24739H10.7037C7.89028 7.24739 5.32867 8.33931 3.41658 10.1205V3.39173H14.006Z" fill="white"/>
+    <path d="M70.9351 9.96144L71.3692 9.78083C72.9847 9.0667 73.8629 7.58872 73.8629 5.53745C73.8629 2.34124 71.578 0.356239 67.9013 0.356239H59.9961V17.9511H63.411V11.4593H65.6678C69.1158 11.4593 71.9226 14.5031 71.9226 17.9511H75.2431C75.2431 14.6157 73.5282 11.6764 70.9351 9.96144ZM63.411 3.39173H67.318C69.5582 3.39173 70.4712 4.10918 70.4712 5.87049C70.4712 7.15792 70.0884 8.34925 67.318 8.34925H63.411V3.39338V3.39173Z" fill="white"/>
+    <path d="M106.588 0.356239V5.12487C103.794 5.13481 101.251 6.22176 99.3484 7.98804V0.356239H95.9335V15.3531C95.9268 15.5105 95.9219 15.6679 95.9219 15.8286V17.9511H99.36V15.3531C99.36 11.3599 102.599 8.57956 106.588 8.56134V17.9495H110.002V0.356239H106.588Z" fill="white"/>
+  </svg>
+  <div class="header-right">
+    <span class="header-label">Platform Pricing</span>
+    <span class="pill">H1 2026</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="intro">
+    <h1>Market entry.<br>Two waves. <em>One platform.</em></h1>
+    <p>GLP-1 programme pricing — structured for speed to market, with an early adopter path for brands who move first.</p>
+  </div>
+
+  <!-- ══════════════════════════
+       WAVE ONE
+  ══════════════════════════ -->
+  <div class="wave">
+    <div class="section-label">
+      <span>Wave One — May Start</span><hr>
+    </div>
+    <div class="wave-meta">
+      <div>
+        <h3>UK · Canada · France · Germany</h3>
+        <div class="mkts">4 markets · Full vault set-up + annual licences</div>
+      </div>
+      <div class="ea-note">
+        <strong>Early Adopter</strong>
+        Partnership launch press release<br>+ one speaking engagement
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <colgroup>
+          <col class="c-item"><col class="c-mkt">
+          <col class="c-std"><col class="c-basis"><col class="c-ea">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Item</th><th>Market</th>
+            <th class="h-std">Standard</th><th>Basis</th>
+            <th class="h-ea">Early Adopter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="c-item-cell">Discovery &amp; process mapping</td>
+            <td class="c-mkt-cell">—</td>
+            <td class="c-std-cell">£15,000</td>
+            <td class="c-basis-cell">one-off</td>
+            <td class="c-ea-cell">£10,000</td>
+          </tr>
+          <tr>
+            <td class="c-item-cell">Brief for AI asset production</td>
+            <td class="c-mkt-cell">—</td>
+            <td class="c-std-cell">£10,000</td>
+            <td class="c-basis-cell">one-off</td>
+            <td class="c-ea-cell">£6,667</td>
+          </tr>
+
+          <tr class="group-sep">
+            <td class="c-item-cell" rowspan="5" style="vertical-align:top; padding-top:13px">Vault &amp; GLP-1 set-up</td>
+            <td class="c-mkt-cell">UK</td>
+            <td class="c-std-cell">£15,000</td>
+            <td class="c-basis-cell">per market</td>
+            <td class="c-ea-cell">£10,000</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">France</td>
+            <td class="c-std-cell">£15,000</td>
+            <td class="c-basis-cell">per market</td>
+            <td class="c-ea-cell">£10,000</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">Germany</td>
+            <td class="c-std-cell">£15,000</td>
+            <td class="c-basis-cell">per market</td>
+            <td class="c-ea-cell">£10,000</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">Canada</td>
+            <td class="c-std-cell">£15,000</td>
+            <td class="c-basis-cell">per market</td>
+            <td class="c-ea-cell">£10,000</td>
+          </tr>
+          <tr class="subtotal">
+            <td class="c-item-cell">Set-up subtotal</td>
+            <td class="c-std-cell">£60,000</td>
+            <td class="c-basis-cell">4 markets</td>
+            <td class="c-ea-cell">£40,000</td>
+          </tr>
+
+          <tr class="group-sep">
+            <td class="c-item-cell" rowspan="5" style="vertical-align:top; padding-top:13px">User licences</td>
+            <td class="c-mkt-cell">UK</td>
+            <td class="c-std-cell">£750 /mo</td>
+            <td class="c-basis-cell">£9,000 /yr</td>
+            <td class="c-ea-cell">£500 /mo</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">France</td>
+            <td class="c-std-cell">£750 /mo</td>
+            <td class="c-basis-cell">£9,000 /yr</td>
+            <td class="c-ea-cell">£500 /mo</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">Germany</td>
+            <td class="c-std-cell">£750 /mo</td>
+            <td class="c-basis-cell">£9,000 /yr</td>
+            <td class="c-ea-cell">£500 /mo</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">Canada</td>
+            <td class="c-std-cell">£750 /mo</td>
+            <td class="c-basis-cell">£9,000 /yr</td>
+            <td class="c-ea-cell">£500 /mo</td>
+          </tr>
+          <tr class="subtotal">
+            <td class="c-item-cell">Annual licence subtotal</td>
+            <td class="c-std-cell">£36,000</td>
+            <td class="c-basis-cell">per annum</td>
+            <td class="c-ea-cell">£24,000</td>
+          </tr>
+
+          <tr class="wave-total">
+            <td class="c-item-cell" colspan="2">Wave One Total</td>
+            <td class="c-std-cell">£121,000</td>
+            <td class="c-basis-cell">set-up + yr 1</td>
+            <td class="c-ea-cell">£80,667</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════
+       WAVE TWO
+  ══════════════════════════ -->
+  <div class="wave">
+    <div class="section-label">
+      <span>Wave Two — September Start</span><hr>
+    </div>
+    <div class="wave-meta">
+      <div>
+        <h3>Five additional markets</h3>
+        <div class="mkts">EU: Switzerland · Belgium · Netherlands · Sweden</div>
+        <div class="mkts">Non-EU: Australia · New Zealand · Brazil (pick 1)</div>
+      </div>
+      <div class="ea-note">
+        <strong>Early Adopter</strong>
+        Partnership expansion press release<br>+ one speaking engagement
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <colgroup>
+          <col class="c-item"><col class="c-mkt">
+          <col class="c-std"><col class="c-basis"><col class="c-ea">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Item</th><th>Rate type</th>
+            <th class="h-std">Standard</th><th>Basis</th>
+            <th class="h-ea">Early Adopter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="c-item-cell" rowspan="2" style="vertical-align:top; padding-top:13px">Vault &amp; GLP-1 set-up</td>
+            <td class="c-mkt-cell">EU market</td>
+            <td class="c-std-cell">£7,500</td>
+            <td class="c-basis-cell">per market</td>
+            <td class="c-ea-cell">£5,000</td>
+          </tr>
+          <tr class="sub">
+            <td class="c-mkt-cell">Non-EU market</td>
+            <td class="c-std-cell">£15,000</td>
+            <td class="c-basis-cell">per market</td>
+            <td class="c-ea-cell">£10,000</td>
+          </tr>
+
+          <tr class="group-sep">
+            <td class="c-item-cell" rowspan="2" style="vertical-align:top; padding-top:13px">User licences</td>
+            <td class="c-mkt-cell">Per market</td>
+            <td class="c-std-cell">£750 /mo</td>
+            <td class="c-basis-cell">£6,000 / 8mo</td>
+            <td class="c-ea-cell">£500 /mo</td>
+          </tr>
+          <tr class="subtotal">
+            <td class="c-item-cell">5 markets · Sep–Apr</td>
+            <td class="c-std-cell">£30,000</td>
+            <td class="c-basis-cell">pro-rated</td>
+            <td class="c-ea-cell">£20,000</td>
+          </tr>
+
+          <tr class="wave-total">
+            <td class="c-item-cell" colspan="2">Wave Two Total</td>
+            <td class="c-std-cell">£75,000</td>
+            <td class="c-basis-cell">set-up + 8mo</td>
+            <td class="c-ea-cell">£50,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════
+       SUMMARY
+  ══════════════════════════ -->
+  <div class="summary">
+    <div class="section-label">
+      <span>Full Programme — H1 2026</span><hr>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="lbl">Wave One</div>
+        <div class="amt">£121,000</div>
+        <div class="sub">Standard · 4 markets<br>Set-up + year 1 licences</div>
+      </div>
+      <div class="card">
+        <div class="lbl">Wave Two</div>
+        <div class="amt">£75,000</div>
+        <div class="sub">Standard · 5 markets<br>Set-up + 8mo licences</div>
+      </div>
+      <div class="card featured">
+        <div class="lbl">Early Adopter — Full Programme</div>
+        <div class="amt">£130,667</div>
+        <div class="sub">Save £65,333 vs standard<br>9 markets · Press release + speaking</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Pricing valid H1 2026 · Per-user licence, per market · <a href="mailto:maddy@flourishingworld.com">maddy@flourishingworld.com</a></p>
+  <span class="tm">Truth Marketing®</span>
+</footer>
+
+</body>
+</html>
