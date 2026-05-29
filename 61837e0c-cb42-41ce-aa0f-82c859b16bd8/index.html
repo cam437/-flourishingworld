@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flourish — 36-Month Business Plan to Exit</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',Arial,sans-serif;background:#FAFAFA;color:#1A1A1A;line-height:1.6;font-size:14px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.toc{background:#0D0A0F;padding:1rem 4rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,45,123,0.3)}
+.toc-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.toc-logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.5px;flex-shrink:0}
+.toc-logo span{color:#FF2D7B}
+.toc-links{display:flex;gap:1.25rem;flex-wrap:wrap}
+.toc-links a{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none}
+.toc-links a:hover{color:#FF2D7B}
+.cover{background:#0D0A0F;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:4rem}
+.cover-inner{max-width:1100px;margin:0 auto;width:100%;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.cover-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3rem}
+.logo{font-size:34px;font-weight:700;color:#fff;letter-spacing:-1px}
+.logo span{color:#FF2D7B}
+.descriptor{font-size:13px;color:#FF2D7B;margin-top:5px;font-weight:500}
+.conf-badge{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;border:1px solid #FF2D7B;border-radius:4px;padding:3px 10px}
+.cover-hero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 0}
+.cover-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#FF2D7B;margin-bottom:1.25rem}
+.cover-h1{font-size:54px;font-weight:700;color:#fff;line-height:1.05;margin-bottom:1.5rem}
+.cover-h1 em{color:#FF2D7B;font-style:normal}
+.cover-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,0.68);line-height:1.8;max-width:660px;margin-bottom:2.5rem}
+.cover-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden}
+.cs{background:rgba(255,255,255,0.03);padding:1.25rem;text-align:center}
+.cs-n{font-size:26px;font-weight:700;color:#FF2D7B;line-height:1;margin-bottom:5px}
+.cs-l{font-size:11px;color:rgba(255,255,255,0.48);line-height:1.4}
+.cover-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1);font-size:11px;color:rgba(255,255,255,0.32);margin-top:1.5rem}
+.exec-cover{background:#0D0A0F;padding:4rem 5rem 3.5rem}
+.exec-inner{max-width:1100px;margin:0 auto}
+.exec-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;background:#FF2D7B;color:#fff;border-radius:4px;padding:3px 10px;margin-bottom:1.25rem}
+.exec-h1{font-size:36px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem}
+.exec-h1 em{color:#FF2D7B;font-style:normal}
+.exec-lead{font-size:15px;color:rgba(255,255,255,0.68);line-height:1.8;max-width:720px;margin-bottom:2rem}
+.exec-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.08);border-radius:10px;overflow:hidden}
+.exec-cell{background:rgba(255,255,255,0.04);padding:1.25rem}
+.exec-cell-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.5rem}
+.exec-cell-val{font-size:22px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px}
+.exec-cell-sub{font-size:11px;color:rgba(255,255,255,0.48);line-height:1.4}
+.exec-body{padding:3.5rem 5rem;background:#FAFAFA}
+.exec-2col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto}
+.exec-col-title{font-size:12px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#FF2D7B;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:2px solid #FF2D7B}
+.exec-item{margin-bottom:1.1rem}
+.exec-item-h{font-size:13px;font-weight:700;color:#0D0A0F;margin-bottom:3px}
+.exec-item-b{font-size:12px;color:#555;line-height:1.6}
+.exec-warning{background:#0D0A0F;border-radius:10px;padding:1.5rem 2rem;margin-top:1.5rem}
+.exec-warning-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.75rem}
+.exec-exits{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+.exit-scenario{background:rgba(255,255,255,0.06);border-radius:8px;padding:1.25rem;text-align:center}
+.exit-n{font-size:24px;font-weight:700;color:#FF2D7B;line-height:1;margin-bottom:4px}
+.exit-l{font-size:10px;color:rgba(255,255,255,0.5);line-height:1.4}
+.exit-text{font-size:12px;color:rgba(255,255,255,0.72);line-height:1.65;margin-top:1rem}
+.exit-text em{color:#FF2D7B;font-style:normal}
+.s{padding:3.5rem 5rem;border-bottom:1px solid #E8E8E8}
+.s:nth-child(even){background:#fff}
+.sw{max-width:1100px;margin:0 auto}
+.ey{font-size:10px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.625rem;display:block}
+.st{font-size:28px;font-weight:700;color:#0D0A0F;line-height:1.2;margin-bottom:0.625rem}
+.st em{color:#FF2D7B;font-style:normal}
+.ss{font-size:14px;color:#555;line-height:1.7;max-width:720px;margin-bottom:2rem}
+.h3{font-size:15px;font-weight:700;color:#0D0A0F;margin-bottom:0.4rem;line-height:1.3}
+.body{font-size:12px;color:#444;line-height:1.7}
+strong{font-weight:600;color:#0D0A0F}
+.pink{color:#FF2D7B;font-weight:600}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:1.75rem}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:1.75rem}
+.sc{background:#F5F5F5;border-radius:8px;padding:1.1rem;text-align:center}
+.sc-n{font-size:24px;font-weight:700;color:#FF2D7B;line-height:1;margin-bottom:4px}
+.sc-l{font-size:11px;color:#666;line-height:1.4}
+.card{background:#fff;border-radius:10px;padding:1.25rem;border:1px solid #E8E8E8}
+.card-lbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.4rem;display:block}
+.card-t{font-size:13px;font-weight:700;color:#0D0A0F;margin-bottom:5px}
+.card-b{font-size:12px;color:#555;line-height:1.6}
+.dk{background:#0D0A0F;border-radius:12px;padding:1.75rem 2.25rem;margin-bottom:1.75rem}
+.dk .ey{color:#FF2D7B}
+.dk .h3{color:#fff;font-size:17px}
+.dk .body{color:rgba(255,255,255,0.72)}
+.dk em{color:#FF2D7B;font-style:normal}
+.dk strong{color:#fff}
+.pk{background:#fff;border-left:3px solid #FF2D7B;border-radius:0 10px 10px 0;padding:1.1rem 1.4rem;border-top:1px solid #E8E8E8;border-right:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;margin-bottom:0.875rem}
+.moat-c{background:#0D0A0F;border-radius:12px;padding:1.5rem}
+.moat-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;background:#FF2D7B;color:#fff;border-radius:4px;padding:2px 7px;margin-bottom:0.75rem}
+.moat-t{font-size:15px;font-weight:700;color:#fff;margin-bottom:0.625rem;line-height:1.3}
+.moat-b{font-size:12px;color:rgba(255,255,255,0.68);line-height:1.6}
+.moat-hl{color:#FF2D7B;font-weight:600}
+.warn-box{background:#FFF8F0;border-left:4px solid #FF2D7B;border-radius:0 10px 10px 0;padding:1.1rem 1.6rem;margin-bottom:1.5rem}
+.persona{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #E8E8E8;margin-bottom:1rem}
+.ph{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid #F0F0F0}
+.pi{width:40px;height:40px;border-radius:8px;background:#FF2D7B;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0}
+.pg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.pl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#888;margin-bottom:0.4rem}
+.pb{font-size:12px;color:#444;line-height:1.6}
+.phase{border-radius:12px;padding:1.75rem;margin-bottom:1.25rem}
+.phase-f{background:#0A1022;border:1px solid rgba(52,120,246,0.3)}
+.phase-t{background:#150F00;border:1px solid rgba(217,119,6,0.3)}
+.phase-g{background:#081208;border:1px solid rgba(22,163,74,0.3)}
+.phase-sc{background:#110820;border:1px solid rgba(147,51,234,0.3)}
+.phase-ex{background:#120A00;border:1px solid rgba(245,158,11,0.3)}
+.phase-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
+.phase-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0}
+.pf-n{background:#3478F6}.pt-n{background:#D97706}.pg-n{background:#16A34A}.ps-n{background:#9333EA}.pe-n{background:#F59E0B}
+.phase-title{font-size:16px;font-weight:700;color:#fff}
+.phase-period{font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px}
+.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.875rem}
+.phase-col-label{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.625rem}
+.phase-item{font-size:11px;color:rgba(255,255,255,0.72);line-height:1.5;margin-bottom:5px;padding-left:10px;position:relative}
+.phase-item::before{content:'·';position:absolute;left:0;color:#FF2D7B;font-weight:700}
+.phase-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,0.1)}
+.pkpi{text-align:center}
+.pkpi-n{font-size:18px;font-weight:700;color:#FF2D7B;line-height:1}
+.pkpi-l{font-size:10px;color:rgba(255,255,255,0.42);margin-top:2px;line-height:1.3}
+.m-badge{display:inline-block;font-size:11px;font-weight:700;background:#FF2D7B;color:#fff;border-radius:5px;padding:3px 10px;margin-top:0.875rem}
+.rev-t{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:1.75rem}
+.rev-t th{background:#0D0A0F;color:#fff;padding:8px 12px;text-align:left;font-weight:600;font-size:10px;letter-spacing:0.08em;text-transform:uppercase}
+.rev-t td{padding:8px 12px;border-bottom:1px solid #F0F0F0;color:#333}
+.rev-t tr:nth-child(even) td{background:#FAFAFA}
+.rev-t tr.mil td{background:#FFF0F5;font-weight:600}
+.rev-t tr.mil td:first-child{border-left:3px solid #FF2D7B}
+.rev-arr{font-weight:700;color:#FF2D7B}
+.kpi-section{margin-bottom:1.75rem}
+.kpi-header{background:#0D0A0F;padding:0.75rem 1.25rem;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:0.75rem}
+.kpi-phase-dot{width:9px;height:9px;border-radius:50%}
+.kpi-phase-label{font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#fff}
+.kpi-table{width:100%;border-collapse:collapse;font-size:12px}
+.kpi-table th{background:#0D0A0F;color:rgba(255,255,255,0.55);padding:7px 12px;text-align:left;font-weight:600;font-size:10px;letter-spacing:0.07em;text-transform:uppercase}
+.kpi-table td{padding:8px 12px;border-bottom:1px solid #F0F0F0;color:#333;vertical-align:top}
+.kpi-table tr:nth-child(even) td{background:#FAFAFA}
+.kpi-formula{font-size:10px;color:#999;margin-top:2px;font-family:monospace}
+.kpi-exit{font-size:10px;color:#FF2D7B;margin-top:2px}
+.risk-t{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:1.75rem}
+.risk-t th{background:#0D0A0F;color:#fff;padding:8px 12px;font-weight:600;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;text-align:left}
+.risk-t td{padding:9px 12px;border-bottom:1px solid #F0F0F0;vertical-align:top}
+.risk-t tr:nth-child(even) td{background:#FAFAFA}
+.risk-h{background:#FF5252;color:#fff;border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700}
+.risk-m{background:#FF9800;color:#fff;border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700}
+.pf{display:flex;justify-content:space-between;align-items:center;padding-top:1.25rem;margin-top:1.5rem;border-top:1px solid #E8E8E8;font-size:10px}
+.pf-l{color:#BBB}.pf-r{color:#FF2D7B;font-weight:600}
+.closing{background:#0D0A0F;padding:4.5rem}
+.ci{max-width:760px;margin:0 auto;text-align:center}
+.c-title{font-size:30px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:1.1rem}
+.c-title em{color:#FF2D7B;font-style:normal}
+.c-body{font-size:14px;color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:2rem}
+.c-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;margin-bottom:1.5rem}
+.c-stat{background:rgba(255,255,255,0.04);padding:1.25rem;text-align:center}
+.c-stat-n{font-size:26px;font-weight:700;color:#FF2D7B;margin-bottom:5px}
+.c-stat-l{font-size:11px;color:rgba(255,255,255,0.48)}
+@media print{.toc{display:none}.cover{page-break-after:always}.s{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="toc">
+  <div class="toc-inner">
+    <div class="toc-logo">FLOUR<span>I</span>SH</div>
+    <div class="toc-links">
+      <a href="#exec">Summary</a><a href="#survival">Survival</a><a href="#problem">Problem</a><a href="#solution">Solution</a><a href="#icp">ICP</a><a href="#moat">Moat</a><a href="#gtm">GTM</a><a href="#financials">Financials</a><a href="#roadmap">Roadmap</a><a href="#kpis">KPIs</a><a href="#risks">Risks</a><a href="#exit">Exit</a>
+    </div>
+  </div>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div>
+        <div class="logo">FLOUR<span>I</span>SH</div>
+        <div class="descriptor">Your agentic system for bold, compliant marketing: one brand voice, everywhere.</div>
+      </div>
+      <div class="conf-badge">Confidential — April 2026</div>
+    </div>
+    <div class="cover-hero">
+      <div class="cover-eyebrow">36-Month Business Plan to Exit · 2026–2029</div>
+      <div class="cover-h1">The confidence infrastructure<br>that iconic brands <em>cannot operate without.</em></div>
+
+      <!-- PROBLEM + SOLUTION -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;margin-bottom:2rem;">
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:1.25rem 1.5rem;border-left:3px solid #FF2D7B;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.625rem;">The problem</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.7;font-weight:300;">Every global brand operates under a constraint most marketing teams underestimate: every claim made to the public must be true, substantiated, and compliant in every jurisdiction in which it appears. As AI multiplies content output, the governance infrastructure to enforce this at machine speed does not exist inside most organisations. Legal becomes a bottleneck. Bold ideas die in the fourth revision. Class-action exposure compounds silently.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:1.25rem 1.5rem;border-left:3px solid rgba(255,255,255,0.2);">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.625rem;">The Flourish solution</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.7;font-weight:300;">Flourish is the agentic marketing operating system that embeds compliance at the brief — not the end of the process. Brand truth, legal guardrails, regulatory intelligence, and multi-user governance workflows in one governed layer. The result: 94% faster legal sign-off, legally defensible audit trails, and bold campaigns that actually ship. The institutional brain that makes every piece of AI-generated content safe — and every bold idea unstoppable.</div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:2rem;">
+        <div style="background:rgba(255,45,123,0.08);border-radius:10px;padding:1.25rem 1.5rem;border:1px solid rgba(255,45,123,0.25);">
+          <div style="font-size:14px;color:#fff;line-height:1.65;font-style:italic;margin-bottom:0.75rem;">"It feels like you were in the room with us yesterday as we walked about these major problems."</div>
+          <div style="font-size:11px;color:#FF2D7B;font-weight:600;">VP International Marketing, WeightWatchers</div>
+        </div>
+        <div style="background:rgba(255,45,123,0.08);border-radius:10px;padding:1.25rem 1.5rem;border:1px solid rgba(255,45,123,0.25);">
+          <div style="font-size:14px;color:#fff;line-height:1.65;font-style:italic;margin-bottom:0.75rem;">"This ability to keep us safe from class-action lawsuits and prevent all our legal rework feels too good to be true."</div>
+          <div style="font-size:11px;color:#FF2D7B;font-weight:600;">Global IP, Media &amp; Marketing General Counsel, The Magnum Ice Cream Company (Unilever)</div>
+        </div>
+      </div>
+
+      <!-- ICONIC POSITIONING STATEMENT -->
+      <div style="background:linear-gradient(135deg,#3A0A1E 0%,#1A0512 100%);border-radius:10px;padding:1.5rem 2rem;margin-bottom:2rem;border:1px solid rgba(255,45,123,0.2);">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.75rem;">Why Flourish is built to last</div>
+        <div style="font-size:15px;color:#fff;line-height:1.7;font-weight:400;">Flourish is destined to become one of the iconic solutions of the agentic marketing era — <strong style="color:#FF2D7B;">not because it is a better AI tool, but because it is the only platform that accumulates what no AI tool can ever generate.</strong> While 5,600 AI startups died as foundation models absorbed their use cases, Flourish compounds in value with every governance decision its clients make. The vault is the institutional brain of a brand — irreplaceable, legally defensible, and more valuable with every passing month. This is the architecture of a platform acquirers will pay a premium to own rather than build.</div>
+      </div>
+
+      <div class="cover-stats">
+        <div class="cs"><div class="cs-n">$512B</div><div class="cs-l">AI agent market 2029 — all requiring governance (Gartner)</div></div>
+        <div class="cs"><div class="cs-n">5,600</div><div class="cs-l">AI startups dead 2025–26. Thin wrappers eliminated.</div></div>
+        <div class="cs"><div class="cs-n">4</div><div class="cs-l">major laws before Dec 2026 creating direct AI liability</div></div>
+        <div class="cs"><div class="cs-n">£7M</div><div class="cs-l">ARR target December 2027</div></div>
+        <div class="cs"><div class="cs-n">£250M</div><div class="cs-l">Target exit valuation 2029</div></div>
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <span>Maddy Cooper — CEO &amp; Founder, Flourish</span>
+      <span>maddy@flourishingworld.com · discover.flourishingworld.com</span>
+      <span>April 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div id="exec">
+<div class="exec-cover">
+  <div class="exec-inner">
+    <div class="exec-badge">Executive Summary — Page 1 of 2</div>
+    <div class="exec-h1">The governance infrastructure that makes<br>AI marketing <em>legally defensible.</em></div>
+    <div class="exec-lead">Marketing teams are deploying AI at unprecedented speed. Almost none can prove it is governed. Four major laws land before December 2026. Gartner's primary recommendation to every CMO: have data, content, and context governance in place now. Flourish is that governance — and the vault accumulates what no foundation model can replicate.</div>
+    <div class="exec-grid">
+      <div class="exec-cell">
+        <div class="exec-cell-label">ICP</div>
+        <div class="exec-cell-val" style="font-size:16px;">Multi-market medium enterprises</div>
+        <div class="exec-cell-sub">Regulated categories: FMCG, beauty, consumer healthcare, food &amp; beverage, pharmaceuticals, gambling, financial services. £50M–£500M revenue. CMO-led buying with CLO sign-off. Where compliance failure is existential, not inconvenient.</div>
+      </div>
+      <div class="exec-cell">
+        <div class="exec-cell-label">Revenue path</div>
+        <div class="exec-cell-val">£3M ARR</div>
+        <div class="exec-cell-sub">December 2026. £1M by July. £7M by December 2027. Direct enterprise now; agency channel from September; Microsoft co-sell from Q4 2026.</div>
+      </div>
+      <div class="exec-cell">
+        <div class="exec-cell-label">Current traction</div>
+        <div class="exec-cell-val">£240k ARR</div>
+        <div class="exec-cell-sub">Confirmed wins: Magnum (Unilever), Grown Alchemist, Weight Watchers. Medtronic: 94% faster legal sign-off, 8,860% ROI. Burn: £50k/month. Two new sales to breakeven.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="exec-body">
+  <div class="exec-inner" style="max-width:1100px;">
+    <div class="exec-2col">
+      <div>
+        <div class="exec-col-title">Why We Survive the AI Graveyard</div>
+        <div class="exec-item">
+          <div class="exec-item-h">The kill mechanism — and why we are immune</div>
+          <div class="exec-item-b">Yupp.ai raised $33M from a16z and shut down April 1, 2026. OpenAI ships GPT-5.4; the use case is absorbed; the wrapper is a feature. The survival filter: proprietary data nobody else has, or genuine orchestration infrastructure that takes years to replicate. Flourish has both.</div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">The vault — data that cannot be reconstructed</div>
+          <div class="exec-item-b">Every governance decision deposits intelligence as a structured episodic record. After 12 months, the vault holds a brand's institutional compliance brain. GPT-6 cannot synthesise this. A competitor cannot manufacture it. Removing Flourish means losing the ongoing learning engine, not just the software.</div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">Multi-user governance orchestration</div>
+          <div class="exec-item-b">Seniority-tiered approval workflows, multi-market sign-off chains, legally defensible decision trails — architecturally different from anything a foundation model provides. ChatGPT Enterprise cannot do this. Claude Teams cannot do this. This is the structural differentiator.</div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">Truth Marketing® — irreplicable by capital</div>
+          <div class="exec-item-b">A certification standard is not a technology. OpenAI cannot ship a feature that substitutes for a recognised certification CLOs cite in regulatory responses. SOC2 + ISO27001 arriving within three months. Truth Marketing® as the emerging standard for AI-governed marketing.</div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">Three-tier architecture with compounding flywheel</div>
+          <div class="exec-item-b">Tier One automates deterministic checks. Tier Two routes borderline cases to human sign-off. Tier Three handles novel territory. Every Tier Two decision writes back to the vault. Over time, decisions migrate from Tier Two to Tier One. The system compounds in reliability, speed, and defensibility with every cycle.</div>
+        </div>
+      </div>
+      <div>
+        <div class="exec-col-title">The Market Opportunity</div>
+        <div class="exec-item">
+          <div class="exec-item-h">Gartner's mandate</div>
+          <div class="exec-item-b">60% of brands will use agentic AI by 2028 in a $512B market. Primary recommendation: "Prepare to enable agentic systems by having data, content, and context governance in place now." Every AI agent deployed without governance is a new liability. Every agent deployed through Flourish deepens the vault.</div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">Four laws before December 2026</div>
+          <div class="exec-item-b">EU AI Act (August 2026 — €35M penalty). UK DMCCA (active now — 10% global turnover). EU ECGT (September 2026 — 4% per member state). EU Product Liability Directive (December 2026 — strict no-fault AI liability). Each requires what Flourish creates as a byproduct of normal operation: an auditable governance chain. For the full jurisdiction-by-jurisdiction breakdown, see the <a href="https://claude.ai/public/artifacts/8d782604-21d3-4e26-9996-3bb9d63a1a35" style="color:#FF2D7B;font-weight:600;text-decoration:none;">AI Creation Law Solutions analysis →</a></div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">The confidence problem</div>
+          <div class="exec-item-b">62% of CMOs have already been forced to rethink team roles due to AI. 78% of consumers say explicit labelling of AI-generated content is the most important thing. The brands that win will be those whose AI is demonstrably governed — not those who deployed agents fastest. Flourish creates that proof.</div>
+        </div>
+        <div class="exec-item">
+          <div class="exec-item-h">Pricing — rate card</div>
+          <div class="exec-item-b"><strong>Seat licence:</strong> £500 per person per month<br><strong>Market set-up:</strong> £15,000 per market<br><strong>Legal indemnity add-on:</strong> £5M per campaign (Munich Re)<br><strong>GWI integration:</strong> resell margin included<br><strong>Enterprise:</strong> ELA + consumption model; BYOK option</div>
+        </div>
+        <div class="exec-warning">
+          <div class="exec-warning-label">Exit scenarios</div>
+          <div class="exec-exits">
+            <div class="exit-scenario"><div class="exit-n">£100M+</div><div class="exit-l">£7M ARR × 14× — financial acquirer, 2028</div></div>
+            <div class="exit-scenario"><div class="exit-n">£200M+</div><div class="exit-l">£15M ARR × 15× — strategic acquirer, 2029</div></div>
+            <div class="exit-scenario"><div class="exit-n">£250M+</div><div class="exit-l">£20M ARR × 15× — Adobe / Microsoft / WPP</div></div>
+          </div>
+          <div class="exit-text" style="margin-top:1rem;">Every strategic acquirer needs the governance layer to make their AI investments defensible. <em>Build or buy? Given vault depth takes years to accumulate, buying Flourish in 2029 is the only rational option.</em></div>
+        </div>
+      </div>
+    </div>
+    <div class="pf" style="max-width:1100px;margin-top:1rem;"><div class="pf-l">Flourish 36-Month Business Plan — Executive Summary</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+</div>
+
+<!-- S1: SURVIVAL -->
+<div class="s" id="survival">
+  <div class="sw">
+    <span class="ey">Section 1 — Survival Analysis</span>
+    <div class="st">Flourish is built to last —<br><em>and to compound in value as others fall.</em></div>
+    <div class="ss">The survival filter for AI startups is brutally clear: proprietary data nobody else has, or genuine orchestration infrastructure that takes years to replicate. Flourish has both — plus a regulatory permission moat and a certification standard that no competitor can buy. This is why Flourish is destined to become one of the iconic solutions of the agentic marketing era.</div>
+
+    <div class="dk">
+      <div class="ey">The graveyard test — applied to Flourish</div>
+      <div class="h3" style="margin-bottom:0.875rem;">"If Flourish disappeared tomorrow, would clients just use GPT-5?"</div>
+      <div class="body">For AI wrappers, yes. That is why 5,600 are dead. For Flourish, no. The vault contains what no model can reconstruct: three years of a brand's governance decisions, approved claims, jurisdiction-specific rulings, and seniority-tiered sign-off chains. GPT-5 can draft a brief. It cannot replicate what a brand's VP of Legal in Germany decided was compliant across 14 markets across three years of operational history. <em>That intelligence compounds in the vault every day.</em></div>
+    </div>
+
+    <div class="g3">
+      <div class="moat-c">
+        <div class="moat-badge">Criterion 1 ✓ — Proprietary data</div>
+        <div class="moat-t">The episodic vault: institutional memory that compounds</div>
+        <div class="moat-b">The vault is an episodic record system, not a document store. Every compliance decision is stored as a structured event: what was decided, why, when, where it applies, who approved it, what state the evidence was in. Jurisdiction is a record property — not a query filter. Approved claim wording is preserved verbatim. Temporal integrity means expired evidence triggers automatic re-evaluation.<br><br><span class="moat-hl">Clients who leave retain their audit trail data but lose the ongoing learning engine.</span> That asymmetry is the switching cost — not engineering time, but irreplaceable institutional history. This is the Harvey AI model in legal services applied to marketing compliance.</div>
+      </div>
+      <div class="moat-c">
+        <div class="moat-badge">Criterion 2 ✓ — Orchestration</div>
+        <div class="moat-t">Three-tier architecture with compounding flywheel</div>
+        <div class="moat-b">Tier One: deterministic checks (substantiation gaps, regulatory violations, jurisdictional scope) — automated, high confidence. Tier Two: borderline and novel cases — AI assessment with mandatory human sign-off. Tier Three: genuinely novel territory — human-led decisions recorded as new precedent.<br><br><span class="moat-hl">The flywheel: every Tier Two decision writes back to the vault as a structured episode. Over time, Tier Two decisions migrate to Tier One.</span> The system handles more automatically. Human reviewers focus on judgement calls. The flywheel runs in both directions — overrides trigger reclassification, preventing confident errors. This integration depth takes years to replicate, not better engineering.</div>
+      </div>
+      <div class="moat-c">
+        <div class="moat-badge">Criterion 3 ✓ — Regulatory permission</div>
+        <div class="moat-t">Truth Marketing® + certifications: irreplicable by capital</div>
+        <div class="moat-b">SOC2 + ISO27001 arriving within three months. Truth Marketing® as the certification standard for AI-governed marketing — recognised by CLOs, mandatable in procurement agreements, citable in regulatory responses.<br><br><span class="moat-hl">A certification standard is not a technology. OpenAI cannot ship a feature that substitutes for it. With every Shein fine, every Armani ruling, every ASA enforcement action — the value of the institution that holds this track record compounds. A competitor can only start later.</span></div>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="h3" style="margin-bottom:0.4rem;">What we deliberately deprioritise</div>
+      <div class="body">Brief generation, regulatory summarisation, and tone-of-voice guidance as standalone features: these are commoditising at speed. We lead with vault depth, governance workflow, and Truth Marketing® certification — all three of which foundation models cannot absorb. We do not compete on output quality. We compete on institutional memory, legal defensibility, and audit trail.</div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 1</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S2: PROBLEM -->
+<div class="s" id="problem">
+  <div class="sw">
+    <span class="ey">Section 2 — Problem Statement</span>
+    <div class="st">The brief is broken.<br><em>Not the function reviewing it.</em></div>
+    <div class="ss">Every claim a brand makes must be true, substantiated, and compliant with the regulatory framework of every jurisdiction in which it appears. This is not best practice — it is the law. The operational infrastructure to enforce it at AI speed does not exist inside most marketing organisations.</div>
+
+    <div class="dk" style="margin-bottom:1.75rem;">
+      <div class="h3" style="margin-bottom:0.875rem;">The day in the life — before Flourish</div>
+      <div class="body">There is a campaign trapped in review right now. It arrived for legal review as a proposition, not an evidence pack. Your General Counsel received the brief separately from the brand guidelines, separately from the regulatory landscape, separately from approved claims from 18 months ago. They were asked to make a confident decision using information scattered across three SharePoint folders and a sustainability report that predates the product reformulation. They did what any reasonable person would do: they asked for changes. <em>Every General Counsel we speak to says the same thing: I am not slow. I am under-informed.</em></div>
+    </div>
+
+    <div class="g4" style="margin-bottom:1.75rem;">
+      <div class="sc"><div class="sc-n">30%</div><div class="sc-l">fewer marketing people vs 2019 — more campaigns, more regulatory complexity (Gartner)</div></div>
+      <div class="sc"><div class="sc-n">47+</div><div class="sc-l">tools in the average enterprise marketing stack</div></div>
+      <div class="sc"><div class="sc-n">47%</div><div class="sc-l">of productive marketing time spent navigating fragmented tools and chasing approvals</div></div>
+      <div class="sc"><div class="sc-n">62%</div><div class="sc-l">of CMOs already forced to rethink team roles due to AI (Gartner 2026)</div></div>
+    </div>
+
+    <div class="g3">
+      <div class="pk">
+        <div class="card-t">BAT — 140 markets, knowledge in heads</div>
+        <div class="card-b">Claims cycle through v4, v5, v6 because legal and creative review work separately. Compliance knowledge across 140 markets lives in people's heads and inboxes. Legal drowns in ~300 annual claims. Big ideas lose momentum. Creativity becomes defensive.</div>
+      </div>
+      <div class="pk">
+        <div class="card-t">Weight Watchers — 9 markets, 4 people, 99% friction</div>
+        <div class="card-b">"99% of my time is spent on friction between the US global team and international markets." The same three GLP-1 quotes submitted repeatedly without approval memory. One international lawyer is the bottleneck for the entire organisation. The claims library is US-focused, not global.</div>
+      </div>
+      <div class="pk">
+        <div class="card-t">Mid-market — compliance failure is existential</div>
+        <div class="card-b">Mid-market challenger brands need fast NPD launches and international expansion to fuel growth — but they are roadblocked the moment they cannot navigate multi-market regulations at speed. A challenger brand with £50M turnover cannot survive a class action lawsuit. Poppy (Pepsi's microbiome drink) is navigating one right now for insufficient evidence claims. Compliance is not an obstacle to growth — it is the gatekeeper to it. Flourish is the key.</div>
+      </div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 2</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S3: SOLUTION -->
+<div class="s" id="solution">
+  <div class="sw">
+    <span class="ey">Section 3 — Solution &amp; Value Proposition</span>
+    <div class="st">Confidence infrastructure.<br><em>The system that makes bold claims safe.</em></div>
+    <div class="ss">Flourish is the compliance operating system that sits beneath every workflow, every agent, and every human decision. Not a content tool. Not a workflow tool with AI bolted on. The structural foundation that allows marketing teams to move fast because the system has already determined what is safe.</div>
+
+    <div class="g3">
+      <div class="card"><div class="card-lbl">Layer 1</div><div class="card-t">The Rules Layer</div><div class="card-b">Regulatory guardrails, market-specific constraints, claim evidence requirements, and legal approval thresholds — encoded once, applied everywhere. BAT's 140-market complexity encoded into a system that scales without headcount.</div></div>
+      <div class="card"><div class="card-lbl">Layer 2 — Primary moat</div><div class="card-t">The Truth Vault</div><div class="card-b">Every approved claim, governance decision, and market adaptation deposited as structured episodic records with full context. Jurisdiction as a record property. Approved wording preserved verbatim. Temporal integrity maintained. The intelligence that no model can replicate.</div></div>
+      <div class="card"><div class="card-lbl">Layer 3 — Structural differentiator</div><div class="card-t">Multi-User Governance Workflow</div><div class="card-b">Multi-user, multi-seniority approval workflows with documented decision trails. Marketing, legal, regulatory, and regional stakeholders in one governed flow. Every sign-off recorded and timestamped. Not replicable in ChatGPT, Claude Teams, or any general-purpose AI tool.</div></div>
+    </div>
+
+    <div class="dk">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;">
+        <div><div class="ey">For the CMO</div><div class="h3" style="margin-bottom:0.625rem;">Fearless authority</div><div class="body">Strong claims are validated before briefing, not diluted after. The CMO stops losing talent to process-heavy environments. Boldness becomes a structural outcome, not a personality trait. <em>94% faster legal sign-off. 58% faster campaign delivery.</em></div></div>
+        <div><div class="ey">For the CLO</div><div class="h3" style="margin-bottom:0.625rem;">Legal judgment as infrastructure</div><div class="body">Guardrails embedded once, reused everywhere. Review shifts from the 80% (routine volume) to the 20% (genuine judgement calls). The audit trail required by the EU AI Act, ECGT, and Product Liability Directive exists as a byproduct of normal operation.</div></div>
+        <div><div class="ey">For regional teams</div><div class="h3" style="margin-bottom:0.625rem;">Momentum, not hesitation</div><div class="body">One approved claim becomes a global asset, not a one-off decision. Markets move fast without guessing what legal will say — because legal's answer is already in the system, in their market's language, for their regulatory context.</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.75rem;">
+      <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;">
+        <div class="h3" style="margin-bottom:0.5rem;">The contrarian insight</div>
+        <div class="body">Most CMOs believe the compliance problem is a people problem — their legal team is too slow. The legal team believes marketing is reckless. Both are wrong. The problem is architectural. <strong>What changed the speed of legal review was always information, not permission.</strong> Give legal the intelligence they need and the timeline changes entirely. Flourish is that intelligence, structured and delivered at the moment of decision.</div>
+      </div>
+      <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;">
+        <div class="h3" style="margin-bottom:0.5rem;">What we have already proven</div>
+        <div class="body"><strong>Medtronic:</strong> 94% faster legal sign-off. 8,860% ROI. £200k for sustainability claims governance alone.<br><strong>Won:</strong> Magnum (Unilever), Grown Alchemist, Weight Watchers.<br><strong>Pipeline:</strong> Barilla, Asahi, Diageo, BAT (140 markets), Betway.<br><strong>Award:</strong> Top three "one to watch" at the Association of In-House Counsel legal tech awards.</div>
+      </div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 3</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S4: ICP -->
+<div class="s" id="icp">
+  <div class="sw">
+    <span class="ey">Section 4 — Target Market &amp; ICP</span>
+    <div class="st">Multi-market medium enterprises.<br><em>Where compliance failure is existential.</em></div>
+    <div class="ss">Our ICP is defined by the specific combination that makes Flourish's value proposition undeniable: multiple markets with different regulatory regimes, a regulated product category, AI-driven content production outpacing governance infrastructure, and a board that has been told they have a regulatory problem — but magically have to overcome it to drive growth.</div>
+
+    <div class="dk" style="margin-bottom:1.75rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <div class="ey">Firmographic profile</div>
+          <div class="body"><strong style="color:#fff;">Revenue:</strong> £50M–£500M annual turnover<br><strong style="color:#fff;">Markets:</strong> Operating in 3+ countries with different regulatory regimes<br><strong style="color:#fff;">Category:</strong> Regulated — FMCG, beauty, consumer healthcare, food &amp; beverage, supplements, pharmaceuticals, gambling, financial services<br><strong style="color:#fff;">AI adoption:</strong> Deploying AI for marketing content with no systematic governance<br><strong style="color:#fff;">Team:</strong> Marketing team of 10–100, shared global-local tension<br><strong style="color:#fff;">Buying motion:</strong> CMO-initiated, CLO sign-off, Procurement approval, IT/InfoSec review</div>
+        </div>
+        <div>
+          <div class="ey">Behavioural triggers</div>
+          <div class="body"><strong style="color:#fff;">Regulatory:</strong> A competitor fined, an enquiry received, or board request for AI governance evidence<br><strong style="color:#fff;">Growth:</strong> NPD acceleration blocked by compliance bottleneck<br><strong style="color:#fff;">AI:</strong> Content AI deployed at scale; legal team complaining about review volume<br><strong style="color:#fff;">People:</strong> Key compliance person left; 30% team reduction since 2019<br><strong style="color:#fff;">Fear:</strong> CEO call at 7am. Competitor class action. AI-generated claim that made it to market wrong.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="persona">
+        <div class="ph"><div class="pi">CMO</div><div><div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;">Chief Marketing Officer</div><div style="font-size:14px;font-weight:700;">The stalled visionary</div></div></div>
+        <div class="pg">
+          <div><div class="pl">Emotional fear</div><div class="pb">An AI-generated claim goes live at scale and is legally indefensible. The CEO calls at 7am. The fear is not the fine. It is the call.</div></div>
+          <div><div class="pl">Financial pain</div><div class="pb">Forrester projects $10B+ in B2B losses from ungoverned AI in 2026. Rework cycles on failed claims consume 30–40% of campaign timelines.</div></div>
+          <div><div class="pl">WOW moment</div><div class="pb">"My boldest claims can be cleared before I brief the agency?" From self-censorship → fearless authority.</div></div>
+        </div>
+      </div>
+      <div class="persona">
+        <div class="ph"><div class="pi" style="background:#3A0A1E;">CLO</div><div><div style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FF2D7B;">Chief Legal Officer</div><div style="font-size:14px;font-weight:700;">The guardian drowning in low-value checks</div></div></div>
+        <div class="pg">
+          <div><div class="pl">Emotional fear</div><div class="pb">A regulatory investigation requires evidence that every AI-generated claim across 140 markets was substantiated and traceable. There is no such record.</div></div>
+          <div><div class="pl">Financial pain</div><div class="pb">EU AI Act: €35M. UK DMCCA: 10% global turnover. ECGT: 4% per member state. Product Liability Directive: unlimited strict liability.</div></div>
+          <div><div class="pl">WOW moment</div><div class="pb">"Legal judgment becomes a system — not a never-ending inbox?" From bottleneck → strategic authority.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;margin-bottom:1.75rem;">
+      <div class="h3" style="margin-bottom:0.625rem;">TAM — bottom-up</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Beachhead: UK + EU mid-market</div><div class="body">~4,000 companies matching ICP profile. Average ACV £80k. Beachhead TAM: £320M ARR. Penetrating 5% = £16M ARR — our 2029 target is less than 1%.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Expansion: North America + APAC</div><div class="body">~15,000 additional matching companies. Average ACV £60k via API/Microsoft delivery. Expansion TAM: £900M ARR. Agency channel multiplies reach without proportional CAC increase.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Platform: API + Microsoft co-sell</div><div class="body">60% of brands use agentic AI by 2028 — all requiring governance (Gartner). Total addressable governance layer: subset of $512B AI agent market.</div></div>
+      </div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 4</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S5: MOAT -->
+<div class="s" id="moat">
+  <div class="sw">
+    <span class="ey">Section 5 — Competitive Moat</span>
+    <div class="st">The vault is the moat.<br><em>Not the API. The institutional brain.</em></div>
+    <div class="ss">Every competitor can build a similar platform architecture. No competitor can manufacture the thousands of structured compliance decisions a Flourish vault accumulates through years of active use. The episodic record layer is the defensible asset. Everything else is distribution.</div>
+
+    <div class="g3" style="margin-bottom:1.75rem;">
+      <div class="moat-c">
+        <div class="moat-badge">Primary moat — compounding data</div>
+        <div class="moat-t">The episodic vault</div>
+        <div class="moat-b">Clients who leave retain audit trail data but lose the intelligence that goes with it. The switching cost is not engineering time — it is irreplaceable institutional history that took years to accumulate.<br><br>The Harvey AI parallel: Harvey's position in legal services is difficult to dislodge not because the technology is superior but because <span class="moat-hl">the platform's value is inseparable from the institutional intelligence accumulated through use.</span></div>
+      </div>
+      <div class="moat-c">
+        <div class="moat-badge">Structural differentiator</div>
+        <div class="moat-t">Multi-user workflow + compounding flywheel</div>
+        <div class="moat-b">Multi-seniority approval chains, jurisdiction-specific governance, legally defensible decision trails. Not replicable in any general-purpose AI tool.<br><br><span class="moat-hl">The flywheel: every Tier Two decision with human sign-off writes back to the vault. Tier Two decisions migrate to Tier One over time. The system becomes faster, more reliable, and more valuable with every cycle.</span></div>
+      </div>
+      <div class="moat-c">
+        <div class="moat-badge">Regulatory permission</div>
+        <div class="moat-t">Truth Marketing® + certifications</div>
+        <div class="moat-b">SOC2 + ISO27001 closing within three months. Truth Marketing® as the standard for AI-governed marketing — recognised by CLOs, mandatable in procurement, citable in regulatory responses.<br><br><span class="moat-hl">Cannot be replicated by capital or technology. Only earned over time. With every enforcement action in the market, the value of the institution that holds this track record compounds.</span></div>
+      </div>
+    </div>
+
+    <span class="ey">Competitive landscape</span>
+    <div style="background:#fff;border-radius:10px;border:1px solid #E8E8E8;overflow:hidden;margin-top:1rem;margin-bottom:1.75rem;">
+      <div style="background:#0D0A0F;padding:0.75rem 1.25rem;display:grid;grid-template-columns:1.5fr 1fr 1fr 2fr;gap:1rem;">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Competitor</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Strongest at</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Critical gap</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Why Flourish wins</div>
+      </div>
+      <div style="padding:0 1.25rem;">
+        <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 2fr;gap:1rem;padding:0.75rem 0;border-bottom:1px solid #F5F5F5;font-size:12px;"><strong>Adobe GenStudio</strong><div style="color:#555;">Brand content at scale, walled garden</div><div style="color:#555;">No cross-tool governance, no audit trail, no legal workflow</div><div style="color:#555;">We are the neutral governance layer on top of Adobe — not competing, governing its outputs.</div></div>
+        <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 2fr;gap:1rem;padding:0.75rem 0;border-bottom:1px solid #F5F5F5;font-size:12px;"><strong>Puntt AI</strong><div style="color:#555;">Content compliance checking</div><div style="color:#555;">No vault architecture, no episodic memory, no multi-market sign-off</div><div style="color:#555;">Point solution. We are the operating layer that holds the intelligence their review requires.</div></div>
+        <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 2fr;gap:1rem;padding:0.75rem 0;border-bottom:1px solid #F5F5F5;font-size:12px;"><strong>OneTrust / Credo AI</strong><div style="color:#555;">Horizontal AI governance, enterprise-grade</div><div style="color:#555;">Not marketing-specific, no vault, no claim substantiation</div><div style="color:#555;">Their governance is horizontal. Ours is vertical — with the claim evidence layer, Truth Marketing®, and marketing-specific regulatory intelligence.</div></div>
+        <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 2fr;gap:1rem;padding:0.75rem 0;font-size:12px;"><strong>GPT-5 / Claude natively</strong><div style="color:#555;">Generating content at low cost</div><div style="color:#555;">No institutional memory, no multi-user governance, no audit trail</div><div style="color:#555;">Foundation models generate. Flourish governs. Complementary layers, not competing products.</div></div>
+      </div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 5</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S6: GTM -->
+<div class="s" id="gtm">
+  <div class="sw">
+    <span class="ey">Section 6 — Go-to-Market Strategy</span>
+    <div class="st">Direct first. Channel second.<br><em>Microsoft and API only when the vault earns it.</em></div>
+    <div class="ss">We win 10–20 direct clients before activating any channel or building any API layer. Agency channel opens in September when the seed round is in motion and the product is proven. We do not do both at once. The product stays a horse.</div>
+
+    <div class="g3" style="margin-bottom:1.75rem;">
+      <div class="card" style="border-top:3px solid #FF2D7B;">
+        <div class="card-lbl">Track 1 — Now to September 2026</div>
+        <div class="card-t">Direct sales: mid-market + enterprise</div>
+        <div class="card-b">Win 10–20 clients first. Mid-market challenger brands are the primary target — CMO-led, existential ROI, browser-based Flourish. Enterprise direct (BAT, Diageo, Medtronic tier) in parallel for proof points. Pipeline seeded by advocacy network. No channel. No API.</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Track 2 — September 2026</div>
+        <div class="card-t">Agency-enabled channel</div>
+        <div class="card-b">Co-branded (Powered by Flourish), never white-labelled. Mike Lander leads. One agency = 15–30 brands. Per-brand pricing. No flat licence. We retain all control points. We do not open this before the product can absorb variation without becoming something we did not build.</div>
+      </div>
+      <div class="card">
+        <div class="card-lbl">Track 3 — 2027</div>
+        <div class="card-t">Microsoft + API layer</div>
+        <div class="card-b">Microsoft Governance Agent (Copilot Studio) — on offer in Q2 2026, production-ready Q3 2026. Vault intact; Teams becomes a delivery surface. Halves enterprise sales cycle from 12 to 4–6 months. AI content production tracking (EU AI Act August compliance) — on offer Q2 2026, production-ready Q3 2026. AppSource listing activates Microsoft co-sell from Q4 2026. Private cloud deployment for data sovereignty at Unilever/Nestlé scale.</div>
+      </div>
+    </div>
+
+    <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;margin-bottom:1.5rem;">
+      <div class="h3" style="margin-bottom:0.625rem;">Rate card</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Seat licence (all tiers)</div><div class="body"><strong>£500 per person per month</strong><br>Covers full Flourish access: vault, governance workflow, multi-user approval chains, legal database, GWI insights, and claim substantiation.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Market set-up fee</div><div class="body"><strong>£15,000 per market</strong><br>Covers vault migration, regulatory database onboarding for that jurisdiction, case law capture, and training for local team members.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Add-ons</div><div class="body">Legal indemnity: £5M per campaign (Munich Re). GWI integration: resell margin. Enterprise: ELA + consumption model. BYOK for own LLM instances. Agency: per-brand £8k–£25k/year.</div></div>
+      </div>
+    </div>
+
+    <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;margin-bottom:1.75rem;">
+      <div class="h3" style="margin-bottom:0.625rem;">First 10 clients — by channel</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div class="body"><strong>Already won:</strong> Magnum (Unilever), Grown Alchemist, Weight Watchers<br><strong>Active pipeline:</strong> Barilla, Asahi, Diageo, BAT (140 markets), Betway<br><strong>Warm prospects:</strong> Mars (Bridge mode conversation active — Salsify/DAM stack, regional compliance gap unresolved), Hible (drinks compliance, via Mike Lander)<br><strong>Confirmed introductions:</strong> Pharma content agency at scale (via Mike Lander), Gareth Turner (challenger brand CMO club)</div>
+        <div class="body"><strong>Events:</strong><br>WFA — 22 April (global CMOs, advocacy-primed)<br>Brands&Culture — 6–7 May (live demo, Charlotte chairs)<br>Cannes — June 2026<br>Madfest — July 2026 (SOC2 confirmed)<br>Microsoft AppSource co-sell — Q4 2026</div>
+      </div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 6</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S7: FINANCIALS -->
+<div class="s" id="financials">
+  <div class="sw">
+    <span class="ey">Section 7 — Financial Projections</span>
+    <div class="st">From £20k/month now<br><em>to £7M ARR by December 2027.</em></div>
+    <div class="ss">Direct enterprise and mid-market sales run now. Agency channel activates from September. Microsoft co-sell accelerates Q4 2026 and throughout 2027. Assumptions are labelled by confidence level.</div>
+
+    <div class="g4" style="margin-bottom:1.75rem;">
+      <div class="sc"><div class="sc-n">£1M</div><div class="sc-l">ARR — July 2026</div></div>
+      <div class="sc"><div class="sc-n">£3M</div><div class="sc-l">ARR — December 2026</div></div>
+      <div class="sc"><div class="sc-n">£7M</div><div class="sc-l">ARR — December 2027</div></div>
+      <div class="sc"><div class="sc-n">£50k</div><div class="sc-l">Monthly burn — lean team of 5–6</div></div>
+    </div>
+
+    <table class="rev-t">
+      <thead><tr><th>Period</th><th>MRR</th><th>ARR</th><th>Primary driver</th><th>Key commercial action</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td><strong>April 2026</strong></td><td class="rev-arr">£20k</td><td>£240k</td><td>Existing 3 clients</td><td>WFA pipeline generation. April sprint complete.</td><td><span style="background:#4CAF50;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">HIGH</span></td></tr>
+        <tr><td>May 2026</td><td class="rev-arr">£32k</td><td>£384k</td><td>First new enterprise + B&C</td><td>Brands&Culture live demo. Microsoft PoC. 2–3 enterprise proposals out.</td><td><span style="background:#FF9800;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">MED</span></td></tr>
+        <tr><td>June 2026</td><td class="rev-arr">£54k</td><td>£648k</td><td>First lighthouse + agency</td><td>One enterprise contract signed. One agency partnership in contract.</td><td><span style="background:#FF9800;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">MED</span></td></tr>
+        <tr class="mil"><td><strong>July 2026 🎯</strong></td><td class="rev-arr">£84k</td><td><strong>£1M ARR</strong></td><td>Enterprise + first agency brands</td><td>SOC2 + ISO27001 announced. First agency live = 10–15 brands.</td><td><span style="background:#FF9800;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">MED</span></td></tr>
+        <tr><td>Aug 2026</td><td class="rev-arr">£100k</td><td>£1.2M</td><td>Agency expanding + second enterprise</td><td>Microsoft integration in build. Second agency signed.</td><td><span style="background:#FF9800;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">MED</span></td></tr>
+        <tr class="mil"><td><strong>Sep 2026 🎯</strong></td><td class="rev-arr">£125k</td><td><strong>£1.5M ARR</strong></td><td>Two agencies + three enterprise</td><td>Truth Marketing® programme launched. Seed round closed.</td><td><span style="background:#FF9800;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">MED</span></td></tr>
+        <tr><td>Oct–Nov 2026</td><td class="rev-arr">£180k</td><td>£2.16M</td><td>Third agency + Microsoft pipeline</td><td>AppSource submitted. EU AI Act enforcement drives inbound.</td><td><span style="background:#FF5252;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">LOW</span></td></tr>
+        <tr class="mil"><td><strong>Dec 2026 🎯</strong></td><td class="rev-arr">£250k</td><td><strong>£3M ARR</strong></td><td>5 enterprise + 3 agency partnerships</td><td>45–90 brands via agencies. AppSource live. API in beta.</td><td><span style="background:#FF5252;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">LOW</span></td></tr>
+        <tr class="mil"><td><strong>Dec 2027 🎯</strong></td><td class="rev-arr">£583k</td><td><strong>£7M ARR</strong></td><td>Microsoft co-sell + 8 agencies + 10 enterprise + API</td><td>Truth Marketing® as recognised standard. Exit preparation begins.</td><td><span style="background:#FF5252;color:#fff;border-radius:3px;padding:1px 5px;font-size:10px;font-weight:700;">LOW</span></td></tr>
+      </tbody>
+    </table>
+
+    <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;margin-bottom:1.75rem;">
+      <div class="h3" style="margin-bottom:0.625rem;">Deal mathematics — illustrative ACV examples</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Direct enterprise example</div><div class="body">Brand with 10 users across 5 markets: 10 × £500 × 12 = £60k seat licence + 5 × £15k = £75k market set-up. Year 1 ACV: £135k. Year 2 (no set-up): £60k + expansion seats.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Agency channel example</div><div class="body">One agency, 20 brands, avg 3 users per brand, 3 markets each. 60 users × £500 × 12 = £360k + 60 markets × £15k = £900k Year 1 revenue. Annual seat renewal = £360k.</div></div>
+        <div><div style="font-size:12px;font-weight:700;color:#0D0A0F;margin-bottom:4px;">Unit economics targets</div><div class="body">Gross margin: 75%+. LTV:CAC target: >5:1. NRR target: 120%+ (vault lock-in drives expansion). Break-even: 2 additional enterprise clients from current base.</div></div>
+      </div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 7</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S7B: CAP TABLE -->
+<div class="s" id="captable">
+  <div class="sw">
+    <span class="ey">Section 7b — Capitalisation Table &amp; Ownership Strategy</span>
+    <div class="st">Fuelling growth at every stage<br><em>while protecting majority ownership to exit.</em></div>
+    <div class="ss">The funding strategy is designed to raise enough capital to hit each ARR milestone decisively — while ensuring Maddy retains at least 51% at the point of exit. Each round is sized to the milestone it must fund, not to maximise capital raised. The constraint is founder control. The objective is maximum exit valuation.</div>
+
+    <!-- OWNERSHIP PRINCIPLE -->
+    <div class="dk" style="margin-bottom:2rem;">
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:center;">
+        <div>
+          <div class="ey">The ownership principle</div>
+          <div class="h3" style="margin-bottom:0.75rem;">51% majority at exit is the non-negotiable floor.</div>
+          <div class="body">As a female founder with a clear exit horizon and two young children, retaining majority ownership is both a commercial principle and a personal one. Flourish will not raise more than it needs to reach the next milestone, will not dilute beyond what the milestone requires, and will not accept terms that cede majority control. The model below demonstrates that three funding rounds — pre-seed, seed, and Series A — are sufficient to reach £7M+ ARR and exit readiness, with Maddy retaining 60%+ throughout. A potential fourth micro-round is modelled to show the floor remains safely above 51%.</div>
+        </div>
+        <div style="text-align:center;background:rgba(255,255,255,0.06);border-radius:10px;padding:1.5rem;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#FF2D7B;margin-bottom:0.5rem;">Maddy's stake at exit</div>
+          <div style="font-size:52px;font-weight:700;color:#FF2D7B;line-height:1;">60.3%</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:4px;">Post Series A · No further dilution required</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;">(55.5% with optional Series B)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAP TABLE -->
+    <span class="ey">Capitalisation table — full dilution model</span>
+    <div style="background:#fff;border-radius:10px;border:1px solid #E8E8E8;overflow:hidden;margin-top:1rem;margin-bottom:1.75rem;">
+      <div style="background:#0D0A0F;padding:0.75rem 1.25rem;display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;align-items:center;">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Shareholder</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-align:center;">Today</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-align:center;">After<br>Pre-seed</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-align:center;">After<br>Seed</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-align:center;">After<br>Series A</div>
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-align:center;">Optional<br>Series B</div>
+      </div>
+      <div style="padding:0 1.25rem;">
+
+        <!-- MADDY -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;border-bottom:1px solid #F0F0F0;align-items:center;">
+          <div><strong>Maddy Cooper</strong><div style="font-size:11px;color:#888;">CEO &amp; Founder</div></div>
+          <div style="text-align:center;"><span style="font-size:18px;font-weight:700;color:#FF2D7B;">90.0%</span></div>
+          <div style="text-align:center;"><span style="font-size:18px;font-weight:700;color:#FF2D7B;">78.8%</span></div>
+          <div style="text-align:center;"><span style="font-size:18px;font-weight:700;color:#FF2D7B;">70.9%</span></div>
+          <div style="text-align:center;"><span style="font-size:20px;font-weight:700;color:#FF2D7B;">60.3%</span><div style="font-size:10px;color:#FF2D7B;font-weight:600;">✓ &gt;51%</div></div>
+          <div style="text-align:center;"><span style="font-size:18px;font-weight:700;color:#FF2D7B;">55.5%</span><div style="font-size:10px;color:#FF2D7B;font-weight:600;">✓ &gt;51%</div></div>
+        </div>
+
+        <!-- EMI POOL -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;border-bottom:1px solid #F0F0F0;align-items:center;background:#FAFAFA;">
+          <div><strong>EMI Pool</strong><div style="font-size:11px;color:#888;">Craig, Jamie, Mike, advisers, key hires</div></div>
+          <div style="text-align:center;font-size:15px;color:#555;">10.0%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">8.75%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">7.9%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">6.7%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">6.2%</div>
+        </div>
+
+        <!-- PRE-SEED -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;border-bottom:1px solid #F0F0F0;align-items:center;">
+          <div><strong>Pre-seed Investors</strong><div style="font-size:11px;color:#888;">£7.5M pre-money · 12.5% · ~£1.1M raised</div></div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:15px;color:#555;">12.5%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">11.25%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">9.6%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">8.8%</div>
+        </div>
+
+        <!-- SEED -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;border-bottom:1px solid #F0F0F0;align-items:center;background:#FAFAFA;">
+          <div><strong>Seed Investors</strong><div style="font-size:11px;color:#888;">£20M pre-money · 10% · ~£2.2M raised</div></div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:15px;color:#555;">10.0%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">8.5%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">7.8%</div>
+        </div>
+
+        <!-- SERIES A -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;border-bottom:1px solid #F0F0F0;align-items:center;">
+          <div><strong>Series A Investors</strong><div style="font-size:11px;color:#888;">£50M pre-money · 15% · ~£8.8M raised</div></div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:15px;color:#555;">15.0%</div>
+          <div style="text-align:center;font-size:15px;color:#555;">13.8%</div>
+        </div>
+
+        <!-- SERIES B (OPTIONAL) -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;border-bottom:1px solid #F0F0F0;align-items:center;background:#FAFAFA;">
+          <div><strong>Series B (optional)</strong><div style="font-size:11px;color:#888;">£100M pre-money · 8% · ~£8.7M raised</div></div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:14px;color:#CCC;">—</div>
+          <div style="text-align:center;font-size:15px;color:#555;">8.0%</div>
+        </div>
+
+        <!-- TOTALS -->
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);gap:0.75rem;padding:0.875rem 0;align-items:center;">
+          <div><strong>Total invested to date</strong></div>
+          <div style="text-align:center;font-size:13px;color:#0D0A0F;font-weight:600;">—</div>
+          <div style="text-align:center;font-size:13px;color:#0D0A0F;font-weight:600;">~£1.1M</div>
+          <div style="text-align:center;font-size:13px;color:#0D0A0F;font-weight:600;">~£3.3M</div>
+          <div style="text-align:center;font-size:13px;color:#0D0A0F;font-weight:600;">~£12.1M</div>
+          <div style="text-align:center;font-size:13px;color:#0D0A0F;font-weight:600;">~£20.8M</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUATION PROGRESSION + EXIT RETURNS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.75rem;">
+      <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;">
+        <div class="h3" style="margin-bottom:0.875rem;">Valuation progression</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;font-size:12px;">
+          <div style="background:#fff;border-radius:6px;padding:0.75rem;border:0.5px solid #E8E8E8;"><div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF2D7B;margin-bottom:3px;">Pre-seed</div><div style="font-size:16px;font-weight:700;color:#0D0A0F;">£7.5M</div><div style="color:#888;">pre-money</div></div>
+          <div style="background:#fff;border-radius:6px;padding:0.75rem;border:0.5px solid #E8E8E8;"><div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF2D7B;margin-bottom:3px;">Seed</div><div style="font-size:16px;font-weight:700;color:#0D0A0F;">£20M</div><div style="color:#888;">pre-money</div></div>
+          <div style="background:#fff;border-radius:6px;padding:0.75rem;border:0.5px solid #E8E8E8;"><div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF2D7B;margin-bottom:3px;">Series A</div><div style="font-size:16px;font-weight:700;color:#0D0A0F;">£50M</div><div style="color:#888;">pre-money · milestone: £1M+ ARR</div></div>
+          <div style="background:#fff;border-radius:6px;padding:0.75rem;border:0.5px solid #E8E8E8;"><div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF2D7B;margin-bottom:3px;">Exit target</div><div style="font-size:16px;font-weight:700;color:#FF2D7B;">£100M–£250M</div><div style="color:#888;">2028–2029</div></div>
+        </div>
+      </div>
+      <div style="background:#0D0A0F;border-radius:10px;padding:1.25rem 1.75rem;">
+        <div class="ey">Maddy's exit proceeds (illustrative)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin-top:0.5rem;">
+          <div style="text-align:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:0.875rem;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.45);margin-bottom:5px;">£100M exit</div>
+            <div style="font-size:20px;font-weight:700;color:#FF2D7B;">£60.3M</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);">at 60.3% stake</div>
+          </div>
+          <div style="text-align:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:0.875rem;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.45);margin-bottom:5px;">£200M exit</div>
+            <div style="font-size:20px;font-weight:700;color:#FF2D7B;">£120.6M</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);">at 60.3% stake</div>
+          </div>
+          <div style="text-align:center;background:rgba(255,255,255,0.05);border-radius:8px;padding:0.875rem;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.45);margin-bottom:5px;">£250M exit</div>
+            <div style="font-size:20px;font-weight:700;color:#FF2D7B;">£150.8M</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);">at 60.3% stake</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:0.875rem;">BADR applies: 10% CGT on first £1M qualifying gains. Tax advisor required before deal timing agreed. Proceeds shown are pre-tax on the full amount — engage a specialist before any restructuring.</div>
+      </div>
+    </div>
+
+    <div style="background:#FFF8F0;border-left:4px solid #FF2D7B;border-radius:0 10px 10px 0;padding:1.1rem 1.6rem;">
+      <div class="h3" style="margin-bottom:0.4rem;">The capital discipline principle</div>
+      <div class="body">We raise the minimum required to hit the next milestone decisively. Pre-seed funds the WFA pipeline, April sprint, and SOC2/ISO27001. Seed funds the agency channel activation, Microsoft integration, and the first enterprise sales hire. Series A funds the Microsoft co-sell motion, API layer build, and international expansion. No round is raised speculatively. Every round is sized to the milestone it must unlock — and every term sheet is evaluated against the 51% floor before it is signed.</div>
+    </div>
+
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 7b: Cap Table</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S8: ROADMAP -->
+<div class="s" id="roadmap">
+  <div class="sw">
+    <span class="ey">Section 8 — 36-Month Roadmap to Exit</span>
+    <div class="st">Foundation → Traction → Growth → Scale → <em>Exit.</em></div>
+    <div class="ss">Five phases. Each ends with the product more defensible, the vault deeper, and the exit multiple higher. The acquirer story runs through all 36 months.</div>
+
+    <div class="phase phase-f">
+      <div class="phase-header"><div class="phase-num pf-n">1</div><div><div class="phase-title">Foundation — WFA-Ready &amp; First 10 Clients</div><div class="phase-period">April–September 2026 · Months 1–6</div></div></div>
+      <div class="phase-grid">
+        <div>
+          <div class="phase-col-label">Product &amp; Tech</div>
+          <div class="phase-item">CMO dashboard built + signed off for WFA demo</div>
+          <div class="phase-item">GWI + legal database integration live</div>
+          <div class="phase-item">Evals framework operational</div>
+          <div class="phase-item">Microsoft integration brief signed by Maddy, sent to George</div>
+          <div class="phase-item"><strong>Microsoft Governance Agent (Copilot Studio) — on offer Q2, production-ready Q3</strong></div>
+          <div class="phase-item"><strong>AI content production tracking (EU AI Act August compliance) — on offer Q2, production-ready Q3</strong></div>
+          <div class="phase-item">Agent prioritisation brief created and signed off</div>
+          <div class="phase-item">SOC2 + ISO27001 in process</div>
+          <div class="phase-item">Website: safety narrative + consultancy story + mid-market page</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Sales &amp; Marketing</div>
+          <div class="phase-item">WFA — 22 April (global CMOs, advocacy-primed)</div>
+          <div class="phase-item">Brands&Culture — 6–7 May (Charlotte chairs, live demo)</div>
+          <div class="phase-item">Cannes — June · Madfest — July</div>
+          <div class="phase-item">First enterprise contract signed by June</div>
+          <div class="phase-item">First agency partnership in contract by June</div>
+          <div class="phase-item">BAT, Diageo, Barilla, Asahi, Betway in active pipeline</div>
+          <div class="phase-item">Flourish Answers quality review: Rori, Jamie, Craig, Andy</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Finance &amp; Legal</div>
+          <div class="phase-item">Break-even reached (2 additional enterprise wins)</div>
+          <div class="phase-item">Seed round preparation — target £2–3M raise Q4 2026</div>
+          <div class="phase-item">SEIS/EIS advance assurance confirmed</div>
+          <div class="phase-item">Adviser equity schedules confirmed (Jamie, Craig, Mike, Jo + Charlotte)</div>
+          <div class="phase-item">Munich Re insurance policy activated with first enterprise client</div>
+          <div class="phase-item">Aggregated data opt-in/opt-out contract clause reviewed (Jamie + Mike)</div>
+          <div class="phase-item">R&amp;D tax credit claim filed with CT600</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Governance</div>
+          <div class="phase-item">Quarterly board: pipeline, burn, WFA outcomes</div>
+          <div class="phase-item">EMI options pool set up</div>
+          <div class="phase-item">Confirmation Statement filed within 14 days of anniversary</div>
+          <div class="phase-item">PAYE/RTI filings monthly by 19th</div>
+          <div class="phase-item">Vault episode tracking begins (target: 1,000 structured records)</div>
+        </div>
+      </div>
+      <div class="phase-kpis">
+        <div class="pkpi"><div class="pkpi-n">£84k</div><div class="pkpi-l">MRR by July 2026</div></div>
+        <div class="pkpi"><div class="pkpi-n">10+</div><div class="pkpi-l">Paying clients by September</div></div>
+        <div class="pkpi"><div class="pkpi-n">SOC2</div><div class="pkpi-l">In process — closes medium enterprise</div></div>
+        <div class="pkpi"><div class="pkpi-n">&lt;3%</div><div class="pkpi-l">Monthly churn</div></div>
+      </div>
+    </div>
+
+    <div class="phase phase-t">
+      <div class="phase-header"><div class="phase-num pt-n">2</div><div><div class="phase-title">Early Traction — Agency Channel Opens, Seed Round Closes</div><div class="phase-period">October 2026–March 2027 · Months 7–12</div></div></div>
+      <div class="phase-grid">
+        <div>
+          <div class="phase-col-label">Product &amp; Tech</div>
+          <div class="phase-item">Microsoft Copilot Studio agent — PoC to client-ready</div>
+          <div class="phase-item">AppSource listing submitted Q4 2026</div>
+          <div class="phase-item">API model live for first beta partners</div>
+          <div class="phase-item">Truth Marketing® certification programme launches</div>
+          <div class="phase-item">SOC2 + ISO27001 formally certified and announced</div>
+          <div class="phase-item">Private cloud deployment option for enterprise data sovereignty</div>
+          <div class="phase-item">Vault depth metrics publishable as first moat evidence</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Sales &amp; Marketing</div>
+          <div class="phase-item">Agency channel fully operational — Mike Lander leading</div>
+          <div class="phase-item">Three agency partnerships signed by end of phase</div>
+          <div class="phase-item">45–90 brands in system via agency channel</div>
+          <div class="phase-item">Fifth enterprise client signed</div>
+          <div class="phase-item">Microsoft co-sell conversations initiated</div>
+          <div class="phase-item">EU AI Act enforcement deadline (August) drives inbound urgency</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Finance &amp; Legal</div>
+          <div class="phase-item">Seed round closed: £2–3M raised (EIS-compliant)</div>
+          <div class="phase-item">Runway: 24+ months post-raise</div>
+          <div class="phase-item">EIS1 compliance certificates issued (4 months post-investment)</div>
+          <div class="phase-item">First statutory accounts prepared</div>
+          <div class="phase-item">VAT registration review</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Governance</div>
+          <div class="phase-item">Seed board formed — one investor director</div>
+          <div class="phase-item">Head of Sales hired (post-seed)</div>
+          <div class="phase-item">First customer success hire</div>
+          <div class="phase-item">NRR tracking formally established</div>
+          <div class="phase-item">EMI Annual Return filed by 6 July</div>
+        </div>
+      </div>
+      <div class="phase-kpis">
+        <div class="pkpi"><div class="pkpi-n">£3M</div><div class="pkpi-l">ARR December 2026</div></div>
+        <div class="pkpi"><div class="pkpi-n">3</div><div class="pkpi-l">Agency partnerships (45–90 brands)</div></div>
+        <div class="pkpi"><div class="pkpi-n">100%+</div><div class="pkpi-l">NRR target</div></div>
+        <div class="pkpi"><div class="pkpi-n">75%+</div><div class="pkpi-l">Gross margin</div></div>
+      </div>
+      <div><span class="m-badge">🎯 SEED ROUND CLOSES THIS PHASE</span></div>
+    </div>
+
+    <div class="phase phase-g">
+      <div class="phase-header"><div class="phase-num pg-n">3</div><div><div class="phase-title">Growth — Microsoft Co-Sell Activates, Series A Readiness</div><div class="phase-period">April–September 2027 · Months 13–18</div></div></div>
+      <div class="phase-grid">
+        <div>
+          <div class="phase-col-label">Product &amp; Tech</div>
+          <div class="phase-item">Microsoft AppSource certified ISV — co-sell active Q2 2027</div>
+          <div class="phase-item">API consumption revenue: target £200k ARR</div>
+          <div class="phase-item">Five agency partnerships active</div>
+          <div class="phase-item">Vault: 10,000+ structured compliance episodes</div>
+          <div class="phase-item">Truth Marketing® adopted by first industry body (WFA or IAA)</div>
+          <div class="phase-item">Tier Two → Tier One migration rate visible in metrics</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Sales &amp; Marketing</div>
+          <div class="phase-item">£5M+ ARR by July 2027</div>
+          <div class="phase-item">Microsoft field sellers referring Flourish</div>
+          <div class="phase-item">Eight enterprise clients (£150k avg ACV)</div>
+          <div class="phase-item">First North American enterprise client via AppSource</div>
+          <div class="phase-item">Truth Marketing® cited in first CLO regulatory response</div>
+          <div class="phase-item">No client >20% ARR</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Finance &amp; Legal</div>
+          <div class="phase-item">Series A preparation: target £8–12M at £60–80M pre-money</div>
+          <div class="phase-item">NRR >110% — 12 months of data demonstrable</div>
+          <div class="phase-item">Burn multiple &lt;1.5×</div>
+          <div class="phase-item">Rule of 40 approaching 40</div>
+          <div class="phase-item">R&amp;D tax credit maximised on vault infrastructure</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Governance</div>
+          <div class="phase-item">Series A board: two investor directors</div>
+          <div class="phase-item">VP Marketing hired</div>
+          <div class="phase-item">Head of Customer Success hired</div>
+          <div class="phase-item">Data protection audit ahead of expanded processing</div>
+          <div class="phase-item">Maddy retains >51% — founder control intact</div>
+        </div>
+      </div>
+      <div class="phase-kpis">
+        <div class="pkpi"><div class="pkpi-n">£5M+</div><div class="pkpi-l">ARR by July 2027</div></div>
+        <div class="pkpi"><div class="pkpi-n">110%+</div><div class="pkpi-l">NRR — premium valuation signal</div></div>
+        <div class="pkpi"><div class="pkpi-n">40+</div><div class="pkpi-l">Rule of 40 target</div></div>
+        <div class="pkpi"><div class="pkpi-n">&lt;18mo</div><div class="pkpi-l">CAC payback period</div></div>
+      </div>
+      <div><span class="m-badge" style="background:#16A34A;">🎯 SERIES A PREPARATION BEGINS</span></div>
+    </div>
+
+    <div class="phase phase-sc">
+      <div class="phase-header"><div class="phase-num ps-n">4</div><div><div class="phase-title">Scale → Exit — £7M+ ARR, Series A Closed, Exit Process Begins</div><div class="phase-period">October 2027–March 2029 · Months 19–36</div></div></div>
+      <div class="phase-grid">
+        <div>
+          <div class="phase-col-label">Scale Milestones</div>
+          <div class="phase-item">API revenue: £1M+ ARR standalone</div>
+          <div class="phase-item">Eight agency partnerships (120–240 brands)</div>
+          <div class="phase-item">Microsoft co-sell: 3–5 enterprise contracts per quarter</div>
+          <div class="phase-item">North America and APAC expansion via AppSource</div>
+          <div class="phase-item">Vault: 50,000+ structured compliance episodes</div>
+          <div class="phase-item">Truth Marketing® mandatory in 3+ enterprise procurement contracts</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Commercial Targets</div>
+          <div class="phase-item">£7M ARR — December 2027</div>
+          <div class="phase-item">£10–15M ARR — December 2028</div>
+          <div class="phase-item">15+ enterprise clients</div>
+          <div class="phase-item">No single client >15% ARR</div>
+          <div class="phase-item">Series A closed: £8–12M raised</div>
+          <div class="phase-item">Strategic acquirer conversations initiated (discreetly)</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Financial Targets</div>
+          <div class="phase-item">NRR >120% — premium exit multiple trigger</div>
+          <div class="phase-item">Gross margin >78%</div>
+          <div class="phase-item">Rule of 40 >40 consistently</div>
+          <div class="phase-item">EBITDA normalisation for exit documentation</div>
+          <div class="phase-item">EIS investors approaching 3-year CGT relief threshold</div>
+        </div>
+        <div>
+          <div class="phase-col-label">Exit Process (M31–M36)</div>
+          <div class="phase-item">M31: M&amp;A mandate + Exit Committee formed</div>
+          <div class="phase-item">M32: VDR built; acquirer long-list approved</div>
+          <div class="phase-item">M33: NDAs; Management Presentations; Indicative Offers</div>
+          <div class="phase-item">M34: Due diligence — Legal/Financial/Technical/Commercial</div>
+          <div class="phase-item">M35: SPA negotiation; W&amp;I insurance</div>
+          <div class="phase-item">M36: Completion; proceeds; HMRC notification</div>
+        </div>
+      </div>
+      <div class="phase-kpis">
+        <div class="pkpi"><div class="pkpi-n">£7M+</div><div class="pkpi-l">ARR December 2027</div></div>
+        <div class="pkpi"><div class="pkpi-n">120%+</div><div class="pkpi-l">NRR — premium exit multiple</div></div>
+        <div class="pkpi"><div class="pkpi-n">15×</div><div class="pkpi-l">ARR multiple — strategic acquirer</div></div>
+        <div class="pkpi"><div class="pkpi-n">CGT</div><div class="pkpi-l">EIS investors: full exemption at 3-year mark</div></div>
+      </div>
+      <div><span class="m-badge" style="background:#9333EA;">🎯 EXIT PROCESS BEGINS M31</span></div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 8</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S9: KPIs -->
+<div class="s" id="kpis">
+  <div class="sw">
+    <span class="ey">Section 9 — Phase-Based KPI Framework</span>
+    <div class="st">The right metrics<br><em>at the right stage.</em></div>
+    <div class="ss">Every metric connects to exit value. We track the minimum necessary to know whether the plan is on track. Metric formulas are shown — not just metric names.</div>
+
+    <div class="kpi-section">
+      <div class="kpi-header"><div class="kpi-phase-dot" style="background:#3478F6;"></div><div class="kpi-phase-label">Foundation (Now–September 2026)</div></div>
+      <table class="kpi-table">
+        <thead><tr><th>Metric</th><th>Target</th><th>Formula</th><th>Exit connection</th></tr></thead>
+        <tbody>
+          <tr><td><strong>MRR growth</strong></td><td>£20k → £84k by July</td><td class="kpi-formula">MRR(t) − MRR(t−1)</td><td class="kpi-exit">ARR base for seed round story</td></tr>
+          <tr><td><strong>Monthly churn</strong></td><td>&lt;3%</td><td class="kpi-formula">Churned MRR ÷ Opening MRR × 100</td><td class="kpi-exit">NRR foundation — premium exit requires &lt;2%</td></tr>
+          <tr><td><strong>Paying clients</strong></td><td>10 by September</td><td class="kpi-formula">Count of live paying contracts</td><td class="kpi-exit">PMF signal across 3+ categories</td></tr>
+          <tr><td><strong>Vault episodes</strong></td><td>1,000 structured records</td><td class="kpi-formula">Count of structured compliance decisions in vault</td><td class="kpi-exit">Primary moat metric — first evidence vault is accumulating</td></tr>
+          <tr><td><strong>Monthly burn</strong></td><td>£50k — track weekly</td><td class="kpi-formula">Total cash out per month</td><td class="kpi-exit">Runway must reach 18+ months post-seed</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kpi-section">
+      <div class="kpi-header"><div class="kpi-phase-dot" style="background:#D97706;"></div><div class="kpi-phase-label">Early Traction (Oct 2026–Mar 2027)</div></div>
+      <table class="kpi-table">
+        <thead><tr><th>Metric</th><th>Target</th><th>Formula</th><th>Exit connection</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ARR</strong></td><td>£3M by Dec 2026</td><td class="kpi-formula">MRR × 12</td><td class="kpi-exit">Series A anchor metric — &lt;£2M is a weak story</td></tr>
+          <tr><td><strong>NRR</strong></td><td>&gt;100% Dec, &gt;110% Mar</td><td class="kpi-formula">(Opening MRR + Expansion − Contraction − Churn) ÷ Opening MRR × 100</td><td class="kpi-exit">NRR &gt;120% commands 15–18× ARR from strategic acquirer</td></tr>
+          <tr><td><strong>Gross margin</strong></td><td>&gt;70% Dec, &gt;75% Mar</td><td class="kpi-formula">(Revenue − COGS) ÷ Revenue × 100</td><td class="kpi-exit">SaaS quality signal — &lt;65% raises M&amp;A questions</td></tr>
+          <tr><td><strong>LTV:CAC</strong></td><td>&gt;3:1</td><td class="kpi-formula">(ARPA × Gross Margin ÷ Monthly Churn Rate) ÷ CAC</td><td class="kpi-exit">Unit economics credibility for Series A</td></tr>
+          <tr><td><strong>Burn multiple</strong></td><td>&lt;2×</td><td class="kpi-formula">Net Burn ÷ Net New ARR</td><td class="kpi-exit">Capital efficiency — &gt;2× signals growth is too expensive</td></tr>
+          <tr><td><strong>Vault episodes</strong></td><td>10,000+ across client base</td><td class="kpi-formula">Total structured records across all vaults</td><td class="kpi-exit">First publishable moat evidence for investors</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kpi-section">
+      <div class="kpi-header"><div class="kpi-phase-dot" style="background:#16A34A;"></div><div class="kpi-phase-label">Growth &amp; Scale (Apr 2027–Mar 2029)</div></div>
+      <table class="kpi-table">
+        <thead><tr><th>Metric</th><th>Growth target</th><th>Scale target</th><th>Exit connection</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ARR</strong></td><td>£5M+ Jul 2027</td><td>£7M Dec 2027 → £15M Dec 2028</td><td class="kpi-exit">£7M × 14× = £100M floor. £15M × 15× = £225M target.</td></tr>
+          <tr><td><strong>NRR</strong></td><td>&gt;110%</td><td>&gt;120%</td><td class="kpi-exit">NRR &gt;120% triggers premium multiple. Vault lock-in is the driver.</td></tr>
+          <tr><td><strong>Gross margin</strong></td><td>&gt;75%</td><td>&gt;78%</td><td class="kpi-exit">Acquirer expectation for enterprise SaaS</td></tr>
+          <tr><td><strong>CAC payback</strong></td><td>&lt;18 months</td><td>&lt;15 months</td><td class="kpi-exit">CAC ÷ (Avg MRR per customer × Gross Margin). Microsoft co-sell reduces CAC materially.</td></tr>
+          <tr><td><strong>Rule of 40</strong></td><td>≥35</td><td>≥40</td><td class="kpi-exit">Revenue Growth Rate % + EBITDA Margin %. Above 40 = M&amp;A attractive.</td></tr>
+          <tr><td><strong>Customer concentration</strong></td><td>No client &gt;20%</td><td>No client &gt;15%</td><td class="kpi-exit">Single-client concentration depresses valuation in due diligence</td></tr>
+          <tr><td><strong>Vault depth</strong></td><td>25,000+ episodes</td><td>50,000+ episodes</td><td class="kpi-exit">The irreplicability proof. Acquirer pays premium for what cannot be built in &lt;3 years.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 9</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S10: RISKS -->
+<div class="s" id="risks">
+  <div class="sw">
+    <span class="ey">Section 10 — Risks &amp; Mitigations</span>
+    <div class="st">Five risks that could<br><em>specifically kill this business.</em></div>
+    <div class="ss">Assessed on likelihood × impact. Each risk names the early warning sign and the concrete mitigation. We do not manage risk by ignoring it — we manage it by seeing it early enough to act.</div>
+
+    <table class="risk-t">
+      <thead><tr><th>Risk</th><th>Rating</th><th>Early warning sign</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Foundation model commoditisation</strong><div style="font-size:11px;color:#777;margin-top:3px;">OpenAI ships GPT-6 with native compliance checking. Brief generation and regulatory summarisation value erodes overnight.</div></td>
+          <td><span class="risk-h">HIGH × HIGH</span></td>
+          <td style="font-size:12px;color:#555;">GPT announcements referencing "brand governance." Prospects in RFPs comparing Flourish to "just GPT-5 with our guidelines."</td>
+          <td style="font-size:12px;color:#444;"><strong>Already mitigated structurally.</strong> We deprioritise brief generation. We lead with vault depth, episodic memory, multi-user sign-off, and Truth Marketing® — all three of which foundation models cannot absorb. Every client conversation leads with "what cannot be replicated," not "what we generate."</td>
+        </tr>
+        <tr>
+          <td><strong>Runway exhaustion before seed round</strong><div style="font-size:11px;color:#777;margin-top:3px;">£50k/month burn with £240k ARR. Two sales from breakeven. A three-month sales slip creates a critical window.</div></td>
+          <td><span class="risk-h">HIGH × HIGH</span></td>
+          <td style="font-size:12px;color:#555;">Runway below 4 months before June contract expected. WFA produces no pipeline. First enterprise contract delayed past June.</td>
+          <td style="font-size:12px;color:#444;"><strong>Mitigation 1:</strong> Convert one warm prospect (Barilla, Asahi, or Betway) before WFA — reduces dependence on event pipeline. <strong>Mitigation 2:</strong> Founder salary reduction agreement pre-agreed as a reversible lever. <strong>Mitigation 3:</strong> Bridge loan option available via Jo + Charlotte. <strong>Mitigation 4:</strong> R&amp;D tax credit accelerates cash.</td>
+        </tr>
+        <tr>
+          <td><strong>Vault quality / cold start problem</strong><div style="font-size:11px;color:#777;margin-top:3px;">New deployments have sparse vaults. If clients do not invest in vault quality, the three-tier architecture does not compound and the moat does not deepen.</div></td>
+          <td><span class="risk-m">MED × HIGH</span></td>
+          <td style="font-size:12px;color:#555;">Tier Two override rate &gt;40%. Client NPS falls in months 3–6. Clients treating Flourish as a document store.</td>
+          <td style="font-size:12px;color:#444;"><strong>Vault Steward role:</strong> Every deployment designates a Steward with authority to manage the evidence base. <strong>Onboarding investment:</strong> First six months treated as a vault-building exercise. <strong>Pricing incentive:</strong> Success fees tied to vault episode count and Tier One migration rate.</td>
+        </tr>
+        <tr>
+          <td><strong>Regulatory urgency evaporates</strong><div style="font-size:11px;color:#777;margin-top:3px;">EU AI Act enforcement softer than expected. Urgency argument that drives sales cycles weakens.</div></td>
+          <td><span class="risk-m">LOW × HIGH</span></td>
+          <td style="font-size:12px;color:#555;">Enforcement actions slow post-August 2026. Board-level compliance urgency reduces.</td>
+          <td style="font-size:12px;color:#444;"><strong>Diversified value proposition:</strong> Regulatory urgency is an accelerant, not the sole reason to buy. Speed (94% faster sign-off), vault depth as institutional memory, and the confidence infrastructure case all stand independently. UK + EU + North America means no single enforcement calendar determines our pipeline.</td>
+        </tr>
+        <tr>
+          <td><strong>Agency channel creates Frankenstein product</strong><div style="font-size:11px;color:#777;margin-top:3px;">Agency partners with 15–30 brand clients each, all with different requirements, pull the product in conflicting directions before it is stable.</div></td>
+          <td><span class="risk-m">MED × MED</span></td>
+          <td style="font-size:12px;color:#555;">Agency feedback creates conflicting wish-list requests. Product roadmap velocity drops. Core clients complain about feature dilution.</td>
+          <td style="font-size:12px;color:#444;"><strong>Hard gate:</strong> Agency channel does not open before September 2026. <strong>Training first:</strong> Agencies trained on "this condition, this problem, this environment" — they know what Flourish is not for. <strong>Mike Lander qualifies every partner:</strong> No agency signed without his assessment of product fit. Never white-label — we retain all three control points.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 10</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- S11: EXIT -->
+<div class="s" id="exit">
+  <div class="sw">
+    <span class="ey">Section 11 — Path to Exit</span>
+    <div class="st">£100M–£250M by 2029.<br><em>The acquirer pays for what cannot be replicated.</em></div>
+    <div class="ss">The exit story is not about ARR alone. It is about vault depth, regulatory trust, network effects, and the Truth Marketing® standard — assets we build deliberately because strategic acquirers will pay a premium to own them rather than compete against them.</div>
+
+    <div class="dk" style="margin-bottom:1.75rem;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);border-radius:8px;overflow:hidden;margin-bottom:1.25rem;">
+        <div style="background:rgba(255,255,255,0.04);padding:1.1rem;text-align:center;"><div style="font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#FF2D7B;margin-bottom:4px;">AI agent market 2024</div><div style="font-size:24px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;">$83.6B</div></div>
+        <div style="background:rgba(255,255,255,0.04);padding:1.1rem;text-align:center;"><div style="font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#FF2D7B;margin-bottom:4px;">AI agent market 2029</div><div style="font-size:24px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;">$512B</div></div>
+        <div style="background:rgba(255,255,255,0.04);padding:1.1rem;text-align:center;"><div style="font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#FF2D7B;margin-bottom:4px;">Brands using agentic AI by 2028</div><div style="font-size:24px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;">60%</div></div>
+      </div>
+      <div class="body">Every strategic acquirer needs the governance layer to make their AI investments defensible. Build or buy? <em>Given vault depth takes years to accumulate, buying Flourish in 2029 is the only rational option. Every month we operate widens the gap.</em></div>
+    </div>
+
+    <div class="g3" style="margin-bottom:1.75rem;">
+      <div class="card"><div class="card-lbl">Conservative exit (£100M+)</div><div class="card-t">£7M ARR × 14× — 2028</div><div class="card-b">Financial acquirer. Requires NRR &gt;115%, vault lock-in across 5+ enterprise clients, SOC2/ISO27001 certified, no client &gt;20% ARR. Rule of 40 &gt;35. This is the floor.</div></div>
+      <div class="card"><div class="card-lbl">Target exit (£200M+)</div><div class="card-t">£15M ARR × 15× — 2029</div><div class="card-b">Strategic acquirer. Agency network spanning 100+ brands, Microsoft co-sell materially contributing, Truth Marketing® as an industry standard, API revenue demonstrating infrastructure multiple.</div></div>
+      <div class="card"><div class="card-lbl">Premium exit (£250M+)</div><div class="card-t">£20M ARR × 15× — 2029</div><div class="card-b">Step-change trigger: a major regulatory enforcement event; Microsoft partnership formalisation; or Truth Marketing® adoption by WFA or a regulatory body. Any one changes the exit calculus materially.</div></div>
+    </div>
+
+    <div class="g2">
+      <div class="pk"><div class="card-t">Adobe</div><div class="card-b">Needs a cross-platform governance layer to differentiate GenStudio. Flourish governs Adobe's AI outputs — complementary, not competing. Adobe offered $20B for Figma. The governance layer for regulated enterprise marketing is the strategic equivalent in the compliance category.</div></div>
+      <div class="pk"><div class="card-t">Salesforce or Microsoft</div><div class="card-b">Both need marketing governance to complete their AI ecosystems. AppSource partnership accelerates the Microsoft acquisition conversation. Our strategic interest: make Flourish indispensable to their co-sell motion before the acquisition discussion begins.</div></div>
+      <div class="pk"><div class="card-t">WPP or Publicis</div><div class="card-b">Enterprise brands are asking whether their agencies have governed AI. An acquisition gives a holding group the capability to answer yes — and mandate it across their entire agency network. First-mover captures the agency channel moat; the second holding group must build from scratch.</div></div>
+      <div class="pk"><div class="card-t">Enterprise SaaS or compliance infrastructure</div><div class="card-b">ServiceNow, SAP, or an enterprise compliance vendor extending into marketing governance. Truth Marketing® certification + regulatory track record + vault depth is the primary asset. The acquirer buys the standard and the institutional intelligence, not the software.</div></div>
+    </div>
+
+    <div style="background:#F5F5F5;border-radius:10px;padding:1.25rem 1.75rem;margin-bottom:1.75rem;margin-top:1.5rem;">
+      <div class="h3" style="margin-bottom:0.5rem;">SEIS/EIS exit tax — key obligations</div>
+      <div class="body"><strong>SEIS investors (&gt;3 years):</strong> Full CGT exemption on disposal gains. <strong>EIS investors (&gt;3 years):</strong> Full CGT exemption. <strong>Maddy (founder):</strong> Business Asset Disposal Relief (BADR) — 10% CGT on first £1M qualifying gains. Requires &gt;2 years held, &gt;5% holding, officer/employee status. <strong>Action required:</strong> All parties engage a specialist tax advisor before agreeing deal timing. SEIS/EIS 3-year holding period must be checked per investor class before any pre-exit restructuring.</div>
+    </div>
+    <div class="pf"><div class="pf-l">Flourish 36-Month Business Plan — Section 11</div><div class="pf-r">FLOURISH — CONFIDENTIAL</div></div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="ci">
+    <div class="c-title">Flourish is becoming the confidence<br>infrastructure that iconic brands<br><em>cannot operate without.</em></div>
+    <div class="c-body">While 5,600 AI startups died as foundation models absorbed their use cases, Flourish compounds in irreplaceable value with every governance decision its clients make. The vault holds what no AI tool can ever generate: the institutional intelligence of a brand's compliance history, accumulated over years, legally defensible, and more valuable every month. This is not a wrapper on top of AI. It is the layer that makes AI safe to use at scale — and the platform that acquirers will pay a premium to own rather than build. Gartner says 60% of brands will use agentic AI by 2028. Their recommendation: have governance in place now. We are that governance. The moat is the vault. The accelerant is Microsoft. The standard is Truth Marketing®.</div>
+    <div class="c-stats">
+      <div class="c-stat"><div class="c-stat-n">$512B</div><div class="c-stat-l">AI agent market by 2029</div></div>
+      <div class="c-stat"><div class="c-stat-n">£7M</div><div class="c-stat-l">ARR target — December 2027</div></div>
+      <div class="c-stat"><div class="c-stat-n">£250M</div><div class="c-stat-l">Target exit — 2029</div></div>
+    </div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;">Maddy Cooper — CEO &amp; Founder, Flourish · April 2026 · Confidential · discover.flourishingworld.com</div>
+  </div>
+</div>
+
+</body>
+</html>
