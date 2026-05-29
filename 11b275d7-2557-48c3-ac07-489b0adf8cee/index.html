@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flourish × Betway — The Permission Platform</title>
+<style>
+  :root {
+    --bg: #0D0A0F;
+    --bg2: #110E14;
+    --pink: #FF2D7B;
+    --pink-dim: rgba(255,45,123,0.12);
+    --burg: #3A0A1E;
+    --burg2: #1A0512;
+    --white: #FFFFFF;
+    --w90: rgba(255,255,255,0.9);
+    --w70: rgba(255,255,255,0.7);
+    --w30: rgba(255,255,255,0.3);
+    --w10: rgba(255,255,255,0.07);
+    --card: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.09);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--bg); color:var(--white);
+    font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif;
+    font-weight:300; line-height:1.6; overflow-x:hidden;
+  }
+
+  /* --- ANIMATIONS --- */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity:0; }
+    to { opacity:1; }
+  }
+  @keyframes slideRight {
+    from { transform:scaleX(0); }
+    to { transform:scaleX(1); }
+  }
+  @keyframes pulse {
+    0%,100% { opacity:0.4; }
+    50% { opacity:1; }
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-8px); }
+  }
+  @keyframes gradientShift {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+  @keyframes countUp { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
+
+  .reveal {
+    opacity:0; transform:translateY(40px);
+    transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+  .reveal-delay-4 { transition-delay:0.4s; }
+  .reveal-delay-5 { transition-delay:0.5s; }
+
+  /* --- NAV --- */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:16px 48px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:rgba(13,10,15,0.92); backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo { font-size:18px; font-weight:700; letter-spacing:0.05em; }
+  .nav-logo span { color:var(--pink); }
+  .nav-tag { font-size:11px; color:var(--w30); letter-spacing:0.12em; text-transform:uppercase; }
+
+  /* --- HERO --- */
+  .hero {
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    padding:120px 48px 80px; overflow:hidden; position:relative;
+  }
+  .hero-bg {
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(58,10,30,0.7) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(26,10,46,0.5) 0%, transparent 60%);
+  }
+  .hero-glow {
+    position:absolute; top:50%; left:60%; width:600px; height:600px;
+    background:radial-gradient(circle, rgba(255,45,123,0.08) 0%, transparent 70%);
+    transform:translate(-50%,-50%); animation:pulse 6s ease-in-out infinite;
+    z-index:0;
+  }
+  .hero-line {
+    position:absolute; top:80px; left:0; right:0;
+    height:2px; background:linear-gradient(90deg,var(--pink),transparent 60%);
+    transform-origin:left; animation:slideRight 1.2s cubic-bezier(.22,1,.36,1) forwards;
+    opacity:0.5; z-index:1;
+  }
+  .hero-inner {
+    position:relative; z-index:1; max-width:860px;
+    animation:fadeUp 1s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  .eyebrow {
+    font-size:11px; font-weight:600; letter-spacing:0.2em;
+    text-transform:uppercase; color:var(--pink); margin-bottom:24px;
+  }
+  .hero h1 {
+    font-size:clamp(38px,5.5vw,72px); font-weight:800;
+    line-height:1.06; letter-spacing:-0.025em; margin-bottom:28px;
+  }
+  .hero h1 em { font-style:normal; color:var(--pink); }
+  .hero-sub {
+    font-size:clamp(17px,2vw,22px); font-weight:300;
+    color:var(--w70); line-height:1.55; max-width:620px; margin-bottom:16px;
+  }
+  .hero-sub strong { color:var(--white); font-weight:500; }
+  .hero-accent {
+    font-size:clamp(18px,2.4vw,26px); font-weight:700;
+    color:var(--white); margin-top:8px; margin-bottom:40px;
+  }
+  .hero-badge {
+    display:inline-block; font-size:12px; font-weight:700;
+    color:var(--pink); letter-spacing:0.14em; text-transform:uppercase;
+    border:1px solid var(--pink); padding:10px 24px;
+    transition:background 0.3s, color 0.3s;
+  }
+  .hero-badge:hover { background:var(--pink); color:var(--white); }
+  .scroll-cue {
+    position:absolute; bottom:36px; left:48px;
+    font-size:11px; color:var(--w30);
+    letter-spacing:0.15em; text-transform:uppercase;
+    display:flex; align-items:center; gap:12px;
+    animation:fadeIn 1s 1.5s both;
+  }
+  .scroll-cue::before { content:''; width:40px; height:1px; background:var(--w30); }
+  .scroll-cue .arrow { animation:float 2s ease-in-out infinite; }
+
+  /* --- SHARED --- */
+  section { position:relative; }
+  .section-pad { padding:100px 48px; }
+  .section-label {
+    font-size:11px; font-weight:600; letter-spacing:0.2em;
+    text-transform:uppercase; color:var(--pink); margin-bottom:16px;
+  }
+  .section-title {
+    font-size:clamp(28px,3.5vw,48px); font-weight:800;
+    line-height:1.1; letter-spacing:-0.02em; margin-bottom:16px;
+  }
+  .section-sub {
+    font-size:15px; color:var(--w70); max-width:600px;
+    line-height:1.7; margin-bottom:56px;
+  }
+  .divider {
+    height:1px; margin:0 48px;
+    background:linear-gradient(90deg,transparent,var(--border),transparent);
+  }
+
+  /* --- REGULATORY --- */
+  .reg-section { background:var(--bg2); }
+  .reg-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:2px; margin-bottom:48px;
+  }
+  .reg-card {
+    background:var(--card); border:1px solid var(--border);
+    padding:24px; position:relative; overflow:hidden;
+    transition:border-color 0.3s, transform 0.3s;
+  }
+  .reg-card:hover { border-color:rgba(255,255,255,0.18); transform:translateY(-2px); }
+  .reg-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+  .reg-card.uk::before { background:var(--pink); }
+  .reg-card.eu::before { background:#a855f7; }
+  .reg-card.global::before { background:#f59e0b; }
+  .reg-card.ai::before { background:#22d3ee; }
+  .reg-jurisdiction {
+    font-size:10px; font-weight:700; letter-spacing:0.18em;
+    text-transform:uppercase; margin-bottom:12px;
+  }
+  .reg-card.uk .reg-jurisdiction { color:var(--pink); }
+  .reg-card.eu .reg-jurisdiction { color:#a855f7; }
+  .reg-card.global .reg-jurisdiction { color:#f59e0b; }
+  .reg-card.ai .reg-jurisdiction { color:#22d3ee; }
+  .reg-card h4 { font-size:14px; font-weight:700; margin-bottom:10px; line-height:1.3; }
+  .reg-items { list-style:none; }
+  .reg-items li {
+    font-size:12px; color:var(--w70); padding:4px 0;
+    border-bottom:1px solid var(--border); line-height:1.4;
+  }
+  .reg-items li:last-child { border:none; }
+  .reg-items li::before { content:'— '; color:var(--w30); }
+  .reg-callout {
+    background:var(--pink-dim); border:1px solid rgba(255,45,123,0.3);
+    border-left:3px solid var(--pink); padding:24px 28px; max-width:800px;
+  }
+  .reg-callout p { font-size:16px; font-weight:400; line-height:1.6; }
+  .reg-callout strong { color:var(--pink); font-weight:700; }
+
+  /* --- PROBLEM --- */
+  .problem-section {
+    background:linear-gradient(180deg,var(--bg) 0%,var(--burg2) 50%,var(--bg) 100%);
+  }
+  .problem-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:56px; }
+  .problem-col { padding:40px 36px; }
+  .problem-col.left { background:rgba(255,255,255,0.04); border:1px solid var(--border); }
+  .problem-col.right { background:var(--pink-dim); border:1px solid rgba(255,45,123,0.25); }
+  .problem-col h3 {
+    font-size:12px; font-weight:700; letter-spacing:0.14em;
+    text-transform:uppercase; margin-bottom:24px;
+  }
+  .problem-col.left h3 { color:var(--w30); }
+  .problem-col.right h3 { color:var(--pink); }
+  .problem-item { display:flex; gap:14px; align-items:flex-start; margin-bottom:18px; }
+  .problem-num { font-size:11px; font-weight:700; color:var(--w30); padding-top:2px; min-width:18px; }
+  .problem-col.right .problem-num { color:var(--pink); }
+  .problem-item p { font-size:13px; color:var(--w70); line-height:1.5; }
+  .problem-col.right .problem-item p { color:var(--white); }
+  .problem-statement {
+    text-align:center; padding:56px 48px; background:var(--card);
+    border:1px solid var(--border); position:relative; overflow:hidden;
+  }
+  .problem-statement::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(255,45,123,0.06) 0%,transparent 70%);
+  }
+  .ps-lines { position:relative; z-index:1; }
+  .ps-line { display:block; font-size:clamp(18px,2.5vw,28px); font-weight:700; line-height:1.4; color:var(--w70); }
+  .ps-line.hl { color:var(--white); }
+  .ps-line.pk { color:var(--pink); font-size:clamp(20px,3vw,34px); }
+  .ps-divider { width:40px; height:2px; background:var(--pink); opacity:0.4; margin:16px auto; }
+
+  /* --- STACK --- */
+  .stack-section { background:var(--bg2); overflow:hidden; }
+  .stack-wrapper { display:grid; grid-template-columns:1fr 360px; gap:56px; align-items:start; }
+  .stack-layers { display:flex; flex-direction:column; gap:3px; }
+  .stack-layer {
+    position:relative; padding:24px 28px;
+    border:1px solid var(--border); background:var(--w10);
+    transition:all 0.35s cubic-bezier(.22,1,.36,1); overflow:hidden;
+  }
+  .stack-layer::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .stack-layer.l1::before { background:#FF2D7B; }
+  .stack-layer.l2::before { background:#e8196a; }
+  .stack-layer.l3::before { background:#c4145a; }
+  .stack-layer.l4::before { background:#9e0f49; }
+  .stack-layer.l5::before { background:#7a0b38; }
+  .stack-layer.l6::before { background:#5a0829; }
+  .stack-layer.foundation {
+    background:linear-gradient(135deg,rgba(255,45,123,0.1) 0%,var(--w10) 100%);
+    border-color:rgba(255,45,123,0.3);
+  }
+  .stack-layer:hover {
+    background:rgba(255,255,255,0.08);
+    border-color:rgba(255,45,123,0.4);
+    transform:translateX(4px);
+  }
+  .stack-layer-num {
+    font-size:10px; font-weight:700; letter-spacing:0.15em;
+    text-transform:uppercase; color:var(--w30); margin-bottom:6px;
+  }
+  .stack-layer h4 { font-size:16px; font-weight:700; margin-bottom:5px; }
+  .stack-layer p { font-size:12px; color:var(--w70); line-height:1.5; }
+  .tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+  .tag {
+    font-size:9px; font-weight:600; letter-spacing:0.1em;
+    text-transform:uppercase; padding:3px 8px;
+    border:1px solid var(--border); color:var(--w70); border-radius:2px;
+  }
+  .tag.pink { border-color:rgba(255,45,123,0.4); color:var(--pink); background:var(--pink-dim); }
+  .stack-sidebar { position:sticky; top:100px; }
+  .sidebar-card {
+    background:var(--card); border:1px solid var(--border);
+    padding:28px; margin-bottom:14px;
+  }
+  .sidebar-card h5 {
+    font-size:11px; font-weight:700; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--pink); margin-bottom:14px;
+  }
+  .sidebar-stat { margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border); }
+  .sidebar-stat:last-child { margin:0; padding:0; border:none; }
+  .sidebar-stat .num {
+    font-size:20px; font-weight:800; color:var(--pink);
+    line-height:1; margin-bottom:4px;
+  }
+  .sidebar-stat .desc { font-size:12px; color:var(--w70); line-height:1.4; }
+  .sidebar-card p { font-size:12px; color:var(--w70); line-height:1.55; }
+  .sidebar-card p strong { color:var(--white); }
+
+  /* --- CLAIMS --- */
+  .claims-section { background:var(--bg); }
+  .claims-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-bottom:48px; }
+  .claim-dim {
+    background:var(--card); border:1px solid var(--border);
+    padding:28px 20px; position:relative; overflow:hidden;
+    transition:border-color 0.3s, transform 0.3s;
+  }
+  .claim-dim:hover { border-color:rgba(255,45,123,0.3); transform:translateY(-2px); }
+  .claim-dim::after {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,var(--pink),transparent);
+  }
+  .claim-num { font-size:42px; font-weight:800; color:var(--pink); opacity:0.2; line-height:1; margin-bottom:6px; }
+  .claim-dim h4 { font-size:14px; font-weight:700; margin-bottom:8px; }
+  .claim-dim p { font-size:12px; color:var(--w70); line-height:1.5; }
+  .claim-note {
+    background:var(--pink-dim); border:1px solid rgba(255,45,123,0.25);
+    padding:5px 10px; font-size:10px; color:var(--pink);
+    font-weight:600; margin-top:10px; display:inline-block;
+  }
+
+  /* --- FLOW --- */
+  .flow-row { display:flex; gap:0; margin-bottom:48px; overflow:hidden; }
+  .flow-step {
+    flex:1; background:var(--card); border:1px solid var(--border);
+    padding:18px 16px; text-align:center; position:relative;
+    transition:background 0.3s;
+  }
+  .flow-step:hover { background:rgba(255,255,255,0.08); }
+  .flow-step:not(:last-child)::after {
+    content:'→'; position:absolute; right:-14px; top:50%;
+    transform:translateY(-50%); color:var(--pink);
+    font-size:16px; font-weight:700; z-index:2;
+  }
+  .flow-step .step-label {
+    font-size:9px; font-weight:700; letter-spacing:0.15em;
+    text-transform:uppercase; color:var(--pink); margin-bottom:4px;
+  }
+  .flow-step h5 { font-size:12px; font-weight:700; margin-bottom:3px; }
+  .flow-step p { font-size:11px; color:var(--w70); }
+
+  /* --- AI LAW --- */
+  .ai-section { background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%); }
+  .ai-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-bottom:48px; }
+  .ai-card {
+    background:var(--card); border:1px solid var(--border);
+    border-top:2px solid #22d3ee; padding:24px;
+    transition:border-color 0.3s;
+  }
+  .ai-card:hover { border-color:rgba(34,211,238,0.4); }
+  .ai-card .flag { font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#22d3ee; margin-bottom:6px; }
+  .ai-card h4 { font-size:13px; font-weight:700; margin-bottom:8px; }
+  .ai-card p { font-size:12px; color:var(--w70); line-height:1.5; }
+  .ai-response {
+    background:var(--card); border:1px solid var(--border);
+    border-left:3px solid var(--pink); padding:28px 36px;
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+  }
+  .ai-response h4 {
+    font-size:12px; font-weight:700; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--pink); margin-bottom:14px;
+  }
+  .ai-response-item { display:flex; gap:10px; margin-bottom:12px; }
+  .ai-response-item::before { content:'✓'; color:var(--pink); font-weight:700; flex-shrink:0; margin-top:1px; font-size:13px; }
+  .ai-response-item p { font-size:13px; color:var(--white); line-height:1.5; }
+
+  /* --- COMPETITIVE --- */
+  .competitive-section { background:var(--bg2); }
+  .comp-wrap { overflow-x:auto; }
+  .comp-table {
+    width:100%; border-collapse:separate; border-spacing:2px; margin-bottom:48px;
+  }
+  .comp-table th {
+    padding:14px 18px; text-align:left;
+    font-size:11px; font-weight:700; letter-spacing:0.1em;
+    text-transform:uppercase; background:rgba(255,255,255,0.08);
+  }
+  .comp-table th.fl { background:var(--pink); color:var(--white); }
+  .comp-table td {
+    padding:14px 18px; font-size:12px; color:var(--w70);
+    background:var(--card); line-height:1.4;
+  }
+  .comp-table td.fl {
+    background:var(--pink-dim); border:1px solid rgba(255,45,123,0.2);
+    color:var(--white); font-weight:400;
+  }
+  .comp-table .rl {
+    font-size:11px; font-weight:700; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--w30); background:rgba(255,255,255,0.03);
+    border-right:1px solid var(--border);
+  }
+
+  /* --- PROOF --- */
+  .proof-section { background:var(--bg); }
+  .proof-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:48px; }
+  .proof-card {
+    background:var(--card); border:1px solid var(--border);
+    padding:36px; position:relative; overflow:hidden;
+    transition:border-color 0.3s;
+  }
+  .proof-card:hover { border-color:rgba(255,45,123,0.3); }
+  .proof-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,var(--pink),transparent);
+  }
+  .proof-card .stat {
+    font-size:56px; font-weight:800; color:var(--pink);
+    line-height:1; margin-bottom:10px;
+  }
+  .proof-card h4 { font-size:16px; font-weight:700; margin-bottom:8px; }
+  .proof-card p { font-size:13px; color:var(--w70); line-height:1.6; }
+  .proof-card .source { font-size:10px; color:var(--w30); margin-top:12px; letter-spacing:0.05em; }
+
+  /* --- CTA --- */
+  .cta-section {
+    background:linear-gradient(180deg,var(--bg) 0%,var(--burg) 50%,var(--burg2) 100%);
+    text-align:center; padding:120px 48px; position:relative; overflow:hidden;
+  }
+  .cta-section::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(255,45,123,0.1) 0%,transparent 70%);
+  }
+  .cta-glow {
+    position:absolute; bottom:-200px; left:50%; width:800px; height:400px;
+    background:radial-gradient(ellipse,rgba(255,45,123,0.12),transparent 70%);
+    transform:translateX(-50%); animation:pulse 5s ease-in-out infinite;
+  }
+  .cta-inner { position:relative; z-index:1; max-width:640px; margin:0 auto; }
+  .cta-section h2 {
+    font-size:clamp(32px,4vw,56px); font-weight:800;
+    line-height:1.1; letter-spacing:-0.02em; margin-bottom:16px;
+  }
+  .cta-section p { font-size:17px; color:var(--w70); line-height:1.6; margin-bottom:36px; }
+  .cta-btn {
+    display:inline-block; background:var(--pink); color:var(--white);
+    font-size:14px; font-weight:700; letter-spacing:0.1em;
+    text-transform:uppercase; padding:18px 48px;
+    text-decoration:none; border:none; cursor:pointer;
+    transition:transform 0.3s, box-shadow 0.3s;
+  }
+  .cta-btn:hover {
+    transform:translateY(-2px);
+    box-shadow:0 8px 32px rgba(255,45,123,0.35);
+  }
+  .cta-footnote { font-size:11px; color:var(--w30); margin-top:28px; letter-spacing:0.05em; }
+  .trademark-footer {
+    margin-top:56px; font-size:12px; font-weight:700;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--pink);
+  }
+
+  /* --- RESPONSIVE --- */
+  @media(max-width:900px){
+    nav{padding:16px 24px;}
+    .hero{padding:100px 24px 60px;}
+    .section-pad{padding:64px 24px;}
+    .stack-wrapper{grid-template-columns:1fr;}
+    .stack-sidebar{position:static;}
+    .problem-grid{grid-template-columns:1fr;}
+    .claims-grid{grid-template-columns:1fr 1fr;}
+    .ai-grid{grid-template-columns:1fr;}
+    .ai-response{grid-template-columns:1fr;}
+    .proof-grid{grid-template-columns:1fr;}
+    .flow-row{flex-direction:column;gap:10px;}
+    .flow-step::after{display:none!important;}
+    .scroll-cue{display:none;}
+    .divider{margin:0 24px;}
+  }
+  @media(max-width:600px){
+    .claims-grid{grid-template-columns:1fr;}
+    .reg-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">FLOURISH <span>×</span> BETWAY</div>
+  <div class="nav-tag">The Permission Platform™ · Confidential</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-line"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">Flourish for Betway · 2026</div>
+    <h1>Bold marketing moves<br>at <em>machine speed.</em></h1>
+    <p class="hero-sub">Your people aren't the problem. Your ideas aren't the problem.<br><strong>Getting them approved before the moment passes is.</strong></p>
+    <p class="hero-accent">AI marketing demands machine-speed approvals.</p>
+    <div class="hero-badge">Flourish · Truth Marketing®</div>
+  </div>
+  <div class="scroll-cue"><span class="arrow">↓</span> Scroll to explore</div>
+</section>
+
+<!-- REGULATORY REALITY -->
+<section class="reg-section section-pad">
+  <div class="reveal">
+    <div class="section-label">The Regulatory Reality</div>
+    <h2 class="section-title">The most regulated marketing<br>environment on earth.</h2>
+    <p class="section-sub">A Betway marketer doesn't face one rulebook. They face dozens — each contradicting the last, each shifting faster than any approval process can handle.</p>
+  </div>
+
+  <div class="reg-grid">
+    <div class="reg-card uk reveal reveal-delay-1">
+      <div class="reg-jurisdiction">United Kingdom</div>
+      <h4>Gambling Act White Paper</h4>
+      <ul class="reg-items">
+        <li>Celebrity & influencer bans in gambling ads</li>
+        <li>Whistle-to-whistle advertising restrictions</li>
+        <li>Gambling Commission prior approval for certain formats</li>
+        <li>CAP/BCAP gambling-specific ad standards</li>
+      </ul>
+    </div>
+    <div class="reg-card eu reveal reveal-delay-2">
+      <div class="reg-jurisdiction">European Markets</div>
+      <h4>Fragmented National Regimes</h4>
+      <ul class="reg-items">
+        <li>Germany: extreme advertising restrictions, blackout hours</li>
+        <li>Netherlands: total ban on untargeted ads since 2023</li>
+        <li>Belgium: near-total gambling ad ban</li>
+        <li>Italy: blanket gambling advertising ban</li>
+      </ul>
+    </div>
+    <div class="reg-card global reveal reveal-delay-3">
+      <div class="reg-jurisdiction">Global</div>
+      <h4>Safer Gambling Obligations</h4>
+      <ul class="reg-items">
+        <li>Market-specific responsible gambling messaging</li>
+        <li>Geolocation and age-gating for digital</li>
+        <li>FTC truth-in-advertising rules (US states)</li>
+      </ul>
+    </div>
+    <div class="reg-card ai reveal reveal-delay-4">
+      <div class="reg-jurisdiction">New · 2026</div>
+      <h4>AI Content Laws</h4>
+      <ul class="reg-items">
+        <li>EU AI Act: mandatory disclosure, provenance, human oversight</li>
+        <li>ASA guidance on AI-generated gambling content</li>
+        <li>DSA/GDPR: automated targeting restrictions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reg-callout reveal">
+    <p>Every campaign requires sign-off against <strong>multiple, overlapping, contradictory regulatory frameworks</strong> — before a single word reaches a consumer. <strong>The legal review process was never designed for this.</strong></p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEM STATEMENT -->
+<section class="problem-section section-pad">
+  <div class="reveal">
+    <div class="section-label">The Architecture Problem</div>
+    <h2 class="section-title">Not a people problem.<br>An architecture problem.</h2>
+    <p class="section-sub">Talented marketers. Experienced legal counsel. A system built for a simpler world, running at human speed in a machine-speed moment.</p>
+  </div>
+
+  <div class="problem-grid">
+    <div class="problem-col left reveal">
+      <h3>How campaigns die today</h3>
+      <div class="problem-item"><span class="problem-num">01</span><p>Marketer creates a campaign around a live cultural moment. It's good.</p></div>
+      <div class="problem-item"><span class="problem-num">02</span><p>Brief goes to legal without context. Legal starts from zero.</p></div>
+      <div class="problem-item"><span class="problem-num">03</span><p>Days pass. Rounds of email. Versions multiply. The moment narrows.</p></div>
+      <div class="problem-item"><span class="problem-num">04</span><p>A safer, duller version exits review two weeks late. A competitor got there first.</p></div>
+    </div>
+    <div class="problem-col right reveal reveal-delay-2">
+      <h3>What Flourish changes</h3>
+      <div class="problem-item"><span class="problem-num">01</span><p>Every project opens with operating context already set. The brief starts informed.</p></div>
+      <div class="problem-item"><span class="problem-num">02</span><p>Claims arrive at legal pre-substantiated. Legal reviews, not compiles.</p></div>
+      <div class="problem-item"><span class="problem-num">03</span><p>Approvals route automatically to the right reviewer for each market. In parallel.</p></div>
+      <div class="problem-item"><span class="problem-num">04</span><p>The cultural moment is met. Bold, fast, compliant.</p></div>
+    </div>
+  </div>
+
+  <div class="problem-statement reveal">
+    <div class="ps-lines">
+      <span class="ps-line">Brave. Culturally relevant.</span>
+      <span class="ps-line hl">Faster to market than competitors.</span>
+      <div class="ps-divider"></div>
+      <span class="ps-line pk">Flourish makes all three possible at once.</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FLOURISHSTACK -->
+<section class="stack-section section-pad">
+  <div class="reveal">
+    <div class="section-label">Platform Architecture</div>
+    <h2 class="section-title">The FlourishStack.</h2>
+    <p class="section-sub">Six layers of structured intelligence. Remove any one and the value collapses. Nothing in market combines them.</p>
+  </div>
+
+  <div class="stack-wrapper">
+    <div class="stack-layers">
+      <div class="stack-layer l1 foundation reveal">
+        <div class="stack-layer-num">Foundation</div>
+        <h4>Flourish Intelligence</h4>
+        <p>Regulatory knowledge, creative standards, and gambling advertising law — embedded before a marketer types a word.</p>
+        <div class="tags"><span class="tag pink">Gambling Regulatory Intelligence</span><span class="tag pink">EU AI Act</span><span class="tag">CAP/BCAP</span></div>
+      </div>
+      <div class="stack-layer l2 reveal reveal-delay-1">
+        <div class="stack-layer-num">Layer 2 — The Vault</div>
+        <h4>Structured Knowledge</h4>
+        <p>Five distinct buckets: References, Claims, Guidance, Content Examples, and Flourish Intelligence. Organised, retrievable, ready.</p>
+      </div>
+      <div class="stack-layer l3 reveal reveal-delay-2">
+        <div class="stack-layer-num">Layer 3 — Operating Context</div>
+        <h4>Scopes: Market · Product · Sector · Pillar</h4>
+        <p>Before a brief is written, Flourish knows which market, product, regulatory pillar, and brand context applies. The CMO's vision cascades automatically.</p>
+        <div class="tags"><span class="tag pink">Market Rules Auto-Applied</span><span class="tag">CMO Vision Codified</span></div>
+      </div>
+      <div class="stack-layer l4 reveal reveal-delay-3">
+        <div class="stack-layer-num">Layer 4 — Claims Architecture</div>
+        <h4>Four-Dimensional Claims Intelligence</h4>
+        <p>Substantiation status, approval status, lifecycle, and strength — per claim. Legal sees a complete picture, not a bare assertion.</p>
+      </div>
+      <div class="stack-layer l5 reveal reveal-delay-4">
+        <div class="stack-layer-num">Layer 5 — Approval Workflows</div>
+        <h4>Multi-Market Legal Routing</h4>
+        <p>UK legal and EU market approvers work in parallel. Each sees the asset, claims, evidence, and compliance context in one view.</p>
+        <div class="tags"><span class="tag">Parallel Review</span><span class="tag pink">Full Evidence Trail</span></div>
+      </div>
+      <div class="stack-layer l6 reveal reveal-delay-5">
+        <div class="stack-layer-num">Layer 6 — AI Compliance</div>
+        <h4>Built-In EU AI Act & ASA Transparency</h4>
+        <p>Every AI-generated content asset carries automatic provenance, human oversight logs, and regulatory compliance documentation.</p>
+        <div class="tags"><span class="tag pink">AI Provenance</span><span class="tag pink">Human Oversight Log</span><span class="tag">Audit Export</span></div>
+      </div>
+    </div>
+
+    <div class="stack-sidebar">
+      <div class="sidebar-card reveal">
+        <h5>The Fire Triangle</h5>
+        <div class="sidebar-stat"><span class="num">Context</span><span class="desc">Operating context and Vault intelligence loaded before the first word is typed.</span></div>
+        <div class="sidebar-stat"><span class="num">Intelligence</span><span class="desc">Claims architecture and regulatory law applied to every asset automatically.</span></div>
+        <div class="sidebar-stat"><span class="num">Orchestration</span><span class="desc">The right content to the right approver in the right market at the right moment.</span></div>
+      </div>
+      <div class="sidebar-card reveal reveal-delay-2">
+        <h5>Why not ChatGPT?</h5>
+        <p>GPT gives you content.<br><strong>Flourish gives you permission to use it.</strong><br><br>GPT has no idea what Betway has earned the right to say. Flourish knows before you type a word.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CLAIMS -->
+<section class="claims-section section-pad">
+  <div class="reveal">
+    <div class="section-label">Claims Architecture</div>
+    <h2 class="section-title">In gambling, every claim<br>is a liability.<br>Unless it isn't.</h2>
+    <p class="section-sub">Not binary approved/not-approved. A living intelligence layer that reflects how regulated enterprise actually works.</p>
+  </div>
+
+  <div class="claims-grid">
+    <div class="claim-dim reveal"><div class="claim-num">01</div><h4>Substantiation</h4><p>Evidence linked and system-scored — type, volume, validity, freshness, contradiction-checking.</p><span class="claim-note">Odds accuracy, win-rate claims, safer gambling certs</span></div>
+    <div class="claim-dim reveal reveal-delay-1"><div class="claim-num">02</div><h4>Approval</h4><p>Legal sees the claim, evidence, and AI analysis. They review, not compile.</p><span class="claim-note">Market-specific approver routing per jurisdiction</span></div>
+    <div class="claim-dim reveal reveal-delay-2"><div class="claim-num">03</div><h4>Lifecycle</h4><p>Active, Draft, Suspended, Expired. Auto-flags before expiry creates liability.</p><span class="claim-note">Regulatory certs expire; Flourish flags first</span></div>
+    <div class="claim-dim reveal reveal-delay-3"><div class="claim-num">04</div><h4>Strength</h4><p>Dynamic score. Depreciates as evidence ages. Stronger evidence = more creative latitude.</p><span class="claim-note">Know how bold you can be — and when that changes</span></div>
+  </div>
+
+  <div class="flow-row reveal">
+    <div class="flow-step"><div class="step-label">01</div><h5>Brief Opens</h5><p>Context, scopes, pillar loaded</p></div>
+    <div class="flow-step"><div class="step-label">02</div><h5>Claims Surfaced</h5><p>Only substantiated, market-appropriate</p></div>
+    <div class="flow-step"><div class="step-label">03</div><h5>Content Generated</h5><p>Full provenance audit trail</p></div>
+    <div class="flow-step"><div class="step-label">04</div><h5>Routed to Legal</h5><p>Asset + claims + evidence in one view</p></div>
+    <div class="flow-step"><div class="step-label">05</div><h5>Approved</h5><p>Days, not weeks</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AI LAW -->
+<section class="ai-section section-pad">
+  <div class="reveal">
+    <div class="section-label">The 2026 AI Content Laws</div>
+    <h2 class="section-title">The AI Act changed how you<br>market with AI.</h2>
+    <p class="section-sub">AI-generated marketing carries its own legal obligations — disclosure, provenance, human oversight, audit trails. Most platforms ignore this. Flourish is built around it.</p>
+  </div>
+
+  <div class="ai-grid">
+    <div class="ai-card reveal"><div class="flag">EU AI Act · In Force</div><h4>Transparency & Disclosure</h4><p>AI content must be labelled. Gambling faces enhanced requirements. Providers must maintain documentation and demonstrate human oversight.</p></div>
+    <div class="ai-card reveal reveal-delay-1"><div class="flag">UK · ASA 2025</div><h4>Sector-Specific AI Standards</h4><p>AI-generated gambling ads must meet truth-in-advertising standards with additional vulnerability protections. Proof of human review expected.</p></div>
+    <div class="ai-card reveal reveal-delay-2"><div class="flag">Global · DSA + FTC</div><h4>Targeting & Personalisation Limits</h4><p>Algorithmic transparency for automated personalisation. AI-generated claims must meet existing truth standards. Every Betway market has a version of this.</p></div>
+  </div>
+
+  <div class="ai-response reveal">
+    <div>
+      <h4>What Flourish does</h4>
+      <div class="ai-response-item"><p>Every generation event logged — timestamp, model, context — exportable for audit</p></div>
+      <div class="ai-response-item"><p>Human oversight recorded at every approval stage</p></div>
+      <div class="ai-response-item"><p>AI content flagged for disclosure before it exits the platform</p></div>
+    </div>
+    <div>
+      <h4>Why this matters for Betway</h4>
+      <div class="ai-response-item"><p>Legal says "no" without an audit trail. Flourish makes "yes" the path of least resistance</p></div>
+      <div class="ai-response-item"><p>One AI Act enforcement action costs more than years of Flourish</p></div>
+      <div class="ai-response-item"><p>Competitors using ungoverned AI face the same rules with no documentation</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETITIVE -->
+<section class="competitive-section section-pad">
+  <div class="reveal">
+    <div class="section-label">Category Distinction</div>
+    <h2 class="section-title">Not a content tool.<br>A permission infrastructure.</h2>
+    <p class="section-sub">The comparison isn't features. It's function.</p>
+  </div>
+
+  <div class="comp-wrap reveal">
+    <table class="comp-table">
+      <thead><tr>
+        <th style="width:180px">Capability</th>
+        <th>Generic AI<br><small style="font-weight:300;opacity:0.6">ChatGPT / Copilot</small></th>
+        <th>Content Tools<br><small style="font-weight:300;opacity:0.6">Jasper / Writer</small></th>
+        <th class="fl">Flourish<br><small style="font-weight:300;opacity:0.9">Permission Platform</small></th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="rl">Knows approved claims</td><td>Never</td><td>Manual input only</td><td class="fl">Always — four-dimensional, auto-applied</td></tr>
+        <tr><td class="rl">Gambling law built in</td><td>No</td><td>No</td><td class="fl">CAP/BCAP, Gambling Act, EU market rules, safer gambling</td></tr>
+        <tr><td class="rl">AI Act compliance docs</td><td>None</td><td>None</td><td class="fl">Provenance, oversight, disclosure — auto-generated</td></tr>
+        <tr><td class="rl">Market-specific routing</td><td>No</td><td>No</td><td class="fl">UK, DE, IE, NL routed in parallel</td></tr>
+        <tr><td class="rl">CMO vision cascaded</td><td>No memory</td><td>Brand voice only</td><td class="fl">Operating context inherited on every project</td></tr>
+        <tr><td class="rl">Legal gets context</td><td>No</td><td>Outputs only</td><td class="fl">Asset + claims + evidence + analysis — one view</td></tr>
+        <tr><td class="rl">Buyer</td><td>Individual users</td><td>Marketing ops</td><td class="fl">CMO + Chief Legal Officer — enterprise infrastructure</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROOF -->
+<section class="proof-section section-pad">
+  <div class="reveal">
+    <div class="section-label">What This Makes Possible</div>
+    <h2 class="section-title">Bold gets to market.<br>Slow gets forgotten.</h2>
+  </div>
+
+  <div class="proof-grid">
+    <div class="proof-card reveal">
+      <div class="stat">37:1</div>
+      <h4>ROI — Burger King Whopper Detour</h4>
+      <p>The campaign that delivered 37:1 ROI wasn't more creative than competitors. It moved at a speed that made the cultural moment impossible to miss. That speed requires the legal infrastructure Flourish provides.</p>
+      <p class="source">Cannes Lions 2019 · Burger King / FCB New York</p>
+    </div>
+    <div class="proof-card reveal reveal-delay-2">
+      <div class="stat">e.l.f.</div>
+      <h4>Architecture beats creativity</h4>
+      <p>e.l.f. didn't outspend Coty. They built a marketing operating system that could move faster. Coty, with more budget and talent, approaches penny stock. e.l.f. hit a billion. The architecture is the advantage.</p>
+      <p class="source">Maddy Cooper, Flourish Substack · 2026</p>
+    </div>
+  </div>
+
+  <div class="reg-callout reveal" style="max-width:100%;">
+    <p>The competitor who gets the culturally relevant campaign to market in <strong>days rather than weeks</strong> owns the moment. The one who arrives second owns nothing. Flourish makes Betway the one who arrives first — <strong>without increasing compliance risk.</strong></p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <div class="eyebrow" style="margin-bottom:20px;">The Next Step</div>
+    <h2>See it with<br>Betway's vault.</h2>
+    <p>We build Betway's operating context, load your claims architecture, and walk through a live campaign brief — from open to approved — in a single session.</p>
+    <a href="#" class="cta-btn">Book the Betway Demo</a>
+    <p class="cta-footnote">Flourish · Confidential · Prepared for Betway · 2026<br>Joint sponsor: CMO + Chief Legal Officer</p>
+    <div class="trademark-footer">Flourish · Truth Marketing®</div>
+  </div>
+</section>
+
+<script>
+// Intersection Observer for scroll-triggered animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Parallax on hero glow
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  const glow = document.querySelector('.hero-glow');
+  if (glow && s < window.innerHeight) {
+    glow.style.transform = `translate(-50%, calc(-50% + ${s * 0.15}px))`;
+    glow.style.opacity = 1 - (s / window.innerHeight) * 0.8;
+  }
+});
+
+// Nav opacity on scroll
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.borderBottomColor = window.scrollY > 60
+    ? 'rgba(255,255,255,0.12)'
+    : 'rgba(255,255,255,0.06)';
+});
+</script>
+
+</body>
+</html>
