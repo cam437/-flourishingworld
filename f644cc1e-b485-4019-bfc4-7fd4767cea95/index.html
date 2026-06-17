@@ -10,21 +10,20 @@
 <style>
 :root {
   --bg: #0D0A0F;
-  --bg2: #14101A;
   --surface: rgba(255,255,255,0.04);
   --surface2: rgba(255,255,255,0.07);
   --border: rgba(255,255,255,0.08);
   --border2: rgba(255,255,255,0.14);
   --pink: #FF2D7B;
-  --pink-dim: rgba(255,45,123,0.15);
-  --pink-glow: rgba(255,45,123,0.25);
+  --pink-dim: rgba(255,45,123,0.12);
   --text: #FFFFFF;
-  --text2: rgba(255,255,255,0.72);
-  --muted: rgba(255,255,255,0.42);
+  --text2: rgba(255,255,255,0.70);
+  --muted: rgba(255,255,255,0.38);
   --green: #4ADE80;
-  --green-bg: rgba(74,222,128,0.1);
+  --green-bg: rgba(74,222,128,0.08);
   --amber: #FCD34D;
-  --amber-bg: rgba(252,211,77,0.1);
+  --amber-bg: rgba(252,211,77,0.08);
+  --red-bg: rgba(248,113,113,0.1);
   --font: 'Inter', system-ui, sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,187 +33,204 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 /* NAV */
 .nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(13,10,15,0.92);
+  background: rgba(13,10,15,0.95);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 6px;
-  padding: 0 40px; height: 52px;
+  display: flex; align-items: center; gap: 2px;
+  padding: 0 40px; height: 50px;
 }
-.nav-logo { font-weight: 800; font-size: 18px; color: var(--pink); letter-spacing: -.04em; margin-right: 20px; }
+.nav-logo { font-weight: 800; font-size: 17px; color: var(--pink); letter-spacing: -.04em; margin-right: 24px; flex: none; }
 .nav-btn {
-  font-size: 12.5px; font-weight: 500; color: var(--muted);
+  font-size: 12px; font-weight: 500; color: var(--muted);
   background: none; border: none; border-bottom: 2px solid transparent;
-  padding: 0 12px; height: 52px; cursor: pointer;
+  padding: 0 12px; height: 50px; cursor: pointer;
   transition: color .12s; white-space: nowrap;
 }
-.nav-btn:hover { color: rgba(255,255,255,0.8); }
+.nav-btn:hover { color: rgba(255,255,255,0.75); }
 .nav-btn.on { color: #fff; border-bottom-color: var(--pink); }
-.nav-right { margin-left: auto; font-size: 12px; color: var(--muted); }
+.nav-right { margin-left: auto; font-size: 11.5px; color: var(--muted); }
+
+/* CONFIRM BLOCK */
+.confirm {
+  background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.35);
+  border-radius: 6px; padding: 10px 14px; margin: 6px 0;
+  font-size: 12px; font-weight: 600; color: #FCA5A5;
+  font-family: monospace; letter-spacing: .02em;
+}
 
 /* SLIDES */
-.slide { display: none; min-height: calc(100vh - 52px); }
+.slide { display: none; min-height: calc(100vh - 50px); }
 .slide.on { display: flex; flex-direction: column; }
 
 /* COVER */
 .cover {
   flex: 1;
-  background: radial-gradient(ellipse 80% 60% at 60% -10%, #3A0A1E 0%, #1A0512 40%, var(--bg) 70%);
+  background: radial-gradient(ellipse 70% 55% at 65% -5%, #3A0A1E 0%, #1A0512 38%, var(--bg) 68%);
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 72px;
   position: relative; overflow: hidden;
 }
 .cover::before {
   content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
-  background: linear-gradient(180deg, var(--pink), rgba(255,45,123,0.2));
+  background: linear-gradient(180deg, var(--pink) 0%, rgba(255,45,123,0.15) 100%);
 }
 .cover-eyebrow {
-  font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
   color: var(--pink); margin-bottom: 28px;
   display: flex; align-items: center; gap: 12px;
 }
 .cover-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--pink); }
 .cover-title {
-  font-size: clamp(36px, 5vw, 60px); font-weight: 800;
-  line-height: 1.05; letter-spacing: -.03em;
-  max-width: 720px; margin-bottom: 20px;
+  font-size: clamp(34px, 4.5vw, 56px); font-weight: 800;
+  line-height: 1.07; letter-spacing: -.03em;
+  max-width: 700px; margin-bottom: 18px;
 }
-.cover-sub { font-size: 18px; font-weight: 300; color: var(--text2); max-width: 560px; line-height: 1.65; margin-bottom: 40px; }
+.cover-sub { font-size: 17px; font-weight: 300; color: var(--text2); max-width: 540px; line-height: 1.65; margin-bottom: 40px; }
 .cover-meta {
-  display: flex; gap: 32px; flex-wrap: wrap;
+  display: flex; gap: 36px; flex-wrap: wrap;
   padding-top: 32px; border-top: 1px solid var(--border);
 }
-.cover-meta-item { font-size: 12.5px; color: var(--muted); }
-.cover-meta-item strong { display: block; color: var(--text2); font-weight: 500; margin-bottom: 2px; }
-.cover-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pink-dim); border: 1px solid rgba(255,45,123,0.3);
-  color: var(--pink); font-size: 11px; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase;
-  border-radius: 4px; padding: 5px 12px;
-}
+.cover-meta-item { font-size: 12px; color: var(--muted); }
+.cover-meta-item strong { display: block; color: rgba(255,255,255,0.65); font-weight: 500; margin-bottom: 3px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
 
-/* SLIDE LAYOUT */
-.slide-inner { flex: 1; padding: 56px 72px; max-width: 1100px; margin: 0 auto; width: 100%; }
-.slide-header { margin-bottom: 48px; }
-.slide-num { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin-bottom: 12px; }
-.slide-title { font-size: clamp(28px, 3vw, 38px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
-.slide-sub { font-size: 16px; font-weight: 300; color: var(--text2); margin-top: 10px; max-width: 640px; line-height: 1.6; }
+/* SLIDE BODY */
+.slide-inner { flex: 1; padding: 52px 72px; max-width: 1100px; margin: 0 auto; width: 100%; }
+.slide-header { margin-bottom: 44px; }
+.slide-num { font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+.slide-title { font-size: clamp(26px, 2.8vw, 36px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
+.slide-sub { font-size: 15px; font-weight: 300; color: var(--text2); margin-top: 10px; max-width: 620px; line-height: 1.65; }
 
-/* ARCH DIAGRAM */
-.arch {
-  display: grid; grid-template-columns: 1fr;
-  gap: 3px; margin: 32px 0;
-}
-.arch-row {
-  display: flex; align-items: stretch; gap: 3px;
-}
+/* ARCH */
+.arch { display: flex; flex-direction: column; gap: 3px; margin: 28px 0; }
+.arch-row { display: flex; gap: 3px; }
 .arch-block {
-  flex: 1; background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px; padding: 18px 20px;
-  position: relative; overflow: hidden;
+  flex: 1; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px 18px; position: relative; overflow: hidden;
 }
-.arch-block.pink-accent { border-left: 3px solid var(--pink); }
-.arch-block.top-accent::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--pink), transparent);
+.arch-block.accent { border-left: 3px solid var(--pink); }
+.arch-block.top { border-top: 2px solid rgba(255,45,123,0.4); }
+.ab-layer { font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--pink); margin-bottom: 4px; }
+.ab-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.ab-desc { font-size: 12.5px; font-weight: 300; color: var(--text2); line-height: 1.55; }
+.ab-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 2px 7px; margin: 4px 3px 0 0; color: var(--muted);
 }
-.arch-block-label {
-  font-size: 10px; font-weight: 700; letter-spacing: .16em;
-  text-transform: uppercase; color: var(--pink); margin-bottom: 6px;
-}
-.arch-block-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-.arch-block-desc { font-size: 13px; font-weight: 300; color: var(--text2); line-height: 1.55; }
-.arch-arrow {
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 18px; padding: 4px;
-}
+.arch-arrow { text-align: center; color: var(--muted); font-size: 16px; padding: 2px 0; }
 
-/* GRID LAYOUTS */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+/* GRID */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 
-/* CARDS */
-.card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 24px;
-}
+/* CARD */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
 .card.accent { border-left: 3px solid var(--pink); }
-.card-icon { font-size: 22px; margin-bottom: 14px; }
-.card-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-.card-body { font-size: 13.5px; font-weight: 300; color: var(--text2); line-height: 1.65; }
+.card-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.card-body { font-size: 13px; font-weight: 300; color: var(--text2); line-height: 1.65; }
+.card-body li { margin-bottom: 6px; }
 
-/* STATUS ITEMS */
-.status-list { display: flex; flex-direction: column; gap: 10px; margin: 24px 0; }
+/* STATUS */
+.status-list { display: flex; flex-direction: column; gap: 8px; margin: 20px 0; }
 .status-item {
   display: flex; align-items: flex-start; gap: 14px;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; padding: 16px 18px;
+  border-radius: 8px; padding: 14px 16px;
 }
-.status-dot {
-  width: 8px; height: 8px; border-radius: 50%; flex: none; margin-top: 6px;
-}
-.status-dot.green { background: var(--green); box-shadow: 0 0 8px rgba(74,222,128,0.5); }
-.status-dot.amber { background: var(--amber); box-shadow: 0 0 8px rgba(252,211,77,0.4); }
-.status-dot.pink { background: var(--pink); box-shadow: 0 0 8px var(--pink-glow); }
-.status-label { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
-.status-desc { font-size: 13px; font-weight: 300; color: var(--text2); line-height: 1.55; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex: none; margin-top: 5px; }
+.dot.green { background: var(--green); box-shadow: 0 0 7px rgba(74,222,128,0.45); }
+.dot.amber { background: var(--amber); box-shadow: 0 0 7px rgba(252,211,77,0.35); }
+.s-label { font-size: 13.5px; font-weight: 600; margin-bottom: 3px; }
+.s-desc { font-size: 12.5px; font-weight: 300; color: var(--text2); line-height: 1.55; }
 
-/* PERMISSION MODEL */
-.tuple-example {
+/* RBAC EXAMPLE */
+.rbac-ex {
   background: var(--surface2); border: 1px solid var(--border2);
   border-radius: 8px; padding: 18px 20px; margin: 16px 0;
-  font-size: 13.5px; line-height: 1.7;
 }
-.tuple-example .quote {
-  font-style: italic; color: var(--text2); margin-bottom: 12px; font-size: 14px;
-}
+.rbac-quote { font-style: italic; color: var(--text2); font-size: 13.5px; margin-bottom: 12px; }
 .tuple {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pink-dim); border: 1px solid rgba(255,45,123,0.2);
-  border-radius: 5px; padding: 4px 10px; font-size: 12px; font-weight: 500;
-  color: var(--pink); font-family: monospace; margin: 3px 2px;
+  display: inline-flex; align-items: center;
+  background: var(--pink-dim); border: 1px solid rgba(255,45,123,0.18);
+  border-radius: 4px; padding: 3px 9px; font-size: 11px; font-weight: 500;
+  color: var(--pink); font-family: monospace; margin: 2px 2px 0 0;
 }
+.rbac-note { margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.55; }
 
-/* AI GOVERNANCE */
-.sovereignty-box {
-  background: linear-gradient(135deg, rgba(255,45,123,0.08), rgba(58,10,30,0.3));
-  border: 1px solid rgba(255,45,123,0.2);
-  border-radius: 10px; padding: 28px 32px; margin: 24px 0;
+/* SOVERIGN BOX */
+.sov {
+  background: linear-gradient(135deg, rgba(255,45,123,0.06), rgba(58,10,30,0.25));
+  border: 1px solid rgba(255,45,123,0.18);
+  border-radius: 10px; padding: 26px 28px; margin: 20px 0;
 }
-.sovereignty-title { font-size: 16px; font-weight: 700; color: var(--pink); margin-bottom: 12px; }
-.sovereignty-body { font-size: 14.5px; font-weight: 300; color: var(--text2); line-height: 1.7; }
+.sov-title { font-size: 14px; font-weight: 700; color: var(--pink); margin-bottom: 10px; }
+.sov-body { font-size: 14px; font-weight: 300; color: var(--text2); line-height: 1.7; }
 
 /* CALLOUT */
-.callout {
+.note {
+  background: var(--green-bg); border: 1px solid rgba(74,222,128,0.18);
+  border-radius: 8px; padding: 14px 18px;
+  display: flex; gap: 12px; align-items: flex-start; margin: 16px 0;
+}
+.note-text { font-size: 13px; color: var(--text2); line-height: 1.6; }
+.note-text strong { color: var(--text); }
+
+/* SUB-PROCESSOR TABLE */
+.sp-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); font-size: 13px; }
+.sp-table thead tr { background: rgba(255,255,255,0.05); }
+.sp-table th { padding: 10px 14px; text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+.sp-table td { padding: 11px 14px; color: var(--text2); border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
+.sp-table tr:last-child td { border-bottom: none; }
+.sp-table td:first-child { color: var(--text); font-weight: 500; }
+.cert-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
   background: var(--green-bg); border: 1px solid rgba(74,222,128,0.2);
-  border-radius: 8px; padding: 16px 20px;
-  display: flex; gap: 12px; align-items: flex-start;
-  margin: 20px 0;
+  color: var(--green); border-radius: 3px; padding: 1px 6px; margin: 1px 2px 1px 0;
 }
-.callout-warn {
-  background: var(--amber-bg); border-color: rgba(252,211,77,0.2);
+
+/* OPS PANEL */
+.ops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+.ops-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+.ops-label { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); margin-bottom: 7px; }
+.ops-val { font-size: 13.5px; font-weight: 400; line-height: 1.6; }
+.ops-val .muted { color: var(--text2); font-weight: 300; font-size: 12.5px; }
+
+/* CLOSING */
+.close-hero {
+  flex: 1;
+  background: radial-gradient(ellipse 70% 55% at 35% 110%, #3A0A1E 0%, #1A0512 38%, var(--bg) 68%);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 72px; position: relative; overflow: hidden;
 }
-.callout-icon { font-size: 16px; flex: none; margin-top: 1px; }
-.callout-text { font-size: 13.5px; color: var(--text2); line-height: 1.6; }
-.callout-text strong { color: var(--text); font-weight: 600; }
+.close-hero::after {
+  content: ''; position: absolute; bottom: 0; right: 0; width: 3px; height: 100%;
+  background: linear-gradient(0deg, var(--pink), rgba(255,45,123,0.1));
+}
+.ask-box {
+  background: var(--pink-dim); border: 1px solid rgba(255,45,123,0.25);
+  border-radius: 10px; padding: 28px 32px; max-width: 640px; margin: 32px 0;
+}
+.ask-box .ask-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin-bottom: 12px; }
+.ask-box .ask-text { font-size: 17px; font-weight: 400; line-height: 1.6; }
+.contact-grid { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+.contact-item { font-size: 12px; color: var(--muted); }
+.contact-item strong { display: block; color: rgba(255,255,255,0.65); font-weight: 500; margin-bottom: 2px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
 
 /* FOOTER */
 footer {
-  border-top: 1px solid var(--border);
-  padding: 20px 72px;
+  border-top: 1px solid var(--border); padding: 18px 72px;
   display: flex; justify-content: space-between; align-items: center;
 }
-.footer-logo { font-weight: 800; font-size: 16px; color: var(--pink); letter-spacing: -.04em; }
-.footer-meta { font-size: 12px; color: var(--muted); }
+.fl { font-weight: 800; font-size: 15px; color: var(--pink); letter-spacing: -.04em; }
+.fm { font-size: 11.5px; color: var(--muted); }
 
 @media (max-width: 680px) {
-  .slide-inner, .cover { padding: 40px 24px; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .slide-inner, .cover, .close-hero { padding: 36px 20px; }
+  .g2, .g3, .ops-grid { grid-template-columns: 1fr; }
   .arch-row { flex-direction: column; }
-  footer { padding: 16px 24px; }
-  .nav { padding: 0 16px; gap: 2px; }
-  .nav-btn { padding: 0 8px; font-size: 11px; }
+  footer { padding: 14px 20px; }
+  .nav { padding: 0 16px; }
+  .nav-btn { padding: 0 7px; font-size: 11px; }
 }
 </style>
 </head>
@@ -227,6 +243,7 @@ footer {
   <button class="nav-btn" onclick="go(2)">Access Control</button>
   <button class="nav-btn" onclick="go(3)">Security</button>
   <button class="nav-btn" onclick="go(4)">AI Governance</button>
+  <button class="nav-btn" onclick="go(5)">Next Steps</button>
   <div class="nav-right">Reckitt IT, June 2026</div>
 </nav>
 
@@ -235,29 +252,15 @@ footer {
   <div class="cover">
     <div class="cover-eyebrow">Technical Overview</div>
     <h1 class="cover-title">How Flourish is built.<br>How Flourish is secured.</h1>
-    <p class="cover-sub">A brief for the Reckitt IT team. Platform architecture, access control, security posture, and AI data governance.</p>
+    <p class="cover-sub">Platform architecture, access control, security posture, and AI data governance. Prepared for the Reckitt IT team.</p>
     <div class="cover-meta">
-      <div class="cover-meta-item">
-        <strong>Prepared for</strong>
-        Reckitt IT Team
-      </div>
-      <div class="cover-meta-item">
-        <strong>Date</strong>
-        June 2026
-      </div>
-      <div class="cover-meta-item">
-        <strong>Prepared by</strong>
-        Flourish Engineering
-      </div>
-      <div class="cover-meta-item" style="margin-left:auto">
-        <span class="cover-badge">ISO 27001 + SOC 2: Certification in Progress</span>
-      </div>
+      <div class="cover-meta-item"><strong>Prepared for</strong>Reckitt IT Team</div>
+      <div class="cover-meta-item"><strong>Date</strong>June 2026</div>
+      <div class="cover-meta-item"><strong>Prepared by</strong>Flourish Engineering</div>
+      <div class="cover-meta-item"><strong>Certifications</strong>ISO 27001 and SOC 2: in progress</div>
     </div>
   </div>
-  <footer>
-    <div class="footer-logo">Flourish</div>
-    <div class="footer-meta">flourishingworld.com · Confidential</div>
-  </footer>
+  <footer><div class="fl">Flourish</div><div class="fm">flourishingworld.com &middot; Confidential</div></footer>
 </div>
 
 <!-- SLIDE 1: ARCHITECTURE -->
@@ -265,66 +268,82 @@ footer {
   <div class="slide-inner">
     <div class="slide-header">
       <div class="slide-num">01: Architecture</div>
-      <h2 class="slide-title">Cloud-native. Enterprise-grade.<br>Purpose-built for compliance.</h2>
-      <p class="slide-sub">Flourish runs on modern cloud infrastructure with strict separation between the application layer, data storage, and AI processing.</p>
+      <h2 class="slide-title">A multi-component cloud stack.<br>Not a single-vendor dependency.</h2>
+      <p class="slide-sub">Flourish is a composed platform: each layer is a best-in-class service with its own security posture, connected by Flourish's orchestration logic. Bubble is the application and workflow layer inside a broader stack.</p>
     </div>
 
     <div class="arch">
       <div class="arch-row">
-        <div class="arch-block top-accent" style="text-align:center; padding: 14px 20px;">
-          <div class="arch-block-label">Client access</div>
-          <div class="arch-block-title">Browser, API, Figma Plugin</div>
+        <div class="arch-block top" style="text-align:center; padding: 12px 18px;">
+          <div class="ab-layer">Client access</div>
+          <div class="ab-title">Browser, API, Figma Plugin (planned)</div>
         </div>
       </div>
-      <div class="arch-arrow">↓ HTTPS (TLS 1.2+)</div>
+      <div class="arch-arrow">&#8595; HTTPS / TLS 1.2+</div>
       <div class="arch-row">
-        <div class="arch-block pink-accent">
-          <div class="arch-block-label">Network security</div>
-          <div class="arch-block-title">Cloudflare</div>
-          <div class="arch-block-desc">WAF, DDoS protection, Bot mitigation, Zero Trust gateway, Origin IP masking</div>
+        <div class="arch-block accent">
+          <div class="ab-layer">Network security</div>
+          <div class="ab-title">Cloudflare</div>
+          <div class="ab-desc">WAF (OWASP + Managed Ruleset), DDoS mitigation, Bot Fight Mode, Zero Trust DNS firewall, origin IP masking</div>
+          <span class="ab-tag">AWS-based CDN</span>
+          <span class="ab-tag">ISO 27001</span>
+          <span class="ab-tag">SOC 2 Type II</span>
         </div>
       </div>
-      <div class="arch-arrow">↓</div>
+      <div class="arch-arrow">&#8595;</div>
       <div class="arch-row">
-        <div class="arch-block pink-accent">
-          <div class="arch-block-label">Application layer (GCP)</div>
-          <div class="arch-block-title">Bubble (enterprise application platform)</div>
-          <div class="arch-block-desc">All business logic, user management, RBAC access control, workflow orchestration, API layer, multi-tenant data isolation</div>
+        <div class="arch-block accent">
+          <div class="ab-layer">Application layer</div>
+          <div class="ab-title">Bubble (enterprise application platform)</div>
+          <div class="ab-desc">Business logic, workflow orchestration, user management, role-based access control, multi-tenant data isolation. All server-side. No client-side data processing.</div>
+          <span class="ab-tag">AWS us-east-1</span>
+          <span class="ab-tag">SOC 2 Type II</span>
+          <span class="ab-tag">GDPR-compliant</span>
         </div>
       </div>
-      <div class="arch-arrow">↓</div>
-      <div class="arch-row">
-        <div class="arch-block">
-          <div class="arch-block-label">Intelligence layer</div>
-          <div class="arch-block-title">Pinecone</div>
-          <div class="arch-block-desc">Enterprise vector database for semantic search across the client Vault</div>
-        </div>
-        <div style="width: 3px;"></div>
-        <div class="arch-block">
-          <div class="arch-block-label">Regulatory database</div>
-          <div class="arch-block-title">LexMatrix</div>
-          <div class="arch-block-desc">Flourish's proprietary global regulatory database. 50+ countries, 22 sectors. PostgreSQL and pgvector.</div>
-        </div>
-      </div>
-      <div class="arch-arrow">↓</div>
+      <div class="arch-arrow">&#8595;</div>
       <div class="arch-row">
         <div class="arch-block">
-          <div class="arch-block-label">AI orchestration</div>
-          <div class="arch-block-title">Claude (Anthropic) via OpenRouter</div>
-          <div class="arch-block-desc">Reasoning, content generation, compliance analysis. Each agent receives only task-specific context. No persistent model access to client data.</div>
+          <div class="ab-layer">API and edge layer</div>
+          <div class="ab-title">Vercel</div>
+          <div class="ab-desc">Serverless API routes and headless frontend delivery. Sits between Cloudflare and Bubble for edge logic.</div>
+          <span class="ab-tag">AWS eu-west-1</span>
+          <span class="ab-tag">SOC 2 Type II</span>
+        </div>
+        <div style="width:3px"></div>
+        <div class="arch-block">
+          <div class="ab-layer">Data layer</div>
+          <div class="ab-title">Supabase (PostgreSQL + pgvector)</div>
+          <div class="ab-desc">Regulatory database (LexMatrix). Client vault structured data. Row-level security enforced.</div>
+          <span class="ab-tag">AWS eu-west-2 (London)</span>
+          <span class="ab-tag">SOC 2 Type II</span>
+        </div>
+        <div style="width:3px"></div>
+        <div class="arch-block">
+          <div class="ab-layer">Search layer</div>
+          <div class="ab-title">Pinecone</div>
+          <div class="ab-desc">Enterprise vector database for semantic search across the client Vault.</div>
+          <span class="ab-tag">AWS eu-west-1</span>
+          <span class="ab-tag">SOC 2 Type II</span>
+        </div>
+      </div>
+      <div class="arch-arrow">&#8595;</div>
+      <div class="arch-row">
+        <div class="arch-block">
+          <div class="ab-layer">AI orchestration</div>
+          <div class="ab-title">Anthropic Claude via OpenRouter</div>
+          <div class="ab-desc">Reasoning, content generation, compliance analysis. Each agent call receives only the context required for that task. No persistent model access to client data.</div>
+          <span class="ab-tag">API (no data storage)</span>
+          <span class="ab-tag">DPA in place</span>
         </div>
       </div>
     </div>
 
-    <div class="callout">
-      <div class="callout-icon">🌍</div>
-      <div class="callout-text">All infrastructure is hosted on <strong>Google Cloud Platform</strong>. Client Vault data never leaves Flourish's own infrastructure. It is not processed inside any AI model's persistent storage.</div>
+    <div class="note">
+      <div class="note-text"><strong>Data residency:</strong> Application logic runs on AWS us-east-1 (Bubble). Structured data, vector search, and the regulatory database are hosted in AWS eu-west-1 and eu-west-2 (London). All EU/UK client data stays within AWS EU regions.</div>
     </div>
   </div>
-  <footer>
-    <div class="footer-logo">Flourish</div>
-    <div class="footer-meta">Architecture · flourishingworld.com</div>
-  </footer>
+  <footer><div class="fl">Flourish</div><div class="fm">Architecture &middot; flourishingworld.com</div></footer>
 </div>
 
 <!-- SLIDE 2: ACCESS CONTROL -->
@@ -332,66 +351,52 @@ footer {
   <div class="slide-inner">
     <div class="slide-header">
       <div class="slide-num">02: Access Control</div>
-      <h2 class="slide-title">Granular, auditable access.<br>No user sees more than they should.</h2>
-      <p class="slide-sub">Flourish uses a tuple-based Role and Scope permission model, more precise than traditional RBAC. Every user accumulates permission pairs that define exactly what they can do and where.</p>
+      <h2 class="slide-title">Role-based access today.<br>Tuple-scoped permissions next.</h2>
+      <p class="slide-sub">Access control is live and enforced today. The next iteration, which extends scoping to brand, market, and product level, is in active build.</p>
     </div>
 
-    <div class="grid-3" style="margin-bottom: 24px;">
+    <div class="g2" style="margin-bottom:20px">
       <div class="card accent">
-        <div class="card-icon">👁</div>
-        <div class="card-title">View</div>
-        <div class="card-body">Read-only access to content, claims, and references within the user's scope.</div>
-      </div>
-      <div class="card accent">
-        <div class="card-icon">✏️</div>
-        <div class="card-title">Manage</div>
-        <div class="card-body">Create, edit, and delete within scope. Includes uploading references and drafting content.</div>
-      </div>
-      <div class="card accent">
-        <div class="card-icon">✅</div>
-        <div class="card-title">Approve</div>
-        <div class="card-body">Authorise state transitions. For example: move a claim from In Review to Approved. Legal teams only.</div>
-      </div>
-    </div>
-
-    <div class="tuple-example">
-      <div class="quote">Example: a Reckitt regional approver for Germany has exactly two permission tuples.</div>
-      <span class="tuple">(Role: Viewer) + (Scope: Region.EMEA, Product.All)</span>
-      <span class="tuple">(Role: Approver) + (Scope: Region.Germany, Product.All)</span>
-      <div style="margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.5);">
-        This user can view content across EMEA but can only approve content scoped to Germany. Pet Nutrition and Royal Canin data are separate scopes. Neither leaks to the other.
-      </div>
-    </div>
-
-    <div class="grid-2" style="margin-top: 8px;">
-      <div class="card">
-        <div class="card-title">What this means for Reckitt</div>
+        <div class="card-title">Current state: role-based access control</div>
         <div class="card-body">
-          <ul style="padding-left: 16px; line-height: 2;">
-            <li>Pet Nutrition data is inaccessible to Royal Canin users. By architecture, not policy.</li>
-            <li>Market-level approvers cannot approve content outside their market</li>
-            <li>Every access action is logged and attributable</li>
-            <li>User group changes take effect immediately</li>
+          <ul style="padding-left:16px; line-height:1.9;">
+            <li>Organisations are isolated tenants. No cross-organisation data access is architecturally possible.</li>
+            <li>Users are assigned roles: View, Manage, or Approve.</li>
+            <li>Approve is scoped to Legal Approver role only. Marketing users cannot approve claims.</li>
+            <li>All access actions are logged with user ID, timestamp, and action type.</li>
+            <li>User de-provisioning removes access immediately.</li>
           </ul>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Scope dimensions</div>
+        <div class="card-title">Next iteration: tuple-scoped permissions</div>
         <div class="card-body">
-          <ul style="padding-left: 16px; line-height: 2;">
-            <li><strong>Region:</strong> Global, EMEA, UK, Germany, and more</li>
-            <li><strong>Product:</strong> Brand, product line, SKU</li>
-            <li><strong>Sector:</strong> Pet Nutrition, Healthcare, and more</li>
-            <li><strong>Pillar:</strong> Sustainability, Science, Heritage</li>
-          </ul>
+          Users will accumulate permission tuples of the form (Role) + (Scope). A single user can hold multiple tuples, each opening a specific door. This enables brand-level, market-level, and product-level access separation within a single organisation.
+          <div style="margin-top:10px; font-size:12px; color:var(--muted);">In active build. Can be scoped to Reckitt onboarding timeline.</div>
         </div>
+      </div>
+    </div>
+
+    <div class="rbac-ex">
+      <div class="rbac-quote">Example (next iteration): a Reckitt Dettol EMEA approver has exactly two permission tuples.</div>
+      <span class="tuple">(Role: Viewer) + (Scope: Region.EMEA, Brand.All)</span>
+      <span class="tuple">(Role: Approver) + (Scope: Region.UK, Brand.Dettol)</span>
+      <div class="rbac-note">This user can view all EMEA content but can only approve Dettol claims scoped to the UK. A Mead Johnson Nutrition team member in a separate scope has no visibility into Dettol content. Neither user can see the other's work. Access is enforced by architecture, not by policy alone.</div>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">SSO / SAML / SCIM</div>
+        <div class="card-body">SAML 2.0 SSO and SCIM provisioning are committed for delivery at onboarding. Flourish will federate against Reckitt's IdP (Azure AD or Okta). Leaver access is revoked automatically via SCIM de-provisioning.
+        <div class="confirm">[CONFIRM: target delivery date for SSO to include in commitment]</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Access reviews and offboarding</div>
+        <div class="card-body">Quarterly access reviews are performed internally. User offboarding triggers immediate revocation. All access events are logged and auditable per ISO 27001 requirements.</div>
       </div>
     </div>
   </div>
-  <footer>
-    <div class="footer-logo">Flourish</div>
-    <div class="footer-meta">Access Control · flourishingworld.com</div>
-  </footer>
+  <footer><div class="fl">Flourish</div><div class="fm">Access Control &middot; flourishingworld.com</div></footer>
 </div>
 
 <!-- SLIDE 3: SECURITY -->
@@ -399,58 +404,74 @@ footer {
   <div class="slide-inner">
     <div class="slide-header">
       <div class="slide-num">03: Security</div>
-      <h2 class="slide-title">Audit complete. Certification in progress.<br>Enterprise security controls active.</h2>
+      <h2 class="slide-title">Certifications in progress.<br>Controls active now.</h2>
     </div>
 
     <div class="status-list">
       <div class="status-item">
-        <div class="status-dot green"></div>
+        <div class="dot amber"></div>
         <div>
-          <div class="status-label">ISO 27001: Audit complete, certification in progress</div>
-          <div class="status-desc">Information security management system. Audit passed. Covers data handling, access control, incident response, and business continuity.</div>
+          <div class="s-label">ISO 27001</div>
+          <div class="s-desc"><div class="confirm">[CONFIRM WITH CAM/RACHAEL: exact stage (Stage 1 complete / Stage 2 in progress / Stage 2 complete) and expected certificate date. State precisely. Do not over-claim.]</div></div>
         </div>
       </div>
       <div class="status-item">
-        <div class="status-dot amber"></div>
+        <div class="dot amber"></div>
         <div>
-          <div class="status-label">SOC 2: Audit complete, certification in progress</div>
-          <div class="status-desc">Type II audit passed. Covers security, availability, and confidentiality trust service criteria.</div>
+          <div class="s-label">SOC 2</div>
+          <div class="s-desc"><div class="confirm">[CONFIRM WITH CAM/RACHAEL: exact status and realistic target date. If observation window not yet complete, say "SOC 2 Type II readiness programme underway, target [date]" and nothing more.]</div></div>
         </div>
       </div>
       <div class="status-item">
-        <div class="status-dot green"></div>
+        <div class="dot green"></div>
         <div>
-          <div class="status-label">Cloudflare WAF: Active</div>
-          <div class="status-desc">Cloudflare Managed Ruleset and OWASP Core Ruleset enabled. Blocks SQLi, XSS, remote file inclusion, and known exploit patterns. Bot Fight Mode active. Real-time threat analytics.</div>
+          <div class="s-label">Cloudflare WAF: Active</div>
+          <div class="s-desc">Cloudflare Managed Ruleset and OWASP Core Ruleset enabled. Blocks SQLi, XSS, remote file inclusion, and known exploit patterns. Bot Fight Mode active.</div>
         </div>
       </div>
       <div class="status-item">
-        <div class="status-dot green"></div>
+        <div class="dot green"></div>
         <div>
-          <div class="status-label">Cloudflare Zero Trust: Active</div>
-          <div class="status-desc">DNS-layer firewall blocking malicious domains. DDoS protection active across all threat categories. Origin server IPs masked from public DNS.</div>
+          <div class="s-label">Cloudflare Zero Trust: Active</div>
+          <div class="s-desc">DNS-layer firewall blocking malicious domains. DDoS mitigation active. Origin server IPs masked from public DNS.</div>
         </div>
       </div>
       <div class="status-item">
-        <div class="status-dot green"></div>
+        <div class="dot green"></div>
         <div>
-          <div class="status-label">Data encryption</div>
-          <div class="status-desc">All data encrypted in transit (TLS 1.2+). Data encrypted at rest on GCP infrastructure.</div>
+          <div class="s-label">Penetration testing</div>
+          <div class="s-desc">Independent penetration test completed 21 April 2026. 8 findings identified. All resolved and verified. <div class="confirm">[CONFIRM: name of testing firm for attribution]</div></div>
         </div>
       </div>
       <div class="status-item">
-        <div class="status-dot green"></div>
+        <div class="dot green"></div>
         <div>
-          <div class="status-label">Multi-tenant data isolation</div>
-          <div class="status-desc">Each organisation's data is architecturally separated. Cross-tenant data access is not possible by design.</div>
+          <div class="s-label">Encryption</div>
+          <div class="s-desc">All data encrypted in transit (TLS 1.2+). Data encrypted at rest across all storage layers (AWS and Supabase London).</div>
         </div>
       </div>
     </div>
+
+    <div class="ops-grid">
+      <div class="ops-item">
+        <div class="ops-label">Backups and recovery</div>
+        <div class="ops-val">Automated daily backups. <div class="confirm" style="margin-top:4px">[CONFIRM: RTO/RPO targets and backup retention period from ISO board]</div></div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-label">Incident response</div>
+        <div class="ops-val">Documented incident response procedure. <div class="confirm" style="margin-top:4px">[CONFIRM WITH RACHAEL: client-facing breach notification SLA. Expected: 72 hours under GDPR, but must be confirmed as formalised policy before asserting to client.]</div></div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-label">Vulnerability management</div>
+        <div class="ops-val">Continuous dependency scanning. Security patches applied on a priority basis. Pen test cycle scheduled annually.</div>
+      </div>
+      <div class="ops-item">
+        <div class="ops-label">Multi-tenant isolation</div>
+        <div class="ops-val">Each organisation is an isolated tenant. Cross-tenant data access is not possible by architecture. Row-level security enforced at the database layer.</div>
+      </div>
+    </div>
   </div>
-  <footer>
-    <div class="footer-logo">Flourish</div>
-    <div class="footer-meta">Security · flourishingworld.com</div>
-  </footer>
+  <footer><div class="fl">Flourish</div><div class="fm">Security &middot; flourishingworld.com</div></footer>
 </div>
 
 <!-- SLIDE 4: AI GOVERNANCE -->
@@ -459,65 +480,117 @@ footer {
     <div class="slide-header">
       <div class="slide-num">04: AI Governance</div>
       <h2 class="slide-title">Your data is yours.<br>It never trains a model.</h2>
-      <p class="slide-sub">The question every enterprise IT team asks. Answered plainly.</p>
     </div>
 
-    <div class="sovereignty-box">
-      <div class="sovereignty-title">The core commitment</div>
-      <div class="sovereignty-body">Client Vault data (brand standards, claim libraries, product specifications, approved content) is stored in Flourish's own infrastructure. It is never ingested into, stored by, or used to train any foundation AI model. Flourish operates under API agreements with Anthropic and other AI providers that explicitly prohibit use of customer data for model training.</div>
+    <div class="sov">
+      <div class="sov-title">The core commitment</div>
+      <div class="sov-body">Client Vault data (brand standards, claim libraries, product specifications, approved content) is stored in Flourish's own infrastructure. It is never used to train any foundation AI model. Flourish operates under API agreements with Anthropic and other providers that explicitly prohibit use of customer data for model training.</div>
     </div>
 
-    <div class="grid-2">
+    <div class="g2" style="margin-bottom:16px;">
       <div class="card">
         <div class="card-title">Which AI models does Flourish use?</div>
-        <div class="card-body" style="margin-top: 8px;">
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; align-items: flex-start; gap: 10px;">
-              <div class="status-dot green" style="margin-top: 5px;"></div>
-              <div><strong>Anthropic Claude:</strong> primary reasoning, content generation, and compliance analysis</div>
-            </div>
-            <div style="display: flex; align-items: flex-start; gap: 10px;">
-              <div class="status-dot green" style="margin-top: 5px;"></div>
-              <div><strong>OpenRouter:</strong> model routing layer. Enables best-model-for-task selection and provider redundancy.</div>
-            </div>
-          </div>
+        <div class="card-body">
+          <div style="margin-bottom:8px;"><strong>Anthropic Claude:</strong> primary reasoning, content generation, and compliance analysis.</div>
+          <div><strong>OpenRouter:</strong> model routing layer. Enables best-model-for-task selection and provider redundancy without rebuilding integrations.</div>
         </div>
       </div>
       <div class="card">
         <div class="card-title">What is sent to AI models?</div>
-        <div class="card-body" style="margin-top: 8px;">
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text2);">
-            <div>✓ The content being reviewed or generated</div>
-            <div>✓ Relevant claims from the client Vault (task-scoped)</div>
-            <div>✓ Applicable regulatory rules for the task</div>
-            <div>✗ PII: not included by design</div>
-            <div>✗ Full Vault: only task-relevant context is passed</div>
-            <div>✗ Unpublished proprietary data beyond task scope</div>
-          </div>
+        <div class="card-body" style="font-size:12.5px; line-height:1.8;">
+          <div style="color:var(--green);">Included: the content under review, task-relevant claims from the Vault, applicable regulatory rules.</div>
+          <div style="color:#FCA5A5; margin-top:6px;">Not included: PII, full Vault contents, unpublished data outside task scope.</div>
+          <div style="color:var(--muted); margin-top:6px;">Each agent call is stateless. Models hold no memory of prior calls.</div>
         </div>
       </div>
     </div>
 
-    <div class="callout" style="margin-top: 20px;">
-      <div class="callout-icon">📋</div>
-      <div class="callout-text"><strong>Audit trail on every AI action.</strong> Every AI-assisted operation in Flourish produces a permanent record: what was generated, which claims it referenced, which regulations were applied, who reviewed it, and when. If a claim is ever challenged, the full chain of evidence is already written. Traceable to a primary source, defensible in court.</div>
+    <div class="note">
+      <div class="note-text"><strong>Audit trail on every AI action.</strong> Every AI-assisted operation produces a permanent record: what was generated, which claims it referenced, which regulations applied, who reviewed it, and when. Fully traceable to primary source.</div>
     </div>
 
-    <div class="grid-2" style="margin-top: 16px;">
-      <div class="card">
-        <div class="card-title">Data sovereignty: the Vault</div>
-        <div class="card-body">The client Vault belongs to the client. On contract end, Vault data is fully exportable. Flourish does not retain it beyond the contractual period. It never contributes to Flourish's own models or any third-party foundation model.</div>
+    <div class="card-title" style="margin: 20px 0 12px;">Sub-processor register</div>
+    <table class="sp-table">
+      <thead>
+        <tr>
+          <th>Sub-processor</th>
+          <th>Role</th>
+          <th>Region</th>
+          <th>Certifications</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bubble</td>
+          <td>Application platform, business logic, RBAC</td>
+          <td>AWS us-east-1</td>
+          <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">GDPR</span></td>
+        </tr>
+        <tr>
+          <td>Vercel</td>
+          <td>API and edge layer</td>
+          <td>AWS eu-west-1</td>
+          <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">ISO 27001</span></td>
+        </tr>
+        <tr>
+          <td>Supabase</td>
+          <td>Regulatory and structured data</td>
+          <td>AWS eu-west-2 (London)</td>
+          <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">ISO 27001</span></td>
+        </tr>
+        <tr>
+          <td>Pinecone</td>
+          <td>Vector search (Vault semantic layer)</td>
+          <td>AWS eu-west-1</td>
+          <td><span class="cert-tag">SOC 2 II</span></td>
+        </tr>
+        <tr>
+          <td>Cloudflare</td>
+          <td>Network security, WAF, Zero Trust</td>
+          <td>Global CDN (EU edge)</td>
+          <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">ISO 27001</span></td>
+        </tr>
+        <tr>
+          <td>Anthropic</td>
+          <td>AI inference (Claude)</td>
+          <td>US (API, no data stored)</td>
+          <td><span class="cert-tag">DPA in place</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer><div class="fl">Flourish</div><div class="fm">AI Governance &middot; flourishingworld.com</div></footer>
+</div>
+
+<!-- SLIDE 5: NEXT STEPS -->
+<div class="slide" id="s5">
+  <div class="close-hero">
+    <div class="cover-eyebrow">Next Steps</div>
+    <h1 class="cover-title" style="max-width:640px;">We want to move forward.<br>Here is what we need from you.</h1>
+
+    <div class="ask-box">
+      <div class="ask-label">The ask</div>
+      <div class="ask-text">Reckitt IT approves Flourish for a governed pilot. We scope it together: one brand team, one market, one use case. Full security pack provided before any data is exchanged. DPA countersigned. Start date agreed.</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px; max-width:640px;">
+      <div class="ops-item" style="background:rgba(255,255,255,0.03);">
+        <div class="ops-label">What we provide before onboarding</div>
+        <div class="ops-val muted">Completed security questionnaire, DPA, sub-processor register, ISO/SOC 2 attestation documents once issued, pen test summary report.</div>
       </div>
-      <div class="card">
-        <div class="card-title">Sub-processors</div>
-        <div class="card-body">Full sub-processor list available on request. Key sub-processors: Google Cloud Platform (infrastructure), Bubble (application), Pinecone (vector search), Anthropic (AI), Cloudflare (network security). All operate under formal data processing agreements.</div>
+      <div class="ops-item" style="background:rgba(255,255,255,0.03);">
+        <div class="ops-label">What we need from Reckitt IT</div>
+        <div class="ops-val muted">Named security contact for vendor review. Confirmation of IdP (Azure AD or Okta) for SSO configuration. Data residency requirements confirmed (EU only, or broader).</div>
       </div>
     </div>
+
+    <div class="contact-grid">
+      <div class="contact-item"><strong>Security contact</strong>Cam Blunt, Head of Engineering<br>cam@flourishingworld.com</div>
+      <div class="contact-item"><strong>Commercial contact</strong>Madeleine Cooper, CEO<br>maddy@flourishingworld.com</div>
+      <div class="contact-item"><strong>Website</strong>flourishingworld.com</div>
+    </div>
   </div>
-  <footer>
-    <div class="footer-logo">Flourish</div>
-    <div class="footer-meta">AI Governance · flourishingworld.com</div>
-  </footer>
+  <footer><div class="fl">Flourish</div><div class="fm">flourishingworld.com &middot; Confidential</div></footer>
 </div>
 
 <script>
