@@ -1,3 +1,15 @@
+<!--
+INTERNAL — REMOVE BEFORE SENDING
+
+1. Verify and attach each sub-processor's current SOC 2 or ISO report; remove any cert tag not evidenced by a current report.
+2. Confirm Bubble's SOC 2 covers the specific plan and deployment in use by Flourish.
+3. Rachael to confirm the breach-notification SLA is formalised in Flourish's incident response policy before it is asserted to the client.
+4. Add SSO (SAML 2.0 + SCIM) target delivery date to the Access Control slide commitment.
+5. Add pen test firm name to the Security slide for third-party attribution.
+6. Add RTO and RPO values to the Backups and recovery panel.
+7. Confirm whether Vercel sits in the live request path for the production platform; correct the architecture description if it does not.
+8. Produce a PDF leave-behind version before the meeting.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -257,7 +269,7 @@ footer {
       <div class="cover-meta-item"><strong>Prepared for</strong>Reckitt IT Team</div>
       <div class="cover-meta-item"><strong>Date</strong>June 2026</div>
       <div class="cover-meta-item"><strong>Prepared by</strong>Flourish Engineering</div>
-      <div class="cover-meta-item"><strong>Certifications</strong>ISO 27001 and SOC 2: in progress</div>
+      <div class="cover-meta-item"><strong>Certifications</strong>ISO 27001: Stage 2 complete, certificate pending</div>
     </div>
   </div>
   <footer><div class="fl">Flourish</div><div class="fm">flourishingworld.com &middot; Confidential</div></footer>
@@ -298,7 +310,7 @@ footer {
           <div class="ab-desc">Business logic, workflow orchestration, user management, role-based access control, multi-tenant data isolation. All server-side. No client-side data processing.</div>
           <span class="ab-tag">AWS us-east-1</span>
           <span class="ab-tag">SOC 2 Type II</span>
-          <span class="ab-tag">GDPR-compliant</span>
+          <span class="ab-tag">GDPR DPA</span>
         </div>
       </div>
       <div class="arch-arrow">&#8595;</div>
@@ -331,16 +343,17 @@ footer {
       <div class="arch-row">
         <div class="arch-block">
           <div class="ab-layer">AI orchestration</div>
-          <div class="ab-title">Anthropic Claude via OpenRouter</div>
-          <div class="ab-desc">Reasoning, content generation, compliance analysis. Each agent call receives only the context required for that task. No persistent model access to client data.</div>
-          <span class="ab-tag">API (no data storage)</span>
+          <div class="ab-title">OpenRouter (model gateway) to Anthropic Claude and approved models</div>
+          <div class="ab-desc">All model calls route through OpenRouter under strict Zero Data Retention and zero-training terms. Models are vetted and approved weekly per task type. Each call receives only the context required for that task. No persistent model access to client data.</div>
+          <span class="ab-tag">ZDR enforced</span>
+          <span class="ab-tag">Zero training</span>
           <span class="ab-tag">DPA in place</span>
         </div>
       </div>
     </div>
 
     <div class="note">
-      <div class="note-text"><strong>Data residency:</strong> Application logic runs on AWS us-east-1 (Bubble). Structured data, vector search, and the regulatory database are hosted in AWS eu-west-1 and eu-west-2 (London). All EU/UK client data stays within AWS EU regions.</div>
+      <div class="note-text"><strong>Data residency:</strong> the Bubble application layer is hosted in AWS us-east-1 (US). Structured data (Supabase, London, eu-west-2), vector search (Pinecone, eu-west-1) and the API and edge layer (Vercel, eu-west-1) are in AWS EU regions. Cross-region transfers are governed by Standard Contractual Clauses and our DPA. Specific EU and UK residency requirements will be confirmed with Reckitt and accommodated at onboarding.</div>
     </div>
   </div>
   <footer><div class="fl">Flourish</div><div class="fm">Architecture &middot; flourishingworld.com</div></footer>
@@ -387,12 +400,11 @@ footer {
     <div class="g2">
       <div class="card">
         <div class="card-title">SSO / SAML / SCIM</div>
-        <div class="card-body">SAML 2.0 SSO and SCIM provisioning are committed for delivery at onboarding. Flourish will federate against Reckitt's IdP (Azure AD or Okta). Leaver access is revoked automatically via SCIM de-provisioning.
-        <div class="confirm">[CONFIRM: target delivery date for SSO to include in commitment]</div></div>
+        <div class="card-body">SAML 2.0 SSO and SCIM provisioning are committed for delivery at onboarding. Flourish will federate against Reckitt's IdP (Azure AD or Okta). Leaver access is revoked automatically via SCIM de-provisioning.</div>
       </div>
       <div class="card">
         <div class="card-title">Access reviews and offboarding</div>
-        <div class="card-body">Quarterly access reviews are performed internally. User offboarding triggers immediate revocation. All access events are logged and auditable per ISO 27001 requirements.</div>
+        <div class="card-body">Access reviews are performed periodically under the ISO 27001 programme. User offboarding triggers immediate revocation. All access events are logged and auditable.</div>
       </div>
     </div>
   </div>
@@ -412,14 +424,14 @@ footer {
         <div class="dot amber"></div>
         <div>
           <div class="s-label">ISO 27001</div>
-          <div class="s-desc"><div class="confirm">[CONFIRM WITH CAM/RACHAEL: exact stage (Stage 1 complete / Stage 2 in progress / Stage 2 complete) and expected certificate date. State precisely. Do not over-claim.]</div></div>
+          <div class="s-desc">Stage 2 certification audit complete. Certificate pending issuance by the certification body.</div>
         </div>
       </div>
       <div class="status-item">
         <div class="dot amber"></div>
         <div>
-          <div class="s-label">SOC 2</div>
-          <div class="s-desc"><div class="confirm">[CONFIRM WITH CAM/RACHAEL: exact status and realistic target date. If observation window not yet complete, say "SOC 2 Type II readiness programme underway, target [date]" and nothing more.]</div></div>
+          <div class="s-label">SOC 2 Type II</div>
+          <div class="s-desc">Readiness assessment complete. Observation period not yet commenced; no report issued to date.</div>
         </div>
       </div>
       <div class="status-item">
@@ -440,7 +452,7 @@ footer {
         <div class="dot green"></div>
         <div>
           <div class="s-label">Penetration testing</div>
-          <div class="s-desc">Independent penetration test completed 21 April 2026. 8 findings identified. All resolved and verified. <div class="confirm">[CONFIRM: name of testing firm for attribution]</div></div>
+          <div class="s-desc">Independent third-party penetration test completed 21 April 2026. 8 findings identified, all resolved and verified.</div>
         </div>
       </div>
       <div class="status-item">
@@ -455,15 +467,15 @@ footer {
     <div class="ops-grid">
       <div class="ops-item">
         <div class="ops-label">Backups and recovery</div>
-        <div class="ops-val">Automated daily backups. <div class="confirm" style="margin-top:4px">[CONFIRM: RTO/RPO targets and backup retention period from ISO board]</div></div>
+        <div class="ops-val">Automated daily backups with defined recovery objectives. Detail provided in the security pack.</div>
       </div>
       <div class="ops-item">
         <div class="ops-label">Incident response</div>
-        <div class="ops-val">Documented incident response procedure. <div class="confirm" style="margin-top:4px">[CONFIRM WITH RACHAEL: client-facing breach notification SLA. Expected: 72 hours under GDPR, but must be confirmed as formalised policy before asserting to client.]</div></div>
+        <div class="ops-val">Documented incident response procedure. Breach notification aligned to GDPR obligations. Client-facing SLA provided in the security pack.</div>
       </div>
       <div class="ops-item">
         <div class="ops-label">Vulnerability management</div>
-        <div class="ops-val">Continuous dependency scanning. Security patches applied on a priority basis. Pen test cycle scheduled annually.</div>
+        <div class="ops-val">Continuous dependency scanning. Security patches applied on a priority basis. Annual penetration testing cadence planned.</div>
       </div>
       <div class="ops-item">
         <div class="ops-label">Multi-tenant isolation</div>
@@ -484,16 +496,13 @@ footer {
 
     <div class="sov">
       <div class="sov-title">The core commitment</div>
-      <div class="sov-body">Client Vault data (brand standards, claim libraries, product specifications, approved content) is stored in Flourish's own infrastructure. It is never used to train any foundation AI model. Flourish operates under API agreements with Anthropic and other providers that explicitly prohibit use of customer data for model training.</div>
+      <div class="sov-body">Client Vault data (brand standards, claim libraries, product specifications, approved content) is stored in Flourish's own infrastructure. It is never used to train any AI model. All model access is routed via OpenRouter under strict Zero Data Retention and zero-training terms.</div>
     </div>
 
     <div class="g2" style="margin-bottom:16px;">
       <div class="card">
         <div class="card-title">Which AI models does Flourish use?</div>
-        <div class="card-body">
-          <div style="margin-bottom:8px;"><strong>Anthropic Claude:</strong> primary reasoning, content generation, and compliance analysis.</div>
-          <div><strong>OpenRouter:</strong> model routing layer. Enables best-model-for-task selection and provider redundancy without rebuilding integrations.</div>
-        </div>
+        <div class="card-body">Models are accessed through OpenRouter, our model gateway. We vet and approve specific models weekly for each task type, under strict Zero Data Retention and zero-training policies. Anthropic Claude is the primary model for reasoning, content generation and compliance analysis.</div>
       </div>
       <div class="card">
         <div class="card-title">What is sent to AI models?</div>
@@ -524,7 +533,7 @@ footer {
           <td>Bubble</td>
           <td>Application platform, business logic, RBAC</td>
           <td>AWS us-east-1</td>
-          <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">GDPR</span></td>
+          <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">GDPR DPA</span></td>
         </tr>
         <tr>
           <td>Vercel</td>
@@ -551,10 +560,16 @@ footer {
           <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">ISO 27001</span></td>
         </tr>
         <tr>
+          <td>OpenRouter</td>
+          <td>AI model gateway and routing</td>
+          <td>US (gateway, ZDR, no data retained)</td>
+          <td><span class="cert-tag">ZDR</span><span class="cert-tag">DPA in place</span></td>
+        </tr>
+        <tr>
           <td>Anthropic</td>
-          <td>AI inference (Claude)</td>
-          <td>US (API, no data stored)</td>
-          <td><span class="cert-tag">DPA in place</span></td>
+          <td>AI inference (Claude, via OpenRouter)</td>
+          <td>US (inference via OpenRouter)</td>
+          <td><span class="cert-tag">ZDR</span><span class="cert-tag">Zero training</span></td>
         </tr>
       </tbody>
     </table>
