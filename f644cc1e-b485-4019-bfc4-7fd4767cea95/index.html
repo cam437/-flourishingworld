@@ -29,7 +29,7 @@ INTERNAL — REMOVE BEFORE SENDING
   --pink: #FF2D7B;
   --pink-dim: rgba(255,45,123,0.12);
   --text: #FFFFFF;
-  --text2: rgba(255,255,255,0.70);
+  --text2: rgba(255,255,255,0.82);
   --muted: rgba(255,255,255,0.38);
   --green: #4ADE80;
   --green-bg: rgba(74,222,128,0.08);
@@ -110,7 +110,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 .slide-header { margin-bottom: 44px; }
 .slide-num { font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
 .slide-title { font-size: clamp(26px, 2.8vw, 36px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
-.slide-sub { font-size: 15px; font-weight: 300; color: var(--text2); margin-top: 10px; max-width: 620px; line-height: 1.65; }
+.slide-sub { font-size: 16px; font-weight: 300; color: var(--text2); margin-top: 10px; max-width: 620px; line-height: 1.7; }
 
 /* ARCH */
 .arch { display: flex; flex-direction: column; gap: 3px; margin: 28px 0; }
@@ -123,7 +123,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 .arch-block.top { border-top: 2px solid rgba(255,45,123,0.4); }
 .ab-layer { font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--pink); margin-bottom: 4px; }
 .ab-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.ab-desc { font-size: 12.5px; font-weight: 300; color: var(--text2); line-height: 1.55; }
+.ab-desc { font-size: 13px; font-weight: 300; color: var(--text2); line-height: 1.6; }
 .ab-tag {
   display: inline-block; font-size: 10px; font-weight: 600;
   background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
@@ -139,7 +139,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
 .card.accent { border-left: 3px solid var(--pink); }
 .card-title { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
-.card-body { font-size: 13px; font-weight: 300; color: var(--text2); line-height: 1.65; }
+.card-body { font-size: 14px; font-weight: 300; color: var(--text2); line-height: 1.7; }
 .card-body li { margin-bottom: 6px; }
 
 /* STATUS */
@@ -153,7 +153,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 .dot.green { background: var(--green); box-shadow: 0 0 7px rgba(74,222,128,0.45); }
 .dot.amber { background: var(--amber); box-shadow: 0 0 7px rgba(252,211,77,0.35); }
 .s-label { font-size: 13.5px; font-weight: 600; margin-bottom: 3px; }
-.s-desc { font-size: 12.5px; font-weight: 300; color: var(--text2); line-height: 1.55; }
+.s-desc { font-size: 13.5px; font-weight: 300; color: var(--text2); line-height: 1.6; }
 
 /* RBAC EXAMPLE */
 .rbac-ex {
@@ -176,7 +176,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
   border-radius: 10px; padding: 26px 28px; margin: 20px 0;
 }
 .sov-title { font-size: 14px; font-weight: 700; color: var(--pink); margin-bottom: 10px; }
-.sov-body { font-size: 14px; font-weight: 300; color: var(--text2); line-height: 1.7; }
+.sov-body { font-size: 15px; font-weight: 300; color: var(--text2); line-height: 1.7; }
 
 /* CALLOUT */
 .note {
@@ -188,7 +188,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 .note-text strong { color: var(--text); }
 
 /* SUB-PROCESSOR TABLE */
-.sp-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); font-size: 13px; }
+.sp-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); font-size: 13.5px; }
 .sp-table thead tr { background: rgba(255,255,255,0.05); }
 .sp-table th { padding: 10px 14px; text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
 .sp-table td { padding: 11px 14px; color: var(--text2); border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
@@ -204,7 +204,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); -web
 .ops-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
 .ops-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
 .ops-label { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); margin-bottom: 7px; }
-.ops-val { font-size: 13.5px; font-weight: 400; line-height: 1.6; }
+.ops-val { font-size: 14px; font-weight: 400; line-height: 1.65; }
 .ops-val .muted { color: var(--text2); font-weight: 300; font-size: 12.5px; }
 
 /* CLOSING */
@@ -421,8 +421,8 @@ footer {
       <div class="status-item">
         <div class="dot amber"></div>
         <div>
-          <div class="s-label">SOC 2 Type II</div>
-          <div class="s-desc">Contracted with A-Lign for Type II audit. Observation period not yet commenced.</div>
+          <div class="s-label">SOC 2 Type I: complete. Type II: in progress.</div>
+          <div class="s-desc">Type I audit complete. Contracted with A-Lign for Type II audit. Observation period not yet commenced.</div>
         </div>
       </div>
       <div class="status-item">
@@ -487,13 +487,13 @@ footer {
 
     <div class="sov">
       <div class="sov-title">The core commitment</div>
-      <div class="sov-body">Client Vault data (brand standards, claim libraries, product specifications, approved content) is stored in Flourish's own infrastructure. It is never used to train any AI model. All model access is routed via OpenRouter under strict Zero Data Retention and zero-training terms.</div>
+      <div class="sov-body">Client Vault data (brand standards, claim libraries, product specifications, approved content) is stored in Flourish's own infrastructure. It is never used to train any AI model. All model access is routed via OpenRouter. Only enterprise API models with confirmed Zero Data Retention and zero-training terms are used. Free-tier, consumer and public models are never approved.</div>
     </div>
 
     <div class="g2" style="margin-bottom:16px;">
       <div class="card">
         <div class="card-title">Which AI models does Flourish use?</div>
-        <div class="card-body">Models are accessed through OpenRouter, our model gateway. We vet and approve specific models weekly for each task type, under strict Zero Data Retention and zero-training policies.</div>
+        <div class="card-body">Models are accessed through OpenRouter, our model gateway. Only enterprise API models with confirmed Zero Data Retention and zero-training terms are approved for use. Free-tier, consumer and public models are excluded. The approved model list is reviewed weekly.</div>
       </div>
       <div class="card">
         <div class="card-title">What is sent to AI models?</div>
