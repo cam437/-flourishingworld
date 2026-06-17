@@ -315,17 +315,17 @@ footer {
       <div class="arch-arrow">&#8595;</div>
       <div class="arch-row">
         <div class="arch-block">
-          <div class="ab-layer">Data layer</div>
+          <div class="ab-layer">Regulatory data layer</div>
           <div class="ab-title">Supabase (PostgreSQL + pgvector)</div>
-          <div class="ab-desc">Flourish Regulatory Vault and client vault structured data. Row-level security enforced.</div>
+          <div class="ab-desc">Flourish Regulatory Vault. Row-level security enforced.</div>
           <span class="ab-tag">AWS eu-west-2 (London)</span>
           <span class="ab-tag">SOC 2 Type II</span>
         </div>
         <div style="width:3px"></div>
         <div class="arch-block">
-          <div class="ab-layer">Search layer</div>
+          <div class="ab-layer">Client vault layer</div>
           <div class="ab-title">Pinecone</div>
-          <div class="ab-desc">Enterprise vector database for semantic search across the client Vault.</div>
+          <div class="ab-desc">Client vault structured data and semantic search. Each organisation's vault is isolated.</div>
           <span class="ab-tag">AWS eu-west-1</span>
           <span class="ab-tag">SOC 2 Type II</span>
         </div>
@@ -344,7 +344,7 @@ footer {
     </div>
 
     <div class="note">
-      <div class="note-text"><strong>Data residency:</strong> the Bubble application layer is hosted in AWS us-east-1 (US). Structured data (Supabase, London, eu-west-2) and vector search (Pinecone, eu-west-1) are in AWS EU regions. Cross-region transfers are governed by Standard Contractual Clauses and our DPA. Specific EU and UK residency requirements will be confirmed with Reckitt and accommodated at onboarding.</div>
+      <div class="note-text"><strong>Data residency:</strong> the Bubble application layer is hosted in AWS us-east-1 (US). The Flourish Regulatory Vault (Supabase, London, eu-west-2) and client vault data (Pinecone, eu-west-1) are in AWS EU regions. Cross-region transfers are governed by Standard Contractual Clauses and our DPA. Specific EU and UK residency requirements will be confirmed with Reckitt and accommodated at onboarding.</div>
     </div>
   </div>
   <footer><div class="fl">Flourish</div><div class="fm">Architecture &middot; flourishingworld.com</div></footer>
@@ -528,13 +528,13 @@ footer {
         </tr>
         <tr>
           <td>Supabase</td>
-          <td>Regulatory and structured data</td>
+          <td>Flourish Regulatory Vault</td>
           <td>AWS eu-west-2 (London)</td>
           <td><span class="cert-tag">SOC 2 II</span><span class="cert-tag">ISO 27001</span></td>
         </tr>
         <tr>
           <td>Pinecone</td>
-          <td>Vector search (Vault semantic layer)</td>
+          <td>Client vault data and semantic search</td>
           <td>AWS eu-west-1</td>
           <td><span class="cert-tag">SOC 2 II</span></td>
         </tr>
