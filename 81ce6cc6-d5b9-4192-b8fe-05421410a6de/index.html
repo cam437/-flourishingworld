@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Flourish</title>
+<style>
+  :root {
+    --bg-primary: #0D0A0F;
+    --bg-secondary: #FAFAFA;
+    --accent: #FF2D7B;
+    --text-light: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --atmosphere-1: #3A0A1E;
+    --atmosphere-2: #1A0512;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-light);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--atmosphere-1) 0%, var(--atmosphere-2) 60%, var(--bg-primary) 100%);
+    padding: 72px 48px 64px;
+  }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; max-width: 720px; }
+  .hero h1 .pink { color: var(--accent); }
+  .hero p { font-size: 20px; font-weight: 300; opacity: 0.92; max-width: 640px; margin-top: 20px; }
+
+  /* Sections */
+  section { padding: 56px 48px; }
+  .section-title { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .section-lede { font-size: 16px; opacity: 0.8; max-width: 660px; margin-bottom: 36px; }
+  .accent-line { width: 48px; height: 3px; background: var(--accent); margin-bottom: 28px; border-radius: 2px; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .stat {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 32px 28px;
+  }
+  .stat .num { font-size: 52px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .stat .lbl { font-size: 15px; opacity: 0.9; margin-top: 12px; }
+
+  /* The one loop */
+  .loop { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .loop .card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-left: 2px solid var(--accent); border-radius: 8px; padding: 26px 24px;
+  }
+  .loop .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .loop .card p { font-size: 14.5px; opacity: 0.85; }
+
+  /* Comparison table */
+  .compare-wrap { background: var(--bg-secondary); border-radius: 12px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { padding: 18px 22px; text-align: left; font-size: 14px; font-weight: 700; }
+  thead th:nth-child(1) { background: var(--text-dark); color: var(--text-light); width: 30%; }
+  thead th:nth-child(2) { background: #2a2a2a; color: rgba(255,255,255,0.85); }
+  thead th:nth-child(3) { background: var(--accent); color: var(--text-light); }
+  tbody td { padding: 18px 22px; font-size: 14.5px; color: var(--text-dark); vertical-align: top; border-bottom: 1px solid #ececec; }
+  tbody tr:nth-child(even) td { background: #f4f4f4; }
+  tbody td:first-child { font-weight: 600; }
+  tbody td:last-child { font-weight: 500; }
+
+  /* Proof points */
+  .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .proof .pcard {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 30px 28px;
+  }
+  .proof .pcard .quote { font-size: 18px; font-weight: 600; line-height: 1.4; }
+  .proof .pcard .quote .pink { color: var(--accent); }
+  .proof .pcard .attr { font-size: 13px; opacity: 0.65; margin-top: 16px; }
+
+  /* People */
+  .people { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .people .person {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; padding: 24px;
+  }
+  .people .person h4 { font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+  .people .person p { font-size: 14.5px; opacity: 0.85; }
+
+  /* Close */
+  .close { background: linear-gradient(135deg, var(--atmosphere-1) 0%, var(--atmosphere-2) 100%); text-align: center; padding: 64px 48px; }
+  .close h2 { font-size: 32px; font-weight: 800; max-width: 720px; margin: 0 auto; }
+  .close h2 .pink { color: var(--accent); }
+  .close p { font-size: 17px; opacity: 0.9; margin-top: 18px; }
+
+  .footnote { padding: 28px 48px; font-size: 12px; opacity: 0.5; }
+
+  @media (max-width: 680px) {
+    .hero { padding: 48px 24px; }
+    .hero h1 { font-size: 34px; }
+    section, .close { padding: 40px 24px; }
+    .proof, .people { grid-template-columns: 1fr; }
+    thead th, tbody td { padding: 12px 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Why Flourish</div>
+    <h1>One system for every market. <span class="pink">Translated, localised and legally clear.</span></h1>
+    <p>The choice isn't Flourish or an LLM. It's one governed system versus a stack of point tools your teams have to stitch together by hand, market by market, every single time.</p>
+  </div>
+
+  <!-- THE ONE LOOP -->
+  <section>
+    <div class="accent-line"></div>
+    <h2 class="section-title">The one loop</h2>
+    <p class="section-lede">A single LLM gives you a translation. Then someone still has to check the language, check the legalities, and check it against your brand. Flourish closes that loop in one pass.</p>
+    <div class="loop">
+      <div class="card">
+        <h3>Your truth, held once</h3>
+        <p>GWI insights per market, brand tone of voice, scientific data and your existing claims library live in the Vault. Build it once, draw on it everywhere.</p>
+      </div>
+      <div class="card">
+        <h3>Translation layer</h3>
+        <p>Copy translated in the context of your brand style and scientific evidence, using the best-in-class engine for the job.</p>
+      </div>
+      <div class="card">
+        <h3>Compliance layer</h3>
+        <p>A like-for-like translation that is fine in UK English can be non-compliant in Germany. Flourish checks every variant against local law and flags the watch-outs.</p>
+      </div>
+      <div class="card">
+        <h3>Routed to legal, ready</h3>
+        <p>New adaptations route back for sign-off with risk level and conditions surfaced. Claims arrive more compliant, so they clear faster.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">94%</div>
+        <div class="lbl">faster through legal, because claims arrive inherently more compliant</div>
+      </div>
+      <div class="stat">
+        <div class="num">1</div>
+        <div class="lbl">system across every market and every team, not one tool per silo</div>
+      </div>
+      <div class="stat">
+        <div class="num">2</div>
+        <div class="lbl">layers on every translation: localisation and compliance, in a single pass</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section>
+    <div class="accent-line"></div>
+    <h2 class="section-title">Flourish vs a single LLM</h2>
+    <p class="section-lede">Commit to one model and you bet everything on one provider in a race they're all trying to win. Flourish orchestrates across them, always using the best one for each job and swapping behind the scenes as they improve.</p>
+    <div class="compare-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>What matters</th>
+            <th>Direct to a single LLM</th>
+            <th>With Flourish</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Model choice</td>
+            <td>Locked to one provider. If they fall behind, or get restricted internationally, you're stranded on a platform that's harder to leave than it was to adopt.</td>
+            <td>Best-in-class model for each job, switched out the moment another pulls ahead. You stay at the edge.</td>
+          </tr>
+          <tr>
+            <td>Translation quality</td>
+            <td>General-purpose translation only.</td>
+            <td>Routes to the strongest dedicated engine (DeepL today), and can call your agency's preferred engine via API if they insist.</td>
+          </tr>
+          <tr>
+            <td>Compliance</td>
+            <td>You do the legwork: check the language, check the local law, every time.</td>
+            <td>Compliance built into the same loop, with conditions and risk flagged per market.</td>
+          </tr>
+          <tr>
+            <td>Knowledge</td>
+            <td>Siloed by project. Re-upload the same context to every new project. No cross-project recall.</td>
+            <td>Knowledge held outside projects and drawn in by context. Build it once.</td>
+          </tr>
+          <tr>
+            <td>Cost control</td>
+            <td>No model enforcement. A simple admin task can burn a heavy reasoning model and the tokens with it.</td>
+            <td>The most cost-effective capable model chosen automatically in the backend.</td>
+          </tr>
+          <tr>
+            <td>Teams &amp; partners</td>
+            <td>Per-seat. Can't share one account with your agency without buying everyone in.</td>
+            <td>Multi-user by design. Give your team and Finn shared access to the same intelligence.</td>
+          </tr>
+          <tr>
+            <td>Continuity</td>
+            <td>Context lives in one person's account and walks out when they leave, often against your own AI policy.</td>
+            <td>Context is the organisation's, held in the platform, owned by you.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ORCHESTRATION -->
+  <section>
+    <div class="accent-line"></div>
+    <h2 class="section-title">Orchestration, not another point tool</h2>
+    <p class="section-lede">You're already siloed by department and by market. Commit to a single LLM and you add a third silo: by technology. Flourish removes silos rather than adding one.</p>
+    <div class="loop">
+      <div class="card">
+        <h3>A broker for the best tools</h3>
+        <p>Flourish orchestrates across systems that don't talk to each other. You can't plug GWI into an LLM. Flourish holds the whole stack together.</p>
+      </div>
+      <div class="card">
+        <h3>Always best-in-class</h3>
+        <p>Every job goes to the model that's strongest for it, retested constantly. No single-vendor bet, no lock-in.</p>
+      </div>
+      <div class="card">
+        <h3>Scopes in the room</h3>
+        <p>Your products, your facts, your pillars and global initiatives sit with every user on every piece of work, everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section>
+    <div class="proof">
+      <div class="pcard">
+        <div class="quote">"We've spent a year and <span class="pink">£1.5m and rising</span> on consultants and an in-house team, and what we've got is rubbish compared to Flourish."</div>
+        <div class="attr">A peer at a comparable global business, on building it themselves</div>
+      </div>
+      <div class="pcard">
+        <div class="quote">Three months to choose Copilot. By the time it shipped, a better model existed. <span class="pink">The build-on-one-LLM trap, in real time.</span></div>
+        <div class="attr">Why betting on a single platform strands you</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section>
+    <div class="accent-line"></div>
+    <h2 class="section-title">A partnership, not off the shelf</h2>
+    <p class="section-lede">Flourish is built for you and backed by people. The platform does the heavy lifting. The experts make it sharper and make your life easier.</p>
+    <div class="people">
+      <div class="person">
+        <h4>Scientific support</h4>
+        <p>Former global and European Head of Claims at Unilever, later Head of Scientific at L'Oréal. A scientist supporting your use of the platform.</p>
+      </div>
+      <div class="person">
+        <h4>Legal support</h4>
+        <p>The best lawyer Jamie ever hired at Unilever, adding human legal judgement alongside the platform.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <div class="close">
+    <h2>The platform does the work. <span class="pink">The team makes it land.</span></h2>
+    <p>One governed system for translation, localisation and compliance, across every market and every team.</p>
+  </div>
+
+  <div class="footnote">Prepared for internal circulation. Figures and quotes as discussed in session.</div>
+
+</div>
+</body>
+</html>
