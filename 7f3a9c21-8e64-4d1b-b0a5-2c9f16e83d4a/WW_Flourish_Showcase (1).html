@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeightWatchers × Flourish — NL Localisation</title>
+<style>
+  :root{
+    --bg:#0D0A0F; --panel:#FAFAFA; --accent:#FF2D7B;
+    --ink:#1A1A1A; --line:rgba(255,255,255,.10); --mut:rgba(255,255,255,.62);
+    --burg1:#3A0A1E; --burg2:#1A0512;
+    --font:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:#fff;font-family:var(--font);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  section{padding:82px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+  .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px}
+  h1{font-size:64px;font-weight:800;line-height:1.02;letter-spacing:-.025em;margin-bottom:22px}
+  h2{font-size:38px;font-weight:800;line-height:1.12;letter-spacing:-.015em;margin-bottom:18px}
+  h3{font-size:20px;font-weight:700;margin-bottom:10px}
+  .lead{font-size:22px;color:#fff;opacity:.94;max-width:760px;font-weight:300}
+  .sub{font-size:16px;color:var(--mut);max-width:700px}
+  .pink{color:var(--accent)}
+  .body{font-size:18px;color:rgba(255,255,255,.82);max-width:760px;margin-top:14px;font-weight:300}
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+
+  .hero{position:relative;overflow:hidden;padding:130px 0 108px}
+  .hero:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(1200px 560px at 80% -12%,var(--burg1) 0%,var(--burg2) 44%,transparent 74%);
+    opacity:.92;z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{max-width:900px}
+  .tagline{margin-top:26px;font-size:18px;color:var(--accent);font-weight:600;letter-spacing:.01em}
+
+  .qmark{font-size:26px;font-weight:700;color:#fff;max-width:820px;margin-top:10px;line-height:1.3}
+
+  .checks{list-style:none;margin-top:26px;display:grid;gap:14px;max-width:640px}
+  .checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px;color:#fff;opacity:.92}
+  .checks .tick{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+
+  .placeholder{margin-top:36px;border:2px dashed rgba(255,45,123,.5);border-radius:12px;
+    padding:56px 32px;text-align:center;background:rgba(255,45,123,.04)}
+  .placeholder .pk{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+  .placeholder .pt{font-size:16px;color:var(--mut)}
+
+  .grid{display:grid;gap:22px;margin-top:40px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:26px 24px}
+  .card .n{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+  .card p{font-size:15px;color:var(--mut)}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:38px}
+  .pillar .k{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px}
+  .pillar p{font-size:15px;color:var(--mut)}
+
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
+  .src{grid-column:1 / -1;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:22px 24px}
+  .src .tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:8px}
+  .src .txt{font-size:16px;color:#fff;opacity:.92}
+  .src .txt em{color:var(--accent);font-style:normal;font-weight:600}
+  .col{border-radius:10px;padding:24px;border:1px solid var(--line)}
+  .col.bad{background:rgba(255,255,255,.03)}
+  .col.good{background:linear-gradient(180deg,rgba(255,45,123,.12),rgba(255,45,123,.03));border-color:rgba(255,45,123,.45)}
+  .col .who{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+  .col.bad .who{color:var(--mut)}
+  .col.good .who{color:var(--accent)}
+  .col .quote{font-size:15px;line-height:1.55;margin-bottom:18px}
+  .col.bad .quote{color:rgba(255,255,255,.55)}
+  .col.good .quote{color:#fff}
+  .verdict{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;padding:9px 14px;border-radius:999px}
+  .verdict.stop{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);border:1px solid var(--line)}
+  .verdict.go{background:var(--accent);color:#fff}
+  .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .dot.s{background:rgba(255,255,255,.5)}
+  .dot.g{background:#fff}
+  .lawnote{margin-top:30px;font-size:15px;color:var(--mut);max-width:790px;border-top:1px solid var(--line);padding-top:22px}
+  .lawnote b{color:#fff;font-weight:600}
+  .lawnote .big{color:var(--accent);font-weight:700}
+
+  .matrix{background:var(--panel);color:var(--ink);border-radius:14px;padding:40px 36px;margin-top:8px}
+  .matrix .eyebrow{color:var(--accent)}
+  .matrix h2{color:var(--ink)}
+  .matrix .sub{color:#555}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin-top:26px}
+  th,td{text-align:left;padding:15px 14px;font-size:15px}
+  thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#777;font-weight:700;border-bottom:2px solid #ececec}
+  thead th.fl{color:var(--accent)}
+  tbody td{border-bottom:1px solid #ededed;color:#333;font-weight:400}
+  tbody td.axis{font-weight:600;color:var(--ink)}
+  .col-fl{background:rgba(255,45,123,.06)}
+  th.col-fl{background:rgba(255,45,123,.10);border-radius:8px 8px 0 0}
+  .mk{font-weight:700}
+  .mk.yes{color:var(--accent)}
+  .mk.no{color:#bbb}
+  .mk.part{color:#8a8a8a}
+  .msmall{display:block;font-size:12px;color:#999;font-weight:400;margin-top:2px}
+
+  .flourish{position:relative;overflow:hidden}
+  .flourish:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(900px 420px at 15% 120%,var(--burg1) 0%,transparent 60%);opacity:.8;z-index:0}
+  .flourish .wrap{position:relative;z-index:1}
+
+  .close{text-align:center;padding:96px 0}
+  .close h2{font-size:42px;max-width:860px;margin:0 auto 20px}
+  .close .sub{margin:0 auto}
+
+  footer{border-top:1px solid var(--line);padding:34px 0 60px}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px;color:rgba(255,255,255,.45)}
+
+  /* results output panel */
+  .output{background:var(--panel);color:var(--ink);border-radius:14px;padding:8px;margin-top:36px;overflow:hidden}
+  .output-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+    background:var(--ink);color:#fff;border-radius:10px;padding:14px 20px}
+  .output-head .oh{font-size:13px;font-weight:700;letter-spacing:.03em}
+  .output-head .ohm{font-size:12px;color:rgba(255,255,255,.6)}
+  .opad{padding:24px 26px 8px}
+  .osec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a8a8a;font-weight:700;margin:24px 0 14px}
+  .opad>.osec:first-child{margin-top:4px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .stat{text-align:center}
+  .stat .badge{width:82px;height:82px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:800;margin:0 auto 10px}
+  .stat p{font-size:12px;color:#555;line-height:1.4}
+  .ecard{border:1px solid #e6e6e6;border-radius:10px;padding:20px 22px;margin-bottom:16px}
+  .ecard .etop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .ecard .etitle{font-size:15px;font-weight:800;color:var(--ink)}
+  .risk{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .risk.low{background:#EDEDED;color:#666}
+  .risk.high{background:var(--accent);color:#fff}
+  .of{margin-bottom:10px;font-size:14px;color:#333;line-height:1.5}
+  .of .lbl{font-weight:700;color:#111}
+  .flagline{margin-top:8px;font-size:12.5px;font-weight:600;color:var(--accent);line-height:1.45}
+  .ctable{width:100%;border-collapse:collapse;margin-top:4px}
+  .ctable th,.ctable td{text-align:left;padding:11px 12px;font-size:13.5px;border-bottom:1px solid #eee;vertical-align:top}
+  .ctable th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#8a8a8a;font-weight:700}
+  .ctable td.it{color:#222;font-weight:600}
+  .rk{font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  .rk.h{color:var(--accent)}
+  .rk.m{color:#555}
+  .rk.l{color:#aaa}
+  .obasis{margin:14px 0 6px;font-size:12.5px;color:#777;line-height:1.5}
+  .quote-block{margin-top:44px;padding:34px 36px;border-left:3px solid var(--accent);
+    background:rgba(255,45,123,.05);border-radius:0 10px 10px 0}
+  .quote-block .q{font-size:23px;font-weight:300;color:#fff;line-height:1.45}
+  .quote-block .qa{margin-top:16px;font-size:14px;color:var(--accent);font-weight:600;letter-spacing:.02em}
+
+  @media(max-width:820px){
+    h1{font-size:44px} h2{font-size:30px} .close h2{font-size:32px}
+    .g3,.compare,.pillars{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .quote-block .q{font-size:19px}
+    section{padding:60px 0}
+    .matrix{padding:28px 20px}
+    th,td{padding:12px 8px;font-size:13px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal">WeightWatchers × Flourish · NL Localisation</div>
+    <h1 class="reveal">Greenlight <span class="pink">greatness.</span></h1>
+    <p class="lead reveal">One operating system for creative, competitive and compliant marketing. In every language. Without the re-work.</p>
+    <p class="tagline reveal">Like having a translating lawyer at your fingertips.</p>
+  </div>
+</section>
+
+<!-- YOUR CHALLENGE -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Your challenge</div>
+    <p class="lead reveal">Your campaigns need to run in multiple markets. You need accurate and timely translations, at scale.</p>
+    <p class="qmark reveal">Tools like ChatGPT and Claude can give you direct translations — <span class="pink">but are they good enough to replace your existing process?</span></p>
+  </div>
+</section>
+
+<!-- THE FLOURISH BENEFIT -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The Flourish benefit</div>
+    <h2 class="reveal" style="max-width:840px">Enterprise knowledge, governance and audience insight — in one AI platform.</h2>
+    <p class="body reveal">Flourish brings together enterprise knowledge, governance, and audience insights in one powerful AI platform. Using the leading AI specifically for translations, Flourish powers organisations to move faster without compromising on compliance, consistency, or creativity in every market.</p>
+    <p class="body reveal">This means every translation is localised based on hyper-relevant audience insights, market knowledge, and the laws that confirm what you can communicate in each jurisdiction.</p>
+    <p class="body reveal">All held in one system, to drive copy that’s in line with audience, brand, brief and law.</p>
+  </div>
+</section>
+
+<!-- THE PROOF -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The proof</div>
+    <h2 class="reveal">Translation, localisation, and compliance in one query.</h2>
+    <p class="body reveal">To prove the immediate value of Flourish, we ran your test copy through an out-of-the-box account — an instance of Flourish that doesn’t yet have your brand tone of voice or guidelines. The results speak for themselves.</p>
+    <ul class="checks reveal">
+      <li><span class="tick">✓</span><span>Critical compliance issues identified and explained.</span></li>
+      <li><span class="tick">✓</span><span>Localised language, not basic translation.</span></li>
+      <li><span class="tick">✓</span><span>Summary details of what has been changed, and why.</span></li>
+    </ul>
+    <div class="output reveal">
+      <div class="output-head">
+        <span class="oh">Flourish output · WeightWatchers NL</span>
+        <span class="ohm">Out-of-the-box account · no brand training applied</span>
+      </div>
+      <div class="opad">
+
+        <div class="osec">Audience insight · GWI, women 30–40, NL</div>
+        <div class="stats">
+          <div class="stat"><div class="badge">46%</div><p>interested in healthy eating &amp; nutrition (+22% vs. average)</p></div>
+          <div class="stat"><div class="badge">+28%</div><p>more likely to use health &amp; fitness apps in the past month</p></div>
+          <div class="stat"><div class="badge">+15%</div><p>discover new brands via in-app advertising</p></div>
+          <div class="stat"><div class="badge">5.7%</div><p>feel represented in advertising (−15%) → authenticity is critical</p></div>
+        </div>
+
+        <div class="osec">Localised copy</div>
+
+        <div class="ecard">
+          <div class="etop">
+            <span class="etitle">Email 1 — 100-maaltijdenclub · Milestone</span>
+            <span class="risk low">Low risk</span>
+          </div>
+          <div class="of"><span class="lbl">SL:</span> {{first_name}}, je hebt 100 maaltijden bijgehouden 🎉</div>
+          <div class="of"><span class="lbl">PH:</span> Tijd om jouw doorzettingsvermogen te vieren.</div>
+          <div class="of"><span class="lbl">Slice 1:</span> Welkom bij de 100-maaltijdenclub, {{first_name}}! Je hebt officieel 100 maaltijden bijgehouden in je Weight Watchers®-app — dat zijn 100 keer dat je voor jezelf hebt gekozen op deze reis. En [je ontbijt is / je lunch is / je avondeten is / je tussendoortjes zijn] jouw geheime wapen! &nbsp; <span class="lbl">CTA:</span> Bekijk je reeks</div>
+          <div class="of"><span class="lbl">Slice 2:</span> Points® inschatten? Zo doe je dat nog makkelijker. Heb je de Food Scanner al geprobeerd? Probeer ’m de volgende keer dat je bij vrienden eet of een nieuw restaurant uitprobeert. De scanner analyseert een foto van je maaltijd, berekent de Points en houdt alles binnen enkele seconden voor je bij. &nbsp; <span class="lbl">CTA:</span> Ontdek de Food Scanner</div>
+        </div>
+
+        <div class="ecard">
+          <div class="etop">
+            <span class="etitle">Email 2 — 60 Years of Science · Acquisition</span>
+            <span class="risk high">High risk · flagged</span>
+          </div>
+          <div class="of"><span class="lbl">SL:</span> 3 wetenschappelijke waarheden over afvallen</div>
+          <div class="of"><span class="lbl">PH:</span> Gebruik ze om je doelen te bereiken.</div>
+          <div class="of"><span class="lbl">Masthead:</span> Wij deden het onderzoek, zodat jij je doelen kunt bereiken. Samen bouwen we aan gezonde gewoontes die blijven. &nbsp; <span class="lbl">CTA:</span> Mijn account heractiveren</div>
+          <div class="of"><span class="lbl">1.</span> Succes begint met gedragsverandering. Veel mensen weten wél wat ze moeten doen om af te vallen, maar in de praktijk is dat vaak makkelijker gezegd dan gedaan. Wij helpen je om goede voornemens om te zetten in gezonde gewoontes die je volhoudt.</div>
+          <div class="of"><span class="lbl">2.</span> Streng diëten werkt niet. Ja, je kunt koolhydraten eten én afvallen. Ons Points®-systeem is een simpele leidraad voor voedzaam eten dat vol te houden is — zonder jezelf iets te ontzeggen.</div>
+          <div class="of"><span class="lbl">3.</span> Persoonlijke plannen werken echt. Jouw lichaam is uniek, en jouw aanpak dus ook. Of je nu werkt aan je gezondheid, je energie of een routine die je écht volhoudt — onze persoonlijke plannen helpen je gezonder te worden en je goed te voelen.</div>
+          <div class="flagline">▲ GLP-1, diabetes and menopause references from the US source removed for the NL market and rewritten to compliant, non-medical language.</div>
+        </div>
+
+        <div class="osec">Compliance summary · what changed and why</div>
+        <table class="ctable">
+          <thead><tr><th style="width:44%">Item</th><th>Risk</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="it">GLP-1 reference</td><td><span class="rk h">High</span></td><td>Removed for NL. Route to a Legal Approver before publication.</td></tr>
+            <tr><td class="it">Diabetes / menopause framing</td><td><span class="rk h">High</span></td><td>Omitted for NL; use only with substantiation and legal review.</td></tr>
+            <tr><td class="it">Weight-loss &amp; “60 years of science” claims</td><td><span class="rk m">Medium</span></td><td>Substantiate in the Vault. No result guarantees.</td></tr>
+            <tr><td class="it">Brand terms (Points®, Food Scanner, Weight Watchers®)</td><td><span class="rk l">Low</span></td><td>Retained unchanged.</td></tr>
+            <tr><td class="it">Email 1 (100-maaltijdenclub)</td><td><span class="rk l">Low</span></td><td>No claim issues. Ready for QA.</td></tr>
+          </tbody>
+        </table>
+        <p class="obasis">Regulatory basis: Dutch Geneesmiddelenwet, implementing EU Directive 2001/83/EC (Art. 88) — advertising prescription-only medicines to the public is prohibited. Not legal advice; regulatory summaries are AI-generated and should be confirmed by a Legal Approver.</p>
+      </div>
+    </div>
+
+    <div class="quote-block reveal">
+      <div class="q">“[The Flourish version] is by far the best one. It reads very naturally, the vocabulary is good and the grammar checks out as well.”</div>
+      <div class="qa">Native Dutch speaker · blind review of every version</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARING THE MODELS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Comparing the models</div>
+    <h2 class="reveal" style="font-size:44px;max-width:900px">Every AI can write Dutch. <span class="pink">Only one knew what was in line with Dutch audience insights and legal to send.</span></h2>
+    <p class="body reveal">We gave the CRM copy to ChatGPT and Claude and asked the same questions we asked Flourish: “Can you translate and localise this copy?” and “Could you say this in the Netherlands?”</p>
+
+    <h3 class="reveal" style="font-size:24px;margin-top:44px;max-width:780px">Both models produced fluent, natural Dutch. Neither of them caught the legal problems.</h3>
+    <p class="body reveal">The US email spoke to readers “considering GLP-1s,” which is perfectly legal in America. Every model translated it faithfully into Dutch, and broke European advertising law in the process.</p>
+
+    <div class="compare">
+      <div class="src reveal">
+        <div class="tag">The source line · US English</div>
+        <div class="txt">“Whether you’re managing diabetes, <em>considering GLP-1s</em>, or navigating menopause, our plans can help you get healthier.”</div>
+      </div>
+
+      <div class="col bad reveal">
+        <div class="who">Leading frontier model · faithful translation</div>
+        <div class="quote">“Of je nu diabetes onder controle houdt, <b style="color:rgba(255,255,255,.8)">GLP-1’s overweegt</b> of door de overgang gaat, onze plannen helpen je gezonder te worden.”</div>
+        <span class="verdict stop"><span class="dot s"></span>Cannot be sent in the Netherlands</span>
+      </div>
+
+      <div class="col good reveal">
+        <div class="who">Flourish · governed output</div>
+        <div class="quote">Flags the line as high-risk, then rewrites it compliantly: “Of je nu werkt aan je gezondheid, je energie of een routine die je écht volhoudt — onze plannen helpen je gezonder te worden.”</div>
+        <span class="verdict go"><span class="dot g"></span>Defensible and ready to send</span>
+      </div>
+    </div>
+
+    <p class="lawnote reveal">
+      GLP-1 medicines are prescription-only. Under <b>EU Directive 2001/83/EC (Article 88)</b>, advertising prescription medicines to the public is prohibited across <b>all 27 EU member states.</b> Direct-to-consumer prescription-drug advertising is legal in <span class="big">two countries: the US and New Zealand.</span> The source line was lawful only because it was written for one of them. A word-for-word Dutch translation is an unlawful advertisement.
+    </p>
+  </div>
+</section>
+
+<!-- BEYOND THE LANGUAGE -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Beyond the language</div>
+    <h2 class="reveal">Where simple translation stops, Flourish starts.</h2>
+    <div class="grid g3">
+      <div class="card reveal">
+        <div class="n">Regulatory</div>
+        <h3>The legal landmine</h3>
+        <p>Spotted the GLP-1 prescription-advertising breach, flagged it as high-risk, and produced a compliant alternative before it reached a single inbox.</p>
+      </div>
+      <div class="card reveal">
+        <div class="n">Brand</div>
+        <h3>The in-app truth</h3>
+        <p>Matched CTAs to the terms members actually see in the app — “streak,” the Food Scanner — so the email and the product speak the same language.</p>
+      </div>
+      <div class="card reveal">
+        <div class="n">Evidence</div>
+        <h3>The claim behind the words</h3>
+        <p>Recognised that “scientific truths” and “60 years of science” are health claims that need substantiation on file.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section>
+  <div class="wrap">
+    <div class="matrix reveal">
+      <div class="eyebrow">The difference, at a glance</div>
+      <h2>Fluent is the floor. Shippable is the point.</h2>
+      <p class="sub">Frontier models have made great translation a commodity. Knowing your evidence, your brand, and the law of the market you’re sending into is a different capability. Flourish runs the same class of AI — inside that governance.</p>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:40%">&nbsp;</th>
+            <th>GPT-5.5</th>
+            <th>Claude Opus 4.8</th>
+            <th class="fl col-fl">Flourish</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="axis">Natural, native Dutch</td>
+            <td><span class="mk yes">Yes</span></td>
+            <td><span class="mk yes">Yes</span></td>
+            <td class="col-fl"><span class="mk yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="axis">Caught the prescription-advertising breach</td>
+            <td><span class="mk no">No</span></td>
+            <td><span class="mk no">No</span></td>
+            <td class="col-fl"><span class="mk yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="axis">Matched brand &amp; in-app terms</td>
+            <td><span class="mk no">No</span></td>
+            <td><span class="mk part">Partial<span class="msmall">flagged, not resolved</span></span></td>
+            <td class="col-fl"><span class="mk yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="axis">Flagged claims needing substantiation</td>
+            <td><span class="mk no">No</span></td>
+            <td><span class="mk no">No</span></td>
+            <td class="col-fl"><span class="mk yes">Yes</span></td>
+          </tr>
+          <tr>
+            <td class="axis">Ship-ready without legal rework</td>
+            <td><span class="mk no">No</span></td>
+            <td><span class="mk no">No</span></td>
+            <td class="col-fl"><span class="mk yes">Yes</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS FLOURISH -->
+<section class="flourish">
+  <div class="wrap">
+    <div class="eyebrow reveal">What is Flourish</div>
+    <h2 class="reveal">The system behind bold and defensible marketing.</h2>
+    <p class="lead reveal" style="font-size:19px">Global brands lose weeks to the back-and-forth between marketing and legal. Flourish removes it by checking every claim, translation and asset against what’s approved and what’s allowed, automatically.</p>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="k">Your approved evidence</div>
+        <p>Every claim is tied to the substantiation that backs it. Nothing goes out without the evidence behind it.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="k">Every market’s rules</div>
+        <p>Live regulatory intelligence per market, so US copy doesn’t become an EU liability in translation.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="k">Governed output</div>
+        <p>AI generates at full speed inside your guardrails — flagged, corrected, and cleared before it goes live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close">
+  <div class="wrap">
+    <h2 class="reveal">At the speed of raw AI, <span class="pink">with none of the exposure.</span></h2>
+    <p class="sub reveal">This is one line, in one email, in one market. Now multiply it across every campaign, every language, every claim your brand makes.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span>Prepared by Flourish for WeightWatchers · Confidential</span>
+      <span>Regulatory basis: EU Directive 2001/83/EC, Art. 88 · GLP-1 = prescription-only medicine</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*70)+'ms';io.observe(el)});
+</script>
+</body>
+</html>
