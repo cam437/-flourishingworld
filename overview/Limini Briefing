@@ -1,0 +1,439 @@
+<title>Limini Briefing</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap">
+<style>
+  :root{
+    --bg-primary:#0D0A0F;
+    --bg-secondary:#FAFAFA;
+    --accent:#FF2D7B;
+    --accent-dim:rgba(255,45,123,0.55);
+    --text-light:#FFFFFF;
+    --text-light-80:rgba(255,255,255,0.82);
+    --text-light-60:rgba(255,255,255,0.60);
+    --text-light-40:rgba(255,255,255,0.40);
+    --text-dark:#17141A;
+    --text-dark-60:#5B5763;
+    --atmosphere-1:#3A0A1E;
+    --atmosphere-2:#1A0512;
+    --line-dark:rgba(255,255,255,0.12);
+    --line-light:rgba(23,20,26,0.12);
+    --card-dark:rgba(255,255,255,0.045);
+    --card-light:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-primary);
+    color:var(--text-light);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Inter Tight','Inter',sans-serif;text-wrap:balance;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 32px;}
+  section{padding:64px 0;}
+  section.dark{background:var(--bg-primary);}
+  section.deep{background:linear-gradient(155deg,var(--bg-primary) 0%,var(--atmosphere-1) 115%);}
+  section.light{background:var(--bg-secondary);color:var(--text-dark);}
+  .kicker{
+    font-size:12.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 14px;
+  }
+  .light .kicker{color:#C4165E;}
+  h2.title{font-size:34px;font-weight:800;line-height:1.18;margin:0 0 20px;max-width:640px;}
+  p.lead{font-size:18px;font-weight:300;line-height:1.65;max-width:620px;margin:0 0 14px;}
+  .light p.lead{color:var(--text-dark-60);font-weight:400;}
+  p.body-text{font-size:15.5px;line-height:1.7;font-weight:300;color:var(--text-light-80);max-width:620px;margin:0 0 14px;}
+  .light p.body-text{color:var(--text-dark-60);font-weight:400;}
+
+  /* nav */
+  nav.subnav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(13,10,15,0.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  nav.subnav .wrap{
+    display:flex;gap:22px;overflow-x:auto;padding:14px 32px;
+    max-width:1000px;
+  }
+  nav.subnav a{
+    color:var(--text-light-60);text-decoration:none;font-size:12.5px;font-weight:600;
+    letter-spacing:0.03em;white-space:nowrap;text-transform:uppercase;
+  }
+  nav.subnav a:hover, nav.subnav a:focus-visible{color:var(--text-light);}
+
+  /* masthead */
+  header.masthead{padding:76px 0 56px;background:linear-gradient(165deg,var(--bg-primary) 0%,var(--atmosphere-1) 140%);border-bottom:1px solid var(--line-dark);}
+  header.masthead .wrap{max-width:920px;}
+  .wordmark{font-size:15px;font-weight:800;letter-spacing:0.16em;color:var(--text-light-60);text-transform:uppercase;margin-bottom:22px;}
+  header.masthead h1{font-size:46px;font-weight:800;line-height:1.1;margin:0 0 16px;max-width:720px;}
+  header.masthead h1 .pink{color:var(--accent);}
+  header.masthead p.sub{font-size:16px;font-weight:300;color:var(--text-light-60);max-width:560px;line-height:1.6;margin:0;}
+  .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;}
+  .badge{
+    font-size:11.5px;font-weight:600;letter-spacing:0.02em;color:var(--text-light-80);
+    border:1px solid var(--line-dark);border-radius:20px;padding:6px 13px;
+  }
+
+  /* proposition truths */
+  .truths{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:32px 0 8px;}
+  .truth-card{background:var(--card-dark);border:1px solid var(--line-dark);border-radius:10px;padding:22px 20px;}
+  .truth-card .num{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:0.06em;margin-bottom:10px;}
+  .truth-card h3{font-size:16px;font-weight:700;margin:0 0 8px;color:var(--text-light);}
+  .truth-card p{font-size:13.5px;font-weight:300;color:var(--text-light-60);margin:0;line-height:1.55;}
+
+  .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:28px;}
+  .stat{border-top:2px solid var(--accent);padding-top:12px;}
+  .stat .v{font-size:30px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums;}
+  .stat .l{font-size:12.5px;color:var(--text-light-60);font-weight:400;line-height:1.4;}
+
+  .moat-box{
+    margin-top:30px;border-left:2px solid var(--accent);padding:6px 0 6px 22px;
+  }
+  .moat-box p{font-size:15px;font-weight:300;color:var(--text-light-80);line-height:1.65;margin:0;max-width:580px;}
+
+  /* positioning */
+  .cap-row{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-light);align-items:start;}
+  .cap-row .cap-num{font-size:13px;font-weight:800;color:#C4165E;padding-top:2px;font-variant-numeric:tabular-nums;}
+  .cap-row h4{font-size:14.5px;font-weight:700;margin:0 0 3px;color:var(--text-dark);}
+  .cap-row p{font-size:13px;color:var(--text-dark-60);margin:0;line-height:1.5;}
+  .tag-light{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:20px;border:1px solid var(--line-light);color:var(--text-dark);background:#fff;display:inline-block;}
+  .tag-row-light{display:flex;flex-wrap:wrap;gap:8px;}
+  .cmp-scroll{overflow-x:auto;border:1px solid var(--line-light);border-radius:10px;background:#fff;}
+  table.cmp{width:100%;border-collapse:collapse;font-size:13px;min-width:640px;}
+  table.cmp th,table.cmp td{padding:11px 14px;border-bottom:1px solid var(--line-light);text-align:left;vertical-align:top;line-height:1.45;}
+  table.cmp thead th{background:var(--text-dark);color:#fff;font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em;font-weight:700;}
+  table.cmp thead th.hl{background:var(--accent);}
+  table.cmp td.hl{color:#C4165E;font-weight:600;}
+  table.cmp td.na{color:#A8A4AE;font-style:italic;}
+  table.cmp tbody tr:nth-child(even){background:#F7F6F4;}
+
+  /* ideal client */
+  .client-row{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 30px;}
+  .tag{font-size:13px;font-weight:600;padding:8px 15px;border-radius:20px;border:1px solid var(--line-dark);color:var(--text-light);}
+  .tag.proven{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .tag.pipeline{color:var(--text-light-60);}
+  .client-label{font-size:11.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light-40);margin:22px 0 10px;}
+  .client-label:first-of-type{margin-top:0;}
+
+  /* values / culture grid */
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:26px;}
+  .vcard{background:var(--card-dark);border:1px solid var(--line-dark);border-radius:10px;padding:20px 20px 22px;}
+  .vcard h3{font-size:16px;font-weight:700;color:var(--accent);margin:0 0 8px;}
+  .vcard p{font-size:13.5px;font-weight:300;color:var(--text-light-80);margin:0;line-height:1.55;}
+  .culture .vcard{background:transparent;border:1px solid var(--line-dark);border-top:2px solid var(--accent);border-radius:4px;}
+
+  /* growth */
+  .arr-scroll{overflow-x:auto;border:1px solid var(--line-light);border-radius:10px;background:#fff;margin:26px 0 30px;}
+  table.arr{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px;}
+  table.arr th,table.arr td{padding:12px 16px;border-bottom:1px solid var(--line-light);text-align:left;}
+  table.arr thead th{background:var(--text-dark);color:#fff;font-size:11.5px;text-transform:uppercase;font-weight:700;letter-spacing:0.03em;}
+  table.arr td.num{font-variant-numeric:tabular-nums;font-weight:700;color:#C4165E;}
+  table.arr tr.trigger{background:#FDEAF2;}
+
+  .mix-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:30px;}
+  .mix-card{background:#fff;border:1px solid var(--line-light);border-radius:10px;padding:22px;}
+  .mix-card .k{font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#C4165E;margin-bottom:8px;}
+  .mix-card .v{font-size:26px;font-weight:800;color:var(--text-dark);margin-bottom:6px;font-variant-numeric:tabular-nums;}
+  .mix-card p{font-size:12.5px;color:var(--text-dark-60);margin:0;line-height:1.5;}
+
+  /* milestones */
+  .ms-list{margin-top:26px;border-top:1px solid var(--line-light);}
+  .ms-row{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-light);align-items:start;}
+  .ms-row .due{font-size:12px;font-weight:700;color:#C4165E;padding-top:2px;}
+  .ms-row .due .days{display:block;font-size:11px;font-weight:500;color:var(--text-dark-60);margin-top:3px;}
+  .ms-row h4{font-size:15px;font-weight:700;margin:0 0 6px;color:var(--text-dark);}
+  .ms-row p{font-size:13.5px;color:var(--text-dark-60);margin:0;line-height:1.55;max-width:520px;}
+
+  /* kpi */
+  .kpi-scroll{overflow-x:auto;border:1px solid var(--line-light);border-radius:10px;background:#fff;margin-top:26px;}
+  table.kpi{width:100%;border-collapse:collapse;font-size:13px;min-width:680px;}
+  table.kpi th,table.kpi td{padding:11px 14px;border-bottom:1px solid var(--line-light);text-align:left;}
+  table.kpi thead tr:first-child th{background:var(--text-dark);color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:0.04em;font-weight:700;}
+  table.kpi td.m{font-weight:600;color:var(--text-dark);}
+  table.kpi td.target{color:#C4165E;font-weight:700;font-variant-numeric:tabular-nums;}
+  table.kpi tbody tr:nth-child(even){background:#F7F6F4;}
+  .vault-note{margin-top:18px;font-size:13px;color:var(--text-dark-60);line-height:1.6;max-width:640px;}
+
+  /* closing */
+  .closing{padding:80px 0 90px;background:linear-gradient(200deg,var(--atmosphere-1) 0%,var(--bg-primary) 65%);}
+  .closing p.big{font-size:25px;font-weight:700;line-height:1.42;margin:0 0 18px;max-width:600px;}
+  .closing .sign{font-size:13px;color:var(--text-light-40);font-weight:400;}
+
+  footer.meta{padding:26px 0 50px;background:var(--bg-primary);}
+  footer.meta p{font-size:11.5px;color:var(--text-light-40);line-height:1.7;max-width:640px;}
+
+  @media (max-width:720px){
+    .wrap{padding:0 20px;}
+    header.masthead h1{font-size:32px;}
+    h2.title{font-size:26px;}
+    .truths{grid-template-columns:1fr;}
+    .mix-row{grid-template-columns:1fr;}
+    .ms-row{grid-template-columns:1fr;}
+    section{padding:44px 0;}
+  }
+</style>
+
+<nav class="subnav" aria-label="Section navigation">
+  <div class="wrap">
+    <a href="#vision">Vision</a>
+    <a href="#mission">Mission</a>
+    <a href="#offer">What we do</a>
+    <a href="#positioning">Positioning</a>
+    <a href="#client">Ideal client</a>
+    <a href="#values">Values &amp; culture</a>
+    <a href="#moat">Moat</a>
+    <a href="#growth">Growth &amp; Series A</a>
+    <a href="#q3">Q3 2026</a>
+    <a href="#q4">Q4 2026</a>
+    <a href="#kpis">How we'll know</a>
+  </div>
+</nav>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="wordmark">Limini</div>
+    <h1>Greenlight <span class="pink">greatness.</span></h1>
+    <p class="sub">Formerly Flourish. This is the one document every colleague should be able to explain from memory by the end of their first week — what we do, who it's for, and what has to be true this quarter and next.</p>
+    <div class="badge-row">
+      <span class="badge">B Corp Certified</span>
+      <span class="badge">Women-Owned</span>
+      <span class="badge">SOC 2 &amp; ISO 27001</span>
+      <span class="badge">€5M Legal Assurance</span>
+      <span class="badge">Backed by Oberon Investments</span>
+    </div>
+  </div>
+</header>
+
+<section class="dark" id="vision">
+  <div class="wrap">
+    <p class="kicker">Vision</p>
+    <h2 class="title" style="font-size:44px;">Free every brand to be as bold as it's right.</h2>
+  </div>
+</section>
+
+<section class="deep" id="mission">
+  <div class="wrap">
+    <p class="kicker">Mission</p>
+    <h2 class="title" style="font-size:44px;">Unlock the bravest marketing inside every regulated industry.</h2>
+  </div>
+</section>
+
+<section class="dark" id="offer">
+  <div class="wrap">
+    <p class="kicker">Proposition &amp; what we do</p>
+    <h2 class="title">The confidence infrastructure iconic brands cannot operate without.</h2>
+    <p class="lead">Limini is the end-to-end marketing operating system — audience insight, briefing, copy, visual production, localisation and legal sign-off, in one platform. Not a compliance layer bolted onto someone else's tools.</p>
+    <p class="body-text">Every campaign depends on three things lining up: what the audience wants to hear, what the brand can stand behind — upholding its own marketing excellence standards — and what the law allows.</p>
+    <div class="truths">
+      <div class="truth-card"><div class="num">01 — AUDIENCE</div><h3>What they want to hear</h3><p>What each market and culture actually cares about.</p></div>
+      <div class="truth-card"><div class="num">02 — BRAND</div><h3>What we can stand behind</h3><p>The evidence, science and voice a brand can defend — held to its own marketing excellence standards.</p></div>
+      <div class="truth-card"><div class="num">03 — REGULATORY</div><h3>What the law allows</h3><p>Market by market, checked against 14,000+ laws.</p></div>
+    </div>
+    <p class="body-text" style="margin-top:26px;">Most organisations manage these three separately: different teams, tools, timelines. Limini connects them into one data-led brief, one campaign plan, full copy and visual production, localisation into 120 languages, and digital asset management — compliance built into every step, not reviewed at the end. You work with named senior specialists, not a rotating account team, using the right model for each job inside one system.</p>
+    <p class="body-text">We don't just replace "Can we say this?" with "How loud can we say this?" We run the whole flow, from audience insight to visual production to sign-off — so marketing stops waiting on legal, and legal is freed from repetitive, low-value review to focus on the judgement calls that actually need a lawyer.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="v">94%</div><div class="l">faster legal sign-off</div></div>
+      <div class="stat"><div class="v">58%</div><div class="l">faster to market</div></div>
+      <div class="stat"><div class="v">30%</div><div class="l">more team capacity</div></div>
+      <div class="stat"><div class="v">8,860%</div><div class="l">return, at Medtronic</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="positioning">
+  <div class="wrap">
+    <p class="kicker">Positioning</p>
+    <h2 class="title">Every large regulated brand hits the same wall.</h2>
+    <p class="lead">A claim that can't be proven doesn't launch, however good the creative. Four laws land before December 2026 that turn this into a legal liability, not a commercial one — fines up to €35M or 10% of global turnover.</p>
+    <p class="lead" style="font-size:16px;margin-top:8px;">What that looks like in practice — the jobs a marketing team actually puts through Limini:</p>
+    <div class="ms-list" style="margin-top:6px;">
+      <div class="cap-row"><div class="cap-num">01</div><div><h4>Localise every market in one pass</h4><p>Straplines, social, film scripts, long copy — each checked against that market's law and audience, held to one brand voice.</p></div></div>
+      <div class="cap-row"><div class="cap-num">02</div><div><h4>Produce on-brand assets straight into your design tools</h4><p>In your tone of voice, ready for production — not a separate approval round.</p></div></div>
+      <div class="cap-row"><div class="cap-num">03</div><div><h4>Get cited by AI answer engines</h4><p>Turn your evidence into the content ChatGPT, Gemini and Perplexity cite ahead of competitors.</p></div></div>
+      <div class="cap-row"><div class="cap-num">04</div><div><h4>Keep influencer and creator content safe</h4><p>Checked against brief, brand and local law at the speed creators actually publish.</p></div></div>
+      <div class="cap-row"><div class="cap-num">05</div><div><h4>Check film, not just copy</h4><p>Most AI tools can't process video. Limini reviews it for brand fit and compliance the same way it reviews everything else.</p></div></div>
+      <div class="cap-row"><div class="cap-num">06</div><div><h4>Get artwork and packaging right before print</h4><p>Reviewed for brand, claim and legal accuracy, with a record of every version and sign-off.</p></div></div>
+      <div class="cap-row"><div class="cap-num">07</div><div><h4>Clear everything through legal at publishing speed</h4><p>Every asset arrives with its risk level already flagged, so sign-off is a review, not a rebuild.</p></div></div>
+    </div>
+    <p class="lead" style="font-size:16px;margin-top:34px;">Versus the named AI comparables — in legal, and in marketing compliance:</p>
+    <div class="cmp-scroll">
+      <table class="cmp">
+        <thead><tr><th>Feature</th><th class="hl">Limini</th><th>Harvey</th><th>Legora</th><th>Puntt</th><th>Blee</th></tr></thead>
+        <tbody>
+          <tr><td>Scope</td><td class="hl">End-to-end: audience insight to visual production to legal sign-off</td><td class="na">Legal work only</td><td class="na">Legal work only</td><td class="na">Reviews finished marketing assets only — no creation</td><td class="na">Screens finished marketing content only — no creation</td></tr>
+          <tr><td>Approved claims library</td><td class="hl">Governed records — wording, evidence, scope, expiry</td><td class="na">No — playbooks hold contract positions</td><td class="na">No — playbooks hold contract positions</td><td class="na">No — flags issues against brand and regulatory rules</td><td class="na">No — screens against configured compliance rules</td></tr>
+          <tr><td>Marketing-law rulebook</td><td class="hl">12 sectors, 50+ countries, 50 US states</td><td class="na">Legal research, not a marketing ruleset</td><td class="na">Jurisdiction scans, not a marketing ruleset</td><td class="na">Brand and regulatory rules, not a built ruleset</td><td class="na">Financial-services compliance rules only</td></tr>
+          <tr><td>Campaign copy &amp; safer-claim generation</td><td class="hl">Evidence-based claims and alternatives</td><td class="na">Legal drafting only</td><td class="na">Legal drafting only</td><td class="na">No — reviews assets already produced</td><td class="na">No — review and monitoring only</td></tr>
+          <tr><td>Localisation</td><td class="hl">One voice, 120 languages, culturally calibrated</td><td class="na">23 languages named</td><td class="na">Not published</td><td class="na">Not published</td><td class="na">Not published</td></tr>
+          <tr><td>Image &amp; video generation</td><td class="hl">On-brand imagery; 5,000 creator videos/month checked</td><td class="na">No</td><td class="na">No</td><td class="na">No</td><td class="na">No</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="body-text" style="margin-top:14px;font-size:13.5px;">Puntt (120+ brands, incl. Kenvue and Danone) and Blee (financial services, incl. Rocket Mortgage and Betterment) both automate the manual review of marketing assets already made. Neither creates, localises or produces a campaign — Limini is the only system named here that runs the full flow and clears it.</p>
+  </div>
+</section>
+
+<section class="dark" id="client">
+  <div class="wrap">
+    <p class="kicker">Ideal client</p>
+    <h2 class="title">A brand slowed down by process, not by a shortage of good ideas.</h2>
+    <p class="body-text">Large, regulated, global brands for whom a wrong claim is existential, not embarrassing — FMCG, Pharma, MedTech, Gambling and Finance, marketing outpacing legal's review capacity, across markets and languages. The tell for fit: they already have the evidence and the ambition.</p>
+    <p class="client-label">Proven</p>
+    <div class="client-row">
+      <span class="tag proven">Medtronic</span><span class="tag proven">Vecto Ventures</span><span class="tag proven">EDF</span><span class="tag proven">Allianz</span>
+    </div>
+    <p class="client-label">Active pipeline</p>
+    <div class="client-row">
+      <span class="tag pipeline">Reckitt</span><span class="tag pipeline">Kenvue</span><span class="tag pipeline">Pepsi</span><span class="tag pipeline">Weight Watchers</span><span class="tag pipeline">Magnum</span><span class="tag pipeline">Grown Alchemist</span><span class="tag pipeline">Danone</span><span class="tag pipeline">Herbalife</span><span class="tag pipeline">Super Group</span><span class="tag pipeline">BAT</span><span class="tag pipeline">Barilla</span><span class="tag pipeline">Asahi</span><span class="tag pipeline">Diageo</span><span class="tag pipeline">Unilever</span><span class="tag pipeline">Mars</span><span class="tag pipeline">HSBC</span>
+    </div>
+    <p class="client-label" style="margin-top:34px;">Who says yes</p>
+    <div class="vgrid">
+      <div class="vcard"><h3>Chief Marketing Officer</h3><p>Owns the campaign outcome — reach, share, growth. Wants speed to market without losing control of the brand.</p></div>
+      <div class="vcard"><h3>Senior Marketing Lawyer</h3><p>Owns the sign-off. Wants every claim provably compliant, market by market, without becoming the bottleneck.</p></div>
+      <div class="vcard"><h3>Innovation / Transformation Lead</h3><p>Owns the case for change. Wants proof this compounds — not another point tool to bolt on.</p></div>
+      <div class="vcard"><h3>Science &amp; Evidence team</h3><p>Owns the substantiation behind every claim. Wants their evidence used correctly, every time, without re-litigating it campaign by campaign.</p></div>
+      <div class="vcard"><h3>Sustainability team</h3><p>Owns the environmental and social claims. Wants them provably accurate before they reach a market that will test them.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="deep" id="values">
+  <div class="wrap">
+    <p class="kicker">Values — what we won't compromise on</p>
+    <h2 class="title">Five things that don't move, whatever else does.</h2>
+    <div class="vgrid">
+      <div class="vcard"><h3>Ambition</h3><p>A global brand with lasting impact — no ceiling on how far we take it.</p></div>
+      <div class="vcard"><h3>Focus</h3><p>We prioritise only what drives real value — for clients, for the business, for the category.</p></div>
+      <div class="vcard"><h3>Clarity</h3><p>Simple, direct and clear — in our product, our work and our words.</p></div>
+      <div class="vcard"><h3>Trust</h3><p>Earned through compliant, credible marketing — never assumed.</p></div>
+      <div class="vcard"><h3>Humility</h3><p>Curious, listening hard, and quick to adapt.</p></div>
+    </div>
+
+    <p class="kicker" style="margin-top:52px;">Cultural principles — how we work</p>
+    <h2 class="title" style="font-size:26px;">The five habits that make the values real, day to day.</h2>
+    <div class="vgrid culture">
+      <div class="vcard"><h3>Client delight</h3><p>Every interaction leaves the client better off than before it — not just serviced.</p></div>
+      <div class="vcard"><h3>Firsthand feedback</h3><p>Go to the source — act on what someone actually told you, not a secondhand summary.</p></div>
+      <div class="vcard"><h3>Decisive delegation</h3><p>Hand work over with a clear outcome and real authority, not a checklist to chase.</p></div>
+      <div class="vcard"><h3>Determined ownership</h3><p>See it through to done — especially the part that isn't yours by title.</p></div>
+      <div class="vcard"><h3>Learning loops</h3><p>Every campaign, every miss, every workshop feeds back into how we work next. Nothing is wasted.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="deep" id="moat">
+  <div class="wrap">
+    <p class="kicker">Moat</p>
+    <h2 class="title">The world's leading intelligence bank for marketing that wins — and clears.</h2>
+    <p class="lead">Two inputs, codified together, that no competitor holds in one place.</p>
+    <div class="truths" style="grid-template-columns:repeat(2,1fr);">
+      <div class="truth-card"><div class="num">LAW &amp; PRECEDENT</div><h3>What's allowed, proven</h3><p>Every regulated marketing law, and how it's been applied and tested, market by market.</p></div>
+      <div class="truth-card"><div class="num">WHAT WINS</div><h3>What's commercially powerful</h3><p>The traits of award-winning, share-moving marketing and advertising, codified from real campaigns.</p></div>
+    </div>
+    <p class="body-text" style="margin-top:26px;">Codified together, that's the working formula for marketing that is commercially powerful and legally compliant at once — and it gets sharper with every campaign that runs through the system. Copying the platform doesn't copy what's inside it: years of real, cleared campaigns and precedent no foundation model can shortcut, because none of it is public.</p>
+    <div class="moat-box">
+      <p>This is the asset that prices Limini like Harvey or Legora — not like an agency.</p>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="growth">
+  <div class="wrap">
+    <p class="kicker">Growth goals &amp; the Series A mechanism</p>
+    <h2 class="title">£500k to £30m — the number is mix, not just revenue.</h2>
+    <p class="lead">The £30m Series A valuation is modelled off ~£3m ARR at a 10x multiple, targeted for the end of Q2 2027. Q3 2026 is the number that starts the ramp — a clean £1.0m ARR, not a modelled estimate.</p>
+    <div class="arr-scroll">
+      <table class="arr">
+        <thead><tr><th>Quarter</th><th>Cumulative ARR</th><th>Monthly run-rate, start of next quarter</th><th>Net-new</th></tr></thead>
+        <tbody>
+          <tr><td>Aug 2026 (baseline)</td><td class="num">£500k</td><td>£42k/mo</td><td>—</td></tr>
+          <tr class="trigger"><td>Q3 2026 (end Sept)</td><td class="num">£1.0m</td><td><strong>£87k/mo</strong></td><td>+£500k</td></tr>
+          <tr><td>Q4 2026 (end Dec)</td><td class="num">£2.0m</td><td>£167k/mo</td><td>+£1.0m</td></tr>
+          <tr><td>Q1 2027 (end Mar)</td><td class="num">£2.5m</td><td>£208k/mo</td><td>+£0.5m</td></tr>
+          <tr class="trigger"><td>Q2 2027 (end Jun)</td><td class="num">£3.0m</td><td>£250k/mo</td><td><strong>+£0.5m — Series A trigger</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mix-row">
+      <div class="mix-card"><div class="k">Consultancy revenue</div><div class="v">3–6x</div><p>Trades like a consultancy — good, but a ceiling.</p></div>
+      <div class="mix-card"><div class="k">Platform revenue</div><div class="v">40–65x</div><p>Where Harvey and Legora trade today. Every year, more revenue has to convert from consultant-delivered to platform-delivered — the single most important number here.</p></div>
+    </div>
+    <p class="body-text">The floor: £250m+ by 2030. The ceiling, if platform-mix conversion runs ahead of plan: full unicorn status at £750m+ — Limini is aiming to be the world's first Woman-owned, UK-founded, B Corp Unicorn.</p>
+  </div>
+</section>
+
+<section class="light" id="q3" style="padding-top:8px;">
+  <div class="wrap">
+    <p class="kicker">Q3 2026 — what must be true by 30 September</p>
+    <h2 class="title" style="font-size:28px;">What must be true by 30 September.</h2>
+    <div class="ms-list">
+      <div class="ms-row"><div class="due">30 Sept<span class="days">24 days out</span></div><div><h4>£1,000,000 ARR — £87,000/month</h4><p>The run-rate we carry into October. Built from Medtronic's renewal, Reckitt, Weight Watchers, Grown Alchemist and Magnum closing, plus two further Vecto-portfolio brands at £7k/month each.</p></div></div>
+      <div class="ms-row"><div class="due">30 Sept<span class="days">24 days out</span></div><div><h4>Medtronic renewed</h4><p>Signed at £175k–£250k+ for the next 12 months, up from ~£100k. The case is proven — 94% faster sign-off, 8,860% ROI. A renewal, not a re-pitch.</p></div></div>
+      <div class="ms-row"><div class="due">30 Sept<span class="days">24 days out</span></div><div><h4>Rebrand fully live</h4>
+        <div class="tag-row-light" style="margin:8px 0 8px;">
+          <span class="tag-light">Website</span><span class="tag-light">Platform</span><span class="tag-light">UI</span><span class="tag-light">Every channel</span><span class="tag-light">Deck</span><span class="tag-light">Template</span><span class="tag-light">Film</span><span class="tag-light">Paper</span><span class="tag-light">Launch campaign</span><span class="tag-light">PR</span><span class="tag-light">WFA partnership</span>
+        </div>
+      <p>All of it live — nothing partial, nothing "coming soon."</p></div></div>
+      <div class="ms-row"><div class="due">30 Sept<span class="days">24 days out</span></div><div><h4>Clear transformation method</h4><p>Benchmarked against Be Deft and the Big 4, with our new pricing model, live on the site.</p></div></div>
+      <div class="ms-row"><div class="due">30 Sept<span class="days">24 days out</span></div><div><h4>KPIs fit for a £30m Series A trajectory</h4><p>Our own scorecard, live and reviewed — proving the trajectory, not just describing it.</p></div></div>
+      <div class="ms-row"><div class="due">30 Sept<span class="days">24 days out</span></div><div><h4>Pipeline on track</h4><p>Opportunities queued to close in Q4, taking us to a closed £2.0m ARR by December.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="q4" style="padding-top:8px;">
+  <div class="wrap">
+    <p class="kicker">Q4 2026 — what must be true by 31 December</p>
+    <h2 class="title" style="font-size:28px;">What must be true by 31 December.</h2>
+    <div class="ms-list">
+      <div class="ms-row"><div class="due">31 Dec<span class="days">116 days out</span></div><div><h4>Funding closed</h4><p>The remaining ~£240k of the £250k–£500k angel round (EIS-eligible, priced at £10m) closed — funded through to profitability at current size.</p></div></div>
+      <div class="ms-row"><div class="due">31 Dec</div><div><h4>Head of Sales advertised</h4><p>Full ownership of the qualified-opportunity and pipeline-coverage targets from day one.</p></div></div>
+      <div class="ms-row"><div class="due">31 Dec</div><div><h4>AI transformation consultant appointed</h4><p>Scaling Managing Partner and Principal Consultant delivery capacity.</p></div></div>
+      <div class="ms-row"><div class="due">31 Dec</div><div><h4>Outbound lead generation defined and running</h4><p>Built on — not ahead of — everything above: Vision, Mission, Values, culture, Proposition, Ideal Client and growth goals. Built before those are settled, it gets rebuilt.</p></div></div>
+      <div class="ms-row"><div class="due">1 Nov – 31 Dec</div><div><h4>Platform: enterprise-defensible</h4><p>DAM restructure and the Medtronic tender solution live (30 Nov); demo prototype (1 Nov); Monday.com-parity Marketing-OS and brand/legal-alignment generation live (31 Dec); one major UX gain vs. Bynder, Monday.com and Pencil.</p></div></div>
+      <div class="ms-row"><div class="due">30 Sept &amp; 31 Dec</div><div><h4>Governance foundations</h4><p>R&amp;D tax credit claim filed (30 Sept, feeds Q4 cash); ISO/IEC 42001 roadmap agreed (31 Dec).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="kpis" style="padding-top:8px;">
+  <div class="wrap">
+    <p class="kicker">How we'll know</p>
+    <h2 class="title" style="font-size:28px;">The scorecard behind every goal above.</h2>
+    <div class="kpi-scroll">
+      <table class="kpi">
+        <thead><tr><th>Area</th><th>Metric</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td class="m">Platform experience</td><td>NPS</td><td class="target">≥40, stretch 50+ (floor 25)</td></tr>
+          <tr><td class="m">Platform experience</td><td>Usage frequency</td><td class="target">Active-seat use, weekly &amp; monthly — not logins</td></tr>
+          <tr><td class="m">Platform experience</td><td>CSAT</td><td class="target">≥90%</td></tr>
+          <tr><td class="m">Team</td><td>Employee NPS</td><td class="target">Run quarterly, alongside client NPS</td></tr>
+          <tr><td class="m">Consultancy &amp; transformation</td><td>Engagement NPS</td><td class="target">≥70 (floor 60)</td></tr>
+          <tr><td class="m">Consultancy &amp; transformation</td><td>Workshop CSAT</td><td class="target">≥4.6/5, tracked per session</td></tr>
+          <tr><td class="m">Company — Series A case</td><td>ARR</td><td class="target">£3m within 12 months of baseline</td></tr>
+          <tr><td class="m">Company — Series A case</td><td>Net revenue retention</td><td class="target">110% climbing toward 120%+</td></tr>
+          <tr><td class="m">Company — Series A case</td><td>Gross margin</td><td class="target">&gt;65% rising to 72% as platform mix grows</td></tr>
+          <tr><td class="m">Company — Series A case</td><td>Rule of 40</td><td class="target">≥35 now, ≥40 by the raise</td></tr>
+          <tr><td class="m">Company — Series A case</td><td>Client concentration</td><td class="target">No client &gt;20% of ARR, tightening to 15%</td></tr>
+          <tr><td class="m">Company — Series A case</td><td>Pipeline coverage</td><td class="target">£2m–£2.5m qualified, continuously</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="vault-note">The number that decides whether Limini prices as a platform (40–65x, where Harvey and Legora trade today) or a consultancy (3–6x): platform-versus-consultant revenue share, and its direction of travel. Alongside it: vault depth — structured episodes held — disclosed as our own moat metric, the one number no competitor or foundation model can shortcut.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="big">Every day the vault gets deeper. Every day we get harder to leave — and harder to catch.</p>
+    <p class="big" style="color:var(--accent);font-size:22px;">Greenlight greatness.</p>
+    <p class="sign">Limini — formerly Flourish. Onboarding briefing, September 2026.</p>
+  </div>
+</section>
+
+<footer class="meta">
+  <div class="wrap">
+    <p>Prepared for every Limini colleague. Source material: Limini Vision, Mission &amp; Goals (internal strategy doc, August 2026); Q3–Q4 2026 OKRs (company, department and person-level, live-tracked scorecard); Flourish/Limini KPI &amp; Role Dynamics Framework; growth curve vs. Harvey &amp; Legora benchmarking; Two-Page Strategy Briefing; Angel Investment Overview and Strategic Positioning &amp; Business Plan; feature comparison vs. Harvey and Legora; the Moat reframed, and the Q3–Q2'27 ARR ramp, monthly run-rate figures, refined Vision/Mission/Values and cultural principles supplied directly by Maddy Cooper, September 2026. Figures current as of 6 September 2026.</p>
+  </div>
+</footer>
